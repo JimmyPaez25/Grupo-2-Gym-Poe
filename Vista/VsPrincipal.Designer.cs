@@ -96,6 +96,7 @@
             this.btnMembresia.TabIndex = 5;
             this.btnMembresia.Text = "Membresia";
             this.btnMembresia.UseVisualStyleBackColor = true;
+            this.btnMembresia.Click += new System.EventHandler(this.btnMembresia_Click);
             // 
             // btnPago
             // 
