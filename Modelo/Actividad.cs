@@ -14,10 +14,33 @@ namespace Modelo
         string descripcion;
         int duracion;
         string ubicacion;
-
         int instructor;
         DateTime horario;
 
+        public Actividad(int id, int estado, string nombre, string descripcion, int duracion, string ubicacion, int instructor, DateTime horario)
+        {
+            this.id = id;
+            this.estado = estado;
+            this.nombre = nombre;
+            this.descripcion = descripcion;
+            this.duracion = duracion;
+            this.ubicacion = ubicacion;
+            this.instructor = instructor;
+            this.horario = horario;
+        }
 
+        public int Id { get => id; set => id = value; }
+        public int Estado { get => estado; set => estado = value; }
+        public string Nombre { get => nombre; set => nombre = value; }
+        public string Descripcion { get => descripcion; set => descripcion = value; }
+        public int Duracion { get => duracion; set => duracion = value; }
+        public string Ubicacion { get => ubicacion; set => ubicacion = value; }
+        public int Instructor { get => instructor; set => instructor = value; }
+        public DateTime Horario { get => horario; set => horario = value; }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }
