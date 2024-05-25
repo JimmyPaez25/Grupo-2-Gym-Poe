@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace Vista
 {
-    public partial class Principal : Form
+    public partial class VsPrincipal : Form
     {
-        public Principal()
+        public VsPrincipal()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            VsActividad act = new VsActividad();
+            act.Visible = true;
         }
     }
 }

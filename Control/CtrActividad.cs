@@ -7,7 +7,7 @@ using Modelo;
 
 namespace Control
 {
-    public class Validacion
+    public class CtrActividad
     {
     }
 }
