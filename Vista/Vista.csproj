@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="VsRegistroCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VsRegistroCliente.Designer.cs">
+      <DependentUpon>VsRegistroCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="VsMembresia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +93,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="VsRegistroCliente.resx">
+      <DependentUpon>VsRegistroCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
