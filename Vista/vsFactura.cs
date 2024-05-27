@@ -7,20 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Control;
 
 namespace Vista
 {
-    public partial class VsActividad : Form
+    public partial class vsFactura : Form
     {
-        public VsActividad()
+        public vsFactura()
         {
             InitializeComponent();
-        }
-
-        private void VsActividad_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
