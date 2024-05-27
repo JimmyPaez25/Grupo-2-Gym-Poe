@@ -1,6 +1,6 @@
 ﻿namespace Vista
 {
-    partial class VsRegistroCliente
+    partial class VsRegistrarCliente
     {
         /// <summary>
         /// Required designer variable.

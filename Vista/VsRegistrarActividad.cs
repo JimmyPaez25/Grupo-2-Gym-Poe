@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Vista
 {
-    public partial class VsFactura : Form
+    public partial class VsRegistrarActividad : Form
     {
-        public VsFactura()
+        public VsRegistrarActividad()
         {
             InitializeComponent();
-        }
-
-        private void VsFactura_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Control
 {
-    internal class CtrlCliente
+    internal class CtrCliente
     {
     }
 }

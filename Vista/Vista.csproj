@@ -48,23 +48,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="VsRegistrarActividad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VsRegistrarActividad.Designer.cs">
+      <DependentUpon>VsRegistrarActividad.cs</DependentUpon>
+    </Compile>
     <Compile Include="VsConsultarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="VsConsultarCliente.Designer.cs">
       <DependentUpon>VsConsultarCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="vsFactura.cs">
+    <Compile Include="VsFactura.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="vsFactura.Designer.cs">
-      <DependentUpon>vsFactura.cs</DependentUpon>
+    <Compile Include="VsFactura.Designer.cs">
+      <DependentUpon>VsFactura.cs</DependentUpon>
     </Compile>
-    <Compile Include="VsRegistroCliente.cs">
+    <Compile Include="VsRegistrarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="VsRegistroCliente.Designer.cs">
-      <DependentUpon>VsRegistroCliente.cs</DependentUpon>
+      <DependentUpon>VsRegistrarCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="VsMembresia.cs">
       <SubType>Form</SubType>
@@ -92,8 +98,8 @@
     <EmbeddedResource Include="VsConsultarCliente.resx">
       <DependentUpon>VsConsultarCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="vsFactura.resx">
-      <DependentUpon>vsFactura.cs</DependentUpon>
+    <EmbeddedResource Include="VsFactura.resx">
+      <DependentUpon>VsFactura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VsMembresia.resx">
       <DependentUpon>VsMembresia.cs</DependentUpon>
@@ -111,8 +117,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="VsRegistrarActividad.resx">
+      <DependentUpon>VsRegistrarActividad.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VsRegistroCliente.resx">
-      <DependentUpon>VsRegistroCliente.cs</DependentUpon>
+      <DependentUpon>VsRegistrarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
