@@ -44,14 +44,15 @@
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.cmbEstudiante = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnRegistrar = new System.Windows.Forms.Button();
+            this.btnConsultarMembresia = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblRegistro
             // 
             this.lblRegistro.AutoSize = true;
             this.lblRegistro.Font = new System.Drawing.Font("Microsoft YaHei", 20F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.lblRegistro.Location = new System.Drawing.Point(288, 9);
+            this.lblRegistro.Location = new System.Drawing.Point(119, 9);
             this.lblRegistro.Name = "lblRegistro";
             this.lblRegistro.Size = new System.Drawing.Size(274, 36);
             this.lblRegistro.TabIndex = 1;
@@ -182,26 +183,41 @@
             // cmbEstudiante
             // 
             this.cmbEstudiante.FormattingEnabled = true;
-            this.cmbEstudiante.Location = new System.Drawing.Point(256, 235);
+            this.cmbEstudiante.Location = new System.Drawing.Point(256, 237);
             this.cmbEstudiante.Name = "cmbEstudiante";
             this.cmbEstudiante.Size = new System.Drawing.Size(84, 21);
             this.cmbEstudiante.TabIndex = 30;
+            this.cmbEstudiante.SelectedIndexChanged += new System.EventHandler(this.cmbEstudiante_SelectedIndexChanged);
             // 
-            // button1
+            // btnRegistrar
             // 
-            this.button1.Location = new System.Drawing.Point(228, 316);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 34;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Tai Le", 12F);
+            this.btnRegistrar.Location = new System.Drawing.Point(125, 291);
+            this.btnRegistrar.Name = "btnRegistrar";
+            this.btnRegistrar.Size = new System.Drawing.Size(99, 52);
+            this.btnRegistrar.TabIndex = 34;
+            this.btnRegistrar.Text = "Registrar";
+            this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnConsultarMembresia
+            // 
+            this.btnConsultarMembresia.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConsultarMembresia.Location = new System.Drawing.Point(294, 291);
+            this.btnConsultarMembresia.Name = "btnConsultarMembresia";
+            this.btnConsultarMembresia.Size = new System.Drawing.Size(99, 52);
+            this.btnConsultarMembresia.TabIndex = 35;
+            this.btnConsultarMembresia.Text = "Consultar Membresia";
+            this.btnConsultarMembresia.UseVisualStyleBackColor = true;
+            this.btnConsultarMembresia.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // VsRegistroCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(825, 571);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(566, 464);
+            this.Controls.Add(this.btnConsultarMembresia);
+            this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.txtDate);
             this.Controls.Add(this.txtTelefono);
             this.Controls.Add(this.txtDireccion);
@@ -243,6 +259,7 @@
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.ComboBox cmbEstudiante;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnRegistrar;
+        private System.Windows.Forms.Button btnConsultarMembresia;
     }
 }
