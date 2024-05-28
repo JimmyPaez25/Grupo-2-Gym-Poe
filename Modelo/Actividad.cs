@@ -12,28 +12,31 @@ namespace Modelo
         int estado;
         string nombre;
         string descripcion;
-        int duracion;
-        string ubicacion;
-        DateTime horario;
+        TimeSpan horaInicio;
+        TimeSpan horaFin;
+        DateTime fechaInicio;
+        DateTime fechaFin;
 
-        public Actividad(int id, int estado, string nombre, string descripcion, int duracion, string ubicacion, DateTime horario)
+        public Actividad(int id, int estado, string nombre, string descripcion, TimeSpan horaInicio, TimeSpan horaFin, DateTime fechaInicio, DateTime fechaFin)
         {
             this.id = id;
             this.estado = estado;
             this.nombre = nombre;
             this.descripcion = descripcion;
-            this.duracion = duracion;
-            this.ubicacion = ubicacion;
-            this.horario = horario;
+            this.horaInicio = horaInicio;
+            this.horaFin = horaFin;
+            this.fechaInicio = fechaInicio;
+            this.fechaFin = fechaFin;
         }
 
         public int Id { get => id; set => id = value; }
         public int Estado { get => estado; set => estado = value; }
         public string Nombre { get => nombre; set => nombre = value; }
         public string Descripcion { get => descripcion; set => descripcion = value; }
-        public int Duracion { get => duracion; set => duracion = value; }
-        public string Ubicacion { get => ubicacion; set => ubicacion = value; }
-        public DateTime Horario { get => horario; set => horario = value; }
+        public TimeSpan HoraInicio { get => horaInicio; set => horaInicio = value; }
+        public TimeSpan HoraFin { get => horaFin; set => horaFin = value; }
+        public DateTime FechaInicio { get => fechaInicio; set => fechaInicio = value; }
+        public DateTime FechaFin { get => fechaFin; set => fechaFin = value; }
 
         public override string ToString()
         {
