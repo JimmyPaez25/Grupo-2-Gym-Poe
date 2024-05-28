@@ -35,6 +35,13 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnDarBaja = new System.Windows.Forms.Button();
+            this.clmEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmEstudiante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,9 +59,17 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(34, 168);
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clmEstado,
+            this.clmCedula,
+            this.clmNombre,
+            this.clmApellido,
+            this.clmTelefono,
+            this.clmDireccion,
+            this.clmEstudiante});
+            this.dataGridView1.Location = new System.Drawing.Point(113, 177);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(922, 279);
+            this.dataGridView1.Size = new System.Drawing.Size(743, 279);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -106,6 +121,41 @@
             this.btnDarBaja.Text = "Dar de Baja";
             this.btnDarBaja.UseVisualStyleBackColor = true;
             // 
+            // clmEstado
+            // 
+            this.clmEstado.HeaderText = "ESTADO";
+            this.clmEstado.Name = "clmEstado";
+            // 
+            // clmCedula
+            // 
+            this.clmCedula.HeaderText = "CEDULA";
+            this.clmCedula.Name = "clmCedula";
+            // 
+            // clmNombre
+            // 
+            this.clmNombre.HeaderText = "NOMBRE";
+            this.clmNombre.Name = "clmNombre";
+            // 
+            // clmApellido
+            // 
+            this.clmApellido.HeaderText = "APELLIDO";
+            this.clmApellido.Name = "clmApellido";
+            // 
+            // clmTelefono
+            // 
+            this.clmTelefono.HeaderText = "TELEFONO";
+            this.clmTelefono.Name = "clmTelefono";
+            // 
+            // clmDireccion
+            // 
+            this.clmDireccion.HeaderText = "DIRECCION";
+            this.clmDireccion.Name = "clmDireccion";
+            // 
+            // clmEstudiante
+            // 
+            this.clmEstudiante.HeaderText = "ESTUDIANTE";
+            this.clmEstudiante.Name = "clmEstudiante";
+            // 
             // VsConsultarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -134,5 +184,12 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnDarBaja;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmEstado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmCedula;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmApellido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmTelefono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmDireccion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmEstudiante;
     }
 }
