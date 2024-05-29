@@ -25,8 +25,12 @@ namespace Vista
 
         private void button1_Click(object sender, EventArgs e)
         {
-            VsRegistrarActividad ra = new VsRegistrarActividad();
-            ra.Visible = true;
+            VsRegistrarActividad vRegActividad = new VsRegistrarActividad(); vRegActividad.Visible = true;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            VsConsultarActividad vConsActividad = new VsConsultarActividad(); vConsActividad.Visible = true;
         }
     }
 }
