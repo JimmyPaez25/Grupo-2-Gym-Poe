@@ -29,15 +29,16 @@
         private void InitializeComponent()
         {
             this.btnActividad = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelTituloGym = new System.Windows.Forms.Label();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.btnMembresia = new System.Windows.Forms.Button();
             this.btnPago = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnActividad
@@ -45,26 +46,13 @@
             this.btnActividad.BackColor = System.Drawing.Color.Gainsboro;
             this.btnActividad.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnActividad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActividad.Location = new System.Drawing.Point(0, 333);
+            this.btnActividad.Location = new System.Drawing.Point(38, 140);
             this.btnActividad.Name = "btnActividad";
             this.btnActividad.Size = new System.Drawing.Size(122, 23);
             this.btnActividad.TabIndex = 1;
             this.btnActividad.Text = "Actividad";
             this.btnActividad.UseVisualStyleBackColor = false;
             this.btnActividad.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::Vista.Properties.Resources.fondoprueba;
-            this.pictureBox1.Location = new System.Drawing.Point(146, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(563, 749);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // labelTituloGym
             // 
@@ -79,29 +67,29 @@
             // btnRegistrar
             // 
             this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrar.Location = new System.Drawing.Point(9, 210);
+            this.btnRegistrar.Location = new System.Drawing.Point(29, 264);
             this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(122, 43);
+            this.btnRegistrar.Size = new System.Drawing.Size(122, 51);
             this.btnRegistrar.TabIndex = 4;
-            this.btnRegistrar.Text = "Registrar miembro";
+            this.btnRegistrar.Text = "Registrar nuevo miembro";
             this.btnRegistrar.UseVisualStyleBackColor = true;
             this.btnRegistrar.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnMembresia
             // 
             this.btnMembresia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMembresia.Location = new System.Drawing.Point(0, 282);
+            this.btnMembresia.Location = new System.Drawing.Point(29, 169);
             this.btnMembresia.Name = "btnMembresia";
-            this.btnMembresia.Size = new System.Drawing.Size(122, 23);
+            this.btnMembresia.Size = new System.Drawing.Size(122, 53);
             this.btnMembresia.TabIndex = 5;
-            this.btnMembresia.Text = "Membresia";
+            this.btnMembresia.Text = "Asignar membresia";
             this.btnMembresia.UseVisualStyleBackColor = true;
             this.btnMembresia.Click += new System.EventHandler(this.btnMembresia_Click);
             // 
             // btnPago
             // 
             this.btnPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPago.Location = new System.Drawing.Point(0, 386);
+            this.btnPago.Location = new System.Drawing.Point(38, 237);
             this.btnPago.Name = "btnPago";
             this.btnPago.Size = new System.Drawing.Size(122, 23);
             this.btnPago.TabIndex = 7;
@@ -112,22 +100,36 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.btnMembresia);
-            this.panel1.Controls.Add(this.btnPago);
-            this.panel1.Controls.Add(this.btnActividad);
             this.panel1.Controls.Add(this.btnRegistrar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(709, 0);
+            this.panel1.Location = new System.Drawing.Point(668, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(143, 749);
+            this.panel1.Size = new System.Drawing.Size(184, 489);
             this.panel1.TabIndex = 8;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnActividad);
+            this.panel2.Controls.Add(this.btnPago);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(146, 749);
+            this.panel2.Size = new System.Drawing.Size(201, 489);
             this.panel2.TabIndex = 9;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::Vista.Properties.Resources.fondoprueba;
+            this.pictureBox1.Location = new System.Drawing.Point(201, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(467, 489);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // VsPrincipal
             // 
@@ -136,7 +138,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(852, 749);
+            this.ClientSize = new System.Drawing.Size(852, 489);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelTituloGym);
             this.Controls.Add(this.panel2);
@@ -145,8 +147,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Principal";
             this.Load += new System.EventHandler(this.VsPrincipal_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
