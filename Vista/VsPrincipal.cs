@@ -48,7 +48,8 @@ namespace Vista
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            VsRegistrarCliente rgCliente = new VsRegistrarCliente();
+            rgCliente.ShowDialog();
         }
 
         private void button5_Click(object sender, EventArgs e)

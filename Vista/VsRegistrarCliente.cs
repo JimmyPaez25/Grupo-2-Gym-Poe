@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Control;
 
 namespace Vista
 {
@@ -39,7 +40,18 @@ namespace Vista
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            VsConsultarCliente cltCliente = new VsConsultarCliente();
+            cltCliente.Visible = true;
+        }
 
+        private void txtCedula_TextChanged(object sender, EventArgs e)
+        {
+            //char letra = e.KeyChar;
+            //if (!char.IsDigit(letra) && letra != (char)Keys.Back)
+            //{
+            //    e.Handled = true;
+            //    return;
+            //}
         }
     }
 }

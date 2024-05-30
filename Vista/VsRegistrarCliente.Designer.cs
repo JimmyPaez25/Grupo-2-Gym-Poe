@@ -158,6 +158,7 @@
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(202, 20);
             this.txtCedula.TabIndex = 27;
+            this.txtCedula.TextChanged += new System.EventHandler(this.txtCedula_TextChanged);
             // 
             // txtDate
             // 
@@ -211,10 +212,11 @@
             this.btnConsultarMembresia.UseVisualStyleBackColor = true;
             this.btnConsultarMembresia.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // VsRegistroCliente
+            // VsRegistrarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(566, 464);
             this.Controls.Add(this.btnConsultarMembresia);
             this.Controls.Add(this.btnRegistrar);
@@ -234,8 +236,9 @@
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblCedula);
             this.Controls.Add(this.lblRegistro);
-            this.Name = "VsRegistroCliente";
-            this.Text = "Form1";
+            this.Name = "VsRegistrarCliente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Registro de Cliente";
             this.ResumeLayout(false);
             this.PerformLayout();
 

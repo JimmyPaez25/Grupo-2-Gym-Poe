@@ -75,7 +75,7 @@
     <Compile Include="VsRegistrarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VsRegistroCliente.Designer.cs">
+    <Compile Include="VsRegistrarCliente.Designer.cs">
       <DependentUpon>VsRegistrarCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="VsMembresia.cs">
@@ -129,7 +129,7 @@
     <EmbeddedResource Include="VsRegistrarActividad.resx">
       <DependentUpon>VsRegistrarActividad.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VsRegistroCliente.resx">
+    <EmbeddedResource Include="VsRegistrarCliente.resx">
       <DependentUpon>VsRegistrarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
