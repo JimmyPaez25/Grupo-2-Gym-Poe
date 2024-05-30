@@ -79,9 +79,9 @@
             // btnRegistrar
             // 
             this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrar.Location = new System.Drawing.Point(0, 233);
+            this.btnRegistrar.Location = new System.Drawing.Point(9, 210);
             this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(122, 23);
+            this.btnRegistrar.Size = new System.Drawing.Size(122, 43);
             this.btnRegistrar.TabIndex = 4;
             this.btnRegistrar.Text = "Registrar miembro";
             this.btnRegistrar.UseVisualStyleBackColor = true;
