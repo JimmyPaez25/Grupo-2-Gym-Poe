@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Control;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,13 @@ namespace Vista
 {
     public partial class VsConsultarCliente : Form
     {
+        CtrCliente ctrCli = new CtrCliente();
+
         public VsConsultarCliente()
         {
             InitializeComponent();
+            ctrCli.LlenarGrid(dgvClientes);
+
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -38,6 +43,11 @@ namespace Vista
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void VsConsultarCliente_Load(object sender, EventArgs e)
         {
 
         }

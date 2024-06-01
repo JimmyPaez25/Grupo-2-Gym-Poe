@@ -11,20 +11,20 @@ namespace Modelo
         int cedula;
         String nombre;
         String apellido;
-        DateTime fechaNacimiento;
+        string fechaNacimiento;
         int telefono;
         String direccion;
-        char estudiante;
+        String estudiante;
 
         public int Cedula { get => cedula; set => cedula = value; }
         public string Nombre { get => nombre; set => nombre = value; }
         public string Apellido { get => apellido; set => apellido = value; }
-        public DateTime FechaNacimiento { get => fechaNacimiento; set => fechaNacimiento = value; }
+        public string FechaNacimiento { get => fechaNacimiento; set => fechaNacimiento = value; }
         public int Telefono { get => telefono; set => telefono = value; }
         public string Direccion { get => direccion; set => direccion = value; }
-        public char Estudiante { get => estudiante; set => estudiante = value; }
+        public string Estudiante { get => estudiante; set => estudiante = value; }
 
-        public Cliente(int cedula, string nombre, string apellido, DateTime fechaNacimiento, int telefono, string direccion, char estudiante)
+        public Cliente(int cedula, string nombre, string apellido, string fechaNacimiento, int telefono, string direccion, string estudiante)
         {
             Cedula = cedula;
             Nombre = nombre;
@@ -37,7 +37,8 @@ namespace Modelo
 
         public override string ToString()
         {
-            return base.ToString();
+            return "> CEDULA: " + cedula + "\n> NOMBRE: " + nombre + "\n> APELLIDO: " + apellido + "\n> FECHA DE NACIMIENTO: " + fechaNacimiento +
+                   "\n> TELEFONO: " + telefono + "\n> DIRECCION: " + telefono + "\n> ESTUDIANTE: " + estudiante;
         }
         
     }

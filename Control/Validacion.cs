@@ -68,5 +68,21 @@ namespace Control
             return valor;
         }
 
+        public char AChar(String dato)
+        {
+            char valueC = ' ';
+            try
+            {
+                valueC = Convert.ToChar(dato[0]);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ERROR: Dato Invalido");
+            }
+
+
+            return valueC;
+        }
+
     }
 }

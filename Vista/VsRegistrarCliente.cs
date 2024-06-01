@@ -13,6 +13,7 @@ namespace Vista
 {
     public partial class VsRegistrarCliente : Form
     {
+        private CtrCliente ctrCli = new Control.CtrCliente();
         public VsRegistrarCliente()
         {
             InitializeComponent();
@@ -33,9 +34,21 @@ namespace Vista
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnRegistrar_Click(object sender, EventArgs e)
         {
+            string rCedula = txtCedula.Text.Trim(), rTelefono = txtTelefono.Text.Trim();
+            string rNombre = txtNombre.Text.Trim(), rDireccion = txtDireccion.Text.Trim();
+            string rFechaNacimiento = txtDate.Text.Trim(), esEstudiante = (string)cmbEstudiante.SelectedItem;
+            string rApellido = txtApellido.Text.Trim();
+            string msg = "";
 
+            if (esEstudiante.Equals("SI"))
+            {
+                msg = ctrCli.IngresarCliEst(rCedula, rNombre, rApellido, rFechaNacimiento, rTelefono, rDireccion, esEstudiante);
+            }else if (esEstudiante.Equals("NO"))
+            {
+                msg = ctrCli.IngresarCli(rCedula, rNombre, rApellido, rFechaNacimiento, rTelefono, rDireccion, esEstudiante);
+            }
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -52,6 +65,11 @@ namespace Vista
             //    e.Handled = true;
             //    return;
             //}
+        }
+
+        private void lblDate_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

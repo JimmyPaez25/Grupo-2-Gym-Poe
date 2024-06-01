@@ -127,6 +127,7 @@
             this.lblDate.Size = new System.Drawing.Size(163, 20);
             this.lblDate.TabIndex = 22;
             this.lblDate.Text = "Fecha de Nacimiento:";
+            this.lblDate.Click += new System.EventHandler(this.lblDate_Click);
             // 
             // lblApellido
             // 
@@ -184,6 +185,9 @@
             // cmbEstudiante
             // 
             this.cmbEstudiante.FormattingEnabled = true;
+            this.cmbEstudiante.Items.AddRange(new object[] {
+            "SI",
+            "NO"});
             this.cmbEstudiante.Location = new System.Drawing.Point(256, 237);
             this.cmbEstudiante.Name = "cmbEstudiante";
             this.cmbEstudiante.Size = new System.Drawing.Size(84, 21);
@@ -193,18 +197,18 @@
             // btnRegistrar
             // 
             this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Tai Le", 12F);
-            this.btnRegistrar.Location = new System.Drawing.Point(125, 291);
+            this.btnRegistrar.Location = new System.Drawing.Point(125, 329);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(99, 52);
             this.btnRegistrar.TabIndex = 34;
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = true;
-            this.btnRegistrar.Click += new System.EventHandler(this.button1_Click);
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // btnConsultarMembresia
             // 
             this.btnConsultarMembresia.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsultarMembresia.Location = new System.Drawing.Point(294, 291);
+            this.btnConsultarMembresia.Location = new System.Drawing.Point(294, 329);
             this.btnConsultarMembresia.Name = "btnConsultarMembresia";
             this.btnConsultarMembresia.Size = new System.Drawing.Size(99, 52);
             this.btnConsultarMembresia.TabIndex = 35;

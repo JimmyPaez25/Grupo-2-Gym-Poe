@@ -29,21 +29,20 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.clmEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmEstudiante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.lblCedula = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnDarBaja = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.clmCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmEstudiante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -57,57 +56,21 @@
             this.label1.Text = "Consultar Cliente";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // dataGridView1
+            // dgvClientes
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.clmEstado,
+            this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmCedula,
             this.clmNombre,
             this.clmApellido,
             this.clmTelefono,
             this.clmDireccion,
             this.clmEstudiante});
-            this.dataGridView1.Location = new System.Drawing.Point(113, 177);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(743, 279);
-            this.dataGridView1.TabIndex = 2;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // clmEstado
-            // 
-            this.clmEstado.HeaderText = "ESTADO";
-            this.clmEstado.Name = "clmEstado";
-            // 
-            // clmCedula
-            // 
-            this.clmCedula.HeaderText = "CEDULA";
-            this.clmCedula.Name = "clmCedula";
-            // 
-            // clmNombre
-            // 
-            this.clmNombre.HeaderText = "NOMBRE";
-            this.clmNombre.Name = "clmNombre";
-            // 
-            // clmApellido
-            // 
-            this.clmApellido.HeaderText = "APELLIDO";
-            this.clmApellido.Name = "clmApellido";
-            // 
-            // clmTelefono
-            // 
-            this.clmTelefono.HeaderText = "TELEFONO";
-            this.clmTelefono.Name = "clmTelefono";
-            // 
-            // clmDireccion
-            // 
-            this.clmDireccion.HeaderText = "DIRECCION";
-            this.clmDireccion.Name = "clmDireccion";
-            // 
-            // clmEstudiante
-            // 
-            this.clmEstudiante.HeaderText = "ESTUDIANTE";
-            this.clmEstudiante.Name = "clmEstudiante";
+            this.dgvClientes.Location = new System.Drawing.Point(174, 178);
+            this.dgvClientes.Name = "dgvClientes";
+            this.dgvClientes.Size = new System.Drawing.Size(643, 279);
+            this.dgvClientes.TabIndex = 2;
+            this.dgvClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // lblCedula
             // 
@@ -168,6 +131,36 @@
             this.button1.Text = "Asignar Membresía";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // clmCedula
+            // 
+            this.clmCedula.HeaderText = "CEDULA";
+            this.clmCedula.Name = "clmCedula";
+            // 
+            // clmNombre
+            // 
+            this.clmNombre.HeaderText = "NOMBRE";
+            this.clmNombre.Name = "clmNombre";
+            // 
+            // clmApellido
+            // 
+            this.clmApellido.HeaderText = "APELLIDO";
+            this.clmApellido.Name = "clmApellido";
+            // 
+            // clmTelefono
+            // 
+            this.clmTelefono.HeaderText = "TELEFONO";
+            this.clmTelefono.Name = "clmTelefono";
+            // 
+            // clmDireccion
+            // 
+            this.clmDireccion.HeaderText = "DIRECCION";
+            this.clmDireccion.Name = "clmDireccion";
+            // 
+            // clmEstudiante
+            // 
+            this.clmEstudiante.HeaderText = "ESTUDIANTE";
+            this.clmEstudiante.Name = "clmEstudiante";
+            // 
             // VsConsultarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -179,11 +172,12 @@
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lblCedula);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvClientes);
             this.Controls.Add(this.label1);
             this.Name = "VsConsultarCliente";
             this.Text = "Consultar Cliente";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.VsConsultarCliente_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -191,19 +185,18 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvClientes;
         private System.Windows.Forms.Label lblCedula;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnDarBaja;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmEstado;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmCedula;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmApellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmTelefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDireccion;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmEstudiante;
-        private System.Windows.Forms.Button button1;
     }
 }
