@@ -23,8 +23,8 @@ namespace Control
         {
             String msg = "ERROR: SE ESPERABA DATOS CORRECTOS!!";
             Validacion v = new Validacion();
-            int cedula = v.aEntero(rCedula);
-            int fono = v.aEntero(rTelefono);
+            int cedula = v.ConvertirEntero(rCedula);
+            int fono = v.ConvertirEntero(rTelefono);
             Cliente cli = null;
             if (cedula > 0 && rNombre != "" && rApellido!= "" && rFechaNacimiento !="" && fono > 0 && rDireccion != "")
             {
@@ -39,8 +39,8 @@ namespace Control
         {
             String msg = "ERROR: SE ESPERABA DATOS CORRECTOS11";
             Validacion v = new Validacion();
-            int cedula = v.aEntero(rCedula);
-            int fono = v.aEntero(rTelefono);
+            int cedula = v.ConvertirEntero(rCedula);
+            int fono = v.ConvertirEntero(rTelefono);
             Cliente cli = null;
             if (cedula > 0 && rNombre != "" && rApellido != "" && rFechaNacimiento != "" && fono > 0 && rDireccion != "")
             {
