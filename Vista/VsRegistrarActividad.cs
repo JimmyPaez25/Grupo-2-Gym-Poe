@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Control;
 
 namespace Vista
 {
@@ -16,45 +15,56 @@ namespace Vista
     {
         private Validacion val = new Validacion();
         private CtrActividad ctrActividad = new CtrActividad();
+        DateTime fechaActual = DateTime.Now;
+        DateTime hora = DateTime.Now;
+        DateTime horaActual;
 
         public VsRegistrarActividad()
         {
             InitializeComponent();
-        }
+            horaActual = new DateTime(hora.Year, hora.Month, hora.Day, hora.Hour, hora.Minute, hora.Second);
+            dtpFechaInicio.Value = fechaActual;
+            dtpFechaFin.Value = fechaActual;
+            dtpHoraInicio.Value = horaActual;
+            dtpHoraFin.Value = horaActual;
+        }       
 
-        private void label1_Click(object sender, EventArgs e)
+        private void textNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            val.ValidarCaracterEspecial(sender, e);
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void textDescripcion_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            val.ValidarCaracterEspecial(sender, e);
         }
 
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        private void buttonRegistrar_Click(object sender, EventArgs e)
         {
+            string msj = "";
+            string sNombre = textNombre.Text.Trim();
+            string sDescripcion = textDescripcion.Text.Trim();
+            string sFechaInicio = dtpFechaInicio.Text.Trim();
+            string sFechaFin = dtpFechaFin.Text.Trim();
+            string sHoraInicio = dtpHoraInicio.Text.Trim();
+            string sHoraFin = dtpHoraFin.Text.Trim();
 
-        }
+            msj = ctrActividad.IngresarActividad(sNombre, sDescripcion, sFechaInicio, sFechaFin, sHoraInicio, sHoraFin);
+            MessageBox.Show(msj);
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
+            if (msj.Contains("ACTIVIDAD REGISTRADA CORRECTAMENTE"))
+            {
+                horaActual = new DateTime(hora.Year, hora.Month, hora.Day, hora.Hour, hora.Minute, hora.Second);
+                textNombre.Text = "";
+                textDescripcion.Text = "";
+                dtpFechaInicio.Value = fechaActual;
+                dtpFechaFin.Value = fechaActual;
+                dtpHoraInicio.Value = horaActual;
+                dtpHoraFin.Value = horaActual;
+            }
 
-        }
+        } 
 
-        private void timer1_Tick_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            val.ValidarEntrada(sender, e);
-        }
+    // FIN    
     }
 }

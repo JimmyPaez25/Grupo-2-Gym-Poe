@@ -8,39 +8,53 @@ namespace Modelo
 {
     public class Actividad
     {
-        int id;
-        int estado;
-        string nombre;
-        string descripcion;
-        TimeSpan horaInicio;
-        TimeSpan horaFin;
-        DateTime fechaInicio;
-        DateTime fechaFin;
+        //protected int id;
+        protected int estado;
+        protected string nombre;
+        protected string descripcion;
+        protected DateTime fechaInicio;
+        protected DateTime fechaFin;
+        protected TimeSpan horaInicio;
+        protected TimeSpan horaFin;
 
-        public Actividad(int id, int estado, string nombre, string descripcion, TimeSpan horaInicio, TimeSpan horaFin, DateTime fechaInicio, DateTime fechaFin)
+        public Actividad(/*int id, int estado, */
+                         string nombre, 
+                         string descripcion, 
+                         DateTime fechaInicio, 
+                         DateTime fechaFin, 
+                         TimeSpan horaInicio, 
+                         TimeSpan horaFin)
         {
-            this.id = id;
-            this.estado = estado;
+            //this.id = id;
+            //this.estado = estado;
+            this.estado = 1; // ESTADO 1 = ACTIVO
             this.nombre = nombre;
             this.descripcion = descripcion;
-            this.horaInicio = horaInicio;
-            this.horaFin = horaFin;
             this.fechaInicio = fechaInicio;
             this.fechaFin = fechaFin;
+            this.horaInicio = horaInicio;
+            this.horaFin = horaFin;
         }
 
-        public int Id { get => id; set => id = value; }
+        //public int Id { get => id; set => id = value; }
         public int Estado { get => estado; set => estado = value; }
         public string Nombre { get => nombre; set => nombre = value; }
         public string Descripcion { get => descripcion; set => descripcion = value; }
-        public TimeSpan HoraInicio { get => horaInicio; set => horaInicio = value; }
-        public TimeSpan HoraFin { get => horaFin; set => horaFin = value; }
         public DateTime FechaInicio { get => fechaInicio; set => fechaInicio = value; }
         public DateTime FechaFin { get => fechaFin; set => fechaFin = value; }
+        public TimeSpan HoraInicio { get => horaInicio; set => horaInicio = value; }
+        public TimeSpan HoraFin { get => horaFin; set => horaFin = value; }
 
         public override string ToString()
         {
-            return base.ToString();
+            return "-> NOMBRE: " + nombre + Environment.NewLine +
+                   "-> DESCRIPCION: " + Environment.NewLine + descripcion + Environment.NewLine + 
+                   "-> FECHA INICIO: " + fechaInicio.ToString("d") + Environment.NewLine + 
+                   "-> FECHA FIN: " + fechaFin.ToString("d") + Environment.NewLine + 
+                   "-> HORA INICIO: " + horaInicio + Environment.NewLine + 
+                   "-> HORA FIN: " + horaFin + Environment.NewLine;
         }
+
+    // FIN
     }
 }

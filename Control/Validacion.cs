@@ -11,7 +11,10 @@ namespace Control
 {
     public class Validacion
     {
-        public int ConvertirEntero(String dato)
+        //
+        // CONVERSIONES
+        //
+        public int ConvertirEntero(String dato) // STRING a ENTERO
         {
             int valor = -1;
             try
@@ -33,12 +36,12 @@ namespace Control
             catch (FormatException ex)
             {
                 Console.WriteLine("ERROR: DATO INVALIDO.\n");
-                //Console.WriteLine("ERROR namespace:Control/ class:Validacion/ aEntero: {0}\n", ex);
+                //Console.WriteLine("ERROR namespace:Control/ class:Validacion/ ConvertirEntero: {0}\n", ex);
             }
             return valor;
         }
 
-        public double ConvertirDouble(string dato)
+        public double ConvertirDouble(string dato) // STRING a DOUBLE 1
         {
             double valor = -1;
             try
@@ -60,12 +63,12 @@ namespace Control
             catch (FormatException ex)
             {
                 Console.WriteLine("ERROR: DATO INVALIDO.\n");
-                //Console.WriteLine("ERROR namespace:Control/ class:Validacion/ aDouble: {0}\n", ex);
+                //Console.WriteLine("ERROR namespace:Control/ class:Validacion/ ConvertirDouble: {0}\n", ex);
             }
             return valor;
         }
 
-        public double ConvertirReal(string dato)
+        public double ConvertirReal(string dato) // STRING a DOUBLE 2
         {
             double valor = -1;
             try
@@ -82,11 +85,12 @@ namespace Control
             catch (FormatException ex)
             {
                 Console.WriteLine("ERROR: SE ESPERABA UN NUMERO REAL.");
+                //Console.WriteLine("ERROR namespace:Control/ class:Validacion/ ConvertirReal: {0}\n", ex);
             }
             return valor;
         }
 
-        public char ConvertirChar(string dato)
+        public char ConvertirChar(string dato) // STRING a CHAR
         {
             char valor = ' ';
             try
@@ -108,12 +112,61 @@ namespace Control
             catch (FormatException ex)
             {
                 Console.WriteLine("ERROR: DATO INVALIDO.\n");
-                //Console.WriteLine("ERROR namespace:Control/ class:Validacion/ aChar: {0}\n", ex);
+                //Console.WriteLine("ERROR namespace:Control/ class:Validacion/ ConvertirChar: {0}\n", ex);
             }
             return valor;
         }
 
-        public void ValidarLetra(object sender, KeyPressEventArgs e)
+        public TimeSpan ConvertirTimeSpan(string dato) // STRING a TIMESPAN
+        {
+            TimeSpan valor = TimeSpan.MinValue;
+            try
+            {
+                if (string.IsNullOrEmpty(dato))
+                {
+                    Console.WriteLine("ERROR: DATO VACIO.\n");
+                }
+                else
+                {
+                    valor = TimeSpan.Parse(dato);
+                }
+            }
+            catch (FormatException ex)
+            {
+                Console.WriteLine("ERROR: DATO INVALIDO.\n");
+                //Console.WriteLine("ERROR namespace:Control/ class:Validacion/ ConvertirTimeSpan: {0}\n", ex);
+            }
+            return valor;
+        }
+
+        public DateTime ConvertirDateTime(string dato) // STRING a DATETIME
+        {
+            DateTime valor = DateTime.MinValue;
+            try
+            {
+                if (string.IsNullOrEmpty(dato))
+                {
+                    Console.WriteLine("ERROR: DATO VACIO.\n");
+                }
+                else
+                {
+                    valor = DateTime.Parse(dato);
+                    //valor = DateTime.ParseExact(dato, "d/M/yyyy", CultureInfo.InvariantCulture); // FECHA SIN FORMATO DE HORA
+                }
+            }
+            catch (FormatException ex)
+            {
+                Console.WriteLine("ERROR: DATO INVALIDO.\n");
+                //Console.WriteLine("ERROR namespace:Control/ class:Validacion/ ConvertirDateTime: {0}\n", ex);
+            }
+            return valor;
+        }
+
+        //
+        // VALIDACIONES
+        //
+
+        public void ValidarLetra(object sender, KeyPressEventArgs e) // ENTRADA DE SOLO LETRAS
         {
             char letra = e.KeyChar;
             if (!char.IsLetter(letra) && letra != ' ' && letra != (char)Keys.Back)
@@ -123,7 +176,7 @@ namespace Control
             }
         }
 
-        public void ValidarNumero(object sender, KeyPressEventArgs e)
+        public void ValidarNumero(object sender, KeyPressEventArgs e) // ENTRADA DE SOLO NUMEROS
         {
             char letra = e.KeyChar;
             if (!char.IsDigit(letra) && letra != (char)Keys.Back)
@@ -133,7 +186,7 @@ namespace Control
             }
         }
 
-        public void ValidarCantidad(object sender, KeyPressEventArgs e)
+        public void ValidarCantidad(object sender, KeyPressEventArgs e) // ENTRADA DE NUMEROS Y LA COMA EJ: 20,5
         {
             char letra = e.KeyChar;
             if (!char.IsDigit(letra) && letra != (char)Keys.Back && letra != ',')
@@ -143,14 +196,16 @@ namespace Control
             }
         }
 
-        public void ValidarEntrada(object sender, KeyPressEventArgs e)
+        public void ValidarCaracterEspecial(object sender, KeyPressEventArgs e) // ENTRADA DE CARACTERES DEFINIDOS
         {
             char letra = e.KeyChar;
-            if (!char.IsLetterOrDigit(letra) && letra != (char)Keys.Back)
+            List<char> caracteresPermitidos = new List<char> { ',', '.', '-', '+', '*', '#', '(', ')', ':', '<', '>', '/', '%', '\n', '\r', ' ', (char)Keys.Back };
+            if (!char.IsLetterOrDigit(letra) && !caracteresPermitidos.Contains(letra))
             {
                 e.Handled = true;
             }
         }
 
+    // FIN    
     }
 }
