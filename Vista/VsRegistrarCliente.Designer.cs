@@ -159,7 +159,7 @@
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(202, 20);
             this.txtCedula.TabIndex = 27;
-            this.txtCedula.TextChanged += new System.EventHandler(this.txtCedula_TextChanged);
+            this.txtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
             // 
             // txtDate
             // 
@@ -174,6 +174,7 @@
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(202, 20);
             this.txtTelefono.TabIndex = 32;
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // txtDireccion
             // 
@@ -214,14 +215,14 @@
             this.btnConsultarMembresia.TabIndex = 35;
             this.btnConsultarMembresia.Text = "Consultar Membresia";
             this.btnConsultarMembresia.UseVisualStyleBackColor = true;
-            this.btnConsultarMembresia.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnConsultarMembresia.Click += new System.EventHandler(this.btnConsultarMembresia_Click);
             // 
             // VsRegistrarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(566, 464);
+            this.ClientSize = new System.Drawing.Size(546, 464);
             this.Controls.Add(this.btnConsultarMembresia);
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.txtDate);

@@ -14,6 +14,7 @@ namespace Vista
     public partial class VsRegistrarCliente : Form
     {
         private CtrCliente ctrCli = new Control.CtrCliente();
+        private Validacion v = new Validacion();
         public VsRegistrarCliente()
         {
             InitializeComponent();
@@ -45,31 +46,34 @@ namespace Vista
             if (esEstudiante.Equals("SI"))
             {
                 msg = ctrCli.IngresarCliEst(rCedula, rNombre, rApellido, rFechaNacimiento, rTelefono, rDireccion, esEstudiante);
-            }else if (esEstudiante.Equals("NO"))
+            }else
             {
-                msg = ctrCli.IngresarCli(rCedula, rNombre, rApellido, rFechaNacimiento, rTelefono, rDireccion, esEstudiante);
+                msg = ctrCli.IngresarCli(rCedula, rNombre, rApellido, rFechaNacimiento, rTelefono, rDireccion);
             }
+            MessageBox.Show(msg);
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void btnConsultarMembresia_Click(object sender, EventArgs e)
         {
             VsConsultarCliente cltCliente = new VsConsultarCliente();
             cltCliente.Visible = true;
         }
 
-        private void txtCedula_TextChanged(object sender, EventArgs e)
-        {
-            //char letra = e.KeyChar;
-            //if (!char.IsDigit(letra) && letra != (char)Keys.Back)
-            //{
-            //    e.Handled = true;
-            //    return;
-            //}
-        }
+
 
         private void lblDate_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            v.ValidarNumero(sender, e);
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            v.ValidarNumero(sender, e);
         }
     }
 }
