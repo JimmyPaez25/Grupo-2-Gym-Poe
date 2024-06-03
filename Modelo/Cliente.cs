@@ -14,6 +14,7 @@ namespace Modelo
         String fechaNacimiento;
         String telefono;
         String direccion;
+        String estado;
 
         public string Cedula { get => cedula; set => cedula = value; }
         public string Nombre { get => nombre; set => nombre = value; }
@@ -21,8 +22,9 @@ namespace Modelo
         public string FechaNacimiento { get => fechaNacimiento; set => fechaNacimiento = value; }
         public string Telefono { get => telefono; set => telefono = value; }
         public string Direccion { get => direccion; set => direccion = value; }
+        public string Estado { get => estado; set => estado = value; }
 
-        public Cliente(string cedula, string nombre, string apellido, string fechaNacimiento, string telefono, string direccion)
+        public Cliente(string cedula, string nombre, string apellido, string fechaNacimiento, string telefono, string direccion, string estado)
         {
             Cedula = cedula;
             Nombre = nombre;
@@ -30,12 +32,13 @@ namespace Modelo
             FechaNacimiento = fechaNacimiento;
             Telefono = telefono;
             Direccion = direccion;
+            Estado = estado;
         }
 
         public override string ToString()
         {
             return "> CEDULA: " + cedula + "\n> NOMBRE: " + nombre + "\n> APELLIDO: " + apellido + "\n> FECHA DE NACIMIENTO: " + fechaNacimiento +
-                   "\n> TELEFONO: " + telefono + "\n> DIRECCION: " + direccion;
+                   "\n> TELEFONO: " + telefono + "\n> DIRECCION: " + direccion + "\n> ESTADO: " + estado;
         }
         
     }

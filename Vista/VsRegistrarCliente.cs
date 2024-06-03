@@ -15,9 +15,12 @@ namespace Vista
     {
         private CtrCliente ctrCli = new Control.CtrCliente();
         private Validacion v = new Validacion();
+        private bool edicion = false;
         public VsRegistrarCliente()
         {
             InitializeComponent();
+            lblEstado.Visible = false;
+            cmbEstado.Visible = false;
         }
 
         private void lblCedula_Click(object sender, EventArgs e)
@@ -40,15 +43,15 @@ namespace Vista
             string rCedula = txtCedula.Text.Trim(), rTelefono = txtTelefono.Text.Trim();
             string rNombre = txtNombre.Text.Trim(), rDireccion = txtDireccion.Text.Trim();
             string rFechaNacimiento = txtDate.Text.Trim(), esEstudiante = (string)cmbEstudiante.SelectedItem;
-            string rApellido = txtApellido.Text.Trim();
+            string rApellido = txtApellido.Text.Trim(), rEstado = "ACTIVO";
             string msg = "";
 
             if (esEstudiante.Equals("SI"))
             {
-                msg = ctrCli.IngresarCliEst(rCedula, rNombre, rApellido, rFechaNacimiento, rTelefono, rDireccion, esEstudiante);
+                msg = ctrCli.IngresarCliEst(rCedula, rNombre, rApellido, rFechaNacimiento, rTelefono, rEstado, rDireccion, esEstudiante);
             }else
             {
-                msg = ctrCli.IngresarCli(rCedula, rNombre, rApellido, rFechaNacimiento, rTelefono, rDireccion);
+                msg = ctrCli.IngresarCli(rCedula, rNombre, rApellido, rFechaNacimiento, rTelefono, rEstado, rDireccion);
             }
             MessageBox.Show(msg);
         }

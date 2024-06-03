@@ -15,6 +15,7 @@ namespace Vista
     {
         private CtrCliente ctrCli = new CtrCliente();
         private Validacion v = new Validacion();
+        private VsRegistrarCliente vRC = new VsRegistrarCliente();
 
         public VsConsultarCliente()
         {
@@ -29,6 +30,11 @@ namespace Vista
         private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
         {
             v.ValidarNumero(sender, e);
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

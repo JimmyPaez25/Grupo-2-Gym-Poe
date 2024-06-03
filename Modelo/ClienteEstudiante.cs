@@ -11,8 +11,8 @@ namespace Modelo
         string estudiante;
         public string Estudiante { get => estudiante; set => estudiante = value; }
 
-        public ClienteEstudiante(string cedula, string nombre, string apellido, string fechaNacimiento, string telefono, string direccion, string estudiante) : 
-                                 base (cedula, nombre, apellido, fechaNacimiento, telefono, direccion)
+        public ClienteEstudiante(string cedula, string nombre, string apellido, string fechaNacimiento, string telefono, string direccion, string estado, string estudiante) : 
+                                 base (cedula, nombre, apellido, fechaNacimiento, telefono, direccion, estado)
         {
             Estudiante = estudiante;
         }

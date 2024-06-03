@@ -19,21 +19,21 @@ namespace Control
             return listaCli.Count;
         }
 
-        public string IngresarCli(string rCedula, string rNombre, string rApellido, string rFechaNacimiento, string rTelefono, string rDireccion)
+        public string IngresarCli(string rCedula, string rNombre, string rApellido, string rFechaNacimiento, string rTelefono, string rEstado, string rDireccion)
         {
             String msg = "ERROR: SE ESPERABA DATOS CORRECTOS!!";
             Validacion v = new Validacion();
             Cliente cli = null;
             if (rCedula != "" && rNombre != "" && rApellido!= "" && rFechaNacimiento !="" && rTelefono != "" && rDireccion != "")
             {
-                cli = new Cliente(rCedula, rNombre, rApellido, rFechaNacimiento, rTelefono, rDireccion);
+                cli = new Cliente(rCedula, rNombre, rApellido, rFechaNacimiento, rTelefono, rDireccion, rEstado);
                 listaCli.Add(cli); // Agregando datos del cliente
                 msg = cli.ToString() + "\n CLIENTE ESTUDIANTE REGISTRADO EXITOSAMENTE!!";
             } 
             return msg;
         }
 
-        public string IngresarCliEst(string rCedula, string rNombre, string rApellido, string rFechaNacimiento, string rTelefono, string rDireccion, string esEstudiante)
+        public string IngresarCliEst(string rCedula, string rNombre, string rApellido, string rFechaNacimiento, string rTelefono,string rEstado, string rDireccion, string esEstudiante)
         {
             String msg = "ERROR: SE ESPERABA DATOS CORRECTOS11";
             Validacion v = new Validacion();
@@ -41,7 +41,7 @@ namespace Control
             Cliente cli = null;
             if (rCedula != "" && rNombre != "" && rApellido != "" && rFechaNacimiento != "" && rTelefono != "" && rDireccion != "")
             {
-                cli = new ClienteEstudiante(rCedula, rNombre, rApellido, rFechaNacimiento, rTelefono, rDireccion, esEstudiante);
+                cli = new ClienteEstudiante(rCedula, rNombre, rApellido, rFechaNacimiento, rTelefono, rDireccion, rEstado, esEstudiante);
                 listaCli.Add(cli); // Agregando datos del cliente
                 msg = cli.ToString() + "\n CLIENTE REGISTRADO EXITOSAMENTE11";
             }
@@ -56,6 +56,7 @@ namespace Control
             foreach (Cliente x in ListaCliente)
             {
                 i = dgvClientes.Rows.Add();
+                dgvClientes.Rows[i].Cells["clmEstado"].Value = x.Estado;
                 dgvClientes.Rows[i].Cells["clmCedula"].Value = x.Cedula;
                 dgvClientes.Rows[i].Cells["clmNombre"].Value = x.Nombre;
                 dgvClientes.Rows[i].Cells["clmApellido"].Value = x.Apellido;

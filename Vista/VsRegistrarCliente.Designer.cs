@@ -31,7 +31,6 @@
             this.lblRegistro = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.lblCedula = new System.Windows.Forms.Label();
-            this.lblEstado = new System.Windows.Forms.Label();
             this.lblEstudiante = new System.Windows.Forms.Label();
             this.lblDireccion = new System.Windows.Forms.Label();
             this.lblTelefono = new System.Windows.Forms.Label();
@@ -46,6 +45,9 @@
             this.cmbEstudiante = new System.Windows.Forms.ComboBox();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.btnConsultarMembresia = new System.Windows.Forms.Button();
+            this.cmbEstado = new System.Windows.Forms.ComboBox();
+            this.lblEstado = new System.Windows.Forms.Label();
+            this.btnActualizar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblRegistro
@@ -78,14 +80,6 @@
             this.lblCedula.TabIndex = 3;
             this.lblCedula.Text = "Cedula:";
             this.lblCedula.Click += new System.EventHandler(this.lblCedula_Click);
-            // 
-            // lblEstado
-            // 
-            this.lblEstado.AutoSize = true;
-            this.lblEstado.Location = new System.Drawing.Point(82, 250);
-            this.lblEstado.Name = "lblEstado";
-            this.lblEstado.Size = new System.Drawing.Size(0, 13);
-            this.lblEstado.TabIndex = 26;
             // 
             // lblEstudiante
             // 
@@ -198,7 +192,7 @@
             // btnRegistrar
             // 
             this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Tai Le", 12F);
-            this.btnRegistrar.Location = new System.Drawing.Point(125, 329);
+            this.btnRegistrar.Location = new System.Drawing.Point(125, 365);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(99, 52);
             this.btnRegistrar.TabIndex = 34;
@@ -209,7 +203,7 @@
             // btnConsultarMembresia
             // 
             this.btnConsultarMembresia.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsultarMembresia.Location = new System.Drawing.Point(294, 329);
+            this.btnConsultarMembresia.Location = new System.Drawing.Point(294, 365);
             this.btnConsultarMembresia.Name = "btnConsultarMembresia";
             this.btnConsultarMembresia.Size = new System.Drawing.Size(99, 52);
             this.btnConsultarMembresia.TabIndex = 35;
@@ -217,12 +211,46 @@
             this.btnConsultarMembresia.UseVisualStyleBackColor = true;
             this.btnConsultarMembresia.Click += new System.EventHandler(this.btnConsultarMembresia_Click);
             // 
+            // cmbEstado
+            // 
+            this.cmbEstado.FormattingEnabled = true;
+            this.cmbEstado.Items.AddRange(new object[] {
+            "ACTIVO",
+            "INACTIVO"});
+            this.cmbEstado.Location = new System.Drawing.Point(255, 265);
+            this.cmbEstado.Name = "cmbEstado";
+            this.cmbEstado.Size = new System.Drawing.Size(121, 21);
+            this.cmbEstado.TabIndex = 37;
+            // 
+            // lblEstado
+            // 
+            this.lblEstado.AutoSize = true;
+            this.lblEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic);
+            this.lblEstado.Location = new System.Drawing.Point(87, 263);
+            this.lblEstado.Name = "lblEstado";
+            this.lblEstado.Size = new System.Drawing.Size(64, 20);
+            this.lblEstado.TabIndex = 38;
+            this.lblEstado.Text = "Estado:";
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Font = new System.Drawing.Font("Microsoft Tai Le", 12F);
+            this.btnActualizar.Location = new System.Drawing.Point(125, 365);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(99, 52);
+            this.btnActualizar.TabIndex = 39;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            // 
             // VsRegistrarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(546, 464);
+            this.Controls.Add(this.btnActualizar);
+            this.Controls.Add(this.lblEstado);
+            this.Controls.Add(this.cmbEstado);
             this.Controls.Add(this.btnConsultarMembresia);
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.txtDate);
@@ -232,7 +260,6 @@
             this.Controls.Add(this.txtApellido);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.txtCedula);
-            this.Controls.Add(this.lblEstado);
             this.Controls.Add(this.lblEstudiante);
             this.Controls.Add(this.lblDireccion);
             this.Controls.Add(this.lblTelefono);
@@ -254,7 +281,6 @@
         private System.Windows.Forms.Label lblRegistro;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblCedula;
-        private System.Windows.Forms.Label lblEstado;
         private System.Windows.Forms.Label lblEstudiante;
         private System.Windows.Forms.Label lblDireccion;
         private System.Windows.Forms.Label lblTelefono;
@@ -269,5 +295,8 @@
         private System.Windows.Forms.ComboBox cmbEstudiante;
         private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.Button btnConsultarMembresia;
+        private System.Windows.Forms.ComboBox cmbEstado;
+        private System.Windows.Forms.Label lblEstado;
+        private System.Windows.Forms.Button btnActualizar;
     }
 }
