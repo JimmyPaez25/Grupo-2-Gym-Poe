@@ -37,7 +37,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.ClmId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button5 = new System.Windows.Forms.Button();
             this.ClmEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClmNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClmDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,7 +45,6 @@
             this.ClmFechaFin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClmHoraInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClmHoraFin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -112,7 +111,6 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ClmId,
             this.ClmEstado,
             this.ClmNombre,
             this.ClmDescripcion,
@@ -143,11 +141,14 @@
             this.button4.Text = "Eliminar";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // ClmId
+            // button5
             // 
-            this.ClmId.HeaderText = "ID";
-            this.ClmId.Name = "ClmId";
-            this.ClmId.Visible = false;
+            this.button5.Location = new System.Drawing.Point(132, 318);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 21;
+            this.button5.Text = "Seleccionar";
+            this.button5.UseVisualStyleBackColor = true;
             // 
             // ClmEstado
             // 
@@ -185,15 +186,6 @@
             this.ClmHoraFin.HeaderText = "HORA FIN";
             this.ClmHoraFin.Name = "ClmHoraFin";
             // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(132, 318);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 21;
-            this.button5.Text = "Seleccionar";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
             // VsConsultarActividad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -229,7 +221,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ClmId;
+        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmEstado;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmDescripcion;
@@ -237,6 +229,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmFechaFin;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmHoraInicio;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmHoraFin;
-        private System.Windows.Forms.Button button5;
     }
 }
