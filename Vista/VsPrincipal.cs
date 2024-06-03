@@ -19,31 +19,7 @@ namespace Vista
 
         private void button1_Click(object sender, EventArgs e)
         {
-            VsActividad act = new VsActividad();
-            act.Visible = true;
-        }
-
-
-
-        private void VsPrincipal_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
+            VsActividad act = new VsActividad(); act.ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -52,20 +28,12 @@ namespace Vista
             rgCliente.ShowDialog();
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnMembresia_Click(object sender, EventArgs e)
         {
             VsMembresia act = new VsMembresia();
             act.Visible = true;
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+    // FIN
     }
 }

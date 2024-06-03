@@ -62,7 +62,6 @@
             this.labelTituloGym.Name = "labelTituloGym";
             this.labelTituloGym.Size = new System.Drawing.Size(0, 55);
             this.labelTituloGym.TabIndex = 3;
-            this.labelTituloGym.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // btnRegistrar
             // 
@@ -95,7 +94,6 @@
             this.btnPago.TabIndex = 7;
             this.btnPago.Text = "Pago";
             this.btnPago.UseVisualStyleBackColor = true;
-            this.btnPago.Click += new System.EventHandler(this.button5_Click);
             // 
             // panel1
             // 
@@ -106,7 +104,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(184, 489);
             this.panel1.TabIndex = 8;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // panel2
             // 
@@ -129,7 +126,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // VsPrincipal
             // 
@@ -146,7 +142,6 @@
             this.Name = "VsPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Principal";
-            this.Load += new System.EventHandler(this.VsPrincipal_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

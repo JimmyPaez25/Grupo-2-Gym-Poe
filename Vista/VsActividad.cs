@@ -8,29 +8,37 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Control;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace Vista
 {
     public partial class VsActividad : Form
     {
+        private CtrActividad ctrActividad = new CtrActividad();
+
         public VsActividad()
         {
             InitializeComponent();
         }
 
-        private void VsActividad_Load(object sender, EventArgs e)
+        private void buttonRegistrar_Click(object sender, EventArgs e)
         {
-
+            VsRegistrarActividad vRegActividad = new VsRegistrarActividad(); vRegActividad.ShowDialog();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonConsultar_Click(object sender, EventArgs e)
         {
-            VsRegistrarActividad vRegActividad = new VsRegistrarActividad(); vRegActividad.Visible = true;
+            VsConsultarActividad vConsActividad = null;
+            if (ctrActividad.GetTotal() > 0)
+            {
+                vConsActividad = new VsConsultarActividad(); vConsActividad.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("ERROR: NO EXISTEN ACTIVIDADES REGISTRADAS.");
+            }
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            VsConsultarActividad vConsActividad = new VsConsultarActividad(); vConsActividad.Visible = true;
-        }
+    // FIN
     }
 }

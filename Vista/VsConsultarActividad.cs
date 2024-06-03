@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Control;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,23 @@ namespace Vista
 {
     public partial class VsConsultarActividad : Form
     {
+        private CtrActividad ctrActividad = new CtrActividad();
+        private Validacion val = new Validacion();
+
         public VsConsultarActividad()
         {
             InitializeComponent();
+            ctrActividad.TablaConsultarActividad(dgvActividad);
+        }
+
+        private void textBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            val.ValidarCaracterEspecial(sender, e);
+        }
+
+        private void buttonEliminar_Click(object sender, EventArgs e)
+        {
+            ctrActividad.Inactivar(dgvActividad);
         }
     }
 }

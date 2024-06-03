@@ -16,17 +16,13 @@ namespace Vista
         private Validacion val = new Validacion();
         private CtrActividad ctrActividad = new CtrActividad();
         DateTime fechaActual = DateTime.Now;
-        DateTime hora = DateTime.Now;
-        DateTime horaActual;
+        DateTime horaActual = DateTime.Now;
 
         public VsRegistrarActividad()
         {
             InitializeComponent();
-            horaActual = new DateTime(hora.Year, hora.Month, hora.Day, hora.Hour, hora.Minute, hora.Second);
             dtpFechaInicio.Value = fechaActual;
             dtpFechaFin.Value = fechaActual;
-            dtpHoraInicio.Value = horaActual;
-            dtpHoraFin.Value = horaActual;
         }       
 
         private void textNombre_KeyPress(object sender, KeyPressEventArgs e)
@@ -54,7 +50,6 @@ namespace Vista
 
             if (msj.Contains("ACTIVIDAD REGISTRADA CORRECTAMENTE"))
             {
-                horaActual = new DateTime(hora.Year, hora.Month, hora.Day, hora.Hour, hora.Minute, hora.Second);
                 textNombre.Text = "";
                 textDescripcion.Text = "";
                 dtpFechaInicio.Value = fechaActual;
@@ -63,8 +58,13 @@ namespace Vista
                 dtpHoraFin.Value = horaActual;
             }
 
-        } 
+        }
 
-    // FIN    
+        private void buttonCancelar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        // FIN    
     }
 }
