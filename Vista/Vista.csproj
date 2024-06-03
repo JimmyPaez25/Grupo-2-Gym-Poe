@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="VsMembresiaEliminar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VsMembresiaEliminar.Designer.cs">
+      <DependentUpon>VsMembresiaEliminar.cs</DependentUpon>
+    </Compile>
     <Compile Include="VsConsultarActividad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VsMembresia.resx">
       <DependentUpon>VsMembresia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VsMembresiaEliminar.resx">
+      <DependentUpon>VsMembresiaEliminar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VsPrincipal.resx">
       <DependentUpon>VsPrincipal.cs</DependentUpon>
