@@ -10,16 +10,20 @@ namespace Control
 {
     public class CtrActividad
     {
+        private DateTime fechaActual = DateTime.Now;
         private static List<Actividad> listaActividad = new List<Actividad>();
+
+        public DateTime FechaActual { get => fechaActual; set => fechaActual = value; }
+        public static List<Actividad> ListaActividad { get => listaActividad; set => listaActividad = value; }
 
         public int GetTotal()
         {
-            return listaActividad.Count;
+            return ListaActividad.Count;
         }
 
         public string IngresarActividad(string sNombre, string sDescripcion, string sFechaInicio, string sFechaFin, string sHoraInicio, string sHoraFin)
         {
-            String msj = "ERROR: SE ESPERABA DATOS CORRECTOS.";
+            string msj = "ERROR: SE ESPERABA DATOS CORRECTOS.";
             Validacion val = new Validacion();
             Actividad act = null;
             DateTime fechaInicio = val.ConvertirDateTime(sFechaInicio);
@@ -50,7 +54,7 @@ namespace Control
             else
             {               
             act = new Actividad(sNombre, sDescripcion, fechaInicio, fechaFin, horaInicio, horaFin);
-                listaActividad.Add(act);
+                ListaActividad.Add(act);
                 msj = act.ToString() + Environment.NewLine + "---ACTIVIDAD REGISTRADA CORRECTAMENTE---" + Environment.NewLine;
             }
             return msj;
@@ -58,7 +62,7 @@ namespace Control
 
         public bool ActividadExistente(string nombre)
         {
-            foreach (Actividad act in listaActividad)
+            foreach (Actividad act in ListaActividad)
             {
                 if (act.Nombre == nombre)
                 {
@@ -72,7 +76,7 @@ namespace Control
         {
             int i = 0;
             dgvActividad.Rows.Clear(); // LIMPIA FILAS SI LAS HAY
-            foreach (Actividad x in listaActividad)
+            foreach (Actividad x in ListaActividad)
             {
                 if (x.Estado == 1)
                 {
@@ -89,7 +93,7 @@ namespace Control
             }
         }
 
-        public void Inactivar(DataGridView dgvActividad)
+        public void InactivarActividad(DataGridView dgvActividad)
         {
             if (dgvActividad.SelectedRows.Count > 0)
             {
@@ -100,7 +104,7 @@ namespace Control
                     DialogResult resultado = MessageBox.Show("ESTAS SEGURO DE BORRAR ESTA ACTIVIDAD?", "CONFIRMACION", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (resultado == DialogResult.Yes)
                     {
-                        listaActividad[clmId].Estado = 2; // ESTADO 2 = INACTIVO
+                        ListaActividad[clmId].Estado = 2; // ESTADO 2 = INACTIVO
                         TablaConsultarActividad(dgvActividad);
                         MessageBox.Show("BORRADO DE ACTIVIDAD EXITOSO.");
                     }
@@ -112,6 +116,31 @@ namespace Control
             }
         }
 
-    // FIN
+        public void TablaConsultarActividadNombreDescripcion(DataGridView dgvActividad, string filtro = "", bool buscarPorNombre = true)
+        {
+            int i = 0;
+            dgvActividad.Rows.Clear(); // LIMPIA FILAS SI LAS HAY
+            foreach (Actividad x in ListaActividad)
+            {
+                if (x.Estado == 1 &&
+                    (string.IsNullOrEmpty(filtro) ||
+                    (buscarPorNombre && x.Nombre.Contains(filtro)) ||
+                    (!buscarPorNombre && x.Descripcion.Contains(filtro))))
+                {
+                    i = dgvActividad.Rows.Add();
+                    dgvActividad.Rows[i].Cells["ClmNumero"].Value = i + 1;
+                    dgvActividad.Rows[i].Cells["ClmEstado"].Value = x.Estado;
+                    dgvActividad.Rows[i].Cells["ClmNombre"].Value = x.Nombre;
+                    dgvActividad.Rows[i].Cells["ClmDescripcion"].Value = x.Descripcion;
+                    dgvActividad.Rows[i].Cells["ClmFechaInicio"].Value = x.FechaInicio.ToString("d");
+                    dgvActividad.Rows[i].Cells["ClmFechaFin"].Value = x.FechaFin.ToString("d");
+                    dgvActividad.Rows[i].Cells["ClmHoraInicio"].Value = x.HoraInicio;
+                    dgvActividad.Rows[i].Cells["ClmHoraFin"].Value = x.HoraFin;
+                }
+            }
+        }
+
+
+        // FIN
     }
 }

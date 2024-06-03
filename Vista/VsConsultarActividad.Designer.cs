@@ -35,9 +35,6 @@
             this.radioButtonDescripcion = new System.Windows.Forms.RadioButton();
             this.buttonBuscar = new System.Windows.Forms.Button();
             this.dgvActividad = new System.Windows.Forms.DataGridView();
-            this.buttonEditar = new System.Windows.Forms.Button();
-            this.buttonEliminar = new System.Windows.Forms.Button();
-            this.buttonSeleccionar = new System.Windows.Forms.Button();
             this.ClmNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClmEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClmNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +43,9 @@
             this.ClmFechaFin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClmHoraInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClmHoraFin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonEditar = new System.Windows.Forms.Button();
+            this.buttonEliminar = new System.Windows.Forms.Button();
+            this.buttonSeleccionar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvActividad)).BeginInit();
             this.SuspendLayout();
             // 
@@ -106,6 +106,7 @@
             this.buttonBuscar.TabIndex = 17;
             this.buttonBuscar.Text = "Buscar";
             this.buttonBuscar.UseVisualStyleBackColor = true;
+            this.buttonBuscar.Click += new System.EventHandler(this.buttonBuscar_Click);
             // 
             // dgvActividad
             // 
@@ -126,6 +127,55 @@
             this.dgvActividad.ReadOnly = true;
             this.dgvActividad.Size = new System.Drawing.Size(744, 162);
             this.dgvActividad.TabIndex = 18;
+            // 
+            // ClmNumero
+            // 
+            this.ClmNumero.HeaderText = "NRO";
+            this.ClmNumero.Name = "ClmNumero";
+            this.ClmNumero.ReadOnly = true;
+            // 
+            // ClmEstado
+            // 
+            this.ClmEstado.HeaderText = "ESTADO";
+            this.ClmEstado.Name = "ClmEstado";
+            this.ClmEstado.ReadOnly = true;
+            this.ClmEstado.Visible = false;
+            // 
+            // ClmNombre
+            // 
+            this.ClmNombre.HeaderText = "NOMBRE";
+            this.ClmNombre.Name = "ClmNombre";
+            this.ClmNombre.ReadOnly = true;
+            // 
+            // ClmDescripcion
+            // 
+            this.ClmDescripcion.HeaderText = "DESCRIPCION";
+            this.ClmDescripcion.Name = "ClmDescripcion";
+            this.ClmDescripcion.ReadOnly = true;
+            // 
+            // ClmFechaInicio
+            // 
+            this.ClmFechaInicio.HeaderText = "FECHA INICIO";
+            this.ClmFechaInicio.Name = "ClmFechaInicio";
+            this.ClmFechaInicio.ReadOnly = true;
+            // 
+            // ClmFechaFin
+            // 
+            this.ClmFechaFin.HeaderText = "FECHA FIN";
+            this.ClmFechaFin.Name = "ClmFechaFin";
+            this.ClmFechaFin.ReadOnly = true;
+            // 
+            // ClmHoraInicio
+            // 
+            this.ClmHoraInicio.HeaderText = "HORA INICIO";
+            this.ClmHoraInicio.Name = "ClmHoraInicio";
+            this.ClmHoraInicio.ReadOnly = true;
+            // 
+            // ClmHoraFin
+            // 
+            this.ClmHoraFin.HeaderText = "HORA FIN";
+            this.ClmHoraFin.Name = "ClmHoraFin";
+            this.ClmHoraFin.ReadOnly = true;
             // 
             // buttonEditar
             // 
@@ -154,47 +204,6 @@
             this.buttonSeleccionar.TabIndex = 21;
             this.buttonSeleccionar.Text = "Seleccionar";
             this.buttonSeleccionar.UseVisualStyleBackColor = true;
-            // 
-            // ClmNumero
-            // 
-            this.ClmNumero.HeaderText = "NRO";
-            this.ClmNumero.Name = "ClmNumero";
-            // 
-            // ClmEstado
-            // 
-            this.ClmEstado.HeaderText = "ESTADO";
-            this.ClmEstado.Name = "ClmEstado";
-            this.ClmEstado.Visible = false;
-            // 
-            // ClmNombre
-            // 
-            this.ClmNombre.HeaderText = "NOMBRE";
-            this.ClmNombre.Name = "ClmNombre";
-            // 
-            // ClmDescripcion
-            // 
-            this.ClmDescripcion.HeaderText = "DESCRIPCION";
-            this.ClmDescripcion.Name = "ClmDescripcion";
-            // 
-            // ClmFechaInicio
-            // 
-            this.ClmFechaInicio.HeaderText = "FECHA INICIO";
-            this.ClmFechaInicio.Name = "ClmFechaInicio";
-            // 
-            // ClmFechaFin
-            // 
-            this.ClmFechaFin.HeaderText = "FECHA FIN";
-            this.ClmFechaFin.Name = "ClmFechaFin";
-            // 
-            // ClmHoraInicio
-            // 
-            this.ClmHoraInicio.HeaderText = "HORA INICIO";
-            this.ClmHoraInicio.Name = "ClmHoraInicio";
-            // 
-            // ClmHoraFin
-            // 
-            this.ClmHoraFin.HeaderText = "HORA FIN";
-            this.ClmHoraFin.Name = "ClmHoraFin";
             // 
             // VsConsultarActividad
             // 

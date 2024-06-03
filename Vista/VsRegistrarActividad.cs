@@ -15,14 +15,12 @@ namespace Vista
     {
         private Validacion val = new Validacion();
         private CtrActividad ctrActividad = new CtrActividad();
-        DateTime fechaActual = DateTime.Now;
-        DateTime horaActual = DateTime.Now;
-
+        
         public VsRegistrarActividad()
         {
             InitializeComponent();
-            dtpFechaInicio.Value = fechaActual;
-            dtpFechaFin.Value = fechaActual;
+            dtpFechaInicio.Value = ctrActividad.FechaActual;
+            dtpFechaFin.Value = ctrActividad.FechaActual;
         }       
 
         private void textNombre_KeyPress(object sender, KeyPressEventArgs e)
@@ -50,14 +48,15 @@ namespace Vista
 
             if (msj.Contains("ACTIVIDAD REGISTRADA CORRECTAMENTE"))
             {
+                DateTime horaDefectoInicio = ctrActividad.FechaActual.Date.AddHours(1).AddMinutes(00).AddSeconds(00);
+                DateTime horaDefectoFin = ctrActividad.FechaActual.Date.AddHours(23).AddMinutes(00).AddSeconds(00);
                 textNombre.Text = "";
                 textDescripcion.Text = "";
-                dtpFechaInicio.Value = fechaActual;
-                dtpFechaFin.Value = fechaActual;
-                dtpHoraInicio.Value = horaActual;
-                dtpHoraFin.Value = horaActual;
+                dtpFechaInicio.Value = ctrActividad.FechaActual;
+                dtpFechaFin.Value = ctrActividad.FechaActual;
+                dtpHoraInicio.Value = horaDefectoInicio;
+                dtpHoraFin.Value = horaDefectoFin;
             }
-
         }
 
         private void buttonCancelar_Click(object sender, EventArgs e)

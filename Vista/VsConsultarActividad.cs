@@ -29,7 +29,14 @@ namespace Vista
 
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
-            ctrActividad.Inactivar(dgvActividad);
+            ctrActividad.InactivarActividad(dgvActividad);
+        }
+
+        private void buttonBuscar_Click(object sender, EventArgs e)
+        {
+            string filtro = textBuscar.Text.Trim(); 
+            bool buscarPorNombre = radioButtonNombre.Checked; 
+            ctrActividad.TablaConsultarActividadNombreDescripcion(dgvActividad, filtro, buscarPorNombre);
         }
     }
 }

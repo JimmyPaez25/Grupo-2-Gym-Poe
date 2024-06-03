@@ -43,6 +43,8 @@
             this.dtpHoraInicio = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.dtpHoraFin = new System.Windows.Forms.DateTimePicker();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -184,11 +186,22 @@
             this.dtpHoraFin.TabIndex = 16;
             this.dtpHoraFin.Value = new System.DateTime(2024, 5, 27, 23, 0, 0, 0);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Vista.Properties.Resources.Img_Gym2;
+            this.pictureBox1.Location = new System.Drawing.Point(491, 31);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(187, 269);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 18;
+            this.pictureBox1.TabStop = false;
+            // 
             // VsRegistrarActividad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(653, 377);
+            this.ClientSize = new System.Drawing.Size(727, 377);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dtpHoraFin);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.dtpHoraInicio);
@@ -207,6 +220,7 @@
             this.Name = "VsRegistrarActividad";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registrar Actividad";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -229,5 +243,6 @@
         private System.Windows.Forms.DateTimePicker dtpHoraInicio;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker dtpHoraFin;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
