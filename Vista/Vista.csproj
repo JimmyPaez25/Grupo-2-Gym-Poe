@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="VsEditarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VsEditarCliente.Designer.cs">
+      <DependentUpon>VsEditarCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="VsMembresiaEliminar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VsConsultarCliente.resx">
       <DependentUpon>VsConsultarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VsEditarCliente.resx">
+      <DependentUpon>VsEditarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VsFactura.resx">
       <DependentUpon>VsFactura.cs</DependentUpon>

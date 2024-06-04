@@ -78,5 +78,10 @@ namespace Vista
         {
             v.ValidarNumero(sender, e);
         }
+
+        private void cmbEstado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -37,6 +37,8 @@ namespace Control
         {
             String msg = "ERROR: SE ESPERABA DATOS CORRECTOS11";
             Validacion v = new Validacion();
+ //           DateTime fechaNac = v.ConvertirDateTime(rFechaNacimiento);
+            
 
             Cliente cli = null;
             if (rCedula != "" && rNombre != "" && rApellido != "" && rFechaNacimiento != "" && rTelefono != "" && rDireccion != "")
@@ -48,6 +50,15 @@ namespace Control
             return msg;
         }
 
+        public string ActualizarCli(string rCedula, string rNombre, string rApellido, string rFechaNacimiento, string rTelefono, string rEstado, string rDireccion, string esEstudiante)
+        {
+            string msg = "ERROR: ALGUN DATO ESTA INCORRECTO";
+            Validacion v = new Validacion();
+
+
+
+            return msg;
+        }
 
         public void LlenarGrid(DataGridView dgvClientes)
         {

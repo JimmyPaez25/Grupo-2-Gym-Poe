@@ -16,6 +16,7 @@ namespace Vista
         private CtrCliente ctrCli = new CtrCliente();
         private Validacion v = new Validacion();
         private VsRegistrarCliente vRC = new VsRegistrarCliente();
+        private DataTable table;
 
         public VsConsultarCliente()
         {
@@ -30,11 +31,15 @@ namespace Vista
         private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
         {
             v.ValidarNumero(sender, e);
+            DataView dv = table.DefaultView;
+            dv.RowFilter = "clmCedula" + txtCedula.Text;
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-
+            VsEditarCliente vsEditarClint = new VsEditarCliente();
+            vsEditarClint.Visible = true;
         }
+
     }
 }

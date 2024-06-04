@@ -47,7 +47,6 @@
             this.btnConsultarMembresia = new System.Windows.Forms.Button();
             this.cmbEstado = new System.Windows.Forms.ComboBox();
             this.lblEstado = new System.Windows.Forms.Label();
-            this.btnActualizar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblRegistro
@@ -179,6 +178,7 @@
             // 
             // cmbEstudiante
             // 
+            this.cmbEstudiante.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEstudiante.FormattingEnabled = true;
             this.cmbEstudiante.Items.AddRange(new object[] {
             "SI",
@@ -192,7 +192,7 @@
             // btnRegistrar
             // 
             this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Tai Le", 12F);
-            this.btnRegistrar.Location = new System.Drawing.Point(125, 365);
+            this.btnRegistrar.Location = new System.Drawing.Point(125, 340);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(99, 52);
             this.btnRegistrar.TabIndex = 34;
@@ -203,7 +203,7 @@
             // btnConsultarMembresia
             // 
             this.btnConsultarMembresia.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsultarMembresia.Location = new System.Drawing.Point(294, 365);
+            this.btnConsultarMembresia.Location = new System.Drawing.Point(294, 340);
             this.btnConsultarMembresia.Name = "btnConsultarMembresia";
             this.btnConsultarMembresia.Size = new System.Drawing.Size(99, 52);
             this.btnConsultarMembresia.TabIndex = 35;
@@ -213,6 +213,7 @@
             // 
             // cmbEstado
             // 
+            this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEstado.FormattingEnabled = true;
             this.cmbEstado.Items.AddRange(new object[] {
             "ACTIVO",
@@ -221,6 +222,7 @@
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(121, 21);
             this.cmbEstado.TabIndex = 37;
+            this.cmbEstado.SelectedIndexChanged += new System.EventHandler(this.cmbEstado_SelectedIndexChanged);
             // 
             // lblEstado
             // 
@@ -232,23 +234,12 @@
             this.lblEstado.TabIndex = 38;
             this.lblEstado.Text = "Estado:";
             // 
-            // btnActualizar
-            // 
-            this.btnActualizar.Font = new System.Drawing.Font("Microsoft Tai Le", 12F);
-            this.btnActualizar.Location = new System.Drawing.Point(125, 365);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(99, 52);
-            this.btnActualizar.TabIndex = 39;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = true;
-            // 
             // VsRegistrarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(546, 464);
-            this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.lblEstado);
             this.Controls.Add(this.cmbEstado);
             this.Controls.Add(this.btnConsultarMembresia);
@@ -297,6 +288,5 @@
         private System.Windows.Forms.Button btnConsultarMembresia;
         private System.Windows.Forms.ComboBox cmbEstado;
         private System.Windows.Forms.Label lblEstado;
-        private System.Windows.Forms.Button btnActualizar;
     }
 }

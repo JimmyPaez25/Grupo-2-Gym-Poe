@@ -34,6 +34,11 @@ namespace Vista
             act.Visible = true;
         }
 
-    // FIN
+        private void VsPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        // FIN
     }
 }
