@@ -32,9 +32,9 @@
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.btnMembresia = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -51,7 +51,7 @@
             // btnRegistrar
             // 
             this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrar.Location = new System.Drawing.Point(29, 227);
+            this.btnRegistrar.Location = new System.Drawing.Point(29, 122);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(122, 51);
             this.btnRegistrar.TabIndex = 4;
@@ -62,7 +62,7 @@
             // btnMembresia
             // 
             this.btnMembresia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMembresia.Location = new System.Drawing.Point(29, 104);
+            this.btnMembresia.Location = new System.Drawing.Point(29, 239);
             this.btnMembresia.Name = "btnMembresia";
             this.btnMembresia.Size = new System.Drawing.Size(122, 53);
             this.btnMembresia.TabIndex = 5;
@@ -80,6 +80,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(184, 489);
             this.panel1.TabIndex = 8;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(29, 343);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(122, 53);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Eliminar miembro";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
@@ -100,16 +110,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(29, 343);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(122, 53);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Eliminar miembro";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // VsPrincipal
             // 
