@@ -28,31 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnActividad = new System.Windows.Forms.Button();
             this.labelTituloGym = new System.Windows.Forms.Label();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.btnMembresia = new System.Windows.Forms.Button();
-            this.btnPago = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnActividad
-            // 
-            this.btnActividad.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnActividad.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnActividad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActividad.Location = new System.Drawing.Point(38, 140);
-            this.btnActividad.Name = "btnActividad";
-            this.btnActividad.Size = new System.Drawing.Size(122, 23);
-            this.btnActividad.TabIndex = 1;
-            this.btnActividad.Text = "Actividad";
-            this.btnActividad.UseVisualStyleBackColor = false;
-            this.btnActividad.Click += new System.EventHandler(this.button1_Click);
             // 
             // labelTituloGym
             // 
@@ -66,7 +51,7 @@
             // btnRegistrar
             // 
             this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrar.Location = new System.Drawing.Point(29, 264);
+            this.btnRegistrar.Location = new System.Drawing.Point(29, 227);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(122, 51);
             this.btnRegistrar.TabIndex = 4;
@@ -77,7 +62,7 @@
             // btnMembresia
             // 
             this.btnMembresia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMembresia.Location = new System.Drawing.Point(29, 169);
+            this.btnMembresia.Location = new System.Drawing.Point(29, 104);
             this.btnMembresia.Name = "btnMembresia";
             this.btnMembresia.Size = new System.Drawing.Size(122, 53);
             this.btnMembresia.TabIndex = 5;
@@ -85,18 +70,9 @@
             this.btnMembresia.UseVisualStyleBackColor = true;
             this.btnMembresia.Click += new System.EventHandler(this.btnMembresia_Click);
             // 
-            // btnPago
-            // 
-            this.btnPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPago.Location = new System.Drawing.Point(38, 237);
-            this.btnPago.Name = "btnPago";
-            this.btnPago.Size = new System.Drawing.Size(122, 23);
-            this.btnPago.TabIndex = 7;
-            this.btnPago.Text = "Pago";
-            this.btnPago.UseVisualStyleBackColor = true;
-            // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btnMembresia);
             this.panel1.Controls.Add(this.btnRegistrar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
@@ -107,8 +83,6 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.btnActividad);
-            this.panel2.Controls.Add(this.btnPago);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -127,6 +101,16 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(29, 343);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(122, 53);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Eliminar miembro";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // VsPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -143,7 +127,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Principal";
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -151,14 +134,13 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btnActividad;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label labelTituloGym;
         private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.Button btnMembresia;
-        private System.Windows.Forms.Button btnPago;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button button1;
     }
 }
 
