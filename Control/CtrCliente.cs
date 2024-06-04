@@ -60,6 +60,16 @@ namespace Control
             return msg;
         }
 
+        public string BuscarCli(TextBox txtCedula)
+        {
+            string msg = "NO EXISTE CLIENTE CON ESA CEDULA";
+            if (txtCedula.Text != "")
+            {
+                
+            }
+
+            return msg;
+        }
         public void LlenarGrid(DataGridView dgvClientes)
         {
             int i = 0;
