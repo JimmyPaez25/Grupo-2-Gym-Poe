@@ -6,25 +6,27 @@ using System.Threading.Tasks;
 
 namespace Modelo
 {
-    internal class Factura
+    public class Factura
     {
-        int numfactura;
-        int serie;
 
-        public Factura(int numfactura, int serie)
+        int numfactura;
+        string serie;
+
+
+        public Factura()
+        {
+            Numfactura = 0;
+            Serie = string.Empty;
+        }
+
+        public Factura(int numfactura, string serie)
         {
             this.Numfactura = numfactura;
             this.Serie = serie;
         }
 
         public int Numfactura { get => numfactura; set => numfactura = value; }
-        public int Serie { get => serie; set => serie = value; }
-
-
-        public override string ToString()
-        {
-            return base.ToString();
-        }
+        public string Serie { get => serie; set => serie = value; }
 
 
     }
