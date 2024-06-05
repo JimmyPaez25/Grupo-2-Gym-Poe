@@ -30,8 +30,8 @@ namespace Vista
 
         private void btnMembresia_Click(object sender, EventArgs e)
         {
-            VsMembresia act = new VsMembresia();
-            act.Visible = true;
+           VsConsultarCliente conCli = new VsConsultarCliente();
+            conCli.ShowDialog();
         }
 
         private void VsPrincipal_Load(object sender, EventArgs e)

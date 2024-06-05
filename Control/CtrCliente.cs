@@ -20,14 +20,15 @@ namespace Control
             return listaCli.Count;
         }
 
-        public string IngresarCli(string rCedula, string rNombre, string rApellido, string rFechaNacimiento, string rTelefono, string rEstado, string rDireccion)
+        public string IngresarCli(string rCedula, string rNombre, string rApellido,string rFechaNacimiento, string rTelefono, string rEstado, string rDireccion)
         {
             String msg = "ERROR: SE ESPERABA DATOS CORRECTOS!!";
             Validacion v = new Validacion();
             Cliente cli = null;
+            DateTime fechaNac = v.ConvertirDateTime(rFechaNacimiento);
             if (rCedula != "" && rNombre != "" && rApellido!= "" && rFechaNacimiento !="" && rTelefono != "" && rDireccion != "")
             {
-                cli = new Cliente(rCedula, rNombre, rApellido, rFechaNacimiento, rTelefono, rDireccion, rEstado);
+                cli = new Cliente(rCedula, rNombre, rApellido, fechaNac, rTelefono, rDireccion, rEstado);
                 listaCli.Add(cli); // Agregando datos del cliente
                 msg = cli.ToString() + "\n CLIENTE ESTUDIANTE REGISTRADO EXITOSAMENTE!!";
             } 
@@ -38,13 +39,11 @@ namespace Control
         {
             String msg = "ERROR: SE ESPERABA DATOS CORRECTOS11";
             Validacion v = new Validacion();
- //           DateTime fechaNac = v.ConvertirDateTime(rFechaNacimiento);
-            
-
+            DateTime fechaNac = v.ConvertirDateTime(rFechaNacimiento);
             Cliente cli = null;
             if (rCedula != "" && rNombre != "" && rApellido != "" && rFechaNacimiento != "" && rTelefono != "" && rDireccion != "" && comprobante != "")
             {
-                cli = new ClienteEstudiante(rCedula, rNombre, rApellido, rFechaNacimiento, rTelefono, rDireccion, rEstado, comprobante);
+                cli = new ClienteEstudiante(rCedula, rNombre, rApellido, fechaNac, rTelefono, rDireccion, rEstado, comprobante);
                 listaCli.Add(cli); // Agregando datos del cliente
                 msg = cli.ToString() + "\n CLIENTE REGISTRADO EXITOSAMENTE11";
             }
@@ -126,44 +125,44 @@ namespace Control
         /// 
 
 
-        public Cliente ObtenerClientePorCedula(string cedula)
-        {
-            foreach (Cliente cli in listaCli)
-            {
-                if (cli.Cedula == cedula)
-                {
-                    return cli;
-                }
-            }
-            return null;
-        }
+        //public Cliente ObtenerClientePorCedula(string cedula)
+        //{
+        //    foreach (Cliente cli in listaCli)
+        //    {
+        //        if (cli.Cedula == cedula)
+        //        {
+        //            return cli;
+        //        }
+        //    }
+        //    return null;
+        //}
 
 
 
-        public List<string> ObtenerCedulasClientes()
-        {
-            List<string> cedulas = new List<string>();
-            foreach (Cliente cli in listaCli)
-            {
-                cedulas.Add(cli.Cedula);
-            }
-            return cedulas;
-        }
+        //public List<string> ObtenerCedulasClientes()
+        //{
+        //    List<string> cedulas = new List<string>();
+        //    foreach (Cliente cli in listaCli)
+        //    {
+        //        cedulas.Add(cli.Cedula);
+        //    }
+        //    return cedulas;
+        //}
 
 
 
-        public ClienteDatos ObtenerDatosClientePorCedula(string cedula)
-        {
-            Cliente cli = ObtenerClientePorCedula(cedula);
-            if (cli != null)
-            {
-                return new ClienteDatos(cli.Nombre, cli.Apellido, cli.FechaNacimiento, cli.Telefono, cli.Direccion, cli.Estado);
-            }
-            else
-            {
-                return null;
-            }
-        }
+        //public ClienteDatos ObtenerDatosClientePorCedula(string cedula)
+        //{
+        //    Cliente cli = ObtenerClientePorCedula(cedula);
+        //    if (cli != null)
+        //    {
+        //        return new ClienteDatos(cli.Nombre, cli.Apellido, cli.FechaNacimiento, cli.Telefono, cli.Direccion, cli.Estado);
+        //    }
+        //    else
+        //    {
+        //        return null;
+        //    }
+        //}
 
 
         ///

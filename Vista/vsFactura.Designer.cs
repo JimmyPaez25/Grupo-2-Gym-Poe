@@ -59,7 +59,7 @@
             this.txtNumFactura.ReadOnly = true;
             this.txtNumFactura.Size = new System.Drawing.Size(269, 22);
             this.txtNumFactura.TabIndex = 0;
-            this.txtNumFactura.TextChanged += new System.EventHandler(this.txtNumFactura_TextChanged);
+
             // 
             // txtNombreUsuario
             // 
@@ -67,7 +67,6 @@
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.txtNombreUsuario.Size = new System.Drawing.Size(269, 22);
             this.txtNombreUsuario.TabIndex = 2;
-            this.txtNombreUsuario.TextChanged += new System.EventHandler(this.txtNombreUsuario_TextChanged);
             // 
             // dtFechaFactura
             // 
@@ -75,7 +74,6 @@
             this.dtFechaFactura.Name = "dtFechaFactura";
             this.dtFechaFactura.Size = new System.Drawing.Size(269, 22);
             this.dtFechaFactura.TabIndex = 3;
-            this.dtFechaFactura.ValueChanged += new System.EventHandler(this.dtFechaFactura_ValueChanged);
             // 
             // label1
             // 
@@ -120,7 +118,6 @@
             this.cbNumeroCedula.Name = "cbNumeroCedula";
             this.cbNumeroCedula.Size = new System.Drawing.Size(269, 24);
             this.cbNumeroCedula.TabIndex = 8;
-            this.cbNumeroCedula.SelectedIndexChanged += new System.EventHandler(this.cbNumeroCedula_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -263,7 +260,6 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "VsFactura";
             this.Text = "Datos Factura";
-            this.Load += new System.EventHandler(this.VsFactura_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

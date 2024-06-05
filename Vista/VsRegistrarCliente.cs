@@ -44,18 +44,31 @@ namespace Vista
         {
             string rCedula = txtCedula.Text.Trim(), rTelefono = txtTelefono.Text.Trim();
             string rNombre = txtNombre.Text.Trim(), rDireccion = txtDireccion.Text.Trim();
-            string rFechaNacimiento = txtDate.Text.Trim(), esEstudiante = (string)cmbEstudiante.SelectedItem;
+            string rFechaNacimiento = dtpDate.Text.Trim(), esEstudiante = (string)cmbEstudiante.SelectedItem;
             string rApellido = txtApellido.Text.Trim(), rEstado = "ACTIVO";
             string rComprobante = txtComprobante.Text.Trim();
             string msg = "";
-
-            if (esEstudiante.Equals("SI"))
+            if (string.IsNullOrEmpty(rCedula) || rCedula.Equals("") &&
+                string.IsNullOrEmpty(rNombre) || rNombre.Equals("") &&
+                 string.IsNullOrEmpty(rTelefono) || rTelefono.Equals("") &&
+                  string.IsNullOrEmpty(rDireccion) || rDireccion.Equals("") &&
+                  string.IsNullOrEmpty(rApellido) || rApellido.Equals(""))
             {
-                msg = ctrCli.IngresarCliEst(rCedula, rNombre, rApellido, rFechaNacimiento, rTelefono, rEstado, rDireccion, rComprobante);
-            }else
-            {
-                msg = ctrCli.IngresarCli(rCedula, rNombre, rApellido, rFechaNacimiento, rTelefono, rEstado, rDireccion);
+                MessageBox.Show("ERROR: NO PUEDEN EXISTIR CAMPOS VACIOS");
             }
+            else
+            {
+                if (esEstudiante.Equals("SI"))
+                {
+                    msg = ctrCli.IngresarCliEst(rCedula, rNombre, rApellido, rFechaNacimiento, rTelefono, rEstado, rDireccion, rComprobante);
+                }
+                else
+                {
+                    msg = ctrCli.IngresarCli(rCedula, rNombre, rApellido, rFechaNacimiento, rTelefono, rEstado, rDireccion);
+                }
+            }
+
+            
             VsMembresia vMembresia = new VsMembresia(); vMembresia.ShowDialog();
             this.Hide();
         }
