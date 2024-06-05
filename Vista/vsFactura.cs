@@ -16,7 +16,7 @@ namespace Vista
     {
 
 
-        CtrCliente cliente;
+        CtClient cliente;
         CtrFactura factura;
         List<CtrFactura> listCliente;
         string seleccion;
@@ -34,7 +34,7 @@ namespace Vista
             InitializeComponent();
             cliente = new CtrCliente();
             factura = new CtrFactura();
-            List<Cliente> listCliente = ctrfact.GetClientes(); // Declarar la variable con el tipo correcto
+            listCliente = CtrFactura.GetCliente();
             cbNumeroCedula.DisplayMember = "cedula"; // Propiedad que se mostrará en el ComboBox
             cbNumeroCedula.ValueMember = "cedula"; // Propiedad que se seleccionará al seleccionar un elemento del ComboBox
             cbNumeroCedula.DataSource = listCliente;
@@ -68,7 +68,7 @@ namespace Vista
             if (true)
             {
                 seleccion = cbNumeroCedula.Text;
-                nombre = ctrfact.obtenerNombre(seleccion);
+                nombre = CtClient.obtenerNombre(seleccion);
 
             }
             txtNombreUsuario.Text = nombre;

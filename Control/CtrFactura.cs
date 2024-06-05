@@ -11,10 +11,8 @@ namespace Control
     public class CtrFactura
     {
 
-        public List<Cliente> listaCli = new List<Cliente>();
 
-
-
+        //Esto es para factura
         public string GenerarFactura()
         {
             return generarCodigoUnico();
@@ -35,34 +33,41 @@ namespace Control
         }
 
 
+    }
 
 
 
-        public List<Cliente> GetClientes()
+    public class CtClient
+    {
+        //Esto es para clientes
+
+        public List<Cliente> lstccliente = new List<Cliente>();
+
+        public List<Cliente> GetCliente()
         {
-            listaCli.Add(new Cliente("0928961044", "Pepe", " ", " ", " ", " ", " "));
-            listaCli.Add(new Cliente("0928961066", "Arepa", " ", " ", " ", " ", " "));
-            listaCli.Add(new Cliente("0928961055", "Juan", " ", " ", " ", " ", " "));
+            lstccliente.Add(new Cliente("0928961044", "Pepe", " ", " ", " ", " ", " "));
+            lstccliente.Add(new Cliente("0928961066", "Arepa", " ", " ", " ", " ", " "));
+            lstccliente.Add(new Cliente("0928961055", "Juan", " ", " ", " ", " ", " "));
 
-            return listaCli;
+            return lstccliente;
         }
 
         public string obtenerNombre(string numeroCedula)
         {
-            foreach (Cliente cliente in listaCli)
+            foreach (Cliente cliente in lstccliente)
             {
                 if (cliente.Cedula.ToString() == numeroCedula)
                 {
                     return cliente.Nombre;
+                    return cliente.Apellido;
+                    return cliente.FechaNacimiento;
+                    return cliente.Telefono;
+                    return cliente.Direccion;
+                    return cliente.Estado;
                 }
             }
             return "No se encontró un cliente con ese número de cédula.";
         }
-
-
-
-
-
     }
 
 
