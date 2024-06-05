@@ -26,7 +26,7 @@ namespace Vista
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            ctrCli.ActualizarCli(txtCedula, txtNombre, txtApellido, txtDate, txtTelefono, txtDireccion, cmbEstudiante, cmbEstado);
+
         }
     }
 }

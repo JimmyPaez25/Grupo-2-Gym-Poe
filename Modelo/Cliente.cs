@@ -38,7 +38,7 @@ namespace Modelo
         public override string ToString()
         {
             return "> CEDULA: " + cedula + "\n> NOMBRE: " + nombre + "\n> APELLIDO: " + apellido + "\n> FECHA DE NACIMIENTO: " + fechaNacimiento +
-                   "\n> TELEFONO: " + telefono + "\n> DIRECCION: " + direccion + "\n> ESTADO: " + estado;
+                   "\n> TELEFONO: " + telefono + "\n> DIRECCION: " + direccion;
         }
         
     }

@@ -27,12 +27,12 @@ namespace Vista
         }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-
+            string filtro =txtCedula.Text.Trim();
+            ctrCli.ConsultarClientePorCedula(dgvClientes,filtro);
         }
         private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
         {
             v.ValidarNumero(sender, e);
-            //ctrCli.BuscarCli(txtCedula);
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -44,6 +44,11 @@ namespace Vista
         }
 
         private void dgvClientes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

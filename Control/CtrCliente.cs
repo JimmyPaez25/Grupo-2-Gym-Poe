@@ -34,7 +34,7 @@ namespace Control
             return msg;
         }
 
-        public string IngresarCliEst(string rCedula, string rNombre, string rApellido, string rFechaNacimiento, string rTelefono,string rEstado, string rDireccion, string esEstudiante)
+        public string IngresarCliEst(string rCedula, string rNombre, string rApellido, string rFechaNacimiento, string rTelefono,string rEstado, string rDireccion, string comprobante)
         {
             String msg = "ERROR: SE ESPERABA DATOS CORRECTOS11";
             Validacion v = new Validacion();
@@ -42,54 +42,71 @@ namespace Control
             
 
             Cliente cli = null;
-            if (rCedula != "" && rNombre != "" && rApellido != "" && rFechaNacimiento != "" && rTelefono != "" && rDireccion != "")
+            if (rCedula != "" && rNombre != "" && rApellido != "" && rFechaNacimiento != "" && rTelefono != "" && rDireccion != "" && comprobante != "")
             {
-                cli = new ClienteEstudiante(rCedula, rNombre, rApellido, rFechaNacimiento, rTelefono, rDireccion, rEstado, esEstudiante);
+                cli = new ClienteEstudiante(rCedula, rNombre, rApellido, rFechaNacimiento, rTelefono, rDireccion, rEstado, comprobante);
                 listaCli.Add(cli); // Agregando datos del cliente
                 msg = cli.ToString() + "\n CLIENTE REGISTRADO EXITOSAMENTE11";
             }
             return msg;
         }
-        public void ActualizarCli(TextBox txtCedula, TextBox txtNombre, TextBox txtApellido, TextBox txtDate, TextBox txtTelefono, TextBox txtDireccion, ComboBox cmbEstudiante, ComboBox cmbEstado)
+
+        //public string IngresarPolimorfismo()
+
+        public void LlenarGrid(DataGridView dgvClientes)
         {
-            //txtNombre.Text = dgvClientes
+            int i = 0;
+            dgvClientes.Rows.Clear(); // Limpiar filas si las hay 
+            foreach (Cliente x in ListaCli )
+            {
+                    i = dgvClientes.Rows.Add();
+                    dgvClientes.Rows[i].Cells["clmEstado"].Value = x.Estado;
+                    dgvClientes.Rows[i].Cells["clmCedula"].Value = x.Cedula;
+                    dgvClientes.Rows[i].Cells["clmNombre"].Value = x.Nombre;
+                    dgvClientes.Rows[i].Cells["clmApellido"].Value = x.Apellido;
+                    dgvClientes.Rows[i].Cells["clmTelefono"].Value = x.Telefono;
+                    dgvClientes.Rows[i].Cells["clmDireccion"].Value = x.Direccion;
+
+                    if (x is ClienteEstudiante clienteEstudiante)
+                    {
+
+                        dgvClientes.Rows[i].Cells["clmComprobanteEst"].Value = clienteEstudiante.Comprobante;
+                    }
+                    else
+                    {
+                        dgvClientes.Rows[i].Cells["clmComprobanteEst"].Value = "SIN COMPROBANTE";
+                    }
+            }
+
         }
 
-        //public string BuscarCli(TextBox txtCedula)
-        //{
-        //    string msg = "NO EXISTE CLIENTE CON ESA CEDULA";
-        //    if (txtCedula.Text != "")
-        //    {
-                
-        //    }
-
-        //    return msg;
-        //}
-        public void LlenarGrid(DataGridView dgvClientes)
+        public void ConsultarClientePorCedula(DataGridView dgvClientes, string filtro = "")
         {
             int i = 0;
             dgvClientes.Rows.Clear(); // Limpiar filas si las hay 
             foreach (Cliente x in ListaCli)
             {
-                i = dgvClientes.Rows.Add();
-                dgvClientes.Rows[i].Cells["clmEstado"].Value = x.Estado;
-                dgvClientes.Rows[i].Cells["clmCedula"].Value = x.Cedula;
-                dgvClientes.Rows[i].Cells["clmNombre"].Value = x.Nombre;
-                dgvClientes.Rows[i].Cells["clmApellido"].Value = x.Apellido;
-                dgvClientes.Rows[i].Cells["clmTelefono"].Value = x.Telefono;
-                dgvClientes.Rows[i].Cells["clmDireccion"].Value = x.Direccion;
+                if ((string.IsNullOrEmpty(filtro)) || x.Cedula.Contains(filtro))
+                {
+                    i = dgvClientes.Rows.Add();
+                    dgvClientes.Rows[i].Cells["clmEstado"].Value = x.Estado;
+                    dgvClientes.Rows[i].Cells["clmCedula"].Value = x.Cedula;
+                    dgvClientes.Rows[i].Cells["clmNombre"].Value = x.Nombre;
+                    dgvClientes.Rows[i].Cells["clmApellido"].Value = x.Apellido;
+                    dgvClientes.Rows[i].Cells["clmTelefono"].Value = x.Telefono;
+                    dgvClientes.Rows[i].Cells["clmDireccion"].Value = x.Direccion;
 
-                if(x is ClienteEstudiante)
-                {
-                    dgvClientes.Rows[i].Cells["clmEstudiante"].Value  = "SI";
+                    if (x is ClienteEstudiante clienteEstudiante)
+                    {
+                        dgvClientes.Rows[i].Cells["clmComprobanteEst"].Value = clienteEstudiante.Comprobante;
+                    }
+                    else
+                    {
+                        dgvClientes.Rows[i].Cells["clmComprobanteEst"].Value = "SIN COMPROBANTE";
+                    }
+
                 }
-                else
-                {
-                    dgvClientes.Rows[i].Cells["clmEstudiante"].Value = "NO";
-                }
-                
             }
-
         }
 
         
