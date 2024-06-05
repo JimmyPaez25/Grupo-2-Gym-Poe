@@ -50,6 +50,12 @@ namespace Vista
             facto.ShowDialog();
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            VsActividad vActividad = new VsActividad(); vActividad.ShowDialog();
+            this.Hide();
+        }
+
         // FIN
     }
 }
