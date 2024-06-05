@@ -21,21 +21,23 @@ namespace Vista
             InitializeComponent();
             lblEstado.Visible = false;
             cmbEstado.Visible = false;
-        }
-
-        private void lblCedula_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblDireccion_Click(object sender, EventArgs e)
-        {
-
+            lblComprobante.Visible = false;
+            txtComprobante.Visible = false;
         }
 
         private void cmbEstudiante_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            string comprobante = (string)cmbEstudiante.SelectedItem;
+            if (comprobante.Equals("SI"))
+            {
+                lblComprobante.Visible=true;
+                txtComprobante.Visible = true;
+            }
+            else
+            {
+                lblComprobante.Visible = false;
+                txtComprobante.Visible = false;
+            }
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
@@ -44,11 +46,12 @@ namespace Vista
             string rNombre = txtNombre.Text.Trim(), rDireccion = txtDireccion.Text.Trim();
             string rFechaNacimiento = txtDate.Text.Trim(), esEstudiante = (string)cmbEstudiante.SelectedItem;
             string rApellido = txtApellido.Text.Trim(), rEstado = "ACTIVO";
+            string rComprobante = txtComprobante.Text.Trim();
             string msg = "";
 
             if (esEstudiante.Equals("SI"))
             {
-                msg = ctrCli.IngresarCliEst(rCedula, rNombre, rApellido, rFechaNacimiento, rTelefono, rEstado, rDireccion, esEstudiante);
+                msg = ctrCli.IngresarCliEst(rCedula, rNombre, rApellido, rFechaNacimiento, rTelefono, rEstado, rDireccion, rComprobante);
             }else
             {
                 msg = ctrCli.IngresarCli(rCedula, rNombre, rApellido, rFechaNacimiento, rTelefono, rEstado, rDireccion);
@@ -61,27 +64,17 @@ namespace Vista
             VsConsultarCliente cltCliente = new VsConsultarCliente();
             cltCliente.Visible = true;
         }
-
-
-
-        private void lblDate_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
         {
             v.ValidarNumero(sender, e);
+            v.maximoDigitosNumericos(sender, e, 9, txtCedula);
         }
 
         private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
         {
             v.ValidarNumero(sender, e);
+            v.maximoDigitosNumericos(sender, e, 9, txtCedula);
         }
 
-        private void cmbEstado_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

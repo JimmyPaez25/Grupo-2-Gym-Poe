@@ -206,6 +206,15 @@ namespace Control
             }
         }
 
-    // FIN    
+        public void maximoDigitosNumericos(object sender, EventArgs e, int maxLength, TextBox txt) //DIGITOS MAXIMOS PARA UN TEXTBOX
+        {
+            if (txt.Text.Length > maxLength)
+            {
+                txt.Text = txt.Text.Remove(txt.Text.Length - 1);
+                MessageBox.Show($"Solo se permiten {maxLength} digitos");
+            }
+        }
+
+        // FIN    
     }
 }

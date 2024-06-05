@@ -47,6 +47,8 @@
             this.btnConsultarMembresia = new System.Windows.Forms.Button();
             this.cmbEstado = new System.Windows.Forms.ComboBox();
             this.lblEstado = new System.Windows.Forms.Label();
+            this.lblComprobante = new System.Windows.Forms.Label();
+            this.txtComprobante = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblRegistro
@@ -78,7 +80,6 @@
             this.lblCedula.Size = new System.Drawing.Size(63, 20);
             this.lblCedula.TabIndex = 3;
             this.lblCedula.Text = "Cedula:";
-            this.lblCedula.Click += new System.EventHandler(this.lblCedula_Click);
             // 
             // lblEstudiante
             // 
@@ -99,7 +100,6 @@
             this.lblDireccion.Size = new System.Drawing.Size(79, 20);
             this.lblDireccion.TabIndex = 24;
             this.lblDireccion.Text = "Dirección:";
-            this.lblDireccion.Click += new System.EventHandler(this.lblDireccion_Click);
             // 
             // lblTelefono
             // 
@@ -120,7 +120,6 @@
             this.lblDate.Size = new System.Drawing.Size(163, 20);
             this.lblDate.TabIndex = 22;
             this.lblDate.Text = "Fecha de Nacimiento:";
-            this.lblDate.Click += new System.EventHandler(this.lblDate_Click);
             // 
             // lblApellido
             // 
@@ -218,21 +217,37 @@
             this.cmbEstado.Items.AddRange(new object[] {
             "ACTIVO",
             "INACTIVO"});
-            this.cmbEstado.Location = new System.Drawing.Point(255, 265);
+            this.cmbEstado.Location = new System.Drawing.Point(256, 297);
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(121, 21);
             this.cmbEstado.TabIndex = 37;
-            this.cmbEstado.SelectedIndexChanged += new System.EventHandler(this.cmbEstado_SelectedIndexChanged);
             // 
             // lblEstado
             // 
             this.lblEstado.AutoSize = true;
             this.lblEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic);
-            this.lblEstado.Location = new System.Drawing.Point(87, 263);
+            this.lblEstado.Location = new System.Drawing.Point(82, 298);
             this.lblEstado.Name = "lblEstado";
             this.lblEstado.Size = new System.Drawing.Size(64, 20);
             this.lblEstado.TabIndex = 38;
             this.lblEstado.Text = "Estado:";
+            // 
+            // lblComprobante
+            // 
+            this.lblComprobante.AutoSize = true;
+            this.lblComprobante.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic);
+            this.lblComprobante.Location = new System.Drawing.Point(82, 267);
+            this.lblComprobante.Name = "lblComprobante";
+            this.lblComprobante.Size = new System.Drawing.Size(114, 20);
+            this.lblComprobante.TabIndex = 39;
+            this.lblComprobante.Text = "Comprobante: ";
+            // 
+            // txtComprobante
+            // 
+            this.txtComprobante.Location = new System.Drawing.Point(256, 267);
+            this.txtComprobante.Name = "txtComprobante";
+            this.txtComprobante.Size = new System.Drawing.Size(202, 20);
+            this.txtComprobante.TabIndex = 40;
             // 
             // VsRegistrarCliente
             // 
@@ -240,6 +255,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(546, 464);
+            this.Controls.Add(this.txtComprobante);
+            this.Controls.Add(this.lblComprobante);
             this.Controls.Add(this.lblEstado);
             this.Controls.Add(this.cmbEstado);
             this.Controls.Add(this.btnConsultarMembresia);
@@ -288,5 +305,7 @@
         private System.Windows.Forms.Button btnConsultarMembresia;
         private System.Windows.Forms.ComboBox cmbEstado;
         private System.Windows.Forms.Label lblEstado;
+        private System.Windows.Forms.Label lblComprobante;
+        private System.Windows.Forms.TextBox txtComprobante;
     }
 }
