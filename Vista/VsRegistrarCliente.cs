@@ -76,5 +76,14 @@ namespace Vista
             v.maximoDigitosNumericos(sender, e, 9, txtCedula);
         }
 
+        private void txtCedula_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtComprobante_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
