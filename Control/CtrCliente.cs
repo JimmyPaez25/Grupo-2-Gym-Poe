@@ -65,8 +65,10 @@ namespace Control
                     dgvClientes.Rows[i].Cells["clmApellido"].Value = x.Apellido;
                     dgvClientes.Rows[i].Cells["clmTelefono"].Value = x.Telefono;
                     dgvClientes.Rows[i].Cells["clmDireccion"].Value = x.Direccion;
+                    dgvClientes.Rows[i].Cells["clmDate"].Value = x.FechaNacimiento;
 
-                    if (x is ClienteEstudiante clienteEstudiante)
+
+                if (x is ClienteEstudiante clienteEstudiante)
                     {
 
                         dgvClientes.Rows[i].Cells["clmComprobanteEst"].Value = clienteEstudiante.Comprobante;
@@ -94,6 +96,7 @@ namespace Control
                     dgvClientes.Rows[i].Cells["clmApellido"].Value = x.Apellido;
                     dgvClientes.Rows[i].Cells["clmTelefono"].Value = x.Telefono;
                     dgvClientes.Rows[i].Cells["clmDireccion"].Value = x.Direccion;
+                    dgvClientes.Rows[i].Cells["clmDate"].Value = x.FechaNacimiento;
 
                     if (x is ClienteEstudiante clienteEstudiante)
                     {

@@ -151,7 +151,6 @@
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(202, 20);
             this.txtCedula.TabIndex = 27;
-            this.txtCedula.TextChanged += new System.EventHandler(this.txtCedula_TextChanged);
             this.txtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
             // 
             // txtTelefono
@@ -242,7 +241,6 @@
             this.txtComprobante.Name = "txtComprobante";
             this.txtComprobante.Size = new System.Drawing.Size(202, 20);
             this.txtComprobante.TabIndex = 40;
-            this.txtComprobante.TextChanged += new System.EventHandler(this.txtComprobante_TextChanged);
             // 
             // dtpDate
             // 

@@ -52,7 +52,8 @@ namespace Vista
                 string.IsNullOrEmpty(rNombre) || rNombre.Equals("") &&
                  string.IsNullOrEmpty(rTelefono) || rTelefono.Equals("") &&
                   string.IsNullOrEmpty(rDireccion) || rDireccion.Equals("") &&
-                  string.IsNullOrEmpty(rApellido) || rApellido.Equals(""))
+                  string.IsNullOrEmpty(rApellido) || rApellido.Equals("")
+                   || esEstudiante.Equals("") )
             {
                 MessageBox.Show("ERROR: NO PUEDEN EXISTIR CAMPOS VACIOS");
             }
@@ -81,23 +82,13 @@ namespace Vista
         private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
         {
             v.ValidarNumero(sender, e);
-            v.maximoDigitosNumericos(sender, e, 9, txtCedula);
+            v.maximoDigitosNumericos(sender, e, 10, txtCedula);
         }
 
         private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
         {
             v.ValidarNumero(sender, e);
-            v.maximoDigitosNumericos(sender, e, 9, txtCedula);
-        }
-
-        private void txtCedula_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtComprobante_TextChanged(object sender, EventArgs e)
-        {
-
+            v.maximoDigitosNumericos(sender, e, 10, txtTelefono);
         }
     }
 }

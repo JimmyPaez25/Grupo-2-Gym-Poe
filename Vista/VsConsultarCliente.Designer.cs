@@ -41,6 +41,7 @@
             this.clmApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmComprobanteEst = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
@@ -58,6 +59,7 @@
             // 
             // dgvClientes
             // 
+            this.dgvClientes.AllowUserToAddRows = false;
             this.dgvClientes.AllowUserToDeleteRows = false;
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -66,12 +68,13 @@
             this.clmApellido,
             this.clmTelefono,
             this.clmDireccion,
+            this.clmDate,
             this.clmComprobanteEst,
             this.clmEstado});
-            this.dgvClientes.Location = new System.Drawing.Point(113, 181);
+            this.dgvClientes.Location = new System.Drawing.Point(40, 191);
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
-            this.dgvClientes.Size = new System.Drawing.Size(805, 279);
+            this.dgvClientes.Size = new System.Drawing.Size(903, 279);
             this.dgvClientes.TabIndex = 2;
             this.dgvClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellClick);
             this.dgvClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellContentClick);
@@ -166,6 +169,12 @@
             this.clmDireccion.Name = "clmDireccion";
             this.clmDireccion.ReadOnly = true;
             // 
+            // clmDate
+            // 
+            this.clmDate.HeaderText = "FECHA DE NACIMIENTO";
+            this.clmDate.Name = "clmDate";
+            this.clmDate.ReadOnly = true;
+            // 
             // clmComprobanteEst
             // 
             this.clmComprobanteEst.HeaderText = "COMPROBANTE DE ESTUDIANTE";
@@ -215,6 +224,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmApellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmTelefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDireccion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmComprobanteEst;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmEstado;
     }
