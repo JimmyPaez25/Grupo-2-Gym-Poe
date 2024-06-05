@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Control;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace Vista
 {
     public partial class VsEditarCliente : Form
     {
+        CtrCliente ctrCli = new CtrCliente();
         public VsEditarCliente()
         {
             InitializeComponent();
@@ -24,7 +26,7 @@ namespace Vista
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-
+            ctrCli.ActualizarCli(txtCedula, txtNombre, txtApellido, txtDate, txtTelefono, txtDireccion, cmbEstudiante, cmbEstado);
         }
     }
 }

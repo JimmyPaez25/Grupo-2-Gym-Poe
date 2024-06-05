@@ -170,10 +170,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\img\fondoprueba.png" />
+    <None Include="Resources\Img_Gym2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Img_Gym2.png" />
+    <Folder Include="bin\Debug\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Img_vtnPrincipal.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

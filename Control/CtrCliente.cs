@@ -11,8 +11,9 @@ namespace Control
     public class CtrCliente
     {
         private static List<Cliente> listaCli = new List<Cliente>();
+        private int poc;
 
-        public static List<Cliente> ListaCliente { get => listaCli; set => listaCli = value; }
+        public static List<Cliente> ListaCli { get => listaCli; set => listaCli = value; }
 
         public int GetTotal()
         {
@@ -49,32 +50,26 @@ namespace Control
             }
             return msg;
         }
-
-        public string ActualizarCli(string rCedula, string rNombre, string rApellido, string rFechaNacimiento, string rTelefono, string rEstado, string rDireccion, string esEstudiante)
+        public void ActualizarCli(TextBox txtCedula, TextBox txtNombre, TextBox txtApellido, TextBox txtDate, TextBox txtTelefono, TextBox txtDireccion, ComboBox cmbEstudiante, ComboBox cmbEstado)
         {
-            string msg = "ERROR: ALGUN DATO ESTA INCORRECTO";
-            Validacion v = new Validacion();
-
-
-
-            return msg;
+            //txtNombre.Text = dgvClientes
         }
 
-        public string BuscarCli(TextBox txtCedula)
-        {
-            string msg = "NO EXISTE CLIENTE CON ESA CEDULA";
-            if (txtCedula.Text != "")
-            {
+        //public string BuscarCli(TextBox txtCedula)
+        //{
+        //    string msg = "NO EXISTE CLIENTE CON ESA CEDULA";
+        //    if (txtCedula.Text != "")
+        //    {
                 
-            }
+        //    }
 
-            return msg;
-        }
+        //    return msg;
+        //}
         public void LlenarGrid(DataGridView dgvClientes)
         {
             int i = 0;
             dgvClientes.Rows.Clear(); // Limpiar filas si las hay 
-            foreach (Cliente x in ListaCliente)
+            foreach (Cliente x in ListaCli)
             {
                 i = dgvClientes.Rows.Add();
                 dgvClientes.Rows[i].Cells["clmEstado"].Value = x.Estado;
@@ -96,5 +91,7 @@ namespace Control
             }
 
         }
+
+        
     }
 }

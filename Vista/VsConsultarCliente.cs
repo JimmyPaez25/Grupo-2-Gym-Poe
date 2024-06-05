@@ -16,6 +16,7 @@ namespace Vista
         private CtrCliente ctrCli = new CtrCliente();
         private Validacion v = new Validacion();
         private VsRegistrarCliente vRC = new VsRegistrarCliente();
+        private int poc;
 
 
         public VsConsultarCliente()
@@ -31,14 +32,20 @@ namespace Vista
         private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
         {
             v.ValidarNumero(sender, e);
-            ctrCli.BuscarCli(txtCedula);
+            //ctrCli.BuscarCli(txtCedula);
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             VsEditarCliente vsEditarClint = new VsEditarCliente();
             vsEditarClint.Visible = true;
+            poc = dgvClientes.CurrentRow.Index;
+
         }
 
+        private void dgvClientes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
