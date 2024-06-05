@@ -13,7 +13,7 @@ namespace Control
         private static List<Cliente> listaCli = new List<Cliente>();
         private int poc;
 
-        public static List<Cliente> ListaCliente { get => listaCli; set => listaCli = value; }
+        public static List<Cliente> ListaCli { get => listaCli; set => listaCli = value; }
 
         public int GetTotal()
         {
@@ -69,7 +69,7 @@ namespace Control
         {
             int i = 0;
             dgvClientes.Rows.Clear(); // Limpiar filas si las hay 
-            foreach (Cliente x in ListaCliente)
+            foreach (Cliente x in ListaCli)
             {
                 i = dgvClientes.Rows.Add();
                 dgvClientes.Rows[i].Cells["clmEstado"].Value = x.Estado;
