@@ -63,16 +63,6 @@ namespace Vista.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap fondoprueba {
-            get {
-                object obj = ResourceManager.GetObject("fondoprueba", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap ico_borrar_img {
             get {
                 object obj = ResourceManager.GetObject("ico_borrar-img", resourceCulture);
@@ -86,6 +76,16 @@ namespace Vista.Properties {
         internal static System.Drawing.Bitmap Img_Gym2 {
             get {
                 object obj = ResourceManager.GetObject("Img_Gym2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Img_vtnPrincipal {
+            get {
+                object obj = ResourceManager.GetObject("Img_vtnPrincipal", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
