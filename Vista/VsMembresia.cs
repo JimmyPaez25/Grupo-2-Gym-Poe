@@ -90,5 +90,10 @@ namespace Vista
         {
 
         }
+
+        private void labelC_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

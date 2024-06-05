@@ -56,7 +56,8 @@ namespace Vista
             {
                 msg = ctrCli.IngresarCli(rCedula, rNombre, rApellido, rFechaNacimiento, rTelefono, rEstado, rDireccion);
             }
-            MessageBox.Show(msg);
+            VsMembresia vMembresia = new VsMembresia(); vMembresia.ShowDialog();
+            this.Hide();
         }
 
         private void btnConsultarMembresia_Click(object sender, EventArgs e)

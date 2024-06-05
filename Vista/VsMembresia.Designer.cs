@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.labelTitulo = new System.Windows.Forms.Label();
-            this.labelC = new System.Windows.Forms.Label();
+            this.labelN = new System.Windows.Forms.Label();
             this.labelM = new System.Windows.Forms.Label();
             this.labelFI = new System.Windows.Forms.Label();
             this.labelFF = new System.Windows.Forms.Label();
@@ -60,79 +60,80 @@
             this.labelTitulo.Text = "Membresía";
             this.labelTitulo.Click += new System.EventHandler(this.label1_Click);
             // 
-            // labelC
+            // labelN
             // 
-            this.labelC.AutoSize = true;
-            this.labelC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelC.Location = new System.Drawing.Point(142, 67);
-            this.labelC.Name = "labelC";
-            this.labelC.Size = new System.Drawing.Size(50, 13);
-            this.labelC.TabIndex = 1;
-            this.labelC.Text = "Cédula:";
+            this.labelN.AutoSize = true;
+            this.labelN.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelN.Location = new System.Drawing.Point(120, 67);
+            this.labelN.Name = "labelN";
+            this.labelN.Size = new System.Drawing.Size(47, 13);
+            this.labelN.TabIndex = 1;
+            this.labelN.Text = "Nombre:";
+            this.labelN.Click += new System.EventHandler(this.labelC_Click);
             // 
             // labelM
             // 
             this.labelM.AutoSize = true;
-            this.labelM.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelM.Location = new System.Drawing.Point(121, 93);
+            this.labelM.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelM.Location = new System.Drawing.Point(120, 93);
             this.labelM.Name = "labelM";
-            this.labelM.Size = new System.Drawing.Size(71, 13);
+            this.labelM.Size = new System.Drawing.Size(61, 13);
             this.labelM.TabIndex = 2;
             this.labelM.Text = "Membresia:";
             // 
             // labelFI
             // 
             this.labelFI.AutoSize = true;
-            this.labelFI.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFI.Location = new System.Drawing.Point(112, 119);
+            this.labelFI.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFI.Location = new System.Drawing.Point(120, 119);
             this.labelFI.Name = "labelFI";
-            this.labelFI.Size = new System.Drawing.Size(80, 13);
+            this.labelFI.Size = new System.Drawing.Size(67, 13);
             this.labelFI.TabIndex = 3;
             this.labelFI.Text = "Fecha inicio:";
             // 
             // labelFF
             // 
             this.labelFF.AutoSize = true;
-            this.labelFF.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFF.Location = new System.Drawing.Point(128, 146);
+            this.labelFF.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFF.Location = new System.Drawing.Point(122, 146);
             this.labelFF.Name = "labelFF";
-            this.labelFF.Size = new System.Drawing.Size(64, 13);
+            this.labelFF.Size = new System.Drawing.Size(54, 13);
             this.labelFF.TabIndex = 4;
             this.labelFF.Text = "Fecha fin:";
             // 
             // labelP
             // 
             this.labelP.AutoSize = true;
-            this.labelP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelP.Location = new System.Drawing.Point(122, 173);
+            this.labelP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelP.Location = new System.Drawing.Point(120, 173);
             this.labelP.Name = "labelP";
-            this.labelP.Size = new System.Drawing.Size(70, 13);
+            this.labelP.Size = new System.Drawing.Size(60, 13);
             this.labelP.TabIndex = 5;
             this.labelP.Text = "Promoción:";
             // 
             // labelDP
             // 
             this.labelDP.AutoSize = true;
-            this.labelDP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDP.Location = new System.Drawing.Point(72, 194);
+            this.labelDP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDP.Location = new System.Drawing.Point(120, 191);
             this.labelDP.Name = "labelDP";
-            this.labelDP.Size = new System.Drawing.Size(120, 13);
+            this.labelDP.Size = new System.Drawing.Size(101, 13);
             this.labelDP.TabIndex = 6;
             this.labelDP.Text = "Detalles Promoción:";
             // 
             // labelD
             // 
             this.labelD.AutoSize = true;
-            this.labelD.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelD.Location = new System.Drawing.Point(120, 262);
+            this.labelD.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelD.Location = new System.Drawing.Point(122, 262);
             this.labelD.Name = "labelD";
-            this.labelD.Size = new System.Drawing.Size(72, 13);
+            this.labelD.Size = new System.Drawing.Size(62, 13);
             this.labelD.TabIndex = 7;
             this.labelD.Text = "Descuento:";
             // 
             // btnRegistrar
             // 
-            this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrar.Location = new System.Drawing.Point(294, 298);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(75, 23);
@@ -143,7 +144,7 @@
             // 
             // btnAnular
             // 
-            this.btnAnular.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnular.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnular.Location = new System.Drawing.Point(418, 298);
             this.btnAnular.Name = "btnAnular";
             this.btnAnular.Size = new System.Drawing.Size(75, 23);
@@ -219,9 +220,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Vista.Properties.Resources.Img_Gym2;
-            this.pictureBox1.Location = new System.Drawing.Point(564, 40);
+            this.pictureBox1.Location = new System.Drawing.Point(560, 60);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(187, 269);
+            this.pictureBox1.Size = new System.Drawing.Size(187, 261);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 17;
             this.pictureBox1.TabStop = false;
@@ -247,7 +248,7 @@
             this.Controls.Add(this.labelFF);
             this.Controls.Add(this.labelFI);
             this.Controls.Add(this.labelM);
-            this.Controls.Add(this.labelC);
+            this.Controls.Add(this.labelN);
             this.Controls.Add(this.labelTitulo);
             this.Name = "VsMembresia";
             this.Text = "Modulo Membresia";
@@ -260,7 +261,7 @@
         #endregion
 
         private System.Windows.Forms.Label labelTitulo;
-        private System.Windows.Forms.Label labelC;
+        private System.Windows.Forms.Label labelN;
         private System.Windows.Forms.Label labelM;
         private System.Windows.Forms.Label labelFI;
         private System.Windows.Forms.Label labelFF;
