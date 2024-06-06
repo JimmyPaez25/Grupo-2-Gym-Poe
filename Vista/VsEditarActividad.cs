@@ -16,21 +16,21 @@ namespace Vista
         private Validacion val = new Validacion();
         private CtrActividad ctrActividad = new CtrActividad();
 
+        private bool cambiosGuardados;
         private string nombre;
         private string descripcion;
         private DateTime fechaInicio;
         private DateTime fechaFin;
         private TimeSpan horaInicio;
         private TimeSpan horaFin;
-        private bool cambiosGuardados;
 
+        public bool CambiosGuardados { get => cambiosGuardados; set => cambiosGuardados = value; }
         public string Nombre { get => nombre; set => nombre = value; }
         public string Descripcion { get => descripcion; set => descripcion = value; }
         public DateTime FechaInicio { get => fechaInicio; set => fechaInicio = value; }
         public DateTime FechaFin { get => fechaFin; set => fechaFin = value; }
         public TimeSpan HoraInicio { get => horaInicio; set => horaInicio = value; }
         public TimeSpan HoraFin { get => horaFin; set => horaFin = value; }
-        public bool CambiosGuardados { get => cambiosGuardados; set => cambiosGuardados = value; }
 
         public VsEditarActividad(string nombre, string descripcion, DateTime fechaInicio, DateTime fechaFin, TimeSpan horaInicio, TimeSpan horaFin)
         {
