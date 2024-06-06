@@ -70,8 +70,11 @@ namespace Vista
             }
 
             
-            VsMembresia vMembresia = new VsMembresia(); vMembresia.ShowDialog();
-            this.Hide();
+            VsMembresia vMembresia = new VsMembresia(); 
+            vMembresia.lblCedulaM.Text = this.txtCedula.Text;
+            vMembresia.lblNombreM.Text = this.txtNombre.Text;
+            vMembresia.lblApellidoM.Text = this.txtApellido.Text;
+            vMembresia.Show();
         }
 
         private void btnConsultarMembresia_Click(object sender, EventArgs e)

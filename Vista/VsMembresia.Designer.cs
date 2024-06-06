@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.labelTitulo = new System.Windows.Forms.Label();
-            this.labelN = new System.Windows.Forms.Label();
+            this.lblNombreMT = new System.Windows.Forms.Label();
             this.labelM = new System.Windows.Forms.Label();
             this.labelFI = new System.Windows.Forms.Label();
             this.labelFF = new System.Windows.Forms.Label();
@@ -38,7 +38,6 @@
             this.labelD = new System.Windows.Forms.Label();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.btnAnular = new System.Windows.Forms.Button();
-            this.txtBoxC = new System.Windows.Forms.TextBox();
             this.txtBoxM = new System.Windows.Forms.TextBox();
             this.dateTPFI = new System.Windows.Forms.DateTimePicker();
             this.dateTPFF = new System.Windows.Forms.DateTimePicker();
@@ -46,6 +45,11 @@
             this.txtBoxDP = new System.Windows.Forms.TextBox();
             this.txtBoxD = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblCedulaMT = new System.Windows.Forms.Label();
+            this.lblNombreM = new System.Windows.Forms.Label();
+            this.lblCedulaM = new System.Windows.Forms.Label();
+            this.lblApellidoM = new System.Windows.Forms.Label();
+            this.lblApllidoMT = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,22 +64,22 @@
             this.labelTitulo.Text = "Membresía";
             this.labelTitulo.Click += new System.EventHandler(this.label1_Click);
             // 
-            // labelN
+            // lblNombreMT
             // 
-            this.labelN.AutoSize = true;
-            this.labelN.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelN.Location = new System.Drawing.Point(120, 67);
-            this.labelN.Name = "labelN";
-            this.labelN.Size = new System.Drawing.Size(47, 13);
-            this.labelN.TabIndex = 1;
-            this.labelN.Text = "Nombre:";
-            this.labelN.Click += new System.EventHandler(this.labelC_Click);
+            this.lblNombreMT.AutoSize = true;
+            this.lblNombreMT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreMT.Location = new System.Drawing.Point(125, 69);
+            this.lblNombreMT.Name = "lblNombreMT";
+            this.lblNombreMT.Size = new System.Drawing.Size(47, 13);
+            this.lblNombreMT.TabIndex = 1;
+            this.lblNombreMT.Text = "Nombre:";
+            this.lblNombreMT.Click += new System.EventHandler(this.labelC_Click);
             // 
             // labelM
             // 
             this.labelM.AutoSize = true;
             this.labelM.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelM.Location = new System.Drawing.Point(120, 93);
+            this.labelM.Location = new System.Drawing.Point(124, 131);
             this.labelM.Name = "labelM";
             this.labelM.Size = new System.Drawing.Size(61, 13);
             this.labelM.TabIndex = 2;
@@ -85,7 +89,7 @@
             // 
             this.labelFI.AutoSize = true;
             this.labelFI.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFI.Location = new System.Drawing.Point(120, 119);
+            this.labelFI.Location = new System.Drawing.Point(125, 157);
             this.labelFI.Name = "labelFI";
             this.labelFI.Size = new System.Drawing.Size(67, 13);
             this.labelFI.TabIndex = 3;
@@ -95,7 +99,7 @@
             // 
             this.labelFF.AutoSize = true;
             this.labelFF.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFF.Location = new System.Drawing.Point(122, 146);
+            this.labelFF.Location = new System.Drawing.Point(125, 183);
             this.labelFF.Name = "labelFF";
             this.labelFF.Size = new System.Drawing.Size(54, 13);
             this.labelFF.TabIndex = 4;
@@ -105,7 +109,7 @@
             // 
             this.labelP.AutoSize = true;
             this.labelP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelP.Location = new System.Drawing.Point(120, 173);
+            this.labelP.Location = new System.Drawing.Point(125, 210);
             this.labelP.Name = "labelP";
             this.labelP.Size = new System.Drawing.Size(60, 13);
             this.labelP.TabIndex = 5;
@@ -115,7 +119,7 @@
             // 
             this.labelDP.AutoSize = true;
             this.labelDP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDP.Location = new System.Drawing.Point(120, 191);
+            this.labelDP.Location = new System.Drawing.Point(125, 232);
             this.labelDP.Name = "labelDP";
             this.labelDP.Size = new System.Drawing.Size(101, 13);
             this.labelDP.TabIndex = 6;
@@ -125,7 +129,7 @@
             // 
             this.labelD.AutoSize = true;
             this.labelD.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelD.Location = new System.Drawing.Point(122, 262);
+            this.labelD.Location = new System.Drawing.Point(125, 300);
             this.labelD.Name = "labelD";
             this.labelD.Size = new System.Drawing.Size(62, 13);
             this.labelD.TabIndex = 7;
@@ -134,7 +138,7 @@
             // btnRegistrar
             // 
             this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrar.Location = new System.Drawing.Point(294, 298);
+            this.btnRegistrar.Location = new System.Drawing.Point(294, 319);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(75, 23);
             this.btnRegistrar.TabIndex = 8;
@@ -145,7 +149,7 @@
             // btnAnular
             // 
             this.btnAnular.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnular.Location = new System.Drawing.Point(418, 298);
+            this.btnAnular.Location = new System.Drawing.Point(418, 319);
             this.btnAnular.Name = "btnAnular";
             this.btnAnular.Size = new System.Drawing.Size(75, 23);
             this.btnAnular.TabIndex = 9;
@@ -153,18 +157,9 @@
             this.btnAnular.UseVisualStyleBackColor = true;
             this.btnAnular.Click += new System.EventHandler(this.btnAnular_Click);
             // 
-            // txtBoxC
-            // 
-            this.txtBoxC.Location = new System.Drawing.Point(294, 60);
-            this.txtBoxC.Name = "txtBoxC";
-            this.txtBoxC.Size = new System.Drawing.Size(199, 20);
-            this.txtBoxC.TabIndex = 10;
-            this.txtBoxC.TextChanged += new System.EventHandler(this.txtBoxC_TextChanged);
-            this.txtBoxC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxC_KeyPress);
-            // 
             // txtBoxM
             // 
-            this.txtBoxM.Location = new System.Drawing.Point(295, 86);
+            this.txtBoxM.Location = new System.Drawing.Point(294, 124);
             this.txtBoxM.Name = "txtBoxM";
             this.txtBoxM.Size = new System.Drawing.Size(199, 20);
             this.txtBoxM.TabIndex = 11;
@@ -173,14 +168,14 @@
             // 
             // dateTPFI
             // 
-            this.dateTPFI.Location = new System.Drawing.Point(295, 112);
+            this.dateTPFI.Location = new System.Drawing.Point(295, 150);
             this.dateTPFI.Name = "dateTPFI";
             this.dateTPFI.Size = new System.Drawing.Size(200, 20);
             this.dateTPFI.TabIndex = 12;
             // 
             // dateTPFF
             // 
-            this.dateTPFF.Location = new System.Drawing.Point(295, 139);
+            this.dateTPFF.Location = new System.Drawing.Point(295, 176);
             this.dateTPFF.Name = "dateTPFF";
             this.dateTPFF.Size = new System.Drawing.Size(200, 20);
             this.dateTPFF.TabIndex = 13;
@@ -192,7 +187,7 @@
             this.comboBoxP.Items.AddRange(new object[] {
             "SI",
             "NO"});
-            this.comboBoxP.Location = new System.Drawing.Point(295, 165);
+            this.comboBoxP.Location = new System.Drawing.Point(294, 202);
             this.comboBoxP.Name = "comboBoxP";
             this.comboBoxP.Size = new System.Drawing.Size(47, 21);
             this.comboBoxP.TabIndex = 14;
@@ -200,7 +195,7 @@
             // 
             // txtBoxDP
             // 
-            this.txtBoxDP.Location = new System.Drawing.Point(294, 191);
+            this.txtBoxDP.Location = new System.Drawing.Point(295, 229);
             this.txtBoxDP.Multiline = true;
             this.txtBoxDP.Name = "txtBoxDP";
             this.txtBoxDP.Size = new System.Drawing.Size(200, 58);
@@ -210,7 +205,7 @@
             // 
             // txtBoxD
             // 
-            this.txtBoxD.Location = new System.Drawing.Point(294, 255);
+            this.txtBoxD.Location = new System.Drawing.Point(294, 293);
             this.txtBoxD.Name = "txtBoxD";
             this.txtBoxD.Size = new System.Drawing.Size(199, 20);
             this.txtBoxD.TabIndex = 16;
@@ -220,18 +215,69 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Vista.Properties.Resources.Img_Gym2;
-            this.pictureBox1.Location = new System.Drawing.Point(560, 60);
+            this.pictureBox1.Location = new System.Drawing.Point(556, 69);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(187, 261);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 17;
             this.pictureBox1.TabStop = false;
             // 
+            // lblCedulaMT
+            // 
+            this.lblCedulaMT.AutoSize = true;
+            this.lblCedulaMT.Location = new System.Drawing.Point(125, 47);
+            this.lblCedulaMT.Name = "lblCedulaMT";
+            this.lblCedulaMT.Size = new System.Drawing.Size(43, 13);
+            this.lblCedulaMT.TabIndex = 18;
+            this.lblCedulaMT.Text = "Cédula:";
+            // 
+            // lblNombreM
+            // 
+            this.lblNombreM.AutoSize = true;
+            this.lblNombreM.Location = new System.Drawing.Point(291, 69);
+            this.lblNombreM.Name = "lblNombreM";
+            this.lblNombreM.Size = new System.Drawing.Size(31, 13);
+            this.lblNombreM.TabIndex = 19;
+            this.lblNombreM.Text = "____";
+            // 
+            // lblCedulaM
+            // 
+            this.lblCedulaM.AutoSize = true;
+            this.lblCedulaM.Location = new System.Drawing.Point(291, 47);
+            this.lblCedulaM.Name = "lblCedulaM";
+            this.lblCedulaM.Size = new System.Drawing.Size(31, 13);
+            this.lblCedulaM.TabIndex = 20;
+            this.lblCedulaM.Text = "____";
+            this.lblCedulaM.Click += new System.EventHandler(this.lblCedulaM_Click);
+            // 
+            // lblApellidoM
+            // 
+            this.lblApellidoM.AutoSize = true;
+            this.lblApellidoM.Location = new System.Drawing.Point(291, 95);
+            this.lblApellidoM.Name = "lblApellidoM";
+            this.lblApellidoM.Size = new System.Drawing.Size(31, 13);
+            this.lblApellidoM.TabIndex = 21;
+            this.lblApellidoM.Text = "____";
+            // 
+            // lblApllidoMT
+            // 
+            this.lblApllidoMT.AutoSize = true;
+            this.lblApllidoMT.Location = new System.Drawing.Point(125, 95);
+            this.lblApllidoMT.Name = "lblApllidoMT";
+            this.lblApllidoMT.Size = new System.Drawing.Size(47, 13);
+            this.lblApllidoMT.TabIndex = 22;
+            this.lblApllidoMT.Text = "Apellido:";
+            // 
             // VsMembresia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblApllidoMT);
+            this.Controls.Add(this.lblApellidoM);
+            this.Controls.Add(this.lblCedulaM);
+            this.Controls.Add(this.lblNombreM);
+            this.Controls.Add(this.lblCedulaMT);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtBoxD);
             this.Controls.Add(this.txtBoxDP);
@@ -239,7 +285,6 @@
             this.Controls.Add(this.dateTPFF);
             this.Controls.Add(this.dateTPFI);
             this.Controls.Add(this.txtBoxM);
-            this.Controls.Add(this.txtBoxC);
             this.Controls.Add(this.btnAnular);
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.labelD);
@@ -248,10 +293,11 @@
             this.Controls.Add(this.labelFF);
             this.Controls.Add(this.labelFI);
             this.Controls.Add(this.labelM);
-            this.Controls.Add(this.labelN);
+            this.Controls.Add(this.lblNombreMT);
             this.Controls.Add(this.labelTitulo);
             this.Name = "VsMembresia";
             this.Text = "Modulo Membresia";
+            this.Load += new System.EventHandler(this.VsMembresia_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -261,7 +307,7 @@
         #endregion
 
         private System.Windows.Forms.Label labelTitulo;
-        private System.Windows.Forms.Label labelN;
+        private System.Windows.Forms.Label lblNombreMT;
         private System.Windows.Forms.Label labelM;
         private System.Windows.Forms.Label labelFI;
         private System.Windows.Forms.Label labelFF;
@@ -270,7 +316,6 @@
         private System.Windows.Forms.Label labelD;
         private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.Button btnAnular;
-        private System.Windows.Forms.TextBox txtBoxC;
         private System.Windows.Forms.TextBox txtBoxM;
         private System.Windows.Forms.DateTimePicker dateTPFI;
         private System.Windows.Forms.DateTimePicker dateTPFF;
@@ -278,5 +323,10 @@
         private System.Windows.Forms.TextBox txtBoxDP;
         private System.Windows.Forms.TextBox txtBoxD;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblCedulaMT;
+        public System.Windows.Forms.Label lblNombreM;
+        public System.Windows.Forms.Label lblCedulaM;
+        private System.Windows.Forms.Label lblApllidoMT;
+        public System.Windows.Forms.Label lblApellidoM;
     }
 }

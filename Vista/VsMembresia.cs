@@ -12,9 +12,11 @@ namespace Vista
 {
     public partial class VsMembresia : Form
     {
+
         public VsMembresia()
         {
             InitializeComponent();
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -92,6 +94,16 @@ namespace Vista
         }
 
         private void labelC_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblCedulaM_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void VsMembresia_Load(object sender, EventArgs e)
         {
 
         }
