@@ -24,34 +24,76 @@ namespace Control
         {
             String msg = "ERROR: SE ESPERABA DATOS CORRECTOS!!";
             Validacion v = new Validacion();
+            DateTime hoy = DateTime.Now;
             Cliente cli = null;
             DateTime fechaNac = v.ConvertirDateTime(rFechaNacimiento);
-            if (rCedula != "" && rNombre != "" && rApellido!= "" && rFechaNacimiento !="" && rTelefono != "" && rDireccion != "")
+
+            if (string.IsNullOrEmpty(rCedula) || string.IsNullOrEmpty(rNombre) ||
+                 string.IsNullOrEmpty(rTelefono) || string.IsNullOrEmpty(rDireccion) ||
+                  string.IsNullOrEmpty(rApellido))
+            {
+                return "ERROR: NO PUEDEN EXISTIR CAMPOS VACIOS";
+            }
+            else if (fechaNac == hoy)
+            {
+                return "ERROR: LA FECHA DE NACIMIENTO NO PUEDE SER LA DE HOY";
+            }
+            else if (ClienteExistente(rCedula))
+            {
+                return "ERROR: ESTA CEDULA YA EXISTE EN UN CLIENTE";
+            }
+            else
             {
                 cli = new Cliente(rCedula, rNombre, rApellido, fechaNac, rTelefono, rDireccion, rEstado);
                 listaCli.Add(cli); // Agregando datos del cliente
-                msg = cli.ToString() + "\n CLIENTE ESTUDIANTE REGISTRADO EXITOSAMENTE!!";
+                msg = cli.ToString() + "\n CLIENTE REGISTRADO EXITOSAMENTE!!";
             } 
             return msg;
         }
 
-        public string IngresarCliEst(string rCedula, string rNombre, string rApellido, string rFechaNacimiento, string rTelefono,string rEstado, string rDireccion, string comprobante)
+        public string IngresarCliEst( string rCedula, string rNombre, string rApellido, string rFechaNacimiento, string rTelefono,string rEstado, string rDireccion, string comprobante)
         {
             String msg = "ERROR: SE ESPERABA DATOS CORRECTOS11";
             Validacion v = new Validacion();
+            DateTime hoy = DateTime.Now;
             DateTime fechaNac = v.ConvertirDateTime(rFechaNacimiento);
             Cliente cli = null;
-            if (rCedula != "" && rNombre != "" && rApellido != "" && rFechaNacimiento != "" && rTelefono != "" && rDireccion != "" && comprobante != "")
+
+            if (string.IsNullOrEmpty(rCedula) || string.IsNullOrEmpty(rNombre) || 
+                 string.IsNullOrEmpty(rTelefono) || string.IsNullOrEmpty(rDireccion) ||
+                  string.IsNullOrEmpty(rApellido) || comprobante.Equals(""))
+            {
+                return "ERROR: NO PUEDEN EXISTIR CAMPOS VACIOS";
+            }
+            else if (fechaNac == hoy)
+            {
+                return "ERROR: LA FECHA DE NACIMIENTO NO PUEDE SER LA DE HOY";
+            }
+            else if (ClienteExistente(rCedula))
+            {
+                return "ERROR: ESTA CEDULA YA EXISTE EN UN CLIENTE";
+            }
+            else
             {
                 cli = new ClienteEstudiante(rCedula, rNombre, rApellido, fechaNac, rTelefono, rDireccion, rEstado, comprobante);
                 listaCli.Add(cli); // Agregando datos del cliente
-                msg = cli.ToString() + "\n CLIENTE REGISTRADO EXITOSAMENTE11";
+                msg = cli.ToString() + "\n CLIENTE ESTUDIANTE REGISTRADO EXITOSAMENTE11";
             }
             return msg;
         }
 
-        //public string IngresarPolimorfismo()
+        public bool ClienteExistente(string cedula)
+        {
+            foreach(Cliente cli in ListaCli)
+            {
+                if(cli.Cedula == cedula)
+                {
+                    return true;
+                }
+            }
+            return false;
 
+        }
         public void LlenarGrid(DataGridView dgvClientes)
         {
             int i = 0;
