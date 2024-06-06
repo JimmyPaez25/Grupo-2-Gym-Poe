@@ -52,8 +52,8 @@ namespace Control
                 return "ERROR: NO PUEDEN EXISTIR CAMPOS VACIOS.";
             }
             else
-            {               
-            act = new Actividad(sNombre, sDescripcion, fechaInicio, fechaFin, horaInicio, horaFin);
+            {
+                act = new Actividad(sNombre, sDescripcion, fechaInicio, fechaFin, horaInicio, horaFin);
                 ListaActividad.Add(act);
                 msj = act.ToString() + Environment.NewLine + "---ACTIVIDAD REGISTRADA CORRECTAMENTE---" + Environment.NewLine;
             }
@@ -87,8 +87,8 @@ namespace Control
                     dgvActividad.Rows[i].Cells["ClmDescripcion"].Value = x.Descripcion;
                     dgvActividad.Rows[i].Cells["ClmFechaInicio"].Value = x.FechaInicio.ToString("d");
                     dgvActividad.Rows[i].Cells["ClmFechaFin"].Value = x.FechaFin.ToString("d");
-                    dgvActividad.Rows[i].Cells["ClmHoraInicio"].Value = x.HoraInicio;
-                    dgvActividad.Rows[i].Cells["ClmHoraFin"].Value = x.HoraFin;
+                    dgvActividad.Rows[i].Cells["ClmHoraInicio"].Value = x.HoraInicio.ToString(@"hh\:mm");
+                    dgvActividad.Rows[i].Cells["ClmHoraFin"].Value = x.HoraFin.ToString(@"hh\:mm");
                 }
             }
         }
@@ -106,7 +106,7 @@ namespace Control
                     {
                         ListaActividad[clmId].Estado = 2; // ESTADO 2 = INACTIVO
                         TablaConsultarActividad(dgvActividad);
-                        MessageBox.Show("BORRADO DE ACTIVIDAD EXITOSO.");
+                        MessageBox.Show("BORRADO DE ACTIVIDAD EXITOSO.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
@@ -134,12 +134,33 @@ namespace Control
                     dgvActividad.Rows[i].Cells["ClmDescripcion"].Value = x.Descripcion;
                     dgvActividad.Rows[i].Cells["ClmFechaInicio"].Value = x.FechaInicio.ToString("d");
                     dgvActividad.Rows[i].Cells["ClmFechaFin"].Value = x.FechaFin.ToString("d");
-                    dgvActividad.Rows[i].Cells["ClmHoraInicio"].Value = x.HoraInicio;
-                    dgvActividad.Rows[i].Cells["ClmHoraFin"].Value = x.HoraFin;
+                    dgvActividad.Rows[i].Cells["ClmHoraInicio"].Value = x.HoraInicio.ToString(@"hh\:mm");
+                    dgvActividad.Rows[i].Cells["ClmHoraFin"].Value = x.HoraFin.ToString(@"hh\:mm");
                 }
             }
         }
 
+        public void ExtraerDatosTablaActividad(DataGridView dgvActividad, out string nombre, out string descripcion, out DateTime fechaInicio, out DateTime fechaFin, out TimeSpan horaInicio, out TimeSpan horaFin)
+        {
+            DataGridViewRow filaSeleccionada = dgvActividad.SelectedRows[0]; // OBTIENE FILA SELECCIONADA
+            // EXTRAE DATOS DE FILA SELECCIONADA
+            nombre = filaSeleccionada.Cells["ClmNombre"].Value.ToString();
+            descripcion = filaSeleccionada.Cells["ClmDescripcion"].Value.ToString();
+            fechaInicio = Convert.ToDateTime(filaSeleccionada.Cells["ClmFechaInicio"].Value);
+            fechaFin = Convert.ToDateTime(filaSeleccionada.Cells["ClmFechaFin"].Value);
+            horaInicio = TimeSpan.Parse(filaSeleccionada.Cells["ClmHoraInicio"].Value.ToString());
+            horaFin = TimeSpan.Parse(filaSeleccionada.Cells["ClmHoraFin"].Value.ToString());
+        }
+
+        public void PresentarDatosActividad(string sNombre, string sDescripcion, DateTime sFechaInicio, DateTime sFechaFin, TimeSpan sHoraInicio, TimeSpan sHoraFin, TextBox textNombre, TextBox textDescripcion, DateTimePicker dtpFechaInicio, DateTimePicker dtpFechaFin, DateTimePicker dtpHoraInicio, DateTimePicker dtpHoraFin)
+        {
+            textNombre.Text = sNombre;
+            textDescripcion.Text = sDescripcion;
+            dtpFechaInicio.Value = sFechaInicio;
+            dtpFechaFin.Value = sFechaFin;
+            dtpHoraInicio.Value = DateTime.Today.Add(sHoraInicio);
+            dtpHoraFin.Value = DateTime.Today.Add(sHoraFin);
+        }
 
         // FIN
     }

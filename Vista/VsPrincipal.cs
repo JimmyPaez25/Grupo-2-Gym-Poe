@@ -19,7 +19,7 @@ namespace Vista
 
         private void button1_Click(object sender, EventArgs e)
         {
-            VsActividad act = new VsActividad(); act.ShowDialog();
+            //VsActividad act = new VsActividad(); act.ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -53,7 +53,6 @@ namespace Vista
         private void button3_Click(object sender, EventArgs e)
         {
             VsActividad vActividad = new VsActividad(); vActividad.ShowDialog();
-            this.Hide();
         }
 
         // FIN

@@ -15,13 +15,13 @@ namespace Vista
     {
         private Validacion val = new Validacion();
         private CtrActividad ctrActividad = new CtrActividad();
-        
+
         public VsRegistrarActividad()
         {
             InitializeComponent();
             dtpFechaInicio.Value = ctrActividad.FechaActual;
             dtpFechaFin.Value = ctrActividad.FechaActual;
-        }       
+        }
 
         private void textNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -44,12 +44,12 @@ namespace Vista
             string sHoraFin = dtpHoraFin.Text.Trim();
 
             msj = ctrActividad.IngresarActividad(sNombre, sDescripcion, sFechaInicio, sFechaFin, sHoraInicio, sHoraFin);
-            MessageBox.Show(msj);
+            MessageBox.Show(msj, "NOTIFICACION", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             if (msj.Contains("ACTIVIDAD REGISTRADA CORRECTAMENTE"))
             {
-                DateTime horaDefectoInicio = ctrActividad.FechaActual.Date.AddHours(1).AddMinutes(00).AddSeconds(00);
-                DateTime horaDefectoFin = ctrActividad.FechaActual.Date.AddHours(23).AddMinutes(00).AddSeconds(00);
+                DateTime horaDefectoInicio = ctrActividad.FechaActual.Date.AddHours(1).AddMinutes(00);
+                DateTime horaDefectoFin = ctrActividad.FechaActual.Date.AddHours(23).AddMinutes(00);
                 textNombre.Text = "";
                 textDescripcion.Text = "";
                 dtpFechaInicio.Value = ctrActividad.FechaActual;

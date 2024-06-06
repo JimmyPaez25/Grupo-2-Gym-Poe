@@ -39,13 +39,13 @@ namespace Modelo
         public override string ToString()
         {
             return "-> NOMBRE: " + nombre + Environment.NewLine +
-                   "-> DESCRIPCION: " + Environment.NewLine + descripcion + Environment.NewLine + 
-                   "-> FECHA INICIO: " + fechaInicio.ToString("d") + Environment.NewLine + 
-                   "-> FECHA FIN: " + fechaFin.ToString("d") + Environment.NewLine + 
-                   "-> HORA INICIO: " + horaInicio + Environment.NewLine + 
-                   "-> HORA FIN: " + horaFin + Environment.NewLine;
+                   "-> DESCRIPCION: " + Environment.NewLine + descripcion + Environment.NewLine +
+                   "-> FECHA INICIO: " + fechaInicio.ToString("d") + Environment.NewLine +
+                   "-> FECHA FIN: " + fechaFin.ToString("d") + Environment.NewLine +
+                   "-> HORA INICIO: " + horaInicio.ToString(@"hh\:mm") + Environment.NewLine +
+                   "-> HORA FIN: " + horaFin.ToString(@"hh\:mm") + Environment.NewLine;
         }
 
-    // FIN
+        // FIN
     }
 }

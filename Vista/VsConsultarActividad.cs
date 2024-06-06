@@ -34,9 +34,31 @@ namespace Vista
 
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
-            string filtro = textBuscar.Text.Trim(); 
-            bool buscarPorNombre = radioButtonNombre.Checked; 
+            string filtro = textBuscar.Text.Trim();
+            bool buscarPorNombre = radioButtonNombre.Checked;
             ctrActividad.TablaConsultarActividadNombreDescripcion(dgvActividad, filtro, buscarPorNombre);
         }
+
+        private void buttonEditar_Click(object sender, EventArgs e)
+        {
+            if (dgvActividad.SelectedRows.Count > 0)
+            {
+                string sNombre, sDescripcion;
+                DateTime sFechaInicio, sFechaFin;
+                TimeSpan sHoraInicio, sHoraFin;
+                ctrActividad.ExtraerDatosTablaActividad(dgvActividad, out sNombre, out sDescripcion, out sFechaInicio, out sFechaFin, out sHoraInicio, out sHoraFin);
+                VsEditarActividad editarActividad = new VsEditarActividad(sNombre, sDescripcion, sFechaInicio, sFechaFin, sHoraInicio, sHoraFin); editarActividad.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("ERROR: SELECCIONA UNA FILA ANTES DE ELIMINAR UNA ACTIVIDAD.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+
+
+
+
+        // FIN
     }
 }

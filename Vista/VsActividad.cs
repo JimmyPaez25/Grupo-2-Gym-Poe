@@ -35,10 +35,10 @@ namespace Vista
             }
             else
             {
-                MessageBox.Show("ERROR: NO EXISTEN ACTIVIDADES REGISTRADAS.");
+                MessageBox.Show("ERROR: NO EXISTEN ACTIVIDADES REGISTRADAS.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
-    // FIN
+        // FIN
     }
 }

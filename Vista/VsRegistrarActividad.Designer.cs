@@ -77,7 +77,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(53, 255);
+            this.label4.Location = new System.Drawing.Point(53, 254);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 13);
             this.label4.TabIndex = 3;
@@ -86,7 +86,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(53, 288);
+            this.label5.Location = new System.Drawing.Point(64, 288);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(57, 13);
             this.label5.TabIndex = 4;
@@ -95,7 +95,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(326, 254);
+            this.label6.Location = new System.Drawing.Point(347, 254);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(61, 13);
             this.label6.TabIndex = 5;
@@ -159,18 +159,19 @@
             // 
             // dtpHoraInicio
             // 
-            this.dtpHoraInicio.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraInicio.Location = new System.Drawing.Point(401, 248);
+            this.dtpHoraInicio.CustomFormat = "HH:mm";
+            this.dtpHoraInicio.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpHoraInicio.Location = new System.Drawing.Point(414, 248);
             this.dtpHoraInicio.Name = "dtpHoraInicio";
             this.dtpHoraInicio.ShowUpDown = true;
-            this.dtpHoraInicio.Size = new System.Drawing.Size(64, 20);
+            this.dtpHoraInicio.Size = new System.Drawing.Size(51, 20);
             this.dtpHoraInicio.TabIndex = 14;
             this.dtpHoraInicio.Value = new System.DateTime(2024, 5, 27, 1, 0, 0, 0);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(338, 287);
+            this.label7.Location = new System.Drawing.Point(358, 287);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(50, 13);
             this.label7.TabIndex = 15;
@@ -178,11 +179,12 @@
             // 
             // dtpHoraFin
             // 
-            this.dtpHoraFin.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraFin.Location = new System.Drawing.Point(401, 281);
+            this.dtpHoraFin.CustomFormat = "HH:mm";
+            this.dtpHoraFin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpHoraFin.Location = new System.Drawing.Point(414, 281);
             this.dtpHoraFin.Name = "dtpHoraFin";
             this.dtpHoraFin.ShowUpDown = true;
-            this.dtpHoraFin.Size = new System.Drawing.Size(64, 20);
+            this.dtpHoraFin.Size = new System.Drawing.Size(51, 20);
             this.dtpHoraFin.TabIndex = 16;
             this.dtpHoraFin.Value = new System.DateTime(2024, 5, 27, 23, 0, 0, 0);
             // 
