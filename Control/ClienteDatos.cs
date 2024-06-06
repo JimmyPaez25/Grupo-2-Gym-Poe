@@ -11,12 +11,12 @@ namespace Control
         {
             public string Nombre { get; set; }
             public string Apellido { get; set; }
-            public string FechaNacimiento { get; set; }
+            public DateTime FechaNacimiento { get; set; }
             public string Telefono { get; set; }
             public string Direccion { get; set; }
             public string Estado { get; set; }
 
-            public ClienteDatos(string nombre, string apellido, string fechaNacimiento, string telefono, string direccion, string estado)
+            public ClienteDatos(string nombre, string apellido, DateTime fechaNacimiento, string telefono, string direccion, string estado)
             {
                 Nombre = nombre;
                 Apellido = apellido;

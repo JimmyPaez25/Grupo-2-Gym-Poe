@@ -53,7 +53,7 @@
             // 
             this.labelTituloEditar.AutoSize = true;
             this.labelTituloEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTituloEditar.Location = new System.Drawing.Point(259, 18);
+            this.labelTituloEditar.Location = new System.Drawing.Point(258, 9);
             this.labelTituloEditar.Name = "labelTituloEditar";
             this.labelTituloEditar.Size = new System.Drawing.Size(306, 39);
             this.labelTituloEditar.TabIndex = 1;
@@ -170,7 +170,7 @@
             // 
             this.txtBoxDE.Location = new System.Drawing.Point(297, 279);
             this.txtBoxDE.Name = "txtBoxDE";
-            this.txtBoxDE.Size = new System.Drawing.Size(100, 20);
+            this.txtBoxDE.Size = new System.Drawing.Size(75, 20);
             this.txtBoxDE.TabIndex = 17;
             this.txtBoxDE.TextChanged += new System.EventHandler(this.txtBoxDE_TextChanged);
             // 
@@ -213,7 +213,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 361);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.comboBoxPE);
             this.Controls.Add(this.dateTPFFE);

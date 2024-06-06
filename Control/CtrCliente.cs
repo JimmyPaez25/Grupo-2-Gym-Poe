@@ -128,44 +128,44 @@ namespace Control
         /// 
 
 
-        //public Cliente ObtenerClientePorCedula(string cedula)
-        //{
-        //    foreach (Cliente cli in listaCli)
-        //    {
-        //        if (cli.Cedula == cedula)
-        //        {
-        //            return cli;
-        //        }
-        //    }
-        //    return null;
-        //}
+        public Cliente ObtenerClientePorCedula(string cedula)
+        {
+            foreach (Cliente cli in listaCli)
+            {
+                if (cli.Cedula == cedula)
+                {
+                    return cli;
+                }
+            }
+            return null;
+        }
 
 
 
-        //public List<string> ObtenerCedulasClientes()
-        //{
-        //    List<string> cedulas = new List<string>();
-        //    foreach (Cliente cli in listaCli)
-        //    {
-        //        cedulas.Add(cli.Cedula);
-        //    }
-        //    return cedulas;
-        //}
+        public List<string> ObtenerCedulasClientes()
+        {
+            List<string> cedulas = new List<string>();
+            foreach (Cliente cli in listaCli)
+            {
+                cedulas.Add(cli.Cedula);
+            }
+            return cedulas;
+        }
 
 
 
-        //public ClienteDatos ObtenerDatosClientePorCedula(string cedula)
-        //{
-        //    Cliente cli = ObtenerClientePorCedula(cedula);
-        //    if (cli != null)
-        //    {
-        //        return new ClienteDatos(cli.Nombre, cli.Apellido, cli.FechaNacimiento, cli.Telefono, cli.Direccion, cli.Estado);
-        //    }
-        //    else
-        //    {
-        //        return null;
-        //    }
-        //}
+        public ClienteDatos ObtenerDatosClientePorCedula(string cedula)
+        {
+            Cliente cli = ObtenerClientePorCedula(cedula);
+            if (cli != null)
+            {
+                return new ClienteDatos(cli.Nombre, cli.Apellido, cli.FechaNacimiento, cli.Telefono, cli.Direccion, cli.Estado);
+            }
+            else
+            {
+                return null;
+            }
+        }
 
 
         ///

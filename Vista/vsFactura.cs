@@ -19,52 +19,52 @@ namespace Vista
 
 
 
-        //public VsFactura()
-        //{
-        //    InitializeComponent();
-        //    factura = new CtrFactura();
-        //    txtNumFactura.Text = factura.GenerarFactura();
+        public VsFactura()
+        {
+            InitializeComponent();
+            factura = new CtrFactura();
+            txtNumFactura.Text = factura.GenerarFactura();
 
 
-        //}
+        }
 
-        //private void VsFactura_Load(object sender, EventArgs e)
-        //{
-        //    CtrCliente ctrCliente = new CtrCliente();
-        //    List<string> cedulas = ctrCliente.ObtenerCedulasClientes();
-        //    foreach (string cedula in cedulas)
-        //    {
-        //        cbNumeroCedula.Items.Add(cedula);
-        //    }
+        private void VsFactura_Load(object sender, EventArgs e)
+        {
+            CtrCliente ctrCliente = new CtrCliente();
+            List<string> cedulas = ctrCliente.ObtenerCedulasClientes();
+            foreach (string cedula in cedulas)
+            {
+                cbNumeroCedula.Items.Add(cedula);
+            }
 
-        //}
+        }
 
 
-        //private void dtFechaFactura_ValueChanged(object sender, EventArgs e)
-        //{
+        private void dtFechaFactura_ValueChanged(object sender, EventArgs e)
+        {
 
-        //}
+        }
 
-        //private CtrCliente CtClient = new CtrCliente();
+        private CtrCliente CtClient = new CtrCliente();
 
-        //private void cbNumeroCedula_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    string seleccion = cbNumeroCedula.Text;
-        //    ClienteDatos cliDatos = CtClient.ObtenerDatosClientePorCedula(seleccion);
-        //    if (cliDatos != null)
-        //    {
-        //        txtNombreUsuario.Text = cliDatos.Nombre;
-        //        txtApellidoUsuario.Text = cliDatos.Apellido;
-        //        txtFechaNacimiento.Text = cliDatos.FechaNacimiento;
-        //        txtTefefono.Text = cliDatos.Telefono;
-        //        txtDireccion.Text = cliDatos.Direccion;
-        //        txtEstado.Text = cliDatos.Estado;
-        //    }
-        //    else
-        //    {
-        //        // Mostrar mensaje de error si no se encuentra el cliente
-        //    }
-        //}
+        private void cbNumeroCedula_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string seleccion = cbNumeroCedula.Text;
+            ClienteDatos cliDatos = CtClient.ObtenerDatosClientePorCedula(seleccion);
+            if (cliDatos != null)
+            {
+                txtNombreUsuario.Text = cliDatos.Nombre;
+                txtApellidoUsuario.Text = cliDatos.Apellido;
+                dateTPFNF.Text = cliDatos.FechaNacimiento;
+                txtTefefono.Text = cliDatos.Telefono;
+                txtDireccion.Text = cliDatos.Direccion;
+                txtEstado.Text = cliDatos.Estado;
+            }
+            else
+            {
+                // Mostrar mensaje de error si no se encuentra el cliente
+            }
+        }
 
         private void txtApellidoUsuario_TextChanged(object sender, EventArgs e)
         {
@@ -92,6 +92,11 @@ namespace Vista
         }
 
         private void txtComprobante_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNumFactura_TextChanged(object sender, EventArgs e)
         {
 
         }
