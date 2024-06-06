@@ -42,7 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClienteDatos.cs" />
     <Compile Include="CtrActividad.cs" />
     <Compile Include="CtrCliente.cs" />
     <Compile Include="CtrFactura.cs" />
