@@ -32,7 +32,6 @@
             this.lblEstado = new System.Windows.Forms.Label();
             this.cmbEstado = new System.Windows.Forms.ComboBox();
             this.btnExit = new System.Windows.Forms.Button();
-            this.txtDate = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.cmbEstudiante = new System.Windows.Forms.ComboBox();
@@ -47,6 +46,9 @@
             this.lblName = new System.Windows.Forms.Label();
             this.lblCedula = new System.Windows.Forms.Label();
             this.lblActualizar = new System.Windows.Forms.Label();
+            this.txtComprobante = new System.Windows.Forms.TextBox();
+            this.lblComprobante = new System.Windows.Forms.Label();
+            this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // btnActualizar
@@ -64,7 +66,7 @@
             // 
             this.lblEstado.AutoSize = true;
             this.lblEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic);
-            this.lblEstado.Location = new System.Drawing.Point(92, 255);
+            this.lblEstado.Location = new System.Drawing.Point(87, 280);
             this.lblEstado.Name = "lblEstado";
             this.lblEstado.Size = new System.Drawing.Size(64, 20);
             this.lblEstado.TabIndex = 56;
@@ -76,7 +78,7 @@
             this.cmbEstado.Items.AddRange(new object[] {
             "ACTIVO",
             "INACTIVO"});
-            this.cmbEstado.Location = new System.Drawing.Point(260, 257);
+            this.cmbEstado.Location = new System.Drawing.Point(261, 282);
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(121, 21);
             this.cmbEstado.TabIndex = 55;
@@ -88,16 +90,9 @@
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(99, 39);
             this.btnExit.TabIndex = 54;
-            this.btnExit.Text = "Salir";
+            this.btnExit.Text = "Cancelar";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // txtDate
-            // 
-            this.txtDate.Location = new System.Drawing.Point(261, 149);
-            this.txtDate.Name = "txtDate";
-            this.txtDate.Size = new System.Drawing.Size(202, 20);
-            this.txtDate.TabIndex = 53;
             // 
             // txtTelefono
             // 
@@ -219,23 +214,51 @@
             // 
             this.lblActualizar.AutoSize = true;
             this.lblActualizar.Font = new System.Drawing.Font("Microsoft YaHei", 20F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.lblActualizar.Location = new System.Drawing.Point(113, 9);
+            this.lblActualizar.Location = new System.Drawing.Point(128, 9);
             this.lblActualizar.Name = "lblActualizar";
             this.lblActualizar.Size = new System.Drawing.Size(254, 36);
             this.lblActualizar.TabIndex = 58;
             this.lblActualizar.Text = "Actualizar Cliente";
+            // 
+            // txtComprobante
+            // 
+            this.txtComprobante.Location = new System.Drawing.Point(261, 256);
+            this.txtComprobante.Name = "txtComprobante";
+            this.txtComprobante.Size = new System.Drawing.Size(202, 20);
+            this.txtComprobante.TabIndex = 60;
+            // 
+            // lblComprobante
+            // 
+            this.lblComprobante.AutoSize = true;
+            this.lblComprobante.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic);
+            this.lblComprobante.Location = new System.Drawing.Point(87, 256);
+            this.lblComprobante.Name = "lblComprobante";
+            this.lblComprobante.Size = new System.Drawing.Size(114, 20);
+            this.lblComprobante.TabIndex = 59;
+            this.lblComprobante.Text = "Comprobante: ";
+            // 
+            // dtpDate
+            // 
+            this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDate.Location = new System.Drawing.Point(264, 152);
+            this.dtpDate.Name = "dtpDate";
+            this.dtpDate.Size = new System.Drawing.Size(103, 20);
+            this.dtpDate.TabIndex = 61;
+            this.dtpDate.Value = new System.DateTime(2024, 6, 5, 0, 0, 0, 0);
             // 
             // VsEditarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(546, 464);
+            this.Controls.Add(this.dtpDate);
+            this.Controls.Add(this.txtComprobante);
+            this.Controls.Add(this.lblComprobante);
             this.Controls.Add(this.lblActualizar);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.lblEstado);
             this.Controls.Add(this.cmbEstado);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.txtDate);
             this.Controls.Add(this.txtTelefono);
             this.Controls.Add(this.txtDireccion);
             this.Controls.Add(this.cmbEstudiante);
@@ -263,7 +286,6 @@
         private System.Windows.Forms.Label lblEstado;
         private System.Windows.Forms.ComboBox cmbEstado;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.TextBox txtDate;
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.ComboBox cmbEstudiante;
@@ -278,5 +300,8 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblCedula;
         private System.Windows.Forms.Label lblActualizar;
+        private System.Windows.Forms.TextBox txtComprobante;
+        private System.Windows.Forms.Label lblComprobante;
+        private System.Windows.Forms.DateTimePicker dtpDate;
     }
 }

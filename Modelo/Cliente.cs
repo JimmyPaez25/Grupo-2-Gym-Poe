@@ -37,8 +37,12 @@ namespace Modelo
 
         public override string ToString()
         {
-            return "> CEDULA: " + cedula + "\n> NOMBRE: " + nombre + "\n> APELLIDO: " + apellido + "\n> FECHA DE NACIMIENTO: " + fechaNacimiento +
-                   "\n> TELEFONO: " + telefono + "\n> DIRECCION: " + direccion;
+            return "> CEDULA: " + cedula + Environment.NewLine +
+                   "> NOMBRE: " + nombre + Environment.NewLine +
+                   "> APELLIDO: " + apellido + Environment.NewLine +
+                   "> FECHA DE NACIMIENTO: " + fechaNacimiento.ToString("d") + Environment.NewLine +
+                   "> TELEFONO: " + telefono + Environment.NewLine +
+                   "> DIRECCION: " + direccion + Environment.NewLine ;
         }
         
     }

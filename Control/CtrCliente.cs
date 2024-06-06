@@ -65,7 +65,7 @@ namespace Control
                     dgvClientes.Rows[i].Cells["clmApellido"].Value = x.Apellido;
                     dgvClientes.Rows[i].Cells["clmTelefono"].Value = x.Telefono;
                     dgvClientes.Rows[i].Cells["clmDireccion"].Value = x.Direccion;
-                    dgvClientes.Rows[i].Cells["clmDate"].Value = x.FechaNacimiento;
+                    dgvClientes.Rows[i].Cells["clmDate"].Value = x.FechaNacimiento.ToString("d");
 
 
                 if (x is ClienteEstudiante clienteEstudiante)
@@ -96,7 +96,7 @@ namespace Control
                     dgvClientes.Rows[i].Cells["clmApellido"].Value = x.Apellido;
                     dgvClientes.Rows[i].Cells["clmTelefono"].Value = x.Telefono;
                     dgvClientes.Rows[i].Cells["clmDireccion"].Value = x.Direccion;
-                    dgvClientes.Rows[i].Cells["clmDate"].Value = x.FechaNacimiento;
+                    dgvClientes.Rows[i].Cells["clmDate"].Value = x.FechaNacimiento.ToString("d");
 
                     if (x is ClienteEstudiante clienteEstudiante)
                     {
@@ -111,7 +111,59 @@ namespace Control
             }
         }
 
+        public void InavilitarCliente(DataGridView dgvCliente)
+        {
+            if (dgvCliente.SelectedRows.Count > 0)
+            {
+                int filaSeleccion = dgvCliente.SelectedRows[0].Index;
+                if (filaSeleccion >= 0)
+                {
+                    DataGridViewRow seleccionFila = dgvCliente.SelectedRows[0];
+                    DialogResult result = MessageBox.Show("Quieres dar de baja a este estudiante?", "SI", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
 
+
+                        seleccionFila.Cells["clmEstado"].Value = "INACTIVO";
+                        //                       LlenarGrid(dgvCliente);
+                        MessageBox.Show("El cliente aparecera de forma INACTIVO en la lista");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("ERROR: Selecciona una fila antes de dar de baja a un cliente", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+        }
+
+        public void MostrarDatosCliente(string cedula, string nombre, string apellido, DateTime fechaNacimiento, string telefono, string direccion, string estado, string comprobante, TextBox txtCedula, TextBox txtNombre, TextBox txtApellido, DateTimePicker dtpDate, TextBox txtTelefono, TextBox txtDireccion, TextBox txtComprobante, ComboBox cmbEstado)
+        {
+            txtCedula.Text = cedula;
+            txtNombre.Text = nombre;
+            txtApellido.Text = apellido;
+            dtpDate.Value = fechaNacimiento;
+            txtTelefono.Text = telefono;
+            txtDireccion.Text = direccion;
+            txtComprobante.Text = comprobante;
+            cmbEstado.SelectedItem = estado;
+
+        }
+        public void ConseguirDatosGrid(DataGridView dgvCliente, out string cedula, out string nombre, out string apellido, out DateTime fechaNacimiento, out string telefono, out string direccion,out string comprobante, out string estado)
+        {
+            DataGridViewRow filaSeleccionada = dgvCliente.SelectedRows[0];
+
+            cedula = filaSeleccionada.Cells["clmCedula"].Value.ToString();
+            nombre = filaSeleccionada.Cells["clmNombre"].Value.ToString();
+            apellido = filaSeleccionada.Cells["clmApellido"].Value.ToString();
+            fechaNacimiento = Convert.ToDateTime(filaSeleccionada.Cells["clmDate"].Value);
+            telefono = filaSeleccionada.Cells["clmTelefono"].Value.ToString();
+            direccion = filaSeleccionada.Cells["clmDireccion"].Value.ToString();
+            comprobante = filaSeleccionada.Cells["clmComprobanteEst"].Value.ToString();
+            estado = filaSeleccionada.Cells["clmEstado"].Value.ToString();
+            //string estadoStr = filaSeleccionada.Cells["clmEstado"].Value.ToString();
+            //estado.SelectedItem = estado.Items.Cast<string>().FirstOrDefault(item => item == estadoStr);
+        }
 
 
 
@@ -174,5 +226,5 @@ namespace Control
         ///AQUI TERMINA
 
 
+    }   
     }
-}

@@ -38,7 +38,14 @@ namespace Vista
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            VsEditarCliente vsEditarClint = new VsEditarCliente();
+            string cedula, nombre, apellido, telefono;
+            string direccion, comprobante;
+            string estado;
+            DateTime fechaNacimiento;
+
+            ctrCli.ConseguirDatosGrid(dgvClientes, out cedula, out nombre, out apellido, out fechaNacimiento, out telefono, out direccion, out comprobante, out estado);
+            VsEditarCliente vsEditarClint = new VsEditarCliente(cedula, nombre, apellido, fechaNacimiento, telefono, direccion, estado, comprobante);
+            
             vsEditarClint.Visible = true;
             poc = dgvClientes.CurrentRow.Index;
 

@@ -19,7 +19,7 @@ namespace Modelo
 
         public override string ToString()
         {
-            return base.ToString() + "\n> COMPROBANTE: " + comprobante;
+            return base.ToString() + "> COMPROBANTE: " + comprobante + Environment.NewLine;
         }
     }
 }
