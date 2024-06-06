@@ -25,7 +25,8 @@ namespace Vista
         private void button2_Click(object sender, EventArgs e)
         {
             VsRegistrarCliente rgCliente = new VsRegistrarCliente();
-            rgCliente.ShowDialog();
+            rgCliente.Show();
+            this.Hide();
         }
 
         private void btnMembresia_Click(object sender, EventArgs e)

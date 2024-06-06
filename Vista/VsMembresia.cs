@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Control;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,12 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Vista
 {
     public partial class VsMembresia : Form
     {
-
+        private CtrMembresia ctrMen = new Control.CtrMembresia();
+        private Validacion v = new Validacion();
         public VsMembresia()
         {
             InitializeComponent();
@@ -55,11 +58,12 @@ namespace Vista
 
         private void txtBoxD_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            v.ValidarCantidad(sender, e);
         }
 
         private void txtBoxM_KeyPress(object sender, KeyPressEventArgs e)
         {
+            v.ValidarLetra(sender, e);
 
         }
 
@@ -75,7 +79,7 @@ namespace Vista
 
         private void txtBoxDP_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            v.ValidarLetra(sender, e);
         }
 
         private void txtBoxC_KeyPress(object sender, KeyPressEventArgs e)
@@ -85,7 +89,33 @@ namespace Vista
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
+            string msj = "";
+            string sPlan = txtBoxM.Text.Trim();
+            string sFechaInicio = dateTPFI.Text.Trim();
+            string sFechaFin = dateTPFF.Text.Trim();
+            string promocion = comboBoxP.Text.Trim();
+            string sDescuento = txtBoxD.Text.Trim();
+            string detallePromocion = txtBoxDP.Text.Trim();
+            //string cedula = txtCedula.Text.Trim();
 
+
+            msj = ctrMen.IngresarMembresia(sPlan, sFechaInicio, sFechaFin, promocion, sDescuento, detallePromocion /*cedula*/);
+            MessageBox.Show(msj);
+            VsFactura vFactura = new VsFactura();
+            vFactura.Show();
+            this.Close();
+
+            if (msj.Contains("MEMBRESIA REGISTRADA CORRECTAMENTE"))
+            {
+                DateTime fechaInicio = ctrMen.FechaActual.Date; 
+                DateTime fechaFin = ctrMen.FechaActual.Date;
+                txtBoxM.Text = "";
+                dateTPFI.Value = ctrMen.FechaActual;
+                dateTPFF.Value = ctrMen.FechaActual;
+                comboBoxP.Text = "";
+                txtBoxD.Text = "";
+                txtBoxDP.Text = "";
+            }
         }
 
         private void btnAnular_Click(object sender, EventArgs e)

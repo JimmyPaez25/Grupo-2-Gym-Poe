@@ -64,6 +64,16 @@ namespace Vista
             this.Close();
         }
 
+        private void textNombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtpFechaInicio_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
         // FIN    
     }
 }

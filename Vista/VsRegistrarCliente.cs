@@ -69,12 +69,14 @@ namespace Vista
                 }
             }
 
-            
+            MessageBox.Show(msg);
             VsMembresia vMembresia = new VsMembresia(); 
             vMembresia.lblCedulaM.Text = this.txtCedula.Text;
             vMembresia.lblNombreM.Text = this.txtNombre.Text;
             vMembresia.lblApellidoM.Text = this.txtApellido.Text;
+            vMembresia.lblEstudianteM.Text = this.cmbEstudiante.Text;
             vMembresia.Show();
+            this.Close();
         }
 
         private void btnConsultarMembresia_Click(object sender, EventArgs e)
@@ -92,6 +94,11 @@ namespace Vista
         {
             v.ValidarNumero(sender, e);
             v.maximoDigitosNumericos(sender, e, 10, txtTelefono);
+        }
+
+        private void txtCedula_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

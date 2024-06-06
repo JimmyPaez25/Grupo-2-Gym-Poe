@@ -8,7 +8,7 @@ namespace Modelo
 {
     public class Membresia
     {
-        int plan;
+        string plan;
         DateTime fechaInicio;
         DateTime fechaFin;
         string promocion;
@@ -17,7 +17,7 @@ namespace Modelo
  
 
 
-        public Membresia(int plan, DateTime fechaInicio, DateTime fechaFin, string promocion, double descuento, string detallePromocion) 
+        public Membresia(string plan, DateTime fechaInicio, DateTime fechaFin, string promocion, double descuento, string detallePromocion) 
         {
             this.Plan = plan;
             this.FechaInicio = fechaInicio;
@@ -27,12 +27,13 @@ namespace Modelo
             this.detallePromocion = detallePromocion;
         }
 
-        public int Plan { get => plan; set => plan = value; }
+        public string Plan { get => plan; set => plan = value; }
         public DateTime FechaInicio { get => fechaInicio; set => fechaInicio = value; }
         public DateTime FechaFin { get => fechaFin; set => fechaFin = value; }
         public string Promocion { get => promocion; set => promocion = value; }
         public string DetallePromocion { get => detallePromocion; set => detallePromocion = value; }
         public double Descuento { get => descuento; set => descuento = value; }
+
 
         public override string ToString()
         {

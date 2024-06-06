@@ -107,6 +107,7 @@
             this.textNombre.Name = "textNombre";
             this.textNombre.Size = new System.Drawing.Size(217, 20);
             this.textNombre.TabIndex = 6;
+            this.textNombre.TextChanged += new System.EventHandler(this.textNombre_TextChanged);
             this.textNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textNombre_KeyPress);
             // 
             // textDescripcion
@@ -156,6 +157,7 @@
             this.dtpFechaInicio.Size = new System.Drawing.Size(95, 20);
             this.dtpFechaInicio.TabIndex = 13;
             this.dtpFechaInicio.Value = new System.DateTime(2024, 5, 27, 23, 37, 25, 0);
+            this.dtpFechaInicio.ValueChanged += new System.EventHandler(this.dtpFechaInicio_ValueChanged);
             // 
             // dtpHoraInicio
             // 

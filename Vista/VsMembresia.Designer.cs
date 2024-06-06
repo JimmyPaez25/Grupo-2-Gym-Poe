@@ -50,6 +50,8 @@
             this.lblCedulaM = new System.Windows.Forms.Label();
             this.lblApellidoM = new System.Windows.Forms.Label();
             this.lblApllidoMT = new System.Windows.Forms.Label();
+            this.lblEstudianteMT = new System.Windows.Forms.Label();
+            this.lblEstudianteM = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,7 +59,7 @@
             // 
             this.labelTitulo.AutoSize = true;
             this.labelTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitulo.Location = new System.Drawing.Point(309, 19);
+            this.labelTitulo.Location = new System.Drawing.Point(287, 9);
             this.labelTitulo.Name = "labelTitulo";
             this.labelTitulo.Size = new System.Drawing.Size(211, 42);
             this.labelTitulo.TabIndex = 0;
@@ -68,7 +70,7 @@
             // 
             this.lblNombreMT.AutoSize = true;
             this.lblNombreMT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreMT.Location = new System.Drawing.Point(142, 98);
+            this.lblNombreMT.Location = new System.Drawing.Point(142, 74);
             this.lblNombreMT.Name = "lblNombreMT";
             this.lblNombreMT.Size = new System.Drawing.Size(47, 13);
             this.lblNombreMT.TabIndex = 1;
@@ -81,9 +83,9 @@
             this.labelM.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelM.Location = new System.Drawing.Point(143, 154);
             this.labelM.Name = "labelM";
-            this.labelM.Size = new System.Drawing.Size(61, 13);
+            this.labelM.Size = new System.Drawing.Size(31, 13);
             this.labelM.TabIndex = 2;
-            this.labelM.Text = "Membresia:";
+            this.labelM.Text = "Plan:";
             // 
             // labelFI
             // 
@@ -124,6 +126,7 @@
             this.labelDP.Size = new System.Drawing.Size(101, 13);
             this.labelDP.TabIndex = 6;
             this.labelDP.Text = "Detalles Promoción:";
+            this.labelDP.Visible = false;
             // 
             // labelD
             // 
@@ -134,6 +137,7 @@
             this.labelD.Size = new System.Drawing.Size(62, 13);
             this.labelD.TabIndex = 7;
             this.labelD.Text = "Descuento:";
+            this.labelD.Visible = false;
             // 
             // btnRegistrar
             // 
@@ -142,7 +146,7 @@
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(75, 23);
             this.btnRegistrar.TabIndex = 8;
-            this.btnRegistrar.Text = "Registrar ";
+            this.btnRegistrar.Text = "Asignar";
             this.btnRegistrar.UseVisualStyleBackColor = true;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
@@ -200,6 +204,7 @@
             this.txtBoxDP.Name = "txtBoxDP";
             this.txtBoxDP.Size = new System.Drawing.Size(200, 58);
             this.txtBoxDP.TabIndex = 15;
+            this.txtBoxDP.Visible = false;
             this.txtBoxDP.TextChanged += new System.EventHandler(this.txtBoxDP_TextChanged);
             this.txtBoxDP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxDP_KeyPress);
             // 
@@ -207,8 +212,9 @@
             // 
             this.txtBoxD.Location = new System.Drawing.Point(293, 316);
             this.txtBoxD.Name = "txtBoxD";
-            this.txtBoxD.Size = new System.Drawing.Size(199, 20);
+            this.txtBoxD.Size = new System.Drawing.Size(76, 20);
             this.txtBoxD.TabIndex = 16;
+            this.txtBoxD.Visible = false;
             this.txtBoxD.TextChanged += new System.EventHandler(this.txtBoxD_TextChanged);
             this.txtBoxD.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxD_KeyPress);
             // 
@@ -225,7 +231,7 @@
             // lblCedulaMT
             // 
             this.lblCedulaMT.AutoSize = true;
-            this.lblCedulaMT.Location = new System.Drawing.Point(142, 74);
+            this.lblCedulaMT.Location = new System.Drawing.Point(142, 51);
             this.lblCedulaMT.Name = "lblCedulaMT";
             this.lblCedulaMT.Size = new System.Drawing.Size(43, 13);
             this.lblCedulaMT.TabIndex = 18;
@@ -234,7 +240,7 @@
             // lblNombreM
             // 
             this.lblNombreM.AutoSize = true;
-            this.lblNombreM.Location = new System.Drawing.Point(290, 98);
+            this.lblNombreM.Location = new System.Drawing.Point(291, 74);
             this.lblNombreM.Name = "lblNombreM";
             this.lblNombreM.Size = new System.Drawing.Size(31, 13);
             this.lblNombreM.TabIndex = 19;
@@ -243,7 +249,7 @@
             // lblCedulaM
             // 
             this.lblCedulaM.AutoSize = true;
-            this.lblCedulaM.Location = new System.Drawing.Point(291, 74);
+            this.lblCedulaM.Location = new System.Drawing.Point(291, 51);
             this.lblCedulaM.Name = "lblCedulaM";
             this.lblCedulaM.Size = new System.Drawing.Size(31, 13);
             this.lblCedulaM.TabIndex = 20;
@@ -253,7 +259,7 @@
             // lblApellidoM
             // 
             this.lblApellidoM.AutoSize = true;
-            this.lblApellidoM.Location = new System.Drawing.Point(291, 122);
+            this.lblApellidoM.Location = new System.Drawing.Point(291, 97);
             this.lblApellidoM.Name = "lblApellidoM";
             this.lblApellidoM.Size = new System.Drawing.Size(31, 13);
             this.lblApellidoM.TabIndex = 21;
@@ -262,17 +268,37 @@
             // lblApllidoMT
             // 
             this.lblApllidoMT.AutoSize = true;
-            this.lblApllidoMT.Location = new System.Drawing.Point(142, 122);
+            this.lblApllidoMT.Location = new System.Drawing.Point(142, 97);
             this.lblApllidoMT.Name = "lblApllidoMT";
             this.lblApllidoMT.Size = new System.Drawing.Size(47, 13);
             this.lblApllidoMT.TabIndex = 22;
             this.lblApllidoMT.Text = "Apellido:";
+            // 
+            // lblEstudianteMT
+            // 
+            this.lblEstudianteMT.AutoSize = true;
+            this.lblEstudianteMT.Location = new System.Drawing.Point(142, 124);
+            this.lblEstudianteMT.Name = "lblEstudianteMT";
+            this.lblEstudianteMT.Size = new System.Drawing.Size(60, 13);
+            this.lblEstudianteMT.TabIndex = 23;
+            this.lblEstudianteMT.Text = "Estudiante:";
+            // 
+            // lblEstudianteM
+            // 
+            this.lblEstudianteM.AutoSize = true;
+            this.lblEstudianteM.Location = new System.Drawing.Point(291, 124);
+            this.lblEstudianteM.Name = "lblEstudianteM";
+            this.lblEstudianteM.Size = new System.Drawing.Size(31, 13);
+            this.lblEstudianteM.TabIndex = 24;
+            this.lblEstudianteM.Text = "____";
             // 
             // VsMembresia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 416);
+            this.Controls.Add(this.lblEstudianteM);
+            this.Controls.Add(this.lblEstudianteMT);
             this.Controls.Add(this.lblApllidoMT);
             this.Controls.Add(this.lblApellidoM);
             this.Controls.Add(this.lblCedulaM);
@@ -328,5 +354,7 @@
         public System.Windows.Forms.Label lblCedulaM;
         private System.Windows.Forms.Label lblApllidoMT;
         public System.Windows.Forms.Label lblApellidoM;
+        private System.Windows.Forms.Label lblEstudianteMT;
+        public System.Windows.Forms.Label lblEstudianteM;
     }
 }
