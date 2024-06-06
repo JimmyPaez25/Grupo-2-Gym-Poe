@@ -57,7 +57,7 @@
             // 
             this.labelTitulo.AutoSize = true;
             this.labelTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitulo.Location = new System.Drawing.Point(287, 21);
+            this.labelTitulo.Location = new System.Drawing.Point(309, 19);
             this.labelTitulo.Name = "labelTitulo";
             this.labelTitulo.Size = new System.Drawing.Size(211, 42);
             this.labelTitulo.TabIndex = 0;
@@ -68,7 +68,7 @@
             // 
             this.lblNombreMT.AutoSize = true;
             this.lblNombreMT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreMT.Location = new System.Drawing.Point(142, 109);
+            this.lblNombreMT.Location = new System.Drawing.Point(142, 98);
             this.lblNombreMT.Name = "lblNombreMT";
             this.lblNombreMT.Size = new System.Drawing.Size(47, 13);
             this.lblNombreMT.TabIndex = 1;
@@ -79,7 +79,7 @@
             // 
             this.labelM.AutoSize = true;
             this.labelM.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelM.Location = new System.Drawing.Point(143, 166);
+            this.labelM.Location = new System.Drawing.Point(143, 154);
             this.labelM.Name = "labelM";
             this.labelM.Size = new System.Drawing.Size(61, 13);
             this.labelM.TabIndex = 2;
@@ -89,7 +89,7 @@
             // 
             this.labelFI.AutoSize = true;
             this.labelFI.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFI.Location = new System.Drawing.Point(142, 192);
+            this.labelFI.Location = new System.Drawing.Point(142, 180);
             this.labelFI.Name = "labelFI";
             this.labelFI.Size = new System.Drawing.Size(67, 13);
             this.labelFI.TabIndex = 3;
@@ -99,7 +99,7 @@
             // 
             this.labelFF.AutoSize = true;
             this.labelFF.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFF.Location = new System.Drawing.Point(142, 218);
+            this.labelFF.Location = new System.Drawing.Point(143, 206);
             this.labelFF.Name = "labelFF";
             this.labelFF.Size = new System.Drawing.Size(54, 13);
             this.labelFF.TabIndex = 4;
@@ -109,7 +109,7 @@
             // 
             this.labelP.AutoSize = true;
             this.labelP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelP.Location = new System.Drawing.Point(142, 245);
+            this.labelP.Location = new System.Drawing.Point(142, 233);
             this.labelP.Name = "labelP";
             this.labelP.Size = new System.Drawing.Size(60, 13);
             this.labelP.TabIndex = 5;
@@ -119,7 +119,7 @@
             // 
             this.labelDP.AutoSize = true;
             this.labelDP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDP.Location = new System.Drawing.Point(142, 267);
+            this.labelDP.Location = new System.Drawing.Point(142, 255);
             this.labelDP.Name = "labelDP";
             this.labelDP.Size = new System.Drawing.Size(101, 13);
             this.labelDP.TabIndex = 6;
@@ -129,7 +129,7 @@
             // 
             this.labelD.AutoSize = true;
             this.labelD.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelD.Location = new System.Drawing.Point(142, 335);
+            this.labelD.Location = new System.Drawing.Point(142, 323);
             this.labelD.Name = "labelD";
             this.labelD.Size = new System.Drawing.Size(62, 13);
             this.labelD.TabIndex = 7;
@@ -159,7 +159,7 @@
             // 
             // txtBoxM
             // 
-            this.txtBoxM.Location = new System.Drawing.Point(293, 159);
+            this.txtBoxM.Location = new System.Drawing.Point(293, 147);
             this.txtBoxM.Name = "txtBoxM";
             this.txtBoxM.Size = new System.Drawing.Size(199, 20);
             this.txtBoxM.TabIndex = 11;
@@ -168,14 +168,14 @@
             // 
             // dateTPFI
             // 
-            this.dateTPFI.Location = new System.Drawing.Point(293, 185);
+            this.dateTPFI.Location = new System.Drawing.Point(293, 173);
             this.dateTPFI.Name = "dateTPFI";
             this.dateTPFI.Size = new System.Drawing.Size(200, 20);
             this.dateTPFI.TabIndex = 12;
             // 
             // dateTPFF
             // 
-            this.dateTPFF.Location = new System.Drawing.Point(293, 211);
+            this.dateTPFF.Location = new System.Drawing.Point(294, 199);
             this.dateTPFF.Name = "dateTPFF";
             this.dateTPFF.Size = new System.Drawing.Size(200, 20);
             this.dateTPFF.TabIndex = 13;
@@ -187,7 +187,7 @@
             this.comboBoxP.Items.AddRange(new object[] {
             "SI",
             "NO"});
-            this.comboBoxP.Location = new System.Drawing.Point(294, 237);
+            this.comboBoxP.Location = new System.Drawing.Point(293, 225);
             this.comboBoxP.Name = "comboBoxP";
             this.comboBoxP.Size = new System.Drawing.Size(47, 21);
             this.comboBoxP.TabIndex = 14;
@@ -195,7 +195,7 @@
             // 
             // txtBoxDP
             // 
-            this.txtBoxDP.Location = new System.Drawing.Point(293, 264);
+            this.txtBoxDP.Location = new System.Drawing.Point(293, 252);
             this.txtBoxDP.Multiline = true;
             this.txtBoxDP.Name = "txtBoxDP";
             this.txtBoxDP.Size = new System.Drawing.Size(200, 58);
@@ -205,7 +205,7 @@
             // 
             // txtBoxD
             // 
-            this.txtBoxD.Location = new System.Drawing.Point(293, 328);
+            this.txtBoxD.Location = new System.Drawing.Point(293, 316);
             this.txtBoxD.Name = "txtBoxD";
             this.txtBoxD.Size = new System.Drawing.Size(199, 20);
             this.txtBoxD.TabIndex = 16;
@@ -225,7 +225,7 @@
             // lblCedulaMT
             // 
             this.lblCedulaMT.AutoSize = true;
-            this.lblCedulaMT.Location = new System.Drawing.Point(142, 86);
+            this.lblCedulaMT.Location = new System.Drawing.Point(142, 74);
             this.lblCedulaMT.Name = "lblCedulaMT";
             this.lblCedulaMT.Size = new System.Drawing.Size(43, 13);
             this.lblCedulaMT.TabIndex = 18;
@@ -234,7 +234,7 @@
             // lblNombreM
             // 
             this.lblNombreM.AutoSize = true;
-            this.lblNombreM.Location = new System.Drawing.Point(290, 109);
+            this.lblNombreM.Location = new System.Drawing.Point(290, 98);
             this.lblNombreM.Name = "lblNombreM";
             this.lblNombreM.Size = new System.Drawing.Size(31, 13);
             this.lblNombreM.TabIndex = 19;
@@ -243,7 +243,7 @@
             // lblCedulaM
             // 
             this.lblCedulaM.AutoSize = true;
-            this.lblCedulaM.Location = new System.Drawing.Point(290, 86);
+            this.lblCedulaM.Location = new System.Drawing.Point(291, 74);
             this.lblCedulaM.Name = "lblCedulaM";
             this.lblCedulaM.Size = new System.Drawing.Size(31, 13);
             this.lblCedulaM.TabIndex = 20;
@@ -253,7 +253,7 @@
             // lblApellidoM
             // 
             this.lblApellidoM.AutoSize = true;
-            this.lblApellidoM.Location = new System.Drawing.Point(290, 131);
+            this.lblApellidoM.Location = new System.Drawing.Point(291, 122);
             this.lblApellidoM.Name = "lblApellidoM";
             this.lblApellidoM.Size = new System.Drawing.Size(31, 13);
             this.lblApellidoM.TabIndex = 21;
@@ -262,7 +262,7 @@
             // lblApllidoMT
             // 
             this.lblApllidoMT.AutoSize = true;
-            this.lblApllidoMT.Location = new System.Drawing.Point(142, 131);
+            this.lblApllidoMT.Location = new System.Drawing.Point(142, 122);
             this.lblApllidoMT.Name = "lblApllidoMT";
             this.lblApllidoMT.Size = new System.Drawing.Size(47, 13);
             this.lblApllidoMT.TabIndex = 22;
