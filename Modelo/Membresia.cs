@@ -14,10 +14,11 @@ namespace Modelo
         string promocion;
         double descuento;
         string detallePromocion;
+        string cedulaCliente;
  
 
 
-        public Membresia(string plan, DateTime fechaInicio, DateTime fechaFin, string promocion, double descuento, string detallePromocion) 
+        public Membresia(string plan, DateTime fechaInicio, DateTime fechaFin, string promocion, double descuento, string detallePromocion, string cedulaCliente) 
         {
             this.Plan = plan;
             this.FechaInicio = fechaInicio;
@@ -25,6 +26,8 @@ namespace Modelo
             this.Descuento = descuento;
             this.Promocion = promocion;
             this.detallePromocion = detallePromocion;
+            this.CedulaCliente = cedulaCliente;
+    
         }
 
         public string Plan { get => plan; set => plan = value; }
@@ -33,7 +36,7 @@ namespace Modelo
         public string Promocion { get => promocion; set => promocion = value; }
         public string DetallePromocion { get => detallePromocion; set => detallePromocion = value; }
         public double Descuento { get => descuento; set => descuento = value; }
-
+        public string CedulaCliente { get => cedulaCliente; set => cedulaCliente = value; }
 
         public override string ToString()
         {

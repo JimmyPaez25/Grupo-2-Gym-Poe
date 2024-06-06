@@ -14,7 +14,7 @@ namespace Vista
 {
     public partial class VsMembresia : Form
     {
-        private CtrMembresia ctrMen = new Control.CtrMembresia();
+        private CtrMembresia ctrMen = new CtrMembresia();
         private Validacion v = new Validacion();
         public VsMembresia()
         {
@@ -96,10 +96,10 @@ namespace Vista
             string promocion = comboBoxP.Text.Trim();
             string sDescuento = txtBoxD.Text.Trim();
             string detallePromocion = txtBoxDP.Text.Trim();
-            //string cedula = txtCedula.Text.Trim();
+            string cedula = lblCedulaM.Text.Trim();
 
 
-            msj = ctrMen.IngresarMembresia(sPlan, sFechaInicio, sFechaFin, promocion, sDescuento, detallePromocion /*cedula*/);
+            msj = ctrMen.IngresarMembresia(sPlan, sFechaInicio, sFechaFin, promocion, sDescuento, detallePromocion , cedula);
             MessageBox.Show(msj);
             VsFactura vFactura = new VsFactura();
             vFactura.Show();

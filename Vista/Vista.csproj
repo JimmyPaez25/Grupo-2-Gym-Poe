@@ -78,6 +78,12 @@
     <Compile Include="VsConsultarActividad.Designer.cs">
       <DependentUpon>VsConsultarActividad.cs</DependentUpon>
     </Compile>
+    <Compile Include="VsMembresiaLista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VsMembresiaLista.Designer.cs">
+      <DependentUpon>VsMembresiaLista.cs</DependentUpon>
+    </Compile>
     <Compile Include="VsRegistrarActividad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VsMembresiaEliminar.resx">
       <DependentUpon>VsMembresiaEliminar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VsMembresiaLista.resx">
+      <DependentUpon>VsMembresiaLista.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VsPrincipal.resx">
       <DependentUpon>VsPrincipal.cs</DependentUpon>

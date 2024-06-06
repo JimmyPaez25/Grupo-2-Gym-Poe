@@ -14,6 +14,7 @@ namespace Vista
 {
     public partial class VsConsultarCliente : Form
     {
+        private CtrMembresia ctrMen = new CtrMembresia();
         private CtrCliente ctrCli = new CtrCliente();
         private Validacion v = new Validacion();
         private VsRegistrarCliente vRC = new VsRegistrarCliente();
@@ -64,7 +65,17 @@ namespace Vista
         private void btnConsultarM_Click(object sender, EventArgs e)
         {
 
-            
+            if (dgvClientes.SelectedRows.Count > 0)
+            {
+                string cedula;
+                ctrMen.ExtraerDatosTablaMembresia(dgvClientes, out cedula);
+                VsMembresiaLista vListaM = new VsMembresiaLista(cedula);
+                vListaM.Show();
+            }
+            else
+            {
+                MessageBox.Show("ERROR: SELECCIONA UNA FILA DE CLIENTE.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
     }
