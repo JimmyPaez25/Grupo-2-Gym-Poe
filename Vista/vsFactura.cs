@@ -47,24 +47,24 @@ namespace Vista
 
         private CtrCliente CtClient = new CtrCliente();
 
-        private void cbNumeroCedula_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string seleccion = cbNumeroCedula.Text;
-            ClienteDatos cliDatos = CtClient.ObtenerDatosClientePorCedula(seleccion);
-            if (cliDatos != null)
-            {
-                txtNombreUsuario.Text = cliDatos.Nombre;
-                txtApellidoUsuario.Text = cliDatos.Apellido;
-                dateTPFNF.Text = cliDatos.FechaNacimiento.ToString("yyyy-MM-dd");
-                txtTefefono.Text = cliDatos.Telefono;
-                txtDireccion.Text = cliDatos.Direccion;
-                txtEstado.Text = cliDatos.Estado;
-            }
-            else
-            {
-                // Mostrar mensaje de error si no se encuentra el cliente
-            }
-        }
+        //private void cbNumeroCedula_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    string seleccion = cbNumeroCedula.Text;
+        //    ClienteDatos cliDatos = CtClient.ObtenerDatosClientePorCedula(seleccion);
+        //    if (cliDatos != null)
+        //    {
+        //        txtNombreUsuario.Text = cliDatos.Nombre;
+        //        txtApellidoUsuario.Text = cliDatos.Apellido;
+        //        dateTPFNF.Text = cliDatos.FechaNacimiento.ToString("yyyy-MM-dd");
+        //        txtTefefono.Text = cliDatos.Telefono;
+        //        txtDireccion.Text = cliDatos.Direccion;
+        //        txtEstado.Text = cliDatos.Estado;
+        //    }
+        //    else
+        //    {
+        //        // Mostrar mensaje de error si no se encuentra el cliente
+        //    }
+        //}
 
         private void txtApellidoUsuario_TextChanged(object sender, EventArgs e)
         {

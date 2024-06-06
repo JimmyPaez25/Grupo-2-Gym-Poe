@@ -154,18 +154,18 @@ namespace Control
 
 
 
-        public ClienteDatos ObtenerDatosClientePorCedula(string cedula)
-        {
-            Cliente cli = ObtenerClientePorCedula(cedula);
-            if (cli != null)
-            {
-                return new ClienteDatos(cli.Nombre, cli.Apellido, cli.FechaNacimiento, cli.Telefono, cli.Direccion, cli.Estado);
-            }
-            else
-            {
-                return null;
-            }
-        }
+        //public ClienteDatos ObtenerDatosClientePorCedula(string cedula)
+        //{
+        //    Cliente cli = ObtenerClientePorCedula(cedula);
+        //    if (cli != null)
+        //    {
+        //        return new ClienteDatos(cli.Nombre, cli.Apellido, cli.FechaNacimiento, cli.Telefono, cli.Direccion, cli.Estado);
+        //    }
+        //    else
+        //    {
+        //        return null;
+        //    }
+        //}
 
 
         ///
