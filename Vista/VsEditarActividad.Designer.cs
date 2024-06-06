@@ -44,6 +44,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.textNombreOriginal = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,6 +115,7 @@
             this.buttonCancelar.TabIndex = 28;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
             // buttonGuardar
             // 
@@ -123,6 +125,7 @@
             this.buttonGuardar.TabIndex = 27;
             this.buttonGuardar.Text = "Guardar";
             this.buttonGuardar.UseVisualStyleBackColor = true;
+            this.buttonGuardar.Click += new System.EventHandler(this.buttonGuardar_Click);
             // 
             // textDescripcion
             // 
@@ -196,11 +199,20 @@
             this.label1.TabIndex = 34;
             this.label1.Text = "EDITAR COMBO ACTIVIDAD";
             // 
+            // textNombreOriginal
+            // 
+            this.textNombreOriginal.Location = new System.Drawing.Point(246, 49);
+            this.textNombreOriginal.Name = "textNombreOriginal";
+            this.textNombreOriginal.Size = new System.Drawing.Size(217, 20);
+            this.textNombreOriginal.TabIndex = 35;
+            this.textNombreOriginal.Visible = false;
+            // 
             // VsEditarActividad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(735, 389);
+            this.Controls.Add(this.textNombreOriginal);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dtpHoraFin);
@@ -244,5 +256,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textNombreOriginal;
     }
 }

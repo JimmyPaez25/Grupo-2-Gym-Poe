@@ -48,11 +48,20 @@ namespace Vista
                 TimeSpan sHoraInicio, sHoraFin;
                 ctrActividad.ExtraerDatosTablaActividad(dgvActividad, out sNombre, out sDescripcion, out sFechaInicio, out sFechaFin, out sHoraInicio, out sHoraFin);
                 VsEditarActividad editarActividad = new VsEditarActividad(sNombre, sDescripcion, sFechaInicio, sFechaFin, sHoraInicio, sHoraFin); editarActividad.ShowDialog();
+                if (editarActividad.CambiosGuardados)
+                {
+                    ctrActividad.TablaConsultarActividad(dgvActividad);
+                }
             }
             else
             {
                 MessageBox.Show("ERROR: SELECCIONA UNA FILA ANTES DE ELIMINAR UNA ACTIVIDAD.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void buttonCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
 

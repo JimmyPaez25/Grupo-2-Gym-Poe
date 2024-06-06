@@ -162,6 +162,62 @@ namespace Control
             dtpHoraFin.Value = DateTime.Today.Add(sHoraFin);
         }
 
+        public string EditarActividad(string sNombreOriginal, string sNombre, string sDescripcion, string sFechaInicio, string sFechaFin, string sHoraInicio, string sHoraFin)
+        {
+            string msj = "ERROR: SE ESPERABA DATOS CORRECTOS.";
+            Validacion val = new Validacion();
+            DateTime fechaInicio = val.ConvertirDateTime(sFechaInicio);
+            DateTime fechaFin = val.ConvertirDateTime(sFechaFin);
+            TimeSpan horaInicio = val.ConvertirTimeSpan(sHoraInicio);
+            TimeSpan horaFin = val.ConvertirTimeSpan(sHoraFin);
+
+            if (string.IsNullOrEmpty(sNombre) || string.IsNullOrEmpty(sDescripcion))
+            {
+                return "ERROR: NO PUEDEN EXISTIR CAMPOS VACIOS.";
+            }
+            else if (fechaInicio.Date == fechaFin.Date)
+            {
+                return "ERROR: FECHA INICIO NO PUEDE SER IGUAL A FECHA FIN.";
+            }
+            else if (horaInicio == horaFin)
+            {
+                return "ERROR: HORA INICIO NO PUEDE SER IGUAL A HORA FIN.";
+            }
+            else if (fechaFin < fechaInicio)
+            {
+                return "ERROR: FECHA FIN NO PUEDE SER ANTERIOR A FECHA INICIO.";
+            }
+            else
+            {
+                Actividad actividadExistente = ListaActividad.Find(atv => atv.Nombre == sNombreOriginal); // BUSCAR NOMBRE ORIGINAL EN LISTA
+                if (actividadExistente != null)
+                {
+                    if (actividadExistente.Nombre != sNombre) // SI NOMBRE ORIGINAL Y NUEVO SON DIFERENTES
+                    {
+                        if (ListaActividad.Any(atv => atv.Nombre == sNombre)) // BUSCAR SI NOMBRE NUEVO YA EXISTE
+                        {
+                            return "ERROR: YA EXISTE UNA ACTIVIDAD CON EL NUEVO NOMBRE.";
+                        }
+                        actividadExistente.Nombre = sNombre; // ASIGNAR NOMBRE NUEVO
+                    }
+
+                    // ACTUALIZA DATOS ACTIVIDAD
+                    actividadExistente.Descripcion = sDescripcion;
+                    actividadExistente.FechaInicio = fechaInicio;
+                    actividadExistente.FechaFin = fechaFin;
+                    actividadExistente.HoraInicio = horaInicio;
+                    actividadExistente.HoraFin = horaFin;
+
+                    msj = "ACTIVIDAD EDITADA CORRECTAMENTE";
+                }
+                else
+                {
+                    msj = "ERROR: NO SE PUDO ENCONTRAR LA ACTIVIDAD A EDITAR.";
+                }
+            }
+            return msj;
+        }
+
         // FIN
     }
 }

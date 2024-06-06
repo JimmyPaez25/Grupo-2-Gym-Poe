@@ -66,6 +66,7 @@
             this.buttonCancelar.TabIndex = 13;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
             // textBuscar
             // 
@@ -205,6 +206,7 @@
             this.buttonSeleccionar.TabIndex = 21;
             this.buttonSeleccionar.Text = "Seleccionar";
             this.buttonSeleccionar.UseVisualStyleBackColor = true;
+            this.buttonSeleccionar.Visible = false;
             // 
             // VsConsultarActividad
             // 
