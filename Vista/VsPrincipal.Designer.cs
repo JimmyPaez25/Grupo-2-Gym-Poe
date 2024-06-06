@@ -62,7 +62,7 @@
             // btnMembresia
             // 
             this.btnMembresia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMembresia.Location = new System.Drawing.Point(29, 249);
+            this.btnMembresia.Location = new System.Drawing.Point(29, 177);
             this.btnMembresia.Name = "btnMembresia";
             this.btnMembresia.Size = new System.Drawing.Size(122, 53);
             this.btnMembresia.TabIndex = 5;
@@ -84,7 +84,7 @@
             // buttonAsignarActividad
             // 
             this.buttonAsignarActividad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAsignarActividad.Location = new System.Drawing.Point(29, 168);
+            this.buttonAsignarActividad.Location = new System.Drawing.Point(29, 268);
             this.buttonAsignarActividad.Name = "buttonAsignarActividad";
             this.buttonAsignarActividad.Size = new System.Drawing.Size(122, 53);
             this.buttonAsignarActividad.TabIndex = 7;
