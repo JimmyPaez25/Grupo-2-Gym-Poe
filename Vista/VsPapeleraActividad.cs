@@ -24,17 +24,19 @@ namespace Vista
 
         private void buttonEliminarPermanente_Click(object sender, EventArgs e)
         {
-
+            ctrActividad.RemoverActividad(dgvActividad);
         }
 
         private void buttonRestaurar_Click(object sender, EventArgs e)
         {
-            //ctrActividad.RestaurarActividad(dgvActividad);
+            ctrActividad.RestaurarActividad(dgvActividad);
         }
 
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
-
+            string filtro = textBuscar.Text.Trim();
+            bool buscarPorNombre = radioButtonNombre.Checked;
+            ctrActividad.TablaConsultarActividadNombreDescripcionPapelera(dgvActividad, filtro, buscarPorNombre);
         }
 
         private void buttonCancelar_Click(object sender, EventArgs e)
