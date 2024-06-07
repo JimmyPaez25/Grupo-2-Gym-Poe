@@ -111,7 +111,7 @@ namespace Control
                 if (filaSeleccionada >= 0)
                 {
                     int clmId = (int)dgvActividad.Rows[filaSeleccionada].Cells["ClmNumero"].Value - 1; // OBTIENE NUMERO DE LA ACTIVIDAD
-                    DialogResult resultado = MessageBox.Show("ESTAS SEGURO DE BORRAR ESTA ACTIVIDAD?", "CONFIRMACION", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    DialogResult resultado = MessageBox.Show("ESTAS SEGURO DE BORRAR ESTA ACTIVIDAD?", "CONFIRMACION", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                     if (resultado == DialogResult.Yes)
                     {
                         ListaActividad[clmId].Estado = 2; // ESTADO 2 = INACTIVO
@@ -253,22 +253,83 @@ namespace Control
         {
             if (dgvActividad.SelectedRows.Count > 0)
             {
-                int filaSeleccionada = dgvActividad.SelectedRows[0].Index; // OBTIENE INDICE DE FILA SELECCIONADA
+                int filaSeleccionada = dgvActividad.SelectedRows[0].Index; // OBTIENE EL ÍNDICE DE LA FILA SELECCIONADA
                 if (filaSeleccionada >= 0)
                 {
-                    int clmId = (int)dgvActividad.Rows[filaSeleccionada].Cells["ClmNumero"].Value - 1; // OBTIENE NUMERO DE LA ACTIVIDAD
-                    DialogResult resultado = MessageBox.Show("ESTAS SEGURO DE RESTAURAR ESTA ACTIVIDAD?", "CONFIRMACION", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (resultado == DialogResult.Yes)
+                    string nombreActividad = dgvActividad.Rows[filaSeleccionada].Cells["ClmNombre"].Value.ToString(); // OBTIENE EL NOMBRE DE LA ACTIVIDAD DE LA FILA SELECCIONADA
+                    Actividad actividad = ListaActividad.FirstOrDefault(a => a.Nombre == nombreActividad);// BUSCA ACTIVIDAD EN LISTA POR NOMBRE
+
+                    if (actividad != null)
                     {
-                        ListaActividad[clmId].Estado = 1; // ESTADO 1 = ACTIVO
-                        TablaConsultarActividadPapelera(dgvActividad);
-                        MessageBox.Show("ACTIVIDAD RESTAURADA EXITOSAMENTE.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DialogResult resultado = MessageBox.Show("ESTAS SEGURO DE RESTAURAR ESTA ACTIVIDAD?", "CONFIRMACION", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (resultado == DialogResult.Yes)
+                        {
+                            actividad.Estado = 1; // CAMBIA EL ESTADO A ACTIVO
+                            TablaConsultarActividadPapelera(dgvActividad);
+                            MessageBox.Show("ACTIVIDAD RESTAURADA EXITOSAMENTE.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                     }
                 }
             }
             else
             {
-                MessageBox.Show("ERROR: SELECCIONA UNA FILA ANTES DE RESTURAR UNA ACTIVIDAD.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("ERROR: SELECCIONA UNA FILA ANTES DE RESTAURAR UNA ACTIVIDAD.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        public void RemoverActividad(DataGridView dgvActividad)
+        {
+            if (dgvActividad.SelectedRows.Count > 0)
+            {
+                int filaSeleccionada = dgvActividad.SelectedRows[0].Index; // OBTIENE EL ÍNDICE DE LA FILA SELECCIONADA
+                if (filaSeleccionada >= 0)
+                {
+                    string nombreActividad = dgvActividad.Rows[filaSeleccionada].Cells["ClmNombre"].Value.ToString(); // OBTIENE EL NOMBRE DE LA ACTIVIDAD DE LA FILA SELECCIONADA
+                    Actividad actividad = ListaActividad.FirstOrDefault(a => a.Nombre == nombreActividad); // BUSCA ACTIVIDAD EN LISTA POR NOMBRE
+
+                    if (actividad != null)
+                    {
+                        DialogResult resultado = MessageBox.Show("ESTAS SEGURO DE ELIMINAR PERMANENTEMENTE ESTA ACTIVIDAD?", "CONFIRMACION", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                        if (resultado == DialogResult.Yes)
+                        {
+                            ListaActividad.Remove(actividad);
+                            dgvActividad.Rows.RemoveAt(filaSeleccionada);
+                            for (int i = filaSeleccionada; i < dgvActividad.Rows.Count; i++)
+                            {
+                                dgvActividad.Rows[i].Cells["ClmNumero"].Value = i + 1;
+                            }
+                            MessageBox.Show("ACTIVIDAD ELIMINADA CORRECTAMENTE.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("ERROR: SELECCIONA UNA FILA ANTES DE ELIMINAR DE FORMA PERMANENTE UNA ACTIVIDAD.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        public void TablaConsultarActividadNombreDescripcionPapelera(DataGridView dgvActividad, string filtro = "", bool buscarPorNombre = true)
+        {
+            int i = 0;
+            dgvActividad.Rows.Clear(); // LIMPIA FILAS SI LAS HAY
+            foreach (Actividad x in ListaActividad)
+            {
+                if (x.Estado == 2 &&
+                    (string.IsNullOrEmpty(filtro) ||
+                    (buscarPorNombre && x.Nombre.Contains(filtro)) ||
+                    (!buscarPorNombre && x.Descripcion.Contains(filtro))))
+                {
+                    i = dgvActividad.Rows.Add();
+                    dgvActividad.Rows[i].Cells["ClmNumero"].Value = i + 1;
+                    dgvActividad.Rows[i].Cells["ClmEstado"].Value = x.Estado;
+                    dgvActividad.Rows[i].Cells["ClmNombre"].Value = x.Nombre;
+                    dgvActividad.Rows[i].Cells["ClmDescripcion"].Value = x.Descripcion;
+                    dgvActividad.Rows[i].Cells["ClmFechaInicio"].Value = x.FechaInicio.ToString("d");
+                    dgvActividad.Rows[i].Cells["ClmFechaFin"].Value = x.FechaFin.ToString("d");
+                    dgvActividad.Rows[i].Cells["ClmHoraInicio"].Value = x.HoraInicio.ToString(@"hh\:mm");
+                    dgvActividad.Rows[i].Cells["ClmHoraFin"].Value = x.HoraFin.ToString(@"hh\:mm");
+                }
             }
         }
 
