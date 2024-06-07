@@ -32,7 +32,7 @@
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.btnMembresia = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.buttonAsignarActividad = new System.Windows.Forms.Button();
+            this.buttonGestionActividad = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
@@ -42,7 +42,7 @@
             // labelTituloGym
             // 
             this.labelTituloGym.AutoSize = true;
-            this.labelTituloGym.Font = new System.Drawing.Font("Arial Rounded MT Bold", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTituloGym.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTituloGym.Location = new System.Drawing.Point(0, 0);
             this.labelTituloGym.Name = "labelTituloGym";
             this.labelTituloGym.Size = new System.Drawing.Size(0, 55);
@@ -72,7 +72,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.buttonAsignarActividad);
+            this.panel1.Controls.Add(this.buttonGestionActividad);
             this.panel1.Controls.Add(this.btnMembresia);
             this.panel1.Controls.Add(this.btnRegistrar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
@@ -81,16 +81,16 @@
             this.panel1.Size = new System.Drawing.Size(184, 489);
             this.panel1.TabIndex = 8;
             // 
-            // buttonAsignarActividad
+            // buttonGestionActividad
             // 
-            this.buttonAsignarActividad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAsignarActividad.Location = new System.Drawing.Point(29, 268);
-            this.buttonAsignarActividad.Name = "buttonAsignarActividad";
-            this.buttonAsignarActividad.Size = new System.Drawing.Size(122, 53);
-            this.buttonAsignarActividad.TabIndex = 7;
-            this.buttonAsignarActividad.Text = "Asignar actividad";
-            this.buttonAsignarActividad.UseVisualStyleBackColor = true;
-            this.buttonAsignarActividad.Click += new System.EventHandler(this.button3_Click);
+            this.buttonGestionActividad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGestionActividad.Location = new System.Drawing.Point(29, 268);
+            this.buttonGestionActividad.Name = "buttonGestionActividad";
+            this.buttonGestionActividad.Size = new System.Drawing.Size(122, 53);
+            this.buttonGestionActividad.TabIndex = 7;
+            this.buttonGestionActividad.Text = "Gestion de Actividad";
+            this.buttonGestionActividad.UseVisualStyleBackColor = true;
+            this.buttonGestionActividad.Click += new System.EventHandler(this.buttonGestionActividad_Click);
             // 
             // panel2
             // 
@@ -142,7 +142,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button buttonAsignarActividad;
+        private System.Windows.Forms.Button buttonGestionActividad;
     }
 }
 

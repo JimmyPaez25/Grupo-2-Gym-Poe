@@ -84,6 +84,12 @@
     <Compile Include="VsMembresiaLista.Designer.cs">
       <DependentUpon>VsMembresiaLista.cs</DependentUpon>
     </Compile>
+    <Compile Include="VsPapeleraActividad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VsPapeleraActividad.Designer.cs">
+      <DependentUpon>VsPapeleraActividad.cs</DependentUpon>
+    </Compile>
     <Compile Include="VsRegistrarActividad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VsMembresiaLista.resx">
       <DependentUpon>VsMembresiaLista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VsPapeleraActividad.resx">
+      <DependentUpon>VsPapeleraActividad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VsPrincipal.resx">
       <DependentUpon>VsPrincipal.cs</DependentUpon>

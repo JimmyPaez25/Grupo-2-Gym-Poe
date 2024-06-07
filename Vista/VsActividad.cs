@@ -39,6 +39,19 @@ namespace Vista
             }
         }
 
+        private void buttonPapelera_Click(object sender, EventArgs e)
+        {
+            VsPapeleraActividad vPapeleraAct = null;
+            if (ctrActividad.GetTotalInactivas() > 0)
+            {
+                vPapeleraAct = new VsPapeleraActividad(); vPapeleraAct.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("ERROR: NO EXISTEN ACTIVIDADES ELIMINADAS DENTRO DE LA PAPELERA.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
         // FIN
     }
 }
