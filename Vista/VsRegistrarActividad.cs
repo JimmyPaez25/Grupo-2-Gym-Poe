@@ -64,6 +64,11 @@ namespace Vista
             this.Close();
         }
 
+        private void textDescripcion_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         // FIN    
     }
 }

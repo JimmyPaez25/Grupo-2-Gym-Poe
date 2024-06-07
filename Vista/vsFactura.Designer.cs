@@ -45,7 +45,6 @@
             this.txtTefefono = new System.Windows.Forms.TextBox();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.txtEstado = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label10 = new System.Windows.Forms.Label();
             this.txtComprobante = new System.Windows.Forms.TextBox();
             this.dateTPFNF = new System.Windows.Forms.DateTimePicker();
@@ -54,7 +53,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.btnRegistrarDatosFact = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtNumFactura
@@ -77,10 +76,10 @@
             // 
             // dtFechaFactura
             // 
-            this.dtFechaFactura.Location = new System.Drawing.Point(788, 376);
+            this.dtFechaFactura.Location = new System.Drawing.Point(237, 641);
             this.dtFechaFactura.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtFechaFactura.Name = "dtFechaFactura";
-            this.dtFechaFactura.Size = new System.Drawing.Size(283, 22);
+            this.dtFechaFactura.Size = new System.Drawing.Size(269, 22);
             this.dtFechaFactura.TabIndex = 3;
             // 
             // label1
@@ -113,7 +112,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(621, 382);
+            this.label4.Location = new System.Drawing.Point(83, 641);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(117, 16);
             this.label4.TabIndex = 7;
@@ -209,17 +208,6 @@
             this.txtEstado.TabIndex = 18;
             this.txtEstado.TextChanged += new System.EventHandler(this.txtEstado_TextChanged);
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(624, 30);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(447, 286);
-            this.dataGridView1.TabIndex = 19;
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -241,7 +229,7 @@
             // dateTPFNF
             // 
             this.dateTPFNF.Location = new System.Drawing.Point(237, 231);
-            this.dateTPFNF.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTPFNF.Margin = new System.Windows.Forms.Padding(4);
             this.dateTPFNF.Name = "dateTPFNF";
             this.dateTPFNF.Size = new System.Drawing.Size(265, 22);
             this.dateTPFNF.TabIndex = 22;
@@ -280,18 +268,30 @@
             // 
             // btnRegistrarDatosFact
             // 
-            this.btnRegistrarDatosFact.Location = new System.Drawing.Point(624, 509);
+            this.btnRegistrarDatosFact.Location = new System.Drawing.Point(627, 64);
             this.btnRegistrarDatosFact.Name = "btnRegistrarDatosFact";
             this.btnRegistrarDatosFact.Size = new System.Drawing.Size(144, 52);
             this.btnRegistrarDatosFact.TabIndex = 27;
             this.btnRegistrarDatosFact.Text = "REGISTRAR";
             this.btnRegistrarDatosFact.UseVisualStyleBackColor = true;
+            this.btnRegistrarDatosFact.Click += new System.EventHandler(this.btnRegistrarDatosFact_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(627, 168);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(138, 52);
+            this.button1.TabIndex = 28;
+            this.button1.Text = "VER REGISTRO";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // VsFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1153, 760);
+            this.ClientSize = new System.Drawing.Size(816, 692);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnRegistrarDatosFact);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.textBox2);
@@ -300,7 +300,6 @@
             this.Controls.Add(this.dateTPFNF);
             this.Controls.Add(this.txtComprobante);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.txtEstado);
             this.Controls.Add(this.txtDireccion);
             this.Controls.Add(this.txtTefefono);
@@ -321,7 +320,6 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "VsFactura";
             this.Text = "Datos Factura";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -346,7 +344,6 @@
         private System.Windows.Forms.TextBox txtTefefono;
         private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.TextBox txtEstado;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtComprobante;
         private System.Windows.Forms.DateTimePicker dateTPFNF;
@@ -355,5 +352,6 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btnRegistrarDatosFact;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -100,5 +100,16 @@ namespace Vista
         {
 
         }
+
+        private void btnRegistrarDatosFact_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            VsConsultarFactura rtkfactura = new VsConsultarFactura();
+            rtkfactura.ShowDialog();
+        }
     }
 }
