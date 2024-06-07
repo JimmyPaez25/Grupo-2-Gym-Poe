@@ -16,6 +16,16 @@ namespace Control
         public DateTime FechaActual { get => fechaActual; set => fechaActual = value; }
         public static List<Actividad> ListaActividad { get => listaActividad; set => listaActividad = value; }
 
+        public CtrActividad()
+        {
+            if (ListaActividad.Count == 0)
+            {
+                ListaActividad.Add(new Actividad("Actividad 1", "PESAS", DateTime.Now, DateTime.Now.AddDays(1), new TimeSpan(9, 0, 0), new TimeSpan(12, 0, 0)));
+                ListaActividad.Add(new Actividad("Actividad 2", "MANCUERNAS", DateTime.Now.AddDays(2), DateTime.Now.AddDays(3), new TimeSpan(10, 0, 0), new TimeSpan(13, 0, 0)));
+                ListaActividad.Add(new Actividad("Actividad 3", "FLEXIONES", DateTime.Now.AddDays(4), DateTime.Now.AddDays(5), new TimeSpan(11, 0, 0), new TimeSpan(14, 0, 0)));
+            }
+        }
+
         public int GetTotal()
         {
             return ListaActividad.Count;
@@ -218,6 +228,54 @@ namespace Control
             return msj;
         }
 
+        public void TablaConsultarActividadPapelera(DataGridView dgvActividad)
+        {
+            int i = 0;
+            dgvActividad.Rows.Clear(); // LIMPIA FILAS SI LAS HAY
+            foreach (Actividad x in ListaActividad)
+            {
+                if (x.Estado == 2)
+                {
+                    i = dgvActividad.Rows.Add();
+                    dgvActividad.Rows[i].Cells["ClmNumero"].Value = i + 1;
+                    dgvActividad.Rows[i].Cells["ClmEstado"].Value = x.Estado;
+                    dgvActividad.Rows[i].Cells["ClmNombre"].Value = x.Nombre;
+                    dgvActividad.Rows[i].Cells["ClmDescripcion"].Value = x.Descripcion;
+                    dgvActividad.Rows[i].Cells["ClmFechaInicio"].Value = x.FechaInicio.ToString("d");
+                    dgvActividad.Rows[i].Cells["ClmFechaFin"].Value = x.FechaFin.ToString("d");
+                    dgvActividad.Rows[i].Cells["ClmHoraInicio"].Value = x.HoraInicio.ToString(@"hh\:mm");
+                    dgvActividad.Rows[i].Cells["ClmHoraFin"].Value = x.HoraFin.ToString(@"hh\:mm");
+                }
+            }
+        }
+
+        public void RestaurarActividad(DataGridView dgvActividad)
+        {
+            if (dgvActividad.SelectedRows.Count > 0)
+            {
+                int filaSeleccionada = dgvActividad.SelectedRows[0].Index; // OBTIENE INDICE DE FILA SELECCIONADA
+                if (filaSeleccionada >= 0)
+                {
+                    int clmId = (int)dgvActividad.Rows[filaSeleccionada].Cells["ClmNumero"].Value - 1; // OBTIENE NUMERO DE LA ACTIVIDAD
+                    DialogResult resultado = MessageBox.Show("ESTAS SEGURO DE RESTAURAR ESTA ACTIVIDAD?", "CONFIRMACION", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (resultado == DialogResult.Yes)
+                    {
+                        ListaActividad[clmId].Estado = 1; // ESTADO 1 = ACTIVO
+                        TablaConsultarActividadPapelera(dgvActividad);
+                        MessageBox.Show("ACTIVIDAD RESTAURADA EXITOSAMENTE.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("ERROR: SELECCIONA UNA FILA ANTES DE RESTURAR UNA ACTIVIDAD.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        public int GetTotalInactivas()
+        {
+            return ListaActividad.Count(act => act.Estado == 2);
+        }
         // FIN
     }
 }

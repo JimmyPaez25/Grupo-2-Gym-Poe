@@ -231,7 +231,7 @@
             this.Controls.Add(this.label2);
             this.Name = "VsEditarActividad";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "EDITAR ACTIVIDAD";
+            this.Text = "Editar Actividad";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
