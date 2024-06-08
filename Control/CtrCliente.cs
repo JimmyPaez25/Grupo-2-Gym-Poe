@@ -134,44 +134,52 @@ namespace Control
 
         }
 
-        public void BuscarClientePorCedula(DataGridView dgvClientes, string filtro = "")
+        public void BuscarCliente(DataGridView dgvClientes, string filtroPorCedula = "", string filtroPorNombre = "")
         {
+
+            if (string.IsNullOrEmpty(filtroPorCedula) && string.IsNullOrEmpty(filtroPorNombre))
+            {
+                MessageBox.Show("ERROR: Debe ingresar al menos un campo para la búsqueda (cédula o nombre).", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             int i = 0;
             dgvClientes.Rows.Clear(); // Limpiar filas si las hay 
             foreach (Cliente x in ListaCli)
             {
-                if (!(filtro.Trim() == string.Empty))
-                {
-                    if ((string.IsNullOrEmpty(filtro)) || x.Cedula.Contains(filtro))
-                    {
-                        i = dgvClientes.Rows.Add();
-                        dgvClientes.Rows[i].Cells["clmEstado"].Value = x.Estado;
-                        dgvClientes.Rows[i].Cells["clmCedula"].Value = x.Cedula;
-                        dgvClientes.Rows[i].Cells["clmNombre"].Value = x.Nombre;
-                        dgvClientes.Rows[i].Cells["clmApellido"].Value = x.Apellido;
-                        dgvClientes.Rows[i].Cells["clmTelefono"].Value = x.Telefono;
-                        dgvClientes.Rows[i].Cells["clmDireccion"].Value = x.Direccion;
-                        dgvClientes.Rows[i].Cells["clmDate"].Value = x.FechaNacimiento.ToString("d");
+                bool coincideCedula = string.IsNullOrEmpty(filtroPorCedula) || x.Cedula.IndexOf(filtroPorCedula, StringComparison.OrdinalIgnoreCase) >= 0;
+                bool coincideNombre = string.IsNullOrEmpty(filtroPorNombre) || x.Nombre.IndexOf(filtroPorNombre, StringComparison.OrdinalIgnoreCase) >= 0;
 
-                        if (x is ClienteEstudiante clienteEstudiante)
-                        {
-                            dgvClientes.Rows[i].Cells["clmComprobanteEst"].Value = clienteEstudiante.Comprobante;
-                        }
-                        else
-                        {
-                            dgvClientes.Rows[i].Cells["clmComprobanteEst"].Value = "SIN COMPROBANTE";
-                        }
+                if (coincideCedula && coincideNombre)
+                {
+                    i = dgvClientes.Rows.Add();
+                    dgvClientes.Rows[i].Cells["clmEstado"].Value = x.Estado;
+                    dgvClientes.Rows[i].Cells["clmCedula"].Value = x.Cedula;
+                    dgvClientes.Rows[i].Cells["clmNombre"].Value = x.Nombre;
+                    dgvClientes.Rows[i].Cells["clmApellido"].Value = x.Apellido;
+                    dgvClientes.Rows[i].Cells["clmTelefono"].Value = x.Telefono;
+                    dgvClientes.Rows[i].Cells["clmDireccion"].Value = x.Direccion;
+                    dgvClientes.Rows[i].Cells["clmDate"].Value = x.FechaNacimiento.ToString("d");
+
+                    if (x is ClienteEstudiante clienteEstudiante)
+                    {
+                        dgvClientes.Rows[i].Cells["clmComprobanteEst"].Value = clienteEstudiante.Comprobante;
+                    }
+                    else
+                    {
+                        dgvClientes.Rows[i].Cells["clmComprobanteEst"].Value = "SIN COMPROBANTE";
                     }
                 }
-                else
-                {
-                    MessageBox.Show("ERROR: NO INGRESO NINGUN CAMPO EN LA BUSQUEDA", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            }
+
+            if (dgvClientes.Rows.Count == 0)
+            {
+                MessageBox.Show("ERROR: NO SE ENCONTRARON RESULTADOS CON LOS FILTROS PROPORCIONADOS.", "SIN RESULTADOS", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
 
-        public void InvalidarCliente(string cedula, DataGridView dgvCliente)
+        public void InactivarCliente(string cedula, DataGridView dgvCliente)
         {
                 var cliente = ListaCli.FirstOrDefault(c => c.Cedula == cedula);
                 if (cliente != null)

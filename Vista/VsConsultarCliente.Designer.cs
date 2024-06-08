@@ -43,7 +43,7 @@
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnDarBaja = new System.Windows.Forms.Button();
             this.btnConsultarM = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblCedula = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.btnMostrarTodos = new System.Windows.Forms.Button();
@@ -152,7 +152,7 @@
             // btnActualizar
             // 
             this.btnActualizar.Font = new System.Drawing.Font("Microsoft Tai Le", 9F);
-            this.btnActualizar.Location = new System.Drawing.Point(44, 441);
+            this.btnActualizar.Location = new System.Drawing.Point(41, 442);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(87, 41);
             this.btnActualizar.TabIndex = 6;
@@ -163,7 +163,7 @@
             // btnDarBaja
             // 
             this.btnDarBaja.Font = new System.Drawing.Font("Microsoft Tai Le", 9F);
-            this.btnDarBaja.Location = new System.Drawing.Point(137, 440);
+            this.btnDarBaja.Location = new System.Drawing.Point(134, 441);
             this.btnDarBaja.Name = "btnDarBaja";
             this.btnDarBaja.Size = new System.Drawing.Size(101, 43);
             this.btnDarBaja.TabIndex = 7;
@@ -174,7 +174,7 @@
             // btnConsultarM
             // 
             this.btnConsultarM.Font = new System.Drawing.Font("Microsoft Tai Le", 9F);
-            this.btnConsultarM.Location = new System.Drawing.Point(659, 91);
+            this.btnConsultarM.Location = new System.Drawing.Point(721, 92);
             this.btnConsultarM.Name = "btnConsultarM";
             this.btnConsultarM.Size = new System.Drawing.Size(75, 41);
             this.btnConsultarM.TabIndex = 8;
@@ -182,12 +182,12 @@
             this.btnConsultarM.UseVisualStyleBackColor = true;
             this.btnConsultarM.Click += new System.EventHandler(this.btnConsultarM_Click);
             // 
-            // textBox1
+            // txtNombre
             // 
-            this.textBox1.Location = new System.Drawing.Point(236, 112);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(189, 20);
-            this.textBox1.TabIndex = 13;
+            this.txtNombre.Location = new System.Drawing.Point(236, 112);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(189, 20);
+            this.txtNombre.TabIndex = 13;
             // 
             // lblCedula
             // 
@@ -219,7 +219,7 @@
             // 
             // btnCerrar
             // 
-            this.btnCerrar.Location = new System.Drawing.Point(869, 442);
+            this.btnCerrar.Location = new System.Drawing.Point(869, 441);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(75, 41);
             this.btnCerrar.TabIndex = 17;
@@ -236,7 +236,7 @@
             this.Controls.Add(this.btnMostrarTodos);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblCedula);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.btnConsultarM);
             this.Controls.Add(this.btnDarBaja);
             this.Controls.Add(this.btnActualizar);
@@ -269,7 +269,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmComprobanteEst;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmEstado;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lblCedula;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Button btnMostrarTodos;

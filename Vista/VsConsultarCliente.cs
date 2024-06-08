@@ -29,8 +29,9 @@ namespace Vista
         }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            string filtro =txtCedula.Text.Trim();
-            ctrCli.BuscarClientePorCedula(dgvClientes,filtro);
+            string filtroPorCedula =txtCedula.Text.Trim();
+            string filtroPorNombre = txtNombre.Text.Trim();
+            ctrCli.BuscarCliente(dgvClientes,filtroPorCedula, filtroPorNombre);
         }
         private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -94,7 +95,7 @@ namespace Vista
             { 
                 var filaSeleccionada = dgvClientes.SelectedRows[0];
                 var cedula = (string)filaSeleccionada.Cells["clmCedula"].Value;
-                ctrCli.InvalidarCliente(cedula, dgvClientes);
+                ctrCli.InactivarCliente(cedula, dgvClientes);
                 ctrCli.LlenarGrid(dgvClientes);
             }
             else
