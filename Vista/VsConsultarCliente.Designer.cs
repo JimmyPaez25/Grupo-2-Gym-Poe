@@ -38,12 +38,16 @@
             this.clmDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmComprobanteEst = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblCedula = new System.Windows.Forms.Label();
             this.txtCedula = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnDarBaja = new System.Windows.Forms.Button();
             this.btnConsultarM = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lblCedula = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.btnMostrarTodos = new System.Windows.Forms.Button();
+            this.btnCerrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,7 +55,7 @@
             // 
             this.lblConsultarCliente.AutoSize = true;
             this.lblConsultarCliente.Font = new System.Drawing.Font("Microsoft YaHei", 20F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.lblConsultarCliente.Location = new System.Drawing.Point(352, 29);
+            this.lblConsultarCliente.Location = new System.Drawing.Point(368, 9);
             this.lblConsultarCliente.Name = "lblConsultarCliente";
             this.lblConsultarCliente.Size = new System.Drawing.Size(249, 36);
             this.lblConsultarCliente.TabIndex = 1;
@@ -71,13 +75,11 @@
             this.clmDate,
             this.clmComprobanteEst,
             this.clmEstado});
-            this.dgvClientes.Location = new System.Drawing.Point(40, 191);
+            this.dgvClientes.Location = new System.Drawing.Point(41, 156);
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
             this.dgvClientes.Size = new System.Drawing.Size(903, 279);
             this.dgvClientes.TabIndex = 2;
-            this.dgvClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellClick);
-            this.dgvClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellContentClick);
             // 
             // clmCedula
             // 
@@ -128,28 +130,18 @@
             this.clmEstado.Name = "clmEstado";
             this.clmEstado.ReadOnly = true;
             // 
-            // lblCedula
-            // 
-            this.lblCedula.AutoSize = true;
-            this.lblCedula.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic);
-            this.lblCedula.Location = new System.Drawing.Point(91, 98);
-            this.lblCedula.Name = "lblCedula";
-            this.lblCedula.Size = new System.Drawing.Size(63, 20);
-            this.lblCedula.TabIndex = 3;
-            this.lblCedula.Text = "Cedula:";
-            // 
             // txtCedula
             // 
-            this.txtCedula.Location = new System.Drawing.Point(191, 98);
+            this.txtCedula.Location = new System.Drawing.Point(41, 111);
             this.txtCedula.Name = "txtCedula";
-            this.txtCedula.Size = new System.Drawing.Size(197, 20);
+            this.txtCedula.Size = new System.Drawing.Size(189, 20);
             this.txtCedula.TabIndex = 4;
             this.txtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
             // 
             // btnBuscar
             // 
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Tai Le", 9F);
-            this.btnBuscar.Location = new System.Drawing.Point(417, 88);
+            this.btnBuscar.Location = new System.Drawing.Point(445, 91);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(78, 41);
             this.btnBuscar.TabIndex = 5;
@@ -160,7 +152,7 @@
             // btnActualizar
             // 
             this.btnActualizar.Font = new System.Drawing.Font("Microsoft Tai Le", 9F);
-            this.btnActualizar.Location = new System.Drawing.Point(662, 91);
+            this.btnActualizar.Location = new System.Drawing.Point(44, 441);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(87, 41);
             this.btnActualizar.TabIndex = 6;
@@ -171,17 +163,18 @@
             // btnDarBaja
             // 
             this.btnDarBaja.Font = new System.Drawing.Font("Microsoft Tai Le", 9F);
-            this.btnDarBaja.Location = new System.Drawing.Point(755, 89);
+            this.btnDarBaja.Location = new System.Drawing.Point(137, 440);
             this.btnDarBaja.Name = "btnDarBaja";
             this.btnDarBaja.Size = new System.Drawing.Size(101, 43);
             this.btnDarBaja.TabIndex = 7;
             this.btnDarBaja.Text = "Dar de Baja";
             this.btnDarBaja.UseVisualStyleBackColor = true;
+            this.btnDarBaja.Click += new System.EventHandler(this.btnDarBaja_Click);
             // 
             // btnConsultarM
             // 
             this.btnConsultarM.Font = new System.Drawing.Font("Microsoft Tai Le", 9F);
-            this.btnConsultarM.Location = new System.Drawing.Point(581, 90);
+            this.btnConsultarM.Location = new System.Drawing.Point(659, 91);
             this.btnConsultarM.Name = "btnConsultarM";
             this.btnConsultarM.Size = new System.Drawing.Size(75, 41);
             this.btnConsultarM.TabIndex = 8;
@@ -189,22 +182,71 @@
             this.btnConsultarM.UseVisualStyleBackColor = true;
             this.btnConsultarM.Click += new System.EventHandler(this.btnConsultarM_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(236, 112);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(189, 20);
+            this.textBox1.TabIndex = 13;
+            // 
+            // lblCedula
+            // 
+            this.lblCedula.AutoSize = true;
+            this.lblCedula.Location = new System.Drawing.Point(41, 91);
+            this.lblCedula.Name = "lblCedula";
+            this.lblCedula.Size = new System.Drawing.Size(40, 13);
+            this.lblCedula.TabIndex = 14;
+            this.lblCedula.Text = "Cedula";
+            // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Location = new System.Drawing.Point(233, 91);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(44, 13);
+            this.lblNombre.TabIndex = 15;
+            this.lblNombre.Text = "Nombre";
+            // 
+            // btnMostrarTodos
+            // 
+            this.btnMostrarTodos.Location = new System.Drawing.Point(529, 91);
+            this.btnMostrarTodos.Name = "btnMostrarTodos";
+            this.btnMostrarTodos.Size = new System.Drawing.Size(75, 40);
+            this.btnMostrarTodos.TabIndex = 16;
+            this.btnMostrarTodos.Text = "Mostras Clientes";
+            this.btnMostrarTodos.UseVisualStyleBackColor = true;
+            this.btnMostrarTodos.Click += new System.EventHandler(this.btnMostrarTodos_Click);
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Location = new System.Drawing.Point(869, 442);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(75, 41);
+            this.btnCerrar.TabIndex = 17;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
             // VsConsultarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(989, 501);
+            this.Controls.Add(this.btnCerrar);
+            this.Controls.Add(this.btnMostrarTodos);
+            this.Controls.Add(this.lblNombre);
+            this.Controls.Add(this.lblCedula);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnConsultarM);
             this.Controls.Add(this.btnDarBaja);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtCedula);
-            this.Controls.Add(this.lblCedula);
             this.Controls.Add(this.dgvClientes);
             this.Controls.Add(this.lblConsultarCliente);
             this.Name = "VsConsultarCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Consultar Cliente";
+            this.Text = " Asignacion Cliente";
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -214,7 +256,6 @@
         #endregion
         private System.Windows.Forms.Label lblConsultarCliente;
         private System.Windows.Forms.DataGridView dgvClientes;
-        private System.Windows.Forms.Label lblCedula;
         private System.Windows.Forms.TextBox txtCedula;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnActualizar;
@@ -228,5 +269,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmComprobanteEst;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmEstado;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label lblCedula;
+        private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.Button btnMostrarTodos;
+        private System.Windows.Forms.Button btnCerrar;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.Remoting.Lifetime;
 using System.Text;
@@ -20,6 +21,16 @@ namespace Control
             return listaCli.Count;
         }
 
+        public CtrCliente()
+        {
+            if (listaCli.Count == 0) { 
+                listaCli.Add(new ClienteEstudiante("0987654321", "Tulio Jose", "Trivinio Tripanez", DateTime.ParseExact("01/01/1980", "dd/MM/yyyy", CultureInfo.InvariantCulture), "0874563219", "COOP. 31 Minutos","ACTIVO", "E09876543211"));
+                listaCli.Add(new Cliente("9512368749", "Juan Carlos", "Bodoque Avendanio", DateTime.ParseExact("24/05/1998", "dd/MM/yyyy", CultureInfo.InvariantCulture), "2031659847", "Guasmo Sur", "ACTIVO"));
+                listaCli.Add(new Cliente("9865231470", "Juan German", "Jarry Sanchez", DateTime.ParseExact("30/07/2009", "dd/MM/yyyy", CultureInfo.InvariantCulture),"0995263417", "Via Daule", "INACTIVO"));
+                listaCli.Add(new ClienteEstudiante("0963254178", "Patricia Ana", "Tufillo Trivinio", DateTime.ParseExact("24/05/2009", "dd/MM/yyyy", CultureInfo.InvariantCulture), "0963251478", "Pascuales", "ACTIVO", "E10987263541"));
+            }
+        }
+
         public string IngresarCli(string rCedula, string rNombre, string rApellido,string rFechaNacimiento, string rTelefono, string rEstado, string rDireccion)
         {
             String msg = "ERROR: SE ESPERABA DATOS CORRECTOS!!";
@@ -32,15 +43,15 @@ namespace Control
                  string.IsNullOrEmpty(rTelefono) || string.IsNullOrEmpty(rDireccion) ||
                   string.IsNullOrEmpty(rApellido))
             {
-                return "ERROR: NO PUEDEN EXISTIR CAMPOS VACIOS";
+                MessageBox.Show("ERROR: NO PUEDEN EXISTIR CAMPOS VACIOS", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (fechaNac == hoy)
             {
-                return "ERROR: LA FECHA DE NACIMIENTO NO PUEDE SER LA DE HOY";
+                MessageBox.Show("ERROR: LA FECHA DE NACIMIENTO NO PUEDE SER LA DE HOY", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (ClienteExistente(rCedula))
             {
-                return "ERROR: ESTA CEDULA YA EXISTE EN UN CLIENTE";
+                MessageBox.Show("ERROR: ESTA CEDULA YA EXISTE EN UN CLIENTE", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -63,15 +74,15 @@ namespace Control
                  string.IsNullOrEmpty(rTelefono) || string.IsNullOrEmpty(rDireccion) ||
                   string.IsNullOrEmpty(rApellido) || comprobante.Equals(""))
             {
-                return "ERROR: NO PUEDEN EXISTIR CAMPOS VACIOS";
+                MessageBox.Show("ERROR: NO PUEDEN EXISTIR CAMPOS VACIOS", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (fechaNac == hoy)
             {
-                return "ERROR: LA FECHA DE NACIMIENTO NO PUEDE SER LA DE HOY";
+                MessageBox.Show("ERROR: LA FECHA DE NACIMIENTO NO PUEDE SER LA DE HOY", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (ClienteExistente(rCedula))
             {
-                return "ERROR: ESTA CEDULA YA EXISTE EN UN CLIENTE";
+                MessageBox.Show("ERROR: ESTA CEDULA YA EXISTE EN UN CLIENTE", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -123,60 +134,50 @@ namespace Control
 
         }
 
-        public void ConsultarClientePorCedula(DataGridView dgvClientes, string filtro = "")
+        public void BuscarClientePorCedula(DataGridView dgvClientes, string filtro = "")
         {
             int i = 0;
             dgvClientes.Rows.Clear(); // Limpiar filas si las hay 
             foreach (Cliente x in ListaCli)
             {
-                if ((string.IsNullOrEmpty(filtro)) || x.Cedula.Contains(filtro))
+                if (!(filtro.Trim() == string.Empty))
                 {
-                    i = dgvClientes.Rows.Add();
-                    dgvClientes.Rows[i].Cells["clmEstado"].Value = x.Estado;
-                    dgvClientes.Rows[i].Cells["clmCedula"].Value = x.Cedula;
-                    dgvClientes.Rows[i].Cells["clmNombre"].Value = x.Nombre;
-                    dgvClientes.Rows[i].Cells["clmApellido"].Value = x.Apellido;
-                    dgvClientes.Rows[i].Cells["clmTelefono"].Value = x.Telefono;
-                    dgvClientes.Rows[i].Cells["clmDireccion"].Value = x.Direccion;
-                    dgvClientes.Rows[i].Cells["clmDate"].Value = x.FechaNacimiento.ToString("d");
-
-                    if (x is ClienteEstudiante clienteEstudiante)
+                    if ((string.IsNullOrEmpty(filtro)) || x.Cedula.Contains(filtro))
                     {
-                        dgvClientes.Rows[i].Cells["clmComprobanteEst"].Value = clienteEstudiante.Comprobante;
-                    }
-                    else
-                    {
-                        dgvClientes.Rows[i].Cells["clmComprobanteEst"].Value = "SIN COMPROBANTE";
-                    }
+                        i = dgvClientes.Rows.Add();
+                        dgvClientes.Rows[i].Cells["clmEstado"].Value = x.Estado;
+                        dgvClientes.Rows[i].Cells["clmCedula"].Value = x.Cedula;
+                        dgvClientes.Rows[i].Cells["clmNombre"].Value = x.Nombre;
+                        dgvClientes.Rows[i].Cells["clmApellido"].Value = x.Apellido;
+                        dgvClientes.Rows[i].Cells["clmTelefono"].Value = x.Telefono;
+                        dgvClientes.Rows[i].Cells["clmDireccion"].Value = x.Direccion;
+                        dgvClientes.Rows[i].Cells["clmDate"].Value = x.FechaNacimiento.ToString("d");
 
+                        if (x is ClienteEstudiante clienteEstudiante)
+                        {
+                            dgvClientes.Rows[i].Cells["clmComprobanteEst"].Value = clienteEstudiante.Comprobante;
+                        }
+                        else
+                        {
+                            dgvClientes.Rows[i].Cells["clmComprobanteEst"].Value = "SIN COMPROBANTE";
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("ERROR: NO INGRESO NINGUN CAMPO EN LA BUSQUEDA", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
-        public void InavilitarCliente(DataGridView dgvCliente)
+
+        public void InvalidarCliente(string cedula, DataGridView dgvCliente)
         {
-            if (dgvCliente.SelectedRows.Count > 0)
-            {
-                int filaSeleccion = dgvCliente.SelectedRows[0].Index;
-                if (filaSeleccion >= 0)
+                var cliente = ListaCli.FirstOrDefault(c => c.Cedula == cedula);
+                if (cliente != null)
                 {
-                    DataGridViewRow seleccionFila = dgvCliente.SelectedRows[0];
-                    DialogResult result = MessageBox.Show("Quieres dar de baja a este estudiante?", "SI", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (result == DialogResult.Yes)
-                    {
-
-
-                        seleccionFila.Cells["clmEstado"].Value = "INACTIVO";
-                        //                       LlenarGrid(dgvCliente);
-                        MessageBox.Show("El cliente aparecera de forma INACTIVO en la lista");
-                    }
+                    cliente.Estado = "INACTIVO";
                 }
-            }
-            else
-            {
-                MessageBox.Show("ERROR: Selecciona una fila antes de dar de baja a un cliente", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-
         }
 
         public void MostrarDatosCliente(string cedula, string nombre, string apellido, DateTime fechaNacimiento, string telefono, string direccion, string estado, string comprobante, TextBox txtCedula, TextBox txtNombre, TextBox txtApellido, DateTimePicker dtpDate, TextBox txtTelefono, TextBox txtDireccion, TextBox txtComprobante, ComboBox cmbEstado)

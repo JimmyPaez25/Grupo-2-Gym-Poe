@@ -30,7 +30,7 @@ namespace Vista
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             string filtro =txtCedula.Text.Trim();
-            ctrCli.ConsultarClientePorCedula(dgvClientes,filtro);
+            ctrCli.BuscarClientePorCedula(dgvClientes,filtro);
         }
         private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -39,28 +39,26 @@ namespace Vista
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            string cedula, nombre, apellido, telefono;
-            string direccion, comprobante;
-            string estado;
-            DateTime fechaNacimiento;
+            if (dgvClientes.SelectedRows.Count > 0)
+            {
+                string cedula, nombre, apellido, telefono;
+                string direccion, comprobante;
+                string estado;
+                DateTime fechaNacimiento;
 
-            ctrCli.ConseguirDatosGrid(dgvClientes, out cedula, out nombre, out apellido, out fechaNacimiento, out telefono, out direccion, out comprobante, out estado);
-            VsEditarCliente vsEditarClint = new VsEditarCliente(cedula, nombre, apellido, fechaNacimiento, telefono, direccion, estado, comprobante);
-            
-            vsEditarClint.Visible = true;
-            poc = dgvClientes.CurrentRow.Index;
+                ctrCli.ConseguirDatosGrid(dgvClientes, out cedula, out nombre, out apellido, out fechaNacimiento, out telefono, out direccion, out comprobante, out estado);
+                VsEditarCliente vsEditarClint = new VsEditarCliente(cedula, nombre, apellido, fechaNacimiento, telefono, direccion, estado, comprobante);
 
+                vsEditarClint.Visible = true;
+                poc = dgvClientes.CurrentRow.Index;
+            }
+            else
+            {
+                MessageBox.Show("ERROR: DEBE SELECCIONAR UNA FILA PARA EDITAR", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void dgvClientes_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
 
-        }
-
-        private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private void btnConsultarM_Click(object sender, EventArgs e)
         {
@@ -78,5 +76,31 @@ namespace Vista
             }
         }
 
+        private void btnMostrarTodos_Click(object sender, EventArgs e)
+        {
+            dgvClientes.Rows.Clear();
+            ctrCli.LlenarGrid(dgvClientes);
+
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnDarBaja_Click(object sender, EventArgs e)
+        {
+            if (dgvClientes.SelectedRows.Count > 0) 
+            { 
+                var filaSeleccionada = dgvClientes.SelectedRows[0];
+                var cedula = (string)filaSeleccionada.Cells["clmCedula"].Value;
+                ctrCli.InvalidarCliente(cedula, dgvClientes);
+                ctrCli.LlenarGrid(dgvClientes);
+            }
+            else
+            {
+                MessageBox.Show("ERROR: Selecciona una fila antes de dar de baja a un cliente", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }
