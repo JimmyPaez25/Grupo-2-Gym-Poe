@@ -85,42 +85,50 @@
             // 
             this.clmCedula.HeaderText = "CEDULA";
             this.clmCedula.Name = "clmCedula";
+            this.clmCedula.ReadOnly = true;
             // 
             // clmNombre
             // 
             this.clmNombre.HeaderText = "NOMBRE";
             this.clmNombre.Name = "clmNombre";
+            this.clmNombre.ReadOnly = true;
             // 
             // clmApellido
             // 
             this.clmApellido.HeaderText = "APELLIDO";
             this.clmApellido.Name = "clmApellido";
+            this.clmApellido.ReadOnly = true;
             // 
             // clmTelefono
             // 
             this.clmTelefono.HeaderText = "TELEFONO";
             this.clmTelefono.Name = "clmTelefono";
+            this.clmTelefono.ReadOnly = true;
             // 
             // clmDireccion
             // 
             this.clmDireccion.HeaderText = "DIRECCION";
             this.clmDireccion.Name = "clmDireccion";
+            this.clmDireccion.ReadOnly = true;
             // 
             // clmDate
             // 
             this.clmDate.HeaderText = "FECHA DE NACIMIENTO";
             this.clmDate.Name = "clmDate";
+            this.clmDate.ReadOnly = true;
             // 
             // clmComprobanteEst
             // 
             this.clmComprobanteEst.HeaderText = "COMPROBANTE DE ESTUDIANTE";
             this.clmComprobanteEst.Name = "clmComprobanteEst";
+            this.clmComprobanteEst.ReadOnly = true;
             this.clmComprobanteEst.Width = 160;
             // 
             // clmEstado
             // 
             this.clmEstado.HeaderText = "ESTADO";
             this.clmEstado.Name = "clmEstado";
+            this.clmEstado.ReadOnly = true;
             // 
             // txtCedula
             // 
@@ -180,6 +188,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(189, 20);
             this.txtNombre.TabIndex = 13;
+            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             // 
             // lblCedula
             // 

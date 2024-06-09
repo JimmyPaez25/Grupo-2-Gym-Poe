@@ -79,10 +79,9 @@ namespace Vista
             this.Close();
         }
 
-        private void btnConsultarMembresia_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
-            VsConsultarCliente cltCliente = new VsConsultarCliente();
-            cltCliente.Visible = true;
+            this.Close();
         }
         private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -96,5 +95,68 @@ namespace Vista
             v.maximoDigitosNumericos(sender, e, 10, txtTelefono);
         }
 
+        private void txtApellido_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            v.ConvertirMayuscula(textBox);
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            v.ConvertirMayuscula(textBox);
+        }
+
+        private void txtDireccion_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            v.ConvertirMayuscula(textBox);
+        }
+
+        private void txtComprobante_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            v.ConvertirMayuscula(textBox);
+        }
+
+        private void lblName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblDate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblApellido_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTelefono_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblDireccion_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblEstudiante_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblCedula_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblEstado_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

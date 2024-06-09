@@ -102,5 +102,11 @@ namespace Vista
                 MessageBox.Show("ERROR: Selecciona una fila antes de dar de baja a un cliente", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+            System.Windows.Forms.TextBox textBox = sender as System.Windows.Forms.TextBox;
+            v.ConvertirMayuscula(textBox);
+        }
     }
 }

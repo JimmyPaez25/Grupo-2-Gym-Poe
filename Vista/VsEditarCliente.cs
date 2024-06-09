@@ -89,5 +89,28 @@ namespace Vista
             v.ValidarNumero(sender, e);
             v.maximoDigitosNumericos(sender, e, 10, txtTelefono);
         }
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            v.ConvertirMayuscula(textBox);
+        }
+
+        private void txtApellido_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            v.ConvertirMayuscula(textBox);
+        }
+
+        private void txtDireccion_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            v.ConvertirMayuscula(textBox);
+        }
+
+        private void txtComprobante_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            v.ConvertirMayuscula(textBox);
+        }
     }
 }
