@@ -316,14 +316,10 @@ namespace Control
             return ListaActividad.Count(act => act.Estado == 2);
         }
 
-        public Actividad ExtraerNombreActividad(string nombreActividad)
-        {
-            return listaActividad.Find(a => a.Nombre == nombreActividad);
-        }
-
         public void PresentarDatosActividad(TextBox textNombre, TextBox textDescripcion, DateTimePicker dtpFechaInicio, DateTimePicker dtpFechaFin, DateTimePicker dtpHoraInicio, DateTimePicker dtpHoraFin, string nombreActividad)
         {
-            Actividad actividadSeleccionada = ExtraerNombreActividad(nombreActividad);
+            //Actividad actividadSeleccionada = ExtraerNombreActividad(nombreActividad);
+            Actividad actividadSeleccionada = listaActividad.Find(a => a.Nombre == nombreActividad);
             if (actividadSeleccionada != null)
             {
                 textNombre.Text = actividadSeleccionada.Nombre;
@@ -335,7 +331,10 @@ namespace Control
             }
         }
 
-
+        public Actividad ExtraerNombreActividad(string nombreActividad)
+        {
+            return listaActividad.Find(a => a.Nombre == nombreActividad);
+        }
         // FIN
     }
 }

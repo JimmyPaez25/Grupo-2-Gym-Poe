@@ -162,6 +162,13 @@ namespace Control
             return valor;
         }
 
+        public void ConvertirMayuscula(TextBox textBox)
+        {
+            int cursorPosicion = textBox.SelectionStart;
+            textBox.Text = textBox.Text.ToUpper();
+            textBox.SelectionStart = cursorPosicion;
+        }
+
         //
         // VALIDACIONES
         //

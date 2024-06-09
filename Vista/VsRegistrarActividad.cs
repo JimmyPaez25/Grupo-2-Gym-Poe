@@ -67,17 +67,13 @@ namespace Vista
         private void textDescripcion_TextChanged(object sender, EventArgs e)
         {
             TextBox textBox = sender as TextBox;
-            int cursorPosicion = textBox.SelectionStart;
-            textBox.Text = textBox.Text.ToUpper();
-            textBox.SelectionStart = cursorPosicion;
+            val.ConvertirMayuscula(textBox);
         }
 
         private void textNombre_TextChanged(object sender, EventArgs e)
         {
             TextBox textBox = sender as TextBox;
-            int cursorPosicion = textBox.SelectionStart;
-            textBox.Text = textBox.Text.ToUpper();
-            textBox.SelectionStart = cursorPosicion;
+            val.ConvertirMayuscula(textBox);
         }
 
         // FIN    
