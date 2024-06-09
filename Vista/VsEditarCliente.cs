@@ -15,49 +15,67 @@ namespace Vista
     {
         private CtrCliente ctrCli = new CtrCliente();
         private Validacion v = new Validacion();
-
-        private String cedula;
-        private String nombre;
-        private String apellido;
-        private DateTime fechaNacimiento;
-        private String telefono;
-        private String direccion;
-        private String estado;
-        private String comprobante;
         private bool cambios;
-
-        public string Cedula { get => cedula; set => cedula = value; }
-        public string Nombre { get => nombre; set => nombre = value; }
-        public string Apellido { get => apellido; set => apellido = value; }
-        public DateTime FechaNacimiento { get => fechaNacimiento; set => fechaNacimiento = value; }
-        public string Telefono { get => telefono; set => telefono = value; }
-        public string Direccion { get => direccion; set => direccion = value; }
-        public string Estado { get => estado; set => estado = value; }
-        public string Comprobante { get => comprobante; set => comprobante = value; }
         public bool Cambios { get => cambios; set => cambios = value; }
 
-        public VsEditarCliente(string cedula, string nombre, string apellido, DateTime fechaNacimiento, string telefono, string direccion, string estado, string comprobante)
+        public VsEditarCliente(string cedulaCliente)
         {
             InitializeComponent();
-            Cedula = cedula;
-            Nombre = nombre;
-            Apellido = apellido;
-            FechaNacimiento = fechaNacimiento;
-            Telefono = telefono;
-            Direccion = direccion;
-            Estado = estado;
-            Comprobante = comprobante;
-            ctrCli.MostrarDatosCliente(Cedula, Nombre, Apellido, FechaNacimiento, Telefono, Direccion, Estado, Comprobante, txtCedula, txtNombre, txtApellido, dtpDate, txtTelefono, txtDireccion, txtComprobante, cmbEstado);
-        }
+            ctrCli.MostrarDatosCliente(cedulaCliente, txtCedula, txtNombre, txtApellido, dtpDate, txtTelefono, txtDireccion, txtComprobante, cmbEstado);
+            txtCedulaOriginal.Text = txtCedula.Text;
 
+            
+        }
         private void btnExit_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void btnActualizar_Click(object sender, EventArgs e)
+        private void btnGuardarCambios_Click(object sender, EventArgs e)
         {
+            string aCedulaOrg = txtCedulaOriginal.Text.Trim();
+            string aCedula = txtCedula.Text.Trim();
+            string aNombre = txtNombre.Text.Trim();
+            string aApellido = txtApellido.Text.Trim();
+            string aDireccion = txtDireccion.Text.Trim();
+            string aFechaNacimiento = dtpDate.Text.Trim();
+            string aComprobante = txtComprobante.Text.Trim();
+            string aTelefono = txtTelefono.Text.Trim();
+            string esEstudiante = (string)cmbEstudiante.SelectedItem;
+            string aEstado = (string)cmbEstado.SelectedItem;
+            string msg = "";
+            if (aEstado.Equals("ACTIVO"))
+            {
+                if (esEstudiante.Equals("SI", StringComparison.OrdinalIgnoreCase))
+                {
+                    msg = ctrCli.EditarCliEst(aCedulaOrg, aCedula, aNombre, aApellido, aFechaNacimiento, aTelefono, aDireccion, aEstado , aComprobante);
+                }
+                else
+                {
+                    msg = ctrCli.EditarCli(aCedulaOrg, aCedula, aNombre, aApellido, aFechaNacimiento, aTelefono, aDireccion, aEstado );
+                }
+            }
+            else
+            {
+                if (esEstudiante.Equals("SI", StringComparison.OrdinalIgnoreCase))
+                {
+                    msg = ctrCli.EditarCliEst(aCedulaOrg, aCedula, aNombre, aApellido, aFechaNacimiento, aTelefono, aDireccion, aEstado , aComprobante);
+                }
+                else
+                {
+                    msg = ctrCli.EditarCli(aCedulaOrg, aCedula, aNombre, aApellido, aFechaNacimiento, aTelefono, aDireccion, aEstado);
+                }
+            }
             
+
+            MessageBox.Show(msg, "ACTUALIZACION", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            if (msg.Contains("CLIENTE EDITADO CORRECTAMENTE"))
+            {
+                Cambios = true;
+                this.Close();
+            }
+
         }
     }
 }

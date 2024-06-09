@@ -12,9 +12,11 @@ namespace Control
     public class CtrCliente
     {
         private static List<Cliente> listaCli = new List<Cliente>();
+
         private int poc;
 
         public static List<Cliente> ListaCli { get => listaCli; set => listaCli = value; }
+        
 
         public int GetTotal()
         {
@@ -23,11 +25,11 @@ namespace Control
 
         public CtrCliente()
         {
-            if (listaCli.Count == 0) { 
-                listaCli.Add(new ClienteEstudiante("0987654321", "Tulio Jose", "Trivinio Tripanez", DateTime.ParseExact("01/01/1980", "dd/MM/yyyy", CultureInfo.InvariantCulture), "0874563219", "COOP. 31 Minutos","ACTIVO", "E09876543211"));
-                listaCli.Add(new Cliente("9512368749", "Juan Carlos", "Bodoque Avendanio", DateTime.ParseExact("24/05/1998", "dd/MM/yyyy", CultureInfo.InvariantCulture), "2031659847", "Guasmo Sur", "ACTIVO"));
-                listaCli.Add(new Cliente("9865231470", "Juan German", "Jarry Sanchez", DateTime.ParseExact("30/07/2009", "dd/MM/yyyy", CultureInfo.InvariantCulture),"0995263417", "Via Daule", "INACTIVO"));
-                listaCli.Add(new ClienteEstudiante("0963254178", "Patricia Ana", "Tufillo Trivinio", DateTime.ParseExact("24/05/2009", "dd/MM/yyyy", CultureInfo.InvariantCulture), "0963251478", "Pascuales", "ACTIVO", "E10987263541"));
+            if (ListaCli.Count == 0) { 
+                ListaCli.Add(new ClienteEstudiante("0987654321", "Tulio Jose", "Trivinio Tripanez", DateTime.ParseExact("01/01/1980", "dd/MM/yyyy", CultureInfo.InvariantCulture), "0874563219", "COOP. 31 Minutos","ACTIVO", "E09876543211"));
+                ListaCli.Add(new Cliente("9512368749", "Juan Carlos", "Bodoque Avendanio", DateTime.ParseExact("24/05/1998", "dd/MM/yyyy", CultureInfo.InvariantCulture), "2031659847", "Guasmo Sur", "ACTIVO"));
+                ListaCli.Add(new Cliente("9865231470", "Juan German", "Jarry Sanchez", DateTime.ParseExact("30/07/2009", "dd/MM/yyyy", CultureInfo.InvariantCulture),"0995263417", "Via Daule", "INACTIVO"));
+                ListaCli.Add(new ClienteEstudiante("0963254178", "Patricia Ana", "Tufillo Trivinio", DateTime.ParseExact("24/05/2009", "dd/MM/yyyy", CultureInfo.InvariantCulture), "0963251478", "Pascuales", "ACTIVO", "E10987263541"));
             }
         }
 
@@ -56,7 +58,7 @@ namespace Control
             else
             {
                 cli = new Cliente(rCedula, rNombre, rApellido, fechaNac, rTelefono, rDireccion, rEstado);
-                listaCli.Add(cli); // Agregando datos del cliente
+                ListaCli.Add(cli); // Agregando datos del cliente
                 msg = cli.ToString() + "\n CLIENTE REGISTRADO EXITOSAMENTE!!";
             } 
             return msg;
@@ -105,6 +107,7 @@ namespace Control
             return false;
 
         }
+
         public void LlenarGrid(DataGridView dgvClientes)
         {
             int i = 0;
@@ -119,8 +122,6 @@ namespace Control
                     dgvClientes.Rows[i].Cells["clmTelefono"].Value = x.Telefono;
                     dgvClientes.Rows[i].Cells["clmDireccion"].Value = x.Direccion;
                     dgvClientes.Rows[i].Cells["clmDate"].Value = x.FechaNacimiento.ToString("d");
-
-
                 if (x is ClienteEstudiante clienteEstudiante)
                     {
 
@@ -133,6 +134,88 @@ namespace Control
             }
 
         }
+
+        public string EditarCliEst(string aCedulaOrg, string aCedula, string aNombre, string aApellido, string aFechaNacimiento, string aTelefono, string aDireccion,string aEstado, string aComprobante)
+        {
+            string msg = "ERROR: SE ESPERABA DATOS CORRECTOS!!";
+            Validacion v = new Validacion();
+            DateTime fechaNac = v.ConvertirDateTime(aFechaNacimiento);
+
+            foreach (Cliente clienteExistente in ListaCli)
+            {
+                if (clienteExistente.Cedula == aCedulaOrg)
+                {
+                    if (clienteExistente.Cedula != aCedula)
+                    {
+                        if (ListaCli.Any(cli => cli.Cedula == aCedula))
+                        {
+                            return "ERROR: YA EXISTE UN CLIENTE CON ESA CEDULA.";
+                        }
+                        clienteExistente.Cedula = aCedula;
+                    }
+                    clienteExistente.Nombre = aNombre;
+                    clienteExistente.Apellido = aApellido;
+                    clienteExistente.FechaNacimiento = fechaNac;
+                    clienteExistente.Telefono = aTelefono;
+                    clienteExistente.Direccion = aDireccion;
+                    clienteExistente.Estado = aEstado;
+
+                    if (clienteExistente is ClienteEstudiante clienteEstudiante)
+                    {
+                        clienteEstudiante.Comprobante = string.IsNullOrEmpty(aComprobante) ? "SIN COMPROBANTE" : aComprobante;
+                    }
+
+                    msg = "CLIENTE EDITADO CORRECTAMENTE";
+                    break;
+                }
+            }
+
+            if (msg == "ERROR: SE ESPERABA DATOS CORRECTOS!!")
+            {
+                msg = "ERROR: NO SE ENCONTRO EL CLIENTE";
+            }
+
+            return msg;
+        }
+
+        public string EditarCli(string aCedulaOrg, string aCedula, string aNombre, string aApellido, string aFechaNacimiento, string aTelefono, string aDireccion, string aEstado)
+        {
+            string msg = "ERROR: SE ESPERABA DATOS CORRECTOS!!";
+            Validacion v = new Validacion();
+            DateTime fechaNac = v.ConvertirDateTime(aFechaNacimiento);
+
+            foreach (Cliente clienteExistente in ListaCli)
+            {
+                if (clienteExistente.Cedula == aCedulaOrg)
+                {
+                    if (clienteExistente.Cedula != aCedula)
+                    {
+                        if (ListaCli.Any(cli => cli.Cedula == aCedula))
+                        {
+                            return "ERROR: YA EXISTE UN CLIENTE CON ESA CEDULA.";
+                        }
+                        clienteExistente.Cedula = aCedula;
+                    }
+                    clienteExistente.Nombre = aNombre;
+                    clienteExistente.Apellido = aApellido;
+                    clienteExistente.FechaNacimiento = fechaNac;
+                    clienteExistente.Telefono = aTelefono;
+                    clienteExistente.Direccion = aDireccion;
+                    clienteExistente.Estado = aEstado;
+
+                    msg = "CLIENTE EDITADO CORRECTAMENTE";
+                    break;
+                }
+            }
+
+            if (msg == "ERROR: SE ESPERABA DATOS CORRECTOS!!")
+            {
+                msg = "ERROR: NO SE ENCONTRO EL CLIENTE";
+            }
+
+            return msg;
+        }
+
 
         public void BuscarCliente(DataGridView dgvClientes, string filtroPorCedula = "", string filtroPorNombre = "")
         {
@@ -181,40 +264,43 @@ namespace Control
 
         public void InactivarCliente(string cedula, DataGridView dgvCliente)
         {
-                var cliente = ListaCli.FirstOrDefault(c => c.Cedula == cedula);
-                if (cliente != null)
+                DialogResult resultado = MessageBox.Show("¿DESEA INACTIVAR A ESTE CLIENTE?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if(resultado == DialogResult.Yes)
                 {
-                    cliente.Estado = "INACTIVO";
+                    var cliente = ListaCli.FirstOrDefault(cli => cli.Cedula == cedula);
+                    if (cliente != null)
+                    {
+                        cliente.Estado = "INACTIVO";
+                    }
                 }
         }
 
-        public void MostrarDatosCliente(string cedula, string nombre, string apellido, DateTime fechaNacimiento, string telefono, string direccion, string estado, string comprobante, TextBox txtCedula, TextBox txtNombre, TextBox txtApellido, DateTimePicker dtpDate, TextBox txtTelefono, TextBox txtDireccion, TextBox txtComprobante, ComboBox cmbEstado)
+        public void MostrarDatosCliente(string cedulaCliente, TextBox txtCedula, TextBox txtNombre, TextBox txtApellido, DateTimePicker dtpDate, TextBox txtTelefono, TextBox txtDireccion, TextBox txtComprobante, ComboBox cmbEstado)
         {
-            txtCedula.Text = cedula;
-            txtNombre.Text = nombre;
-            txtApellido.Text = apellido;
-            dtpDate.Value = fechaNacimiento;
-            txtTelefono.Text = telefono;
-            txtDireccion.Text = direccion;
-            txtComprobante.Text = comprobante;
-            cmbEstado.SelectedItem = estado;
+            Cliente clienteSeleccionado = ConseguirDatosGrid(cedulaCliente);
+            if(clienteSeleccionado != null) 
+            {
+                txtCedula.Text = clienteSeleccionado.Cedula;
+                txtNombre.Text = clienteSeleccionado.Nombre;
+                txtApellido.Text = clienteSeleccionado.Apellido;
+                dtpDate.Value = clienteSeleccionado.FechaNacimiento;
+                txtTelefono.Text = clienteSeleccionado.Telefono;
+                txtDireccion.Text = clienteSeleccionado.Direccion;
+
+                if (clienteSeleccionado is ClienteEstudiante clienteEstudiante)
+                {
+                    txtComprobante.Text = clienteEstudiante.Comprobante;
+                }
+
+            }
 
         }
-        public void ConseguirDatosGrid(DataGridView dgvCliente, out string cedula, out string nombre, out string apellido, out DateTime fechaNacimiento, out string telefono, out string direccion,out string comprobante, out string estado)
+        
+        public Cliente ConseguirDatosGrid(string cedulaCliente)
         {
-            DataGridViewRow filaSeleccionada = dgvCliente.SelectedRows[0];
-
-            cedula = filaSeleccionada.Cells["clmCedula"].Value.ToString();
-            nombre = filaSeleccionada.Cells["clmNombre"].Value.ToString();
-            apellido = filaSeleccionada.Cells["clmApellido"].Value.ToString();
-            fechaNacimiento = Convert.ToDateTime(filaSeleccionada.Cells["clmDate"].Value);
-            telefono = filaSeleccionada.Cells["clmTelefono"].Value.ToString();
-            direccion = filaSeleccionada.Cells["clmDireccion"].Value.ToString();
-            comprobante = filaSeleccionada.Cells["clmComprobanteEst"].Value.ToString();
-            estado = filaSeleccionada.Cells["clmEstado"].Value.ToString();
-            //string estadoStr = filaSeleccionada.Cells["clmEstado"].Value.ToString();
-            //estado.SelectedItem = estado.Items.Cast<string>().FirstOrDefault(item => item == estadoStr);
+            return ListaCli.Find(cli => cli.Cedula == cedulaCliente);
         }
+
 
 
 
@@ -254,6 +340,10 @@ namespace Control
             }
             return cedulas;
         }
+
+
+
+
 
 
 

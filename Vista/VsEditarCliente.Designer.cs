@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnActualizar = new System.Windows.Forms.Button();
+            this.btnGuardarCambios = new System.Windows.Forms.Button();
             this.lblEstado = new System.Windows.Forms.Label();
             this.cmbEstado = new System.Windows.Forms.ComboBox();
             this.btnExit = new System.Windows.Forms.Button();
@@ -49,18 +49,19 @@
             this.txtComprobante = new System.Windows.Forms.TextBox();
             this.lblComprobante = new System.Windows.Forms.Label();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
+            this.txtCedulaOriginal = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // btnActualizar
+            // btnGuardarCambios
             // 
-            this.btnActualizar.Font = new System.Drawing.Font("Microsoft Tai Le", 12F);
-            this.btnActualizar.Location = new System.Drawing.Point(119, 343);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(99, 39);
-            this.btnActualizar.TabIndex = 57;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = true;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            this.btnGuardarCambios.Font = new System.Drawing.Font("Microsoft Tai Le", 10F);
+            this.btnGuardarCambios.Location = new System.Drawing.Point(134, 343);
+            this.btnGuardarCambios.Name = "btnGuardarCambios";
+            this.btnGuardarCambios.Size = new System.Drawing.Size(99, 48);
+            this.btnGuardarCambios.TabIndex = 57;
+            this.btnGuardarCambios.Text = "Guardar Cambios";
+            this.btnGuardarCambios.UseVisualStyleBackColor = true;
+            this.btnGuardarCambios.Click += new System.EventHandler(this.btnGuardarCambios_Click);
             // 
             // lblEstado
             // 
@@ -88,7 +89,7 @@
             this.btnExit.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.Location = new System.Drawing.Point(310, 343);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(99, 39);
+            this.btnExit.Size = new System.Drawing.Size(99, 48);
             this.btnExit.TabIndex = 54;
             this.btnExit.Text = "Cancelar";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -246,16 +247,25 @@
             this.dtpDate.TabIndex = 61;
             this.dtpDate.Value = new System.DateTime(2024, 6, 5, 0, 0, 0, 0);
             // 
+            // txtCedulaOriginal
+            // 
+            this.txtCedulaOriginal.Location = new System.Drawing.Point(261, 45);
+            this.txtCedulaOriginal.Name = "txtCedulaOriginal";
+            this.txtCedulaOriginal.Size = new System.Drawing.Size(202, 20);
+            this.txtCedulaOriginal.TabIndex = 62;
+            this.txtCedulaOriginal.Visible = false;
+            // 
             // VsEditarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(546, 464);
+            this.Controls.Add(this.txtCedulaOriginal);
             this.Controls.Add(this.dtpDate);
             this.Controls.Add(this.txtComprobante);
             this.Controls.Add(this.lblComprobante);
             this.Controls.Add(this.lblActualizar);
-            this.Controls.Add(this.btnActualizar);
+            this.Controls.Add(this.btnGuardarCambios);
             this.Controls.Add(this.lblEstado);
             this.Controls.Add(this.cmbEstado);
             this.Controls.Add(this.btnExit);
@@ -282,7 +292,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnActualizar;
+        private System.Windows.Forms.Button btnGuardarCambios;
         private System.Windows.Forms.Label lblEstado;
         private System.Windows.Forms.ComboBox cmbEstado;
         private System.Windows.Forms.Button btnExit;
@@ -303,5 +313,6 @@
         private System.Windows.Forms.TextBox txtComprobante;
         private System.Windows.Forms.Label lblComprobante;
         private System.Windows.Forms.DateTimePicker dtpDate;
+        private System.Windows.Forms.TextBox txtCedulaOriginal;
     }
 }

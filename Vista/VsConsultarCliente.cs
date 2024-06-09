@@ -42,16 +42,14 @@ namespace Vista
         {
             if (dgvClientes.SelectedRows.Count > 0)
             {
-                string cedula, nombre, apellido, telefono;
-                string direccion, comprobante;
-                string estado;
-                DateTime fechaNacimiento;
+                DataGridViewRow filaSeleccionada = dgvClientes.SelectedRows[0];
+                string cedulaCliente = filaSeleccionada.Cells["clmCedula"].Value.ToString();
+                VsEditarCliente editarCliente = new VsEditarCliente(cedulaCliente); editarCliente.ShowDialog();
 
-                ctrCli.ConseguirDatosGrid(dgvClientes, out cedula, out nombre, out apellido, out fechaNacimiento, out telefono, out direccion, out comprobante, out estado);
-                VsEditarCliente vsEditarClint = new VsEditarCliente(cedula, nombre, apellido, fechaNacimiento, telefono, direccion, estado, comprobante);
-
-                vsEditarClint.Visible = true;
-                poc = dgvClientes.CurrentRow.Index;
+                if (editarCliente.Cambios)
+                {
+                    ctrCli.LlenarGrid(dgvClientes);
+                }
             }
             else
             {
@@ -92,9 +90,10 @@ namespace Vista
         private void btnDarBaja_Click(object sender, EventArgs e)
         {
             if (dgvClientes.SelectedRows.Count > 0) 
-            { 
+            {
                 var filaSeleccionada = dgvClientes.SelectedRows[0];
                 var cedula = (string)filaSeleccionada.Cells["clmCedula"].Value;
+
                 ctrCli.InactivarCliente(cedula, dgvClientes);
                 ctrCli.LlenarGrid(dgvClientes);
             }

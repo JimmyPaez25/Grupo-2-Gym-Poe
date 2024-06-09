@@ -85,50 +85,42 @@
             // 
             this.clmCedula.HeaderText = "CEDULA";
             this.clmCedula.Name = "clmCedula";
-            this.clmCedula.ReadOnly = true;
             // 
             // clmNombre
             // 
             this.clmNombre.HeaderText = "NOMBRE";
             this.clmNombre.Name = "clmNombre";
-            this.clmNombre.ReadOnly = true;
             // 
             // clmApellido
             // 
             this.clmApellido.HeaderText = "APELLIDO";
             this.clmApellido.Name = "clmApellido";
-            this.clmApellido.ReadOnly = true;
             // 
             // clmTelefono
             // 
             this.clmTelefono.HeaderText = "TELEFONO";
             this.clmTelefono.Name = "clmTelefono";
-            this.clmTelefono.ReadOnly = true;
             // 
             // clmDireccion
             // 
             this.clmDireccion.HeaderText = "DIRECCION";
             this.clmDireccion.Name = "clmDireccion";
-            this.clmDireccion.ReadOnly = true;
             // 
             // clmDate
             // 
             this.clmDate.HeaderText = "FECHA DE NACIMIENTO";
             this.clmDate.Name = "clmDate";
-            this.clmDate.ReadOnly = true;
             // 
             // clmComprobanteEst
             // 
             this.clmComprobanteEst.HeaderText = "COMPROBANTE DE ESTUDIANTE";
             this.clmComprobanteEst.Name = "clmComprobanteEst";
-            this.clmComprobanteEst.ReadOnly = true;
             this.clmComprobanteEst.Width = 160;
             // 
             // clmEstado
             // 
             this.clmEstado.HeaderText = "ESTADO";
             this.clmEstado.Name = "clmEstado";
-            this.clmEstado.ReadOnly = true;
             // 
             // txtCedula
             // 
@@ -174,7 +166,7 @@
             // btnConsultarM
             // 
             this.btnConsultarM.Font = new System.Drawing.Font("Microsoft Tai Le", 9F);
-            this.btnConsultarM.Location = new System.Drawing.Point(721, 92);
+            this.btnConsultarM.Location = new System.Drawing.Point(869, 92);
             this.btnConsultarM.Name = "btnConsultarM";
             this.btnConsultarM.Size = new System.Drawing.Size(75, 41);
             this.btnConsultarM.TabIndex = 8;
@@ -192,7 +184,7 @@
             // lblCedula
             // 
             this.lblCedula.AutoSize = true;
-            this.lblCedula.Location = new System.Drawing.Point(41, 91);
+            this.lblCedula.Location = new System.Drawing.Point(38, 91);
             this.lblCedula.Name = "lblCedula";
             this.lblCedula.Size = new System.Drawing.Size(40, 13);
             this.lblCedula.TabIndex = 14;
