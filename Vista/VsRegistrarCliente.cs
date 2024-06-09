@@ -96,9 +96,5 @@ namespace Vista
             v.maximoDigitosNumericos(sender, e, 10, txtTelefono);
         }
 
-        private void txtCedula_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

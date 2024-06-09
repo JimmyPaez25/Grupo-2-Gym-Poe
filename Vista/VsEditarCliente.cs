@@ -21,7 +21,7 @@ namespace Vista
         public VsEditarCliente(string cedulaCliente)
         {
             InitializeComponent();
-            ctrCli.MostrarDatosCliente(cedulaCliente, txtCedula, txtNombre, txtApellido, dtpDate, txtTelefono, txtDireccion, txtComprobante, cmbEstado);
+            ctrCli.MostrarDatosCliente(cedulaCliente, txtCedula, txtNombre, txtApellido, dtpDate, txtTelefono, txtDireccion, txtComprobante, cmbEstado, cmbEstudiante);
             txtCedulaOriginal.Text = txtCedula.Text;
 
             
@@ -48,7 +48,7 @@ namespace Vista
             {
                 if (esEstudiante.Equals("SI", StringComparison.OrdinalIgnoreCase))
                 {
-                    msg = ctrCli.EditarCliEst(aCedulaOrg, aCedula, aNombre, aApellido, aFechaNacimiento, aTelefono, aDireccion, aEstado , aComprobante);
+                    msg = ctrCli.EditarCliEst(aCedulaOrg, aCedula, aNombre, aApellido, aFechaNacimiento, aTelefono, aDireccion, aEstado , aComprobante, esEstudiante);
                 }
                 else
                 {
@@ -59,7 +59,7 @@ namespace Vista
             {
                 if (esEstudiante.Equals("SI", StringComparison.OrdinalIgnoreCase))
                 {
-                    msg = ctrCli.EditarCliEst(aCedulaOrg, aCedula, aNombre, aApellido, aFechaNacimiento, aTelefono, aDireccion, aEstado , aComprobante);
+                    msg = ctrCli.EditarCliEst(aCedulaOrg, aCedula, aNombre, aApellido, aFechaNacimiento, aTelefono, aDireccion, aEstado , aComprobante, esEstudiante);
                 }
                 else
                 {
@@ -76,6 +76,18 @@ namespace Vista
                 this.Close();
             }
 
+        }
+
+        private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            v.ValidarNumero(sender, e);
+            v.maximoDigitosNumericos(sender, e, 10, txtCedula);
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            v.ValidarNumero(sender, e);
+            v.maximoDigitosNumericos(sender, e, 10, txtTelefono);
         }
     }
 }

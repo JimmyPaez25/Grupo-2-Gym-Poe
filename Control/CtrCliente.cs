@@ -129,13 +129,28 @@ namespace Control
                     }
                     else
                     {
-                        dgvClientes.Rows[i].Cells["clmComprobanteEst"].Value = "SIN COMPROBANTE";
+                    dgvClientes.Rows[i].Cells["clmComprobanteEst"].Value = ObtenerComprobanteActualizado(x.Cedula);
                     }
             }
 
         }
 
-        public string EditarCliEst(string aCedulaOrg, string aCedula, string aNombre, string aApellido, string aFechaNacimiento, string aTelefono, string aDireccion,string aEstado, string aComprobante)
+        private string ObtenerComprobanteActualizado(string cedula)
+        {
+            foreach (Cliente cliente in ListaCli)
+            {
+                if (cliente.Cedula == cedula)
+                {
+                    if (cliente is ClienteEstudiante clienteEstudiante)
+                    {
+                        return string.IsNullOrEmpty(clienteEstudiante.Comprobante) ? "SIN COMPROBANTE" : clienteEstudiante.Comprobante;
+                    }
+                }
+            }
+            return "No es estudiante";
+        }
+
+        public string EditarCliEst(string aCedulaOrg, string aCedula, string aNombre, string aApellido, string aFechaNacimiento, string aTelefono, string aDireccion,string aEstado, string aComprobante, string esEstudiante)
         {
             string msg = "ERROR: SE ESPERABA DATOS CORRECTOS!!";
             Validacion v = new Validacion();
@@ -162,7 +177,15 @@ namespace Control
 
                     if (clienteExistente is ClienteEstudiante clienteEstudiante)
                     {
-                        clienteEstudiante.Comprobante = string.IsNullOrEmpty(aComprobante) ? "SIN COMPROBANTE" : aComprobante;
+                        // Verificar si el cliente es estudiante y establecer el comprobante
+                        if (string.IsNullOrEmpty(aComprobante) && esEstudiante.Equals("NO", StringComparison.OrdinalIgnoreCase))
+                        {
+                            clienteEstudiante.Comprobante = "SIN COMPROBANTE";
+                        }
+                        else
+                        {
+                            clienteEstudiante.Comprobante = aComprobante;
+                        }
                     }
 
                     msg = "CLIENTE EDITADO CORRECTAMENTE";
@@ -275,7 +298,7 @@ namespace Control
                 }
         }
 
-        public void MostrarDatosCliente(string cedulaCliente, TextBox txtCedula, TextBox txtNombre, TextBox txtApellido, DateTimePicker dtpDate, TextBox txtTelefono, TextBox txtDireccion, TextBox txtComprobante, ComboBox cmbEstado)
+        public void MostrarDatosCliente(string cedulaCliente, TextBox txtCedula, TextBox txtNombre, TextBox txtApellido, DateTimePicker dtpDate, TextBox txtTelefono, TextBox txtDireccion, TextBox txtComprobante, ComboBox cmbEstado, ComboBox cmbEstudiante)
         {
             Cliente clienteSeleccionado = ConseguirDatosGrid(cedulaCliente);
             if(clienteSeleccionado != null) 
@@ -286,10 +309,19 @@ namespace Control
                 dtpDate.Value = clienteSeleccionado.FechaNacimiento;
                 txtTelefono.Text = clienteSeleccionado.Telefono;
                 txtDireccion.Text = clienteSeleccionado.Direccion;
+                cmbEstado.SelectedItem = clienteSeleccionado.Estado;
+
 
                 if (clienteSeleccionado is ClienteEstudiante clienteEstudiante)
                 {
                     txtComprobante.Text = clienteEstudiante.Comprobante;
+                    cmbEstudiante.SelectedItem = "SI";
+                    
+                }
+                else
+                {
+                    txtComprobante.Text = ObtenerComprobanteActualizado(clienteSeleccionado.Cedula);
+                    cmbEstudiante.SelectedItem = "NO";
                 }
 
             }
