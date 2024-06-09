@@ -135,6 +135,7 @@
             this.textDescripcion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textDescripcion.Size = new System.Drawing.Size(217, 111);
             this.textDescripcion.TabIndex = 26;
+            this.textDescripcion.TextChanged += new System.EventHandler(this.textDescripcion_TextChanged);
             this.textDescripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textDescripcion_KeyPress);
             // 
             // textNombre
@@ -143,6 +144,7 @@
             this.textNombre.Name = "textNombre";
             this.textNombre.Size = new System.Drawing.Size(217, 20);
             this.textNombre.TabIndex = 25;
+            this.textNombre.TextChanged += new System.EventHandler(this.textNombre_TextChanged);
             this.textNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textNombre_KeyPress);
             // 
             // label6

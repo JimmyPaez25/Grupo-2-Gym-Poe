@@ -20,9 +20,9 @@ namespace Control
         {
             if (ListaActividad.Count == 0)
             {
-                ListaActividad.Add(new Actividad("Actividad 1", "PESAS", DateTime.Now, DateTime.Now.AddDays(1), new TimeSpan(9, 0, 0), new TimeSpan(12, 0, 0)));
-                ListaActividad.Add(new Actividad("Actividad 2", "MANCUERNAS", DateTime.Now.AddDays(2), DateTime.Now.AddDays(3), new TimeSpan(10, 0, 0), new TimeSpan(13, 0, 0)));
-                ListaActividad.Add(new Actividad("Actividad 3", "FLEXIONES", DateTime.Now.AddDays(4), DateTime.Now.AddDays(5), new TimeSpan(11, 0, 0), new TimeSpan(14, 0, 0)));
+                ListaActividad.Add(new Actividad("ACTIVIDAD 1", "PESAS", DateTime.Now, DateTime.Now.AddDays(1), new TimeSpan(9, 0, 0), new TimeSpan(12, 0, 0)));
+                ListaActividad.Add(new Actividad("ACTIVIDAD 2", "MANCUERNAS", DateTime.Now.AddDays(2), DateTime.Now.AddDays(3), new TimeSpan(10, 0, 0), new TimeSpan(13, 0, 0)));
+                ListaActividad.Add(new Actividad("ACTIVIDAD 3", "FLEXIONES", DateTime.Now.AddDays(4), DateTime.Now.AddDays(5), new TimeSpan(11, 0, 0), new TimeSpan(14, 0, 0)));
             }
         }
 
@@ -148,28 +148,6 @@ namespace Control
                     dgvActividad.Rows[i].Cells["ClmHoraFin"].Value = x.HoraFin.ToString(@"hh\:mm");
                 }
             }
-        }
-
-        public void ExtraerDatosTablaActividad(DataGridView dgvActividad, out string nombre, out string descripcion, out DateTime fechaInicio, out DateTime fechaFin, out TimeSpan horaInicio, out TimeSpan horaFin)
-        {
-            DataGridViewRow filaSeleccionada = dgvActividad.SelectedRows[0]; // OBTIENE FILA SELECCIONADA
-            // EXTRAE DATOS DE FILA SELECCIONADA
-            nombre = filaSeleccionada.Cells["ClmNombre"].Value.ToString();
-            descripcion = filaSeleccionada.Cells["ClmDescripcion"].Value.ToString();
-            fechaInicio = Convert.ToDateTime(filaSeleccionada.Cells["ClmFechaInicio"].Value);
-            fechaFin = Convert.ToDateTime(filaSeleccionada.Cells["ClmFechaFin"].Value);
-            horaInicio = TimeSpan.Parse(filaSeleccionada.Cells["ClmHoraInicio"].Value.ToString());
-            horaFin = TimeSpan.Parse(filaSeleccionada.Cells["ClmHoraFin"].Value.ToString());
-        }
-
-        public void PresentarDatosActividad(string sNombre, string sDescripcion, DateTime sFechaInicio, DateTime sFechaFin, TimeSpan sHoraInicio, TimeSpan sHoraFin, TextBox textNombre, TextBox textDescripcion, DateTimePicker dtpFechaInicio, DateTimePicker dtpFechaFin, DateTimePicker dtpHoraInicio, DateTimePicker dtpHoraFin)
-        {
-            textNombre.Text = sNombre;
-            textDescripcion.Text = sDescripcion;
-            dtpFechaInicio.Value = sFechaInicio;
-            dtpFechaFin.Value = sFechaFin;
-            dtpHoraInicio.Value = DateTime.Today.Add(sHoraInicio);
-            dtpHoraFin.Value = DateTime.Today.Add(sHoraFin);
         }
 
         public string EditarActividad(string sNombreOriginal, string sNombre, string sDescripcion, string sFechaInicio, string sFechaFin, string sHoraInicio, string sHoraFin)
@@ -337,6 +315,27 @@ namespace Control
         {
             return ListaActividad.Count(act => act.Estado == 2);
         }
+
+        public Actividad ExtraerNombreActividad(string nombreActividad)
+        {
+            return listaActividad.Find(a => a.Nombre == nombreActividad);
+        }
+
+        public void PresentarDatosActividad(TextBox textNombre, TextBox textDescripcion, DateTimePicker dtpFechaInicio, DateTimePicker dtpFechaFin, DateTimePicker dtpHoraInicio, DateTimePicker dtpHoraFin, string nombreActividad)
+        {
+            Actividad actividadSeleccionada = ExtraerNombreActividad(nombreActividad);
+            if (actividadSeleccionada != null)
+            {
+                textNombre.Text = actividadSeleccionada.Nombre;
+                textDescripcion.Text = actividadSeleccionada.Descripcion;
+                dtpFechaInicio.Value = actividadSeleccionada.FechaInicio;
+                dtpFechaFin.Value = actividadSeleccionada.FechaFin;
+                dtpHoraInicio.Value = DateTime.Today + actividadSeleccionada.HoraInicio;
+                dtpHoraFin.Value = DateTime.Today + actividadSeleccionada.HoraFin;
+            }
+        }
+
+
         // FIN
     }
 }

@@ -15,33 +15,14 @@ namespace Vista
     {
         private Validacion val = new Validacion();
         private CtrActividad ctrActividad = new CtrActividad();
-
         private bool cambiosGuardados;
-        private string nombre;
-        private string descripcion;
-        private DateTime fechaInicio;
-        private DateTime fechaFin;
-        private TimeSpan horaInicio;
-        private TimeSpan horaFin;
 
         public bool CambiosGuardados { get => cambiosGuardados; set => cambiosGuardados = value; }
-        public string Nombre { get => nombre; set => nombre = value; }
-        public string Descripcion { get => descripcion; set => descripcion = value; }
-        public DateTime FechaInicio { get => fechaInicio; set => fechaInicio = value; }
-        public DateTime FechaFin { get => fechaFin; set => fechaFin = value; }
-        public TimeSpan HoraInicio { get => horaInicio; set => horaInicio = value; }
-        public TimeSpan HoraFin { get => horaFin; set => horaFin = value; }
 
-        public VsEditarActividad(string nombre, string descripcion, DateTime fechaInicio, DateTime fechaFin, TimeSpan horaInicio, TimeSpan horaFin)
+        public VsEditarActividad(string nombreActividad)
         {
             InitializeComponent();
-            Nombre = nombre;
-            Descripcion = descripcion;
-            FechaInicio = fechaInicio;
-            FechaFin = fechaFin;
-            HoraInicio = horaInicio;
-            HoraFin = horaFin;
-            ctrActividad.PresentarDatosActividad(Nombre, Descripcion, FechaInicio, FechaFin, HoraInicio, HoraFin, textNombre, textDescripcion, dtpFechaInicio, dtpFechaFin, dtpHoraInicio, dtpHoraFin);
+            ctrActividad.PresentarDatosActividad(textNombre, textDescripcion, dtpFechaInicio, dtpFechaFin, dtpHoraInicio, dtpHoraFin, nombreActividad);
             textNombreOriginal.Text = textNombre.Text;
         }
 
@@ -79,6 +60,22 @@ namespace Vista
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void textNombre_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            int cursorPosicion = textBox.SelectionStart;
+            textBox.Text = textBox.Text.ToUpper();
+            textBox.SelectionStart = cursorPosicion;
+        }
+
+        private void textDescripcion_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            int cursorPosicion = textBox.SelectionStart;
+            textBox.Text = textBox.Text.ToUpper();
+            textBox.SelectionStart = cursorPosicion;
         }
 
 

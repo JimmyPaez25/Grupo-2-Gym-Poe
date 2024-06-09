@@ -43,11 +43,9 @@ namespace Vista
         {
             if (dgvActividad.SelectedRows.Count > 0)
             {
-                string sNombre, sDescripcion;
-                DateTime sFechaInicio, sFechaFin;
-                TimeSpan sHoraInicio, sHoraFin;
-                ctrActividad.ExtraerDatosTablaActividad(dgvActividad, out sNombre, out sDescripcion, out sFechaInicio, out sFechaFin, out sHoraInicio, out sHoraFin);
-                VsEditarActividad editarActividad = new VsEditarActividad(sNombre, sDescripcion, sFechaInicio, sFechaFin, sHoraInicio, sHoraFin); editarActividad.ShowDialog();
+                DataGridViewRow filaSeleccionada = dgvActividad.SelectedRows[0]; // OBTIENE FILA SELECCIONADA
+                string nombreActividad = filaSeleccionada.Cells["ClmNombre"].Value.ToString(); // EXTRAE NOMBRE DE FILA SELECCIONADA
+                VsEditarActividad editarActividad = new VsEditarActividad(nombreActividad); editarActividad.ShowDialog();
                 if (editarActividad.CambiosGuardados)
                 {
                     ctrActividad.TablaConsultarActividad(dgvActividad);
@@ -64,8 +62,13 @@ namespace Vista
             this.Close();
         }
 
-
-
+        private void textBuscar_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            int cursorPosicion = textBox.SelectionStart;
+            textBox.Text = textBox.Text.ToUpper();
+            textBox.SelectionStart = cursorPosicion;
+        }
 
 
         // FIN

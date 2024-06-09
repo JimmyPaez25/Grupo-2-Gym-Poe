@@ -156,6 +156,7 @@
             this.textBuscar.Name = "textBuscar";
             this.textBuscar.Size = new System.Drawing.Size(171, 20);
             this.textBuscar.TabIndex = 21;
+            this.textBuscar.TextChanged += new System.EventHandler(this.textBuscar_TextChanged);
             this.textBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBuscar_KeyPress);
             // 
             // buttonCancelar

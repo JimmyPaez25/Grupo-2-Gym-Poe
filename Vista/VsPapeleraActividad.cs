@@ -49,6 +49,14 @@ namespace Vista
             val.ValidarCaracterEspecial(sender, e);
         }
 
+        private void textBuscar_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            int cursorPosicion = textBox.SelectionStart;
+            textBox.Text = textBox.Text.ToUpper();
+            textBox.SelectionStart = cursorPosicion;
+        }
+
         // FIN
     }
 }
