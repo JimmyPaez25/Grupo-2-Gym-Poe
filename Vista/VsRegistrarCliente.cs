@@ -75,7 +75,9 @@ namespace Vista
             vMembresia.lblNombreM.Text = this.txtNombre.Text;
             vMembresia.lblApellidoM.Text = this.txtApellido.Text;
             vMembresia.lblEstudianteM.Text = this.cmbEstudiante.Text;
-            
+            vMembresia.CelularInvisible.Text = this.txtTelefono.Text;
+
+
             vMembresia.Show();
             this.Close();
 
@@ -172,6 +174,11 @@ namespace Vista
         }
 
         private void txtTelefono_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCedula_TextChanged(object sender, EventArgs e)
         {
 
         }
