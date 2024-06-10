@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 namespace Vista
 {
+    // GONZALEZ ASTUDILLO ADRIAN
     public partial class VsRegistrarActividad : Form
     {
         private Validacion val = new Validacion();

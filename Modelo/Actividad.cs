@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Modelo
 {
+    // GONZALEZ ASTUDILLO ADRIAN
     public class Actividad
     {
         protected int estado;
