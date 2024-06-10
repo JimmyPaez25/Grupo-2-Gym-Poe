@@ -77,6 +77,14 @@ namespace Vista
             vMembresia.lblEstudianteM.Text = this.cmbEstudiante.Text;
             vMembresia.Show();
             this.Close();
+
+
+            VsFactura vsFactura = new VsFactura();            
+            vsFactura.lblTelefonoFact.Text = this.txtTelefono.Text; 
+
+
+
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -155,6 +163,11 @@ namespace Vista
         }
 
         private void lblEstado_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void VsRegistrarCliente_Load(object sender, EventArgs e)
         {
 
         }

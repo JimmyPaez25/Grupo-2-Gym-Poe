@@ -102,8 +102,17 @@ namespace Vista
             msj = ctrMen.IngresarMembresia(sPlan, sFechaInicio, sFechaFin, promocion, sDescuento, detallePromocion , cedula);
             MessageBox.Show(msj);
             VsFactura vFactura = new VsFactura();
+            vFactura.lblCedulaFact.Text = this.lblCedulaM.Text;
+            vFactura.lblNombreFact.Text = this.lblNombreM.Text;
+            vFactura.lblApellidoFact.Text = this.lblApellidoM.Text;
+            vFactura.lblEstudianteFact.Text = this.lblEstudianteM.Text;
+            //vFactura.lblTelefonoFact.Text = this.txtTelefono.Text;
             vFactura.Show();
             this.Close();
+
+
+
+   
 
             if (msj.Contains("MEMBRESIA REGISTRADA CORRECTAMENTE"))
             {

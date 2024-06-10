@@ -23,75 +23,71 @@ namespace Vista
         {
             InitializeComponent();
             factura = new CtrFactura();
-            txtNumFactura.Text = factura.GenerarFactura();
-
+            lblNumFactura.Text = factura.GenerarFactura();
 
         }
 
-        private void VsFactura_Load(object sender, EventArgs e)
+
+        /// <summary>
+        /// 
+        /// </summary>
+    
+        private void btnRegistrarDatosFact_Click(object sender, EventArgs e)
         {
-            CtrCliente ctrCliente = new CtrCliente();
-            List<string> cedulas = ctrCliente.ObtenerCedulasClientes();
-            foreach (string cedula in cedulas)
-            {
-                cbNumeroCedula.Items.Add(cedula);
-            }
-
+           
         }
 
-
-        private void dtFechaFactura_ValueChanged(object sender, EventArgs e)
+        private void label13_Click(object sender, EventArgs e)
         {
 
         }
 
-        private CtrCliente CtClient = new CtrCliente();
-
-        //private void cbNumeroCedula_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    string seleccion = cbNumeroCedula.Text;
-        //    ClienteDatos cliDatos = CtClient.ObtenerDatosClientePorCedula(seleccion);
-        //    if (cliDatos != null)
-        //    {
-        //        txtNombreUsuario.Text = cliDatos.Nombre;
-        //        txtApellidoUsuario.Text = cliDatos.Apellido;
-        //        dateTPFNF.Text = cliDatos.FechaNacimiento.ToString("yyyy-MM-dd");
-        //        txtTefefono.Text = cliDatos.Telefono;
-        //        txtDireccion.Text = cliDatos.Direccion;
-        //        txtEstado.Text = cliDatos.Estado;
-        //    }
-        //    else
-        //    {
-        //        // Mostrar mensaje de error si no se encuentra el cliente
-        //    }
-        //}
-
-        private void txtApellidoUsuario_TextChanged(object sender, EventArgs e)
+        private void lblNombreFact_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void txtFechaNacimiento_TextChanged(object sender, EventArgs e)
+        private void lblApellidoFact_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void txtTefefono_TextChanged(object sender, EventArgs e)
+        private void dtFechaNacimientoFact_ValueChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void txtDireccion_TextChanged(object sender, EventArgs e)
+        private void lblTelefonoFact_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void txtEstado_TextChanged(object sender, EventArgs e)
+        private void lblDireccionFact_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void txtComprobante_TextChanged(object sender, EventArgs e)
+        private void lblEstudianteFact_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblComprobanteFact_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPlanFact_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPromocionFact_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtFechaFactura_ValueChanged_1(object sender, EventArgs e)
         {
 
         }
@@ -99,17 +95,6 @@ namespace Vista
         private void txtNumFactura_TextChanged(object sender, EventArgs e)
         {
 
-        }
-
-        private void btnRegistrarDatosFact_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            VsConsultarFactura rtkfactura = new VsConsultarFactura();
-            rtkfactura.ShowDialog();
         }
     }
 }
