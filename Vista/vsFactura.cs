@@ -96,5 +96,15 @@ namespace Vista
         {
 
         }
+
+        private void lblFechaNacimientoFact_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void VsFactura_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -53,6 +53,9 @@
             this.lblEstudianteMT = new System.Windows.Forms.Label();
             this.lblEstudianteM = new System.Windows.Forms.Label();
             this.CelularInvisible = new System.Windows.Forms.Label();
+            this.ComprobanteInvisible = new System.Windows.Forms.Label();
+            this.FechaNacInvisible = new System.Windows.Forms.Label();
+            this.DireccionInvisible = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -317,23 +320,58 @@
             this.lblEstudianteM.Size = new System.Drawing.Size(35, 16);
             this.lblEstudianteM.TabIndex = 24;
             this.lblEstudianteM.Text = "____";
+            this.lblEstudianteM.Click += new System.EventHandler(this.lblEstudianteM_Click);
             // 
             // CelularInvisible
             // 
             this.CelularInvisible.AutoSize = true;
             this.CelularInvisible.ForeColor = System.Drawing.SystemColors.Window;
-            this.CelularInvisible.Location = new System.Drawing.Point(1030, 477);
+            this.CelularInvisible.Location = new System.Drawing.Point(1057, 497);
             this.CelularInvisible.Name = "CelularInvisible";
             this.CelularInvisible.Size = new System.Drawing.Size(10, 16);
             this.CelularInvisible.TabIndex = 25;
             this.CelularInvisible.Text = ".";
             this.CelularInvisible.Click += new System.EventHandler(this.CelularInvisible_Click);
             // 
+            // ComprobanteInvisible
+            // 
+            this.ComprobanteInvisible.AutoSize = true;
+            this.ComprobanteInvisible.ForeColor = System.Drawing.SystemColors.Control;
+            this.ComprobanteInvisible.Location = new System.Drawing.Point(1041, 497);
+            this.ComprobanteInvisible.Name = "ComprobanteInvisible";
+            this.ComprobanteInvisible.Size = new System.Drawing.Size(10, 16);
+            this.ComprobanteInvisible.TabIndex = 26;
+            this.ComprobanteInvisible.Text = ".";
+            // 
+            // FechaNacInvisible
+            // 
+            this.FechaNacInvisible.AutoSize = true;
+            this.FechaNacInvisible.ForeColor = System.Drawing.SystemColors.Control;
+            this.FechaNacInvisible.Location = new System.Drawing.Point(1025, 497);
+            this.FechaNacInvisible.Name = "FechaNacInvisible";
+            this.FechaNacInvisible.Size = new System.Drawing.Size(10, 16);
+            this.FechaNacInvisible.TabIndex = 27;
+            this.FechaNacInvisible.Text = ".";
+            // 
+            // DireccionInvisible
+            // 
+            this.DireccionInvisible.AutoSize = true;
+            this.DireccionInvisible.ForeColor = System.Drawing.SystemColors.Control;
+            this.DireccionInvisible.Location = new System.Drawing.Point(1057, 481);
+            this.DireccionInvisible.Name = "DireccionInvisible";
+            this.DireccionInvisible.Size = new System.Drawing.Size(10, 16);
+            this.DireccionInvisible.TabIndex = 28;
+            this.DireccionInvisible.Text = ".";
+            this.DireccionInvisible.Click += new System.EventHandler(this.DireccionInvisible_Click);
+            // 
             // VsMembresia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 512);
+            this.Controls.Add(this.DireccionInvisible);
+            this.Controls.Add(this.FechaNacInvisible);
+            this.Controls.Add(this.ComprobanteInvisible);
             this.Controls.Add(this.CelularInvisible);
             this.Controls.Add(this.lblEstudianteM);
             this.Controls.Add(this.lblEstudianteMT);
@@ -396,5 +434,8 @@
         private System.Windows.Forms.Label lblEstudianteMT;
         public System.Windows.Forms.Label lblEstudianteM;
         public System.Windows.Forms.Label CelularInvisible;
+        public System.Windows.Forms.Label ComprobanteInvisible;
+        public System.Windows.Forms.Label FechaNacInvisible;
+        public System.Windows.Forms.Label DireccionInvisible;
     }
 }

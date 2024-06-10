@@ -76,7 +76,9 @@ namespace Vista
             vMembresia.lblApellidoM.Text = this.txtApellido.Text;
             vMembresia.lblEstudianteM.Text = this.cmbEstudiante.Text;
             vMembresia.CelularInvisible.Text = this.txtTelefono.Text;
-
+            vMembresia.ComprobanteInvisible.Text = this.txtComprobante.Text;
+            vMembresia.FechaNacInvisible.Text = this.dtpDate.Text;
+            vMembresia.DireccionInvisible.Text = this.txtDireccion.Text;
 
             vMembresia.Show();
             this.Close();

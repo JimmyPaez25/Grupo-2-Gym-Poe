@@ -114,6 +114,9 @@ namespace Vista
             vFactura.lblPlanFact.Text = this.txtBoxM.Text;
             vFactura.lblPromocionFact.Text = this.comboBoxP.Text;
             vFactura.lblTelefonoFact.Text = this.CelularInvisible.Text;
+            vFactura.lblComprobanteFact.Text = this.ComprobanteInvisible.Text;
+            vFactura.lblFechaNacimientoFact.Text = this.FechaNacInvisible.Text;
+            vFactura.lblDireccionFact.Text = this.DireccionInvisible.Text;
             vFactura.Show();
             this.Close();
 
@@ -150,6 +153,16 @@ namespace Vista
         }
 
         private void lblApellidoM_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblEstudianteM_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DireccionInvisible_Click(object sender, EventArgs e)
         {
 
         }

@@ -38,7 +38,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.dtFechaNacimientoFact = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
             this.btnRegistrarDatosFact = new System.Windows.Forms.Button();
             this.lblCedulaFact = new System.Windows.Forms.Label();
@@ -53,11 +52,15 @@
             this.label5 = new System.Windows.Forms.Label();
             this.lblPlanFact = new System.Windows.Forms.Label();
             this.lblNumFactura = new System.Windows.Forms.Label();
+            this.lblFechaNacimientoFact = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dtFechaFactura
             // 
-            this.dtFechaFactura.Location = new System.Drawing.Point(252, 626);
+            this.dtFechaFactura.Location = new System.Drawing.Point(223, 621);
             this.dtFechaFactura.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtFechaFactura.Name = "dtFechaFactura";
             this.dtFechaFactura.Size = new System.Drawing.Size(269, 22);
@@ -67,7 +70,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(75, 30);
+            this.label1.Location = new System.Drawing.Point(71, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(120, 16);
             this.label1.TabIndex = 4;
@@ -85,7 +88,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(75, 133);
+            this.label3.Location = new System.Drawing.Point(71, 133);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 16);
             this.label3.TabIndex = 6;
@@ -94,7 +97,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(78, 626);
+            this.label4.Location = new System.Drawing.Point(71, 626);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(117, 16);
             this.label4.TabIndex = 7;
@@ -103,7 +106,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(75, 186);
+            this.label6.Location = new System.Drawing.Point(71, 186);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(60, 16);
             this.label6.TabIndex = 10;
@@ -112,7 +115,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(75, 240);
+            this.label7.Location = new System.Drawing.Point(71, 240);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(116, 16);
             this.label7.TabIndex = 11;
@@ -121,7 +124,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(75, 292);
+            this.label8.Location = new System.Drawing.Point(71, 292);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(64, 16);
             this.label8.TabIndex = 12;
@@ -130,7 +133,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(75, 345);
+            this.label9.Location = new System.Drawing.Point(71, 345);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(67, 16);
             this.label9.TabIndex = 13;
@@ -139,25 +142,16 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(78, 458);
+            this.label10.Location = new System.Drawing.Point(71, 458);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(89, 16);
             this.label10.TabIndex = 20;
             this.label10.Text = "Comprobante";
             // 
-            // dtFechaNacimientoFact
-            // 
-            this.dtFechaNacimientoFact.Location = new System.Drawing.Point(252, 240);
-            this.dtFechaNacimientoFact.Margin = new System.Windows.Forms.Padding(4);
-            this.dtFechaNacimientoFact.Name = "dtFechaNacimientoFact";
-            this.dtFechaNacimientoFact.Size = new System.Drawing.Size(265, 22);
-            this.dtFechaNacimientoFact.TabIndex = 22;
-            this.dtFechaNacimientoFact.ValueChanged += new System.EventHandler(this.dtFechaNacimientoFact_ValueChanged);
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(78, 568);
+            this.label12.Location = new System.Drawing.Point(71, 568);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(75, 16);
             this.label12.TabIndex = 26;
@@ -165,7 +159,7 @@
             // 
             // btnRegistrarDatosFact
             // 
-            this.btnRegistrarDatosFact.Location = new System.Drawing.Point(616, 186);
+            this.btnRegistrarDatosFact.Location = new System.Drawing.Point(617, 403);
             this.btnRegistrarDatosFact.Name = "btnRegistrarDatosFact";
             this.btnRegistrarDatosFact.Size = new System.Drawing.Size(144, 52);
             this.btnRegistrarDatosFact.TabIndex = 27;
@@ -176,7 +170,7 @@
             // lblCedulaFact
             // 
             this.lblCedulaFact.AutoSize = true;
-            this.lblCedulaFact.Location = new System.Drawing.Point(249, 81);
+            this.lblCedulaFact.Location = new System.Drawing.Point(220, 82);
             this.lblCedulaFact.Name = "lblCedulaFact";
             this.lblCedulaFact.Size = new System.Drawing.Size(56, 16);
             this.lblCedulaFact.TabIndex = 29;
@@ -186,57 +180,58 @@
             // lblNombreFact
             // 
             this.lblNombreFact.AutoSize = true;
-            this.lblNombreFact.Location = new System.Drawing.Point(249, 133);
+            this.lblNombreFact.Location = new System.Drawing.Point(220, 133);
             this.lblNombreFact.Name = "lblNombreFact";
-            this.lblNombreFact.Size = new System.Drawing.Size(49, 16);
+            this.lblNombreFact.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblNombreFact.Size = new System.Drawing.Size(56, 16);
             this.lblNombreFact.TabIndex = 30;
-            this.lblNombreFact.Text = "______";
+            this.lblNombreFact.Text = "_______";
             this.lblNombreFact.Click += new System.EventHandler(this.lblNombreFact_Click);
             // 
             // lblApellidoFact
             // 
             this.lblApellidoFact.AutoSize = true;
-            this.lblApellidoFact.Location = new System.Drawing.Point(249, 186);
+            this.lblApellidoFact.Location = new System.Drawing.Point(220, 186);
             this.lblApellidoFact.Name = "lblApellidoFact";
-            this.lblApellidoFact.Size = new System.Drawing.Size(49, 16);
+            this.lblApellidoFact.Size = new System.Drawing.Size(56, 16);
             this.lblApellidoFact.TabIndex = 31;
-            this.lblApellidoFact.Text = "______";
+            this.lblApellidoFact.Text = "_______";
             this.lblApellidoFact.Click += new System.EventHandler(this.lblApellidoFact_Click);
             // 
             // lblTelefonoFact
             // 
             this.lblTelefonoFact.AutoSize = true;
-            this.lblTelefonoFact.Location = new System.Drawing.Point(249, 292);
+            this.lblTelefonoFact.Location = new System.Drawing.Point(220, 292);
             this.lblTelefonoFact.Name = "lblTelefonoFact";
-            this.lblTelefonoFact.Size = new System.Drawing.Size(49, 16);
+            this.lblTelefonoFact.Size = new System.Drawing.Size(56, 16);
             this.lblTelefonoFact.TabIndex = 32;
-            this.lblTelefonoFact.Text = "______";
+            this.lblTelefonoFact.Text = "_______";
             this.lblTelefonoFact.Click += new System.EventHandler(this.lblTelefonoFact_Click);
             // 
             // lblDireccionFact
             // 
             this.lblDireccionFact.AutoSize = true;
-            this.lblDireccionFact.Location = new System.Drawing.Point(249, 345);
+            this.lblDireccionFact.Location = new System.Drawing.Point(220, 345);
             this.lblDireccionFact.Name = "lblDireccionFact";
-            this.lblDireccionFact.Size = new System.Drawing.Size(49, 16);
+            this.lblDireccionFact.Size = new System.Drawing.Size(56, 16);
             this.lblDireccionFact.TabIndex = 33;
-            this.lblDireccionFact.Text = "______";
+            this.lblDireccionFact.Text = "_______";
             this.lblDireccionFact.Click += new System.EventHandler(this.lblDireccionFact_Click);
             // 
             // lblComprobanteFact
             // 
             this.lblComprobanteFact.AutoSize = true;
-            this.lblComprobanteFact.Location = new System.Drawing.Point(249, 458);
+            this.lblComprobanteFact.Location = new System.Drawing.Point(220, 458);
             this.lblComprobanteFact.Name = "lblComprobanteFact";
-            this.lblComprobanteFact.Size = new System.Drawing.Size(49, 16);
+            this.lblComprobanteFact.Size = new System.Drawing.Size(56, 16);
             this.lblComprobanteFact.TabIndex = 35;
-            this.lblComprobanteFact.Text = "______";
+            this.lblComprobanteFact.Text = "_______";
             this.lblComprobanteFact.Click += new System.EventHandler(this.lblComprobanteFact_Click);
             // 
             // lblPromocionFact
             // 
             this.lblPromocionFact.AutoSize = true;
-            this.lblPromocionFact.Location = new System.Drawing.Point(249, 568);
+            this.lblPromocionFact.Location = new System.Drawing.Point(220, 568);
             this.lblPromocionFact.Name = "lblPromocionFact";
             this.lblPromocionFact.Size = new System.Drawing.Size(56, 16);
             this.lblPromocionFact.TabIndex = 37;
@@ -246,7 +241,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(78, 403);
+            this.label11.Location = new System.Drawing.Point(71, 403);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(73, 16);
             this.label11.TabIndex = 38;
@@ -255,17 +250,17 @@
             // lblEstudianteFact
             // 
             this.lblEstudianteFact.AutoSize = true;
-            this.lblEstudianteFact.Location = new System.Drawing.Point(249, 403);
+            this.lblEstudianteFact.Location = new System.Drawing.Point(220, 403);
             this.lblEstudianteFact.Name = "lblEstudianteFact";
-            this.lblEstudianteFact.Size = new System.Drawing.Size(49, 16);
+            this.lblEstudianteFact.Size = new System.Drawing.Size(56, 16);
             this.lblEstudianteFact.TabIndex = 39;
-            this.lblEstudianteFact.Text = "______";
+            this.lblEstudianteFact.Text = "_______";
             this.lblEstudianteFact.Click += new System.EventHandler(this.lblEstudianteFact_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(78, 522);
+            this.label5.Location = new System.Drawing.Point(71, 511);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(37, 16);
             this.label5.TabIndex = 40;
@@ -274,27 +269,60 @@
             // lblPlanFact
             // 
             this.lblPlanFact.AutoSize = true;
-            this.lblPlanFact.Location = new System.Drawing.Point(249, 522);
+            this.lblPlanFact.Location = new System.Drawing.Point(220, 511);
             this.lblPlanFact.Name = "lblPlanFact";
-            this.lblPlanFact.Size = new System.Drawing.Size(49, 16);
+            this.lblPlanFact.Size = new System.Drawing.Size(56, 16);
             this.lblPlanFact.TabIndex = 41;
-            this.lblPlanFact.Text = "______";
+            this.lblPlanFact.Text = "_______";
             this.lblPlanFact.Click += new System.EventHandler(this.lblPlanFact_Click);
             // 
             // lblNumFactura
             // 
             this.lblNumFactura.AutoSize = true;
-            this.lblNumFactura.Location = new System.Drawing.Point(252, 30);
+            this.lblNumFactura.Location = new System.Drawing.Point(220, 30);
             this.lblNumFactura.Name = "lblNumFactura";
-            this.lblNumFactura.Size = new System.Drawing.Size(49, 16);
+            this.lblNumFactura.Size = new System.Drawing.Size(56, 16);
             this.lblNumFactura.TabIndex = 42;
-            this.lblNumFactura.Text = "______";
+            this.lblNumFactura.Text = "_______";
+            // 
+            // lblFechaNacimientoFact
+            // 
+            this.lblFechaNacimientoFact.AutoSize = true;
+            this.lblFechaNacimientoFact.Location = new System.Drawing.Point(220, 240);
+            this.lblFechaNacimientoFact.Name = "lblFechaNacimientoFact";
+            this.lblFechaNacimientoFact.Size = new System.Drawing.Size(56, 16);
+            this.lblFechaNacimientoFact.TabIndex = 43;
+            this.lblFechaNacimientoFact.Text = "_______";
+            this.lblFechaNacimientoFact.Click += new System.EventHandler(this.lblFechaNacimientoFact_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Vista.Properties.Resources.Img_Gym2;
+            this.pictureBox1.Location = new System.Drawing.Point(512, 39);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(249, 322);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 44;
+            this.pictureBox1.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(617, 493);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(144, 52);
+            this.button1.TabIndex = 45;
+            this.button1.Text = "VER REGISTRO FACTURAS";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // VsFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(816, 675);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.lblFechaNacimientoFact);
             this.Controls.Add(this.lblNumFactura);
             this.Controls.Add(this.lblPlanFact);
             this.Controls.Add(this.label5);
@@ -309,7 +337,6 @@
             this.Controls.Add(this.lblCedulaFact);
             this.Controls.Add(this.btnRegistrarDatosFact);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.dtFechaNacimientoFact);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -323,6 +350,8 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "VsFactura";
             this.Text = "Datos Factura";
+            this.Load += new System.EventHandler(this.VsFactura_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -339,7 +368,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        public System.Windows.Forms.DateTimePicker dtFechaNacimientoFact;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btnRegistrarDatosFact;
         public System.Windows.Forms.Label lblCedulaFact;
@@ -354,5 +382,8 @@
         private System.Windows.Forms.Label label5;
         public System.Windows.Forms.Label lblPlanFact;
         public System.Windows.Forms.Label lblNumFactura;
+        public System.Windows.Forms.Label lblFechaNacimientoFact;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button1;
     }
 }
