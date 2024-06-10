@@ -29,15 +29,16 @@ namespace Control
         {
             return ListaMembresia.Count;
         }
-        public string IngresarMembresia(string plan, string sFechaInicio, string sFechaFin, string promocion, string sDescuento, string detallePromocion, string cedulaCliente)
+        public string IngresarMembresia(string plan, string sFechaInicio, string sFechaFin, string promocion, string descuento, string detallePromocion, string cedulaCliente, string Sprecio)
         {
             string msj = "ERROR: SE ESPERABA DATOS CORRECTOS.";
             Validacion val = new Validacion();
             Membresia mem = null;
             //CtrMembresia controlMembresia = new CtrMembresia(CtrCliente.ListaCli);
+            double precio = val.ConvertirDouble(Sprecio);
             DateTime fechaInicio = val.ConvertirDateTime(sFechaInicio);
             DateTime fechaFin = val.ConvertirDateTime(sFechaFin);
-            double descuento = val.ConvertirDouble(sDescuento);
+
             
 
 
@@ -54,13 +55,13 @@ namespace Control
             {
                 return "ERROR: MEMBRESIA YA REGISTRADA.";
             }
-            else if (string.IsNullOrEmpty(plan) || plan.Equals("") && string.IsNullOrEmpty(promocion) || promocion.Equals("") && string.IsNullOrEmpty(detallePromocion) || detallePromocion.Equals("") && (descuento == 0))
+            else if (string.IsNullOrEmpty(plan) || plan.Equals("") && string.IsNullOrEmpty(promocion) || promocion.Equals("") && string.IsNullOrEmpty(detallePromocion) || detallePromocion.Equals("") && string.IsNullOrEmpty(descuento) || descuento.Equals(""))
             {
                 return "ERROR: NO PUEDEN EXISTIR CAMPOS VACIOS.";
             }
             else
             {
-                mem = new Membresia(plan, fechaInicio, fechaFin, promocion, descuento, detallePromocion,cedulaCliente);
+                mem = new Membresia(plan, fechaInicio, fechaFin, promocion, descuento, detallePromocion,cedulaCliente, precio);
                 ListaMembresia.Add(mem);
                 msj = mem.ToString() + Environment.NewLine + "MEMBRESIA REGISTRADA CORRECTAMENTE" + Environment.NewLine;
             }

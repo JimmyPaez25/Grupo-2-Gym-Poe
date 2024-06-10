@@ -102,9 +102,10 @@ namespace Vista
             string sDescuento = txtBoxD.Text.Trim();
             string detallePromocion = txtBoxDP.Text.Trim();
             string cedula = lblCedulaM.Text.Trim();
+            string precio = txtBoxPreM.Text.Trim();
 
 
-            msj = ctrMen.IngresarMembresia(sPlan, sFechaInicio, sFechaFin, promocion, sDescuento, detallePromocion , cedula);
+            msj = ctrMen.IngresarMembresia(sPlan, sFechaInicio, sFechaFin, promocion, sDescuento, detallePromocion , cedula, precio);
             MessageBox.Show(msj);
             VsFactura vFactura = new VsFactura();
             vFactura.lblCedulaFact.Text = this.lblCedulaM.Text;
@@ -117,6 +118,7 @@ namespace Vista
             vFactura.lblComprobanteFact.Text = this.ComprobanteInvisible.Text;
             vFactura.lblFechaNacimientoFact.Text = this.FechaNacInvisible.Text;
             vFactura.lblDireccionFact.Text = this.DireccionInvisible.Text;
+
             vFactura.Show();
             this.Close();
 

@@ -12,13 +12,14 @@ namespace Modelo
         DateTime fechaInicio;
         DateTime fechaFin;
         string promocion;
-        double descuento;
+        string descuento;
         string detallePromocion;
         string cedulaCliente;
+        double precio;
  
 
 
-        public Membresia(string plan, DateTime fechaInicio, DateTime fechaFin, string promocion, double descuento, string detallePromocion, string cedulaCliente) 
+        public Membresia(string plan, DateTime fechaInicio, DateTime fechaFin, string promocion, string descuento, string detallePromocion, string cedulaCliente, double precio) 
         {
             this.Plan = plan;
             this.FechaInicio = fechaInicio;
@@ -27,6 +28,8 @@ namespace Modelo
             this.Promocion = promocion;
             this.detallePromocion = detallePromocion;
             this.CedulaCliente = cedulaCliente;
+            this.precio = precio;
+ 
     
         }
 
@@ -35,8 +38,9 @@ namespace Modelo
         public DateTime FechaFin { get => fechaFin; set => fechaFin = value; }
         public string Promocion { get => promocion; set => promocion = value; }
         public string DetallePromocion { get => detallePromocion; set => detallePromocion = value; }
-        public double Descuento { get => descuento; set => descuento = value; }
+        public string Descuento { get => descuento; set => descuento = value; }
         public string CedulaCliente { get => cedulaCliente; set => cedulaCliente = value; }
+        public double Precio { get => precio; set => precio = value; }
 
         public override string ToString()
         {
@@ -45,7 +49,8 @@ namespace Modelo
                    "-> FECHA FIN: " + fechaFin.ToString("d") + Environment.NewLine +
                    "-> PROMOCION: " + promocion + Environment.NewLine +
                    "-> DETALLES PROMOCION: " + Environment.NewLine + detallePromocion + Environment.NewLine +
-                   "-> DESCUENTO: " + descuento + Environment.NewLine;
+                   "-> DESCUENTO: " + descuento + Environment.NewLine+
+                   "-> PRECIO: " + precio + Environment.NewLine;
 
 
         }
