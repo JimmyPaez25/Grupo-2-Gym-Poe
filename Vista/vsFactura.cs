@@ -34,7 +34,32 @@ namespace Vista
     
         private void btnRegistrarDatosFact_Click(object sender, EventArgs e)
         {
+
            
+
+            // Mostrar mensaje con los datos de la factura
+            string mensaje = "\nDATOS DE SU FACTURA REGISTRADOS\n";
+            mensaje += "NÚNERO DE FACTURA: " + lblNumFactura.Text + "\n";
+            mensaje += "NÚNMERO DE CÉDULA: " + lblCedulaFact.Text + "\n";
+            mensaje += "NOMBRE: " + lblNombreFact.Text + "\n";
+            mensaje += "APELLIDO: " + lblApellidoFact.Text + "\n";
+            mensaje += "FECHA DE NACIMIENTO: " + lblFechaNacimientoFact.Text + "\n";
+            mensaje += "TELÉFONO: " + lblTelefonoFact.Text + "\n";
+            mensaje += "DIRECCIÓN: " + lblDireccionFact.Text + "\n";
+            mensaje += "ESTUDIANTE: " + lblEstudianteFact.Text + "\n";
+            mensaje += "COMPROBANTE: " + lblComprobanteFact.Text + "\n";
+            mensaje += "PLAN: " + lblPlanFact.Text + "\n";
+            mensaje += "PROMOCIÓN: " + lblPromocionFact.Text + "\n";
+            mensaje += "FECHA INICIO: " + lblFechaInicioFact.Text + "\n";
+            mensaje += "FECHA FIN: " + lblFechaFinFact.Text + "\n";
+            MessageBox.Show(mensaje, "REGISTRO DE FACTURA", MessageBoxButtons.OK);
+            
+            this.Close();
+
+
+            
+
+
         }
 
         private void label13_Click(object sender, EventArgs e)
@@ -92,10 +117,7 @@ namespace Vista
 
         }
 
-        private void txtNumFactura_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+    
 
         private void lblFechaNacimientoFact_Click(object sender, EventArgs e)
         {
@@ -106,5 +128,27 @@ namespace Vista
         {
 
         }
+
+        private void lblNumFactura_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblFechaInicioFact_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblFechaFinFact_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label13_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }

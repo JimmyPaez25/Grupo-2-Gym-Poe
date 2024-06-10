@@ -112,12 +112,14 @@ namespace Vista
             vFactura.lblNombreFact.Text = this.lblNombreM.Text;
             vFactura.lblApellidoFact.Text = this.lblApellidoM.Text;
             vFactura.lblEstudianteFact.Text = this.lblEstudianteM.Text;
-            vFactura.lblPlanFact.Text = this.txtBoxM.Text;
+            vFactura.lblPlanFact.Text = this.txtBoxM.Text.ToUpper();
             vFactura.lblPromocionFact.Text = this.comboBoxP.Text;
             vFactura.lblTelefonoFact.Text = this.CelularInvisible.Text;
             vFactura.lblComprobanteFact.Text = this.ComprobanteInvisible.Text;
             vFactura.lblFechaNacimientoFact.Text = this.FechaNacInvisible.Text;
             vFactura.lblDireccionFact.Text = this.DireccionInvisible.Text;
+            vFactura.lblFechaInicioFact.Text = this.dateTPFI.Text;
+            vFactura.lblFechaFinFact.Text = this.dateTPFF.Text;
 
             vFactura.Show();
             this.Close();
@@ -165,6 +167,16 @@ namespace Vista
         }
 
         private void DireccionInvisible_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTPFI_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTPFF_ValueChanged(object sender, EventArgs e)
         {
 
         }

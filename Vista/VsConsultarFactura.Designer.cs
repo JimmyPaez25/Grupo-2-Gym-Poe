@@ -28,50 +28,51 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvRegistroFact = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.FacturaMostrarFact = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombredefacturamostrar = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ApellidoMostrarFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CedulaMostrarFact = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaNacimiMostrarFact = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button2 = new System.Windows.Forms.Button();
+            this.FacturaRegistroFact = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreRegistroFact = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ApellidoRegistroFact = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CedulaRegistroFact = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaNacimRegistroFact = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TelefonoRegistroFact = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DireccionRegistroFact = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.A = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button2 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRegistroFact)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvRegistroFact
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.FacturaMostrarFact,
-            this.Nombredefacturamostrar,
-            this.ApellidoMostrarFactura,
-            this.CedulaMostrarFact,
-            this.FechaNacimiMostrarFact,
-            this.Column1,
-            this.Direccion,
-            this.Column2,
+            this.dgvRegistroFact.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRegistroFact.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.FacturaRegistroFact,
+            this.NombreRegistroFact,
+            this.ApellidoRegistroFact,
+            this.CedulaRegistroFact,
+            this.FechaNacimRegistroFact,
+            this.TelefonoRegistroFact,
+            this.DireccionRegistroFact,
+            this.A,
             this.Column3,
             this.Column4,
             this.Column6,
             this.Column5});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 59);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1732, 246);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvRegistroFact.Location = new System.Drawing.Point(12, 59);
+            this.dgvRegistroFact.Name = "dgvRegistroFact";
+            this.dgvRegistroFact.RowHeadersWidth = 51;
+            this.dgvRegistroFact.RowTemplate.Height = 24;
+            this.dgvRegistroFact.Size = new System.Drawing.Size(1732, 246);
+            this.dgvRegistroFact.TabIndex = 0;
+            this.dgvRegistroFact.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistroFact_CellContentClick);
             // 
             // button1
             // 
@@ -117,61 +118,70 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Motivo:";
             // 
-            // FacturaMostrarFact
+            // button2
             // 
-            this.FacturaMostrarFact.HeaderText = "Factura";
-            this.FacturaMostrarFact.MinimumWidth = 6;
-            this.FacturaMostrarFact.Name = "FacturaMostrarFact";
-            this.FacturaMostrarFact.Width = 125;
+            this.button2.Location = new System.Drawing.Point(783, 555);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(248, 23);
+            this.button2.TabIndex = 7;
+            this.button2.Text = "Borrar Factura Seleccionada";
+            this.button2.UseVisualStyleBackColor = true;
             // 
-            // Nombredefacturamostrar
+            // FacturaRegistroFact
             // 
-            this.Nombredefacturamostrar.HeaderText = "Nombre";
-            this.Nombredefacturamostrar.MinimumWidth = 6;
-            this.Nombredefacturamostrar.Name = "Nombredefacturamostrar";
-            this.Nombredefacturamostrar.Width = 125;
+            this.FacturaRegistroFact.HeaderText = "Factura";
+            this.FacturaRegistroFact.MinimumWidth = 6;
+            this.FacturaRegistroFact.Name = "FacturaRegistroFact";
+            this.FacturaRegistroFact.Width = 125;
             // 
-            // ApellidoMostrarFactura
+            // NombreRegistroFact
             // 
-            this.ApellidoMostrarFactura.HeaderText = "Apellido";
-            this.ApellidoMostrarFactura.MinimumWidth = 6;
-            this.ApellidoMostrarFactura.Name = "ApellidoMostrarFactura";
-            this.ApellidoMostrarFactura.Width = 125;
+            this.NombreRegistroFact.HeaderText = "Nombre";
+            this.NombreRegistroFact.MinimumWidth = 6;
+            this.NombreRegistroFact.Name = "NombreRegistroFact";
+            this.NombreRegistroFact.Width = 125;
             // 
-            // CedulaMostrarFact
+            // ApellidoRegistroFact
             // 
-            this.CedulaMostrarFact.HeaderText = "Cedula";
-            this.CedulaMostrarFact.MinimumWidth = 6;
-            this.CedulaMostrarFact.Name = "CedulaMostrarFact";
-            this.CedulaMostrarFact.Width = 125;
+            this.ApellidoRegistroFact.HeaderText = "Apellido";
+            this.ApellidoRegistroFact.MinimumWidth = 6;
+            this.ApellidoRegistroFact.Name = "ApellidoRegistroFact";
+            this.ApellidoRegistroFact.Width = 125;
             // 
-            // FechaNacimiMostrarFact
+            // CedulaRegistroFact
             // 
-            this.FechaNacimiMostrarFact.HeaderText = "Fecha Nacimiento";
-            this.FechaNacimiMostrarFact.MinimumWidth = 6;
-            this.FechaNacimiMostrarFact.Name = "FechaNacimiMostrarFact";
-            this.FechaNacimiMostrarFact.Width = 125;
+            this.CedulaRegistroFact.HeaderText = "Cedula";
+            this.CedulaRegistroFact.MinimumWidth = 6;
+            this.CedulaRegistroFact.Name = "CedulaRegistroFact";
+            this.CedulaRegistroFact.Width = 125;
             // 
-            // Column1
+            // FechaNacimRegistroFact
             // 
-            this.Column1.HeaderText = "Teléfono";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 125;
+            this.FechaNacimRegistroFact.HeaderText = "Fecha Nacimiento";
+            this.FechaNacimRegistroFact.MinimumWidth = 6;
+            this.FechaNacimRegistroFact.Name = "FechaNacimRegistroFact";
+            this.FechaNacimRegistroFact.Width = 125;
             // 
-            // Direccion
+            // TelefonoRegistroFact
             // 
-            this.Direccion.HeaderText = "Column2";
-            this.Direccion.MinimumWidth = 6;
-            this.Direccion.Name = "Direccion";
-            this.Direccion.Width = 125;
+            this.TelefonoRegistroFact.HeaderText = "Teléfono";
+            this.TelefonoRegistroFact.MinimumWidth = 6;
+            this.TelefonoRegistroFact.Name = "TelefonoRegistroFact";
+            this.TelefonoRegistroFact.Width = 125;
             // 
-            // Column2
+            // DireccionRegistroFact
             // 
-            this.Column2.HeaderText = "Actividades";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 125;
+            this.DireccionRegistroFact.HeaderText = "Direccion";
+            this.DireccionRegistroFact.MinimumWidth = 6;
+            this.DireccionRegistroFact.Name = "DireccionRegistroFact";
+            this.DireccionRegistroFact.Width = 125;
+            // 
+            // A
+            // 
+            this.A.HeaderText = "Actividades";
+            this.A.MinimumWidth = 6;
+            this.A.Name = "A";
+            this.A.Width = 125;
             // 
             // Column3
             // 
@@ -201,15 +211,6 @@
             this.Column5.Name = "Column5";
             this.Column5.Width = 125;
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(783, 555);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(248, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Borrar Factura Seleccionada";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // VsConsultarFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -221,10 +222,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvRegistroFact);
             this.Name = "VsConsultarFactura";
             this.Text = "VsConsultarFactura";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRegistroFact)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -232,24 +233,24 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.DataGridView dgvRegistroFact;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FacturaMostrarFact;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombredefacturamostrar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ApellidoMostrarFactura;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CedulaMostrarFact;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechaNacimiMostrarFact;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Direccion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.Button button2;
+        public System.Windows.Forms.DataGridViewTextBoxColumn FacturaRegistroFact;
+        public System.Windows.Forms.DataGridViewTextBoxColumn NombreRegistroFact;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ApellidoRegistroFact;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CedulaRegistroFact;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaNacimRegistroFact;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TelefonoRegistroFact;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DireccionRegistroFact;
+        private System.Windows.Forms.DataGridViewTextBoxColumn A;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.Button button2;
     }
 }

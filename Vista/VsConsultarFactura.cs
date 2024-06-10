@@ -21,5 +21,10 @@ namespace Vista
         {
 
         }
+
+        private void dgvRegistroFact_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
     }
 }

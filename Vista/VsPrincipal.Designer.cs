@@ -32,10 +32,11 @@
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.btnMembresia = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnGM = new System.Windows.Forms.Button();
             this.buttonGestionActividad = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnGM = new System.Windows.Forms.Button();
+            this.btnVerRegistroFact = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -45,16 +46,18 @@
             this.labelTituloGym.AutoSize = true;
             this.labelTituloGym.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTituloGym.Location = new System.Drawing.Point(0, 0);
+            this.labelTituloGym.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTituloGym.Name = "labelTituloGym";
-            this.labelTituloGym.Size = new System.Drawing.Size(0, 55);
+            this.labelTituloGym.Size = new System.Drawing.Size(0, 69);
             this.labelTituloGym.TabIndex = 3;
             // 
             // btnRegistrar
             // 
             this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrar.Location = new System.Drawing.Point(29, 86);
+            this.btnRegistrar.Location = new System.Drawing.Point(39, 61);
+            this.btnRegistrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(122, 51);
+            this.btnRegistrar.Size = new System.Drawing.Size(163, 63);
             this.btnRegistrar.TabIndex = 4;
             this.btnRegistrar.Text = "Registrar nuevo cliente";
             this.btnRegistrar.UseVisualStyleBackColor = true;
@@ -63,9 +66,10 @@
             // btnMembresia
             // 
             this.btnMembresia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMembresia.Location = new System.Drawing.Point(29, 177);
+            this.btnMembresia.Location = new System.Drawing.Point(39, 193);
+            this.btnMembresia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMembresia.Name = "btnMembresia";
-            this.btnMembresia.Size = new System.Drawing.Size(122, 53);
+            this.btnMembresia.Size = new System.Drawing.Size(163, 65);
             this.btnMembresia.TabIndex = 5;
             this.btnMembresia.Text = "Gestionar cliente";
             this.btnMembresia.UseVisualStyleBackColor = true;
@@ -73,22 +77,37 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnVerRegistroFact);
             this.panel1.Controls.Add(this.btnGM);
             this.panel1.Controls.Add(this.buttonGestionActividad);
             this.panel1.Controls.Add(this.btnMembresia);
             this.panel1.Controls.Add(this.btnRegistrar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(668, 0);
+            this.panel1.Location = new System.Drawing.Point(891, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(184, 489);
+            this.panel1.Size = new System.Drawing.Size(245, 602);
             this.panel1.TabIndex = 8;
+            // 
+            // btnGM
+            // 
+            this.btnGM.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGM.Location = new System.Drawing.Point(39, 308);
+            this.btnGM.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGM.Name = "btnGM";
+            this.btnGM.Size = new System.Drawing.Size(163, 65);
+            this.btnGM.TabIndex = 8;
+            this.btnGM.Text = "Gestion de Membresia";
+            this.btnGM.UseVisualStyleBackColor = true;
+            this.btnGM.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // buttonGestionActividad
             // 
             this.buttonGestionActividad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonGestionActividad.Location = new System.Drawing.Point(29, 364);
+            this.buttonGestionActividad.Location = new System.Drawing.Point(39, 410);
+            this.buttonGestionActividad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonGestionActividad.Name = "buttonGestionActividad";
-            this.buttonGestionActividad.Size = new System.Drawing.Size(122, 53);
+            this.buttonGestionActividad.Size = new System.Drawing.Size(163, 65);
             this.buttonGestionActividad.TabIndex = 7;
             this.buttonGestionActividad.Text = "Gestion de Actividad";
             this.buttonGestionActividad.UseVisualStyleBackColor = true;
@@ -98,45 +117,47 @@
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(201, 489);
+            this.panel2.Size = new System.Drawing.Size(268, 602);
             this.panel2.TabIndex = 9;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = global::Vista.Properties.Resources.Img_vtnPrincipal;
-            this.pictureBox1.Location = new System.Drawing.Point(201, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(268, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(467, 489);
+            this.pictureBox1.Size = new System.Drawing.Size(623, 602);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // btnGM
+            // btnVerRegistroFact
             // 
-            this.btnGM.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGM.Location = new System.Drawing.Point(29, 271);
-            this.btnGM.Name = "btnGM";
-            this.btnGM.Size = new System.Drawing.Size(122, 53);
-            this.btnGM.TabIndex = 8;
-            this.btnGM.Text = "Gestion de Membresia";
-            this.btnGM.UseVisualStyleBackColor = true;
-            this.btnGM.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnVerRegistroFact.Location = new System.Drawing.Point(39, 516);
+            this.btnVerRegistroFact.Name = "btnVerRegistroFact";
+            this.btnVerRegistroFact.Size = new System.Drawing.Size(163, 65);
+            this.btnVerRegistroFact.TabIndex = 64;
+            this.btnVerRegistroFact.Text = "VER REGISTRO DE FACTURAS";
+            this.btnVerRegistroFact.UseVisualStyleBackColor = true;
+            this.btnVerRegistroFact.Click += new System.EventHandler(this.btnVerRegistroFact_Click);
             // 
             // VsPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(852, 489);
+            this.ClientSize = new System.Drawing.Size(1136, 602);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelTituloGym);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "VsPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Principal";
@@ -157,6 +178,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button buttonGestionActividad;
         private System.Windows.Forms.Button btnGM;
+        private System.Windows.Forms.Button btnVerRegistroFact;
     }
 }
 

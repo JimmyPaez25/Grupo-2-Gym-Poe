@@ -60,6 +60,13 @@ namespace Vista
 
         }
 
+        private void btnVerRegistroFact_Click(object sender, EventArgs e)
+        {
+                VsConsultarFactura vRegistroFact = new VsConsultarFactura();
+                vRegistroFact.ShowDialog();
+            
+        }
+
         // FIN
     }
 }

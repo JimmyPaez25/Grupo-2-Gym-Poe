@@ -69,6 +69,11 @@ namespace Vista
             val.ConvertirMayuscula(textBox);
         }
 
+        private void dgvActividad_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
 
         // FIN
     }

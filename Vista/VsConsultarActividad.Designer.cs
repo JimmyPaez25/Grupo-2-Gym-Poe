@@ -52,17 +52,19 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(347, 24);
+            this.label1.Location = new System.Drawing.Point(463, 30);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(133, 13);
+            this.label1.Size = new System.Drawing.Size(164, 16);
             this.label1.TabIndex = 1;
             this.label1.Text = "CONSULTAR ACTIVIDAD";
             // 
             // buttonCancelar
             // 
-            this.buttonCancelar.Location = new System.Drawing.Point(36, 318);
+            this.buttonCancelar.Location = new System.Drawing.Point(48, 391);
+            this.buttonCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonCancelar.Name = "buttonCancelar";
-            this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancelar.Size = new System.Drawing.Size(100, 28);
             this.buttonCancelar.TabIndex = 13;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
@@ -70,9 +72,10 @@
             // 
             // textBuscar
             // 
-            this.textBuscar.Location = new System.Drawing.Point(36, 87);
+            this.textBuscar.Location = new System.Drawing.Point(48, 107);
+            this.textBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBuscar.Name = "textBuscar";
-            this.textBuscar.Size = new System.Drawing.Size(171, 20);
+            this.textBuscar.Size = new System.Drawing.Size(227, 22);
             this.textBuscar.TabIndex = 14;
             this.textBuscar.TextChanged += new System.EventHandler(this.textBuscar_TextChanged);
             this.textBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBuscar_KeyPress);
@@ -81,9 +84,10 @@
             // 
             this.radioButtonNombre.AutoSize = true;
             this.radioButtonNombre.Checked = true;
-            this.radioButtonNombre.Location = new System.Drawing.Point(36, 64);
+            this.radioButtonNombre.Location = new System.Drawing.Point(48, 79);
+            this.radioButtonNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radioButtonNombre.Name = "radioButtonNombre";
-            this.radioButtonNombre.Size = new System.Drawing.Size(62, 17);
+            this.radioButtonNombre.Size = new System.Drawing.Size(77, 20);
             this.radioButtonNombre.TabIndex = 15;
             this.radioButtonNombre.TabStop = true;
             this.radioButtonNombre.Text = "Nombre";
@@ -92,9 +96,10 @@
             // radioButtonDescripcion
             // 
             this.radioButtonDescripcion.AutoSize = true;
-            this.radioButtonDescripcion.Location = new System.Drawing.Point(134, 64);
+            this.radioButtonDescripcion.Location = new System.Drawing.Point(179, 79);
+            this.radioButtonDescripcion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radioButtonDescripcion.Name = "radioButtonDescripcion";
-            this.radioButtonDescripcion.Size = new System.Drawing.Size(81, 17);
+            this.radioButtonDescripcion.Size = new System.Drawing.Size(100, 20);
             this.radioButtonDescripcion.TabIndex = 16;
             this.radioButtonDescripcion.TabStop = true;
             this.radioButtonDescripcion.Text = "Descripcion";
@@ -102,9 +107,10 @@
             // 
             // buttonBuscar
             // 
-            this.buttonBuscar.Location = new System.Drawing.Point(224, 84);
+            this.buttonBuscar.Location = new System.Drawing.Point(299, 103);
+            this.buttonBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonBuscar.Name = "buttonBuscar";
-            this.buttonBuscar.Size = new System.Drawing.Size(75, 23);
+            this.buttonBuscar.Size = new System.Drawing.Size(100, 28);
             this.buttonBuscar.TabIndex = 17;
             this.buttonBuscar.Text = "Buscar";
             this.buttonBuscar.UseVisualStyleBackColor = true;
@@ -124,66 +130,86 @@
             this.ClmFechaFin,
             this.ClmHoraInicio,
             this.ClmHoraFin});
-            this.dgvActividad.Location = new System.Drawing.Point(36, 133);
+            this.dgvActividad.Location = new System.Drawing.Point(48, 164);
+            this.dgvActividad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvActividad.Name = "dgvActividad";
             this.dgvActividad.ReadOnly = true;
-            this.dgvActividad.Size = new System.Drawing.Size(744, 162);
+            this.dgvActividad.RowHeadersWidth = 51;
+            this.dgvActividad.Size = new System.Drawing.Size(992, 199);
             this.dgvActividad.TabIndex = 18;
+            this.dgvActividad.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvActividad_CellContentClick);
             // 
             // ClmNumero
             // 
             this.ClmNumero.HeaderText = "NRO";
+            this.ClmNumero.MinimumWidth = 6;
             this.ClmNumero.Name = "ClmNumero";
             this.ClmNumero.ReadOnly = true;
+            this.ClmNumero.Width = 125;
             // 
             // ClmEstado
             // 
             this.ClmEstado.HeaderText = "ESTADO";
+            this.ClmEstado.MinimumWidth = 6;
             this.ClmEstado.Name = "ClmEstado";
             this.ClmEstado.ReadOnly = true;
             this.ClmEstado.Visible = false;
+            this.ClmEstado.Width = 125;
             // 
             // ClmNombre
             // 
             this.ClmNombre.HeaderText = "NOMBRE";
+            this.ClmNombre.MinimumWidth = 6;
             this.ClmNombre.Name = "ClmNombre";
             this.ClmNombre.ReadOnly = true;
+            this.ClmNombre.Width = 125;
             // 
             // ClmDescripcion
             // 
             this.ClmDescripcion.HeaderText = "DESCRIPCION";
+            this.ClmDescripcion.MinimumWidth = 6;
             this.ClmDescripcion.Name = "ClmDescripcion";
             this.ClmDescripcion.ReadOnly = true;
+            this.ClmDescripcion.Width = 125;
             // 
             // ClmFechaInicio
             // 
             this.ClmFechaInicio.HeaderText = "FECHA INICIO";
+            this.ClmFechaInicio.MinimumWidth = 6;
             this.ClmFechaInicio.Name = "ClmFechaInicio";
             this.ClmFechaInicio.ReadOnly = true;
+            this.ClmFechaInicio.Width = 125;
             // 
             // ClmFechaFin
             // 
             this.ClmFechaFin.HeaderText = "FECHA FIN";
+            this.ClmFechaFin.MinimumWidth = 6;
             this.ClmFechaFin.Name = "ClmFechaFin";
             this.ClmFechaFin.ReadOnly = true;
+            this.ClmFechaFin.Width = 125;
             // 
             // ClmHoraInicio
             // 
             this.ClmHoraInicio.HeaderText = "HORA INICIO";
+            this.ClmHoraInicio.MinimumWidth = 6;
             this.ClmHoraInicio.Name = "ClmHoraInicio";
             this.ClmHoraInicio.ReadOnly = true;
+            this.ClmHoraInicio.Width = 125;
             // 
             // ClmHoraFin
             // 
             this.ClmHoraFin.HeaderText = "HORA FIN";
+            this.ClmHoraFin.MinimumWidth = 6;
             this.ClmHoraFin.Name = "ClmHoraFin";
             this.ClmHoraFin.ReadOnly = true;
+            this.ClmHoraFin.Width = 125;
             // 
             // buttonEditar
             // 
-            this.buttonEditar.Location = new System.Drawing.Point(609, 87);
+            this.buttonEditar.Location = new System.Drawing.Point(812, 107);
+            this.buttonEditar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonEditar.Name = "buttonEditar";
-            this.buttonEditar.Size = new System.Drawing.Size(75, 23);
+            this.buttonEditar.Size = new System.Drawing.Size(100, 28);
             this.buttonEditar.TabIndex = 19;
             this.buttonEditar.Text = "Editar";
             this.buttonEditar.UseVisualStyleBackColor = true;
@@ -191,9 +217,10 @@
             // 
             // buttonEliminar
             // 
-            this.buttonEliminar.Location = new System.Drawing.Point(705, 87);
+            this.buttonEliminar.Location = new System.Drawing.Point(940, 107);
+            this.buttonEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonEliminar.Name = "buttonEliminar";
-            this.buttonEliminar.Size = new System.Drawing.Size(75, 23);
+            this.buttonEliminar.Size = new System.Drawing.Size(100, 28);
             this.buttonEliminar.TabIndex = 20;
             this.buttonEliminar.Text = "Eliminar";
             this.buttonEliminar.UseVisualStyleBackColor = true;
@@ -201,9 +228,10 @@
             // 
             // buttonSeleccionar
             // 
-            this.buttonSeleccionar.Location = new System.Drawing.Point(132, 318);
+            this.buttonSeleccionar.Location = new System.Drawing.Point(176, 391);
+            this.buttonSeleccionar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonSeleccionar.Name = "buttonSeleccionar";
-            this.buttonSeleccionar.Size = new System.Drawing.Size(75, 23);
+            this.buttonSeleccionar.Size = new System.Drawing.Size(100, 28);
             this.buttonSeleccionar.TabIndex = 21;
             this.buttonSeleccionar.Text = "Seleccionar";
             this.buttonSeleccionar.UseVisualStyleBackColor = true;
@@ -211,9 +239,9 @@
             // 
             // VsConsultarActividad
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(823, 374);
+            this.ClientSize = new System.Drawing.Size(1097, 460);
             this.Controls.Add(this.buttonSeleccionar);
             this.Controls.Add(this.buttonEliminar);
             this.Controls.Add(this.buttonEditar);
@@ -224,6 +252,7 @@
             this.Controls.Add(this.textBuscar);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "VsConsultarActividad";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
