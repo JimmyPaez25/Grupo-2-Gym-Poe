@@ -23,7 +23,7 @@ namespace Control
             const string caracteresPermitidos = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
             var random = new Random();
             var Serie = new StringBuilder();
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i < 10; i++)
             {
                 int indice = random.Next(caracteresPermitidos.Length);
                 Serie.Append(caracteresPermitidos[indice]);

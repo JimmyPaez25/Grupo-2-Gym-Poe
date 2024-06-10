@@ -149,7 +149,7 @@
             // txtApellido
             // 
             this.txtApellido.Location = new System.Drawing.Point(339, 217);
-            this.txtApellido.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtApellido.Margin = new System.Windows.Forms.Padding(4);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(268, 22);
             this.txtApellido.TabIndex = 29;
@@ -158,7 +158,7 @@
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(339, 182);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(268, 22);
             this.txtNombre.TabIndex = 28;
@@ -167,7 +167,7 @@
             // txtCedula
             // 
             this.txtCedula.Location = new System.Drawing.Point(339, 153);
-            this.txtCedula.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCedula.Margin = new System.Windows.Forms.Padding(4);
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(268, 22);
             this.txtCedula.TabIndex = 27;
@@ -176,16 +176,17 @@
             // txtTelefono
             // 
             this.txtTelefono.Location = new System.Drawing.Point(339, 281);
-            this.txtTelefono.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTelefono.Margin = new System.Windows.Forms.Padding(4);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(268, 22);
             this.txtTelefono.TabIndex = 32;
+            this.txtTelefono.TextChanged += new System.EventHandler(this.txtTelefono_TextChanged);
             this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // txtDireccion
             // 
             this.txtDireccion.Location = new System.Drawing.Point(339, 313);
-            this.txtDireccion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDireccion.Margin = new System.Windows.Forms.Padding(4);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(268, 22);
             this.txtDireccion.TabIndex = 31;
@@ -199,7 +200,7 @@
             "SI",
             "NO"});
             this.cmbEstudiante.Location = new System.Drawing.Point(339, 347);
-            this.cmbEstudiante.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbEstudiante.Margin = new System.Windows.Forms.Padding(4);
             this.cmbEstudiante.Name = "cmbEstudiante";
             this.cmbEstudiante.Size = new System.Drawing.Size(111, 24);
             this.cmbEstudiante.TabIndex = 30;
@@ -209,7 +210,7 @@
             // 
             this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Tai Le", 12F);
             this.btnRegistrar.Location = new System.Drawing.Point(164, 474);
-            this.btnRegistrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRegistrar.Margin = new System.Windows.Forms.Padding(4);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(132, 64);
             this.btnRegistrar.TabIndex = 34;
@@ -221,7 +222,7 @@
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Location = new System.Drawing.Point(389, 474);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(132, 64);
             this.btnCancelar.TabIndex = 35;
@@ -237,7 +238,7 @@
             "ACTIVO",
             "INACTIVO"});
             this.cmbEstado.Location = new System.Drawing.Point(339, 421);
-            this.cmbEstado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbEstado.Margin = new System.Windows.Forms.Padding(4);
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(160, 24);
             this.cmbEstado.TabIndex = 37;
@@ -268,7 +269,7 @@
             // txtComprobante
             // 
             this.txtComprobante.Location = new System.Drawing.Point(339, 384);
-            this.txtComprobante.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtComprobante.Margin = new System.Windows.Forms.Padding(4);
             this.txtComprobante.Name = "txtComprobante";
             this.txtComprobante.Size = new System.Drawing.Size(268, 22);
             this.txtComprobante.TabIndex = 40;
@@ -278,7 +279,7 @@
             // 
             this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDate.Location = new System.Drawing.Point(339, 251);
-            this.dtpDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpDate.Margin = new System.Windows.Forms.Padding(4);
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Size = new System.Drawing.Size(136, 22);
             this.dtpDate.TabIndex = 41;
@@ -311,7 +312,7 @@
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblCedula);
             this.Controls.Add(this.lblRegistro);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "VsRegistrarCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Registro de Cliente";

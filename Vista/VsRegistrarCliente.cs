@@ -75,13 +75,12 @@ namespace Vista
             vMembresia.lblNombreM.Text = this.txtNombre.Text;
             vMembresia.lblApellidoM.Text = this.txtApellido.Text;
             vMembresia.lblEstudianteM.Text = this.cmbEstudiante.Text;
+            
             vMembresia.Show();
             this.Close();
 
 
-            VsFactura vsFactura = new VsFactura();            
-            vsFactura.lblTelefonoFact.Text = this.txtTelefono.Text; 
-
+        
 
 
 
@@ -168,6 +167,11 @@ namespace Vista
         }
 
         private void VsRegistrarCliente_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTelefono_TextChanged(object sender, EventArgs e)
         {
 
         }

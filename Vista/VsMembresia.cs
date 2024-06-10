@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Vista;
 
 namespace Vista
 {
@@ -16,6 +17,10 @@ namespace Vista
     {
         private CtrMembresia ctrMen = new CtrMembresia();
         private Validacion v = new Validacion();
+        private VsRegistrarCliente vscliente = new VsRegistrarCliente();
+        string celular, direccion, comprobante;
+
+
         public VsMembresia()
         {
             InitializeComponent();
@@ -106,7 +111,8 @@ namespace Vista
             vFactura.lblNombreFact.Text = this.lblNombreM.Text;
             vFactura.lblApellidoFact.Text = this.lblApellidoM.Text;
             vFactura.lblEstudianteFact.Text = this.lblEstudianteM.Text;
-            //vFactura.lblTelefonoFact.Text = this.txtTelefono.Text;
+            vFactura.lblPlanFact.Text = this.txtBoxM.Text;
+            vFactura.lblPromocionFact.Text = this.comboBoxP.Text;
             vFactura.Show();
             this.Close();
 

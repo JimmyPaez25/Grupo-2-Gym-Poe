@@ -339,20 +339,20 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DateTimePicker dtFechaNacimientoFact;
+        public System.Windows.Forms.DateTimePicker dtFechaNacimientoFact;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btnRegistrarDatosFact;
         public System.Windows.Forms.Label lblCedulaFact;
         public System.Windows.Forms.Label lblNombreFact;
         public System.Windows.Forms.Label lblApellidoFact;
         public System.Windows.Forms.Label lblTelefonoFact;
-        private System.Windows.Forms.Label lblDireccionFact;
-        private System.Windows.Forms.Label lblComprobanteFact;
-        private System.Windows.Forms.Label lblPromocionFact;
-        private System.Windows.Forms.Label label11;
+        public System.Windows.Forms.Label lblDireccionFact;
+        public System.Windows.Forms.Label lblComprobanteFact;
+        public System.Windows.Forms.Label lblPromocionFact;
+        public System.Windows.Forms.Label label11;
         public System.Windows.Forms.Label lblEstudianteFact;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label lblPlanFact;
-        private System.Windows.Forms.Label lblNumFactura;
+        public System.Windows.Forms.Label lblPlanFact;
+        public System.Windows.Forms.Label lblNumFactura;
     }
 }
