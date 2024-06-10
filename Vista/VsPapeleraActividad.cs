@@ -11,6 +11,7 @@ using Control;
 
 namespace Vista
 {
+    // GONZALEZ ASTUDILLO ADRIAN
     public partial class VsPapeleraActividad : Form
     {
         private CtrActividad ctrActividad = new CtrActividad();

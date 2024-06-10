@@ -12,6 +12,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace Vista
 {
+    // GONZALEZ ASTUDILLO ADRIAN
     public partial class VsActividad : Form
     {
         private CtrActividad ctrActividad = new CtrActividad();

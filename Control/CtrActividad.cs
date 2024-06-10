@@ -8,6 +8,7 @@ using Modelo;
 
 namespace Control
 {
+    // GONZALEZ ASTUDILLO ADRIAN
     public class CtrActividad
     {
         private DateTime fechaActual = DateTime.Now;

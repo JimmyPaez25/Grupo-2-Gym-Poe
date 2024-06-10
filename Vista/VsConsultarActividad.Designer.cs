@@ -224,6 +224,7 @@
             this.Controls.Add(this.textBuscar);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
             this.Name = "VsConsultarActividad";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consultar Actividad";

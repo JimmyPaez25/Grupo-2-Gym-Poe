@@ -212,6 +212,7 @@
             this.Controls.Add(this.textBuscar);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
             this.Name = "VsPapeleraActividad";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Papelera de Actividades";
