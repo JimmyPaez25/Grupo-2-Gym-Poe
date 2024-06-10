@@ -108,5 +108,10 @@ namespace Vista
             System.Windows.Forms.TextBox textBox = sender as System.Windows.Forms.TextBox;
             v.ConvertirMayuscula(textBox);
         }
+
+        private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

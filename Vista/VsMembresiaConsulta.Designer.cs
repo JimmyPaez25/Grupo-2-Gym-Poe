@@ -32,6 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.clmCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmPM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmFIM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmFFM = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,16 +50,17 @@
             this.dgvMembresia.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmCedula,
             this.clmNombre,
+            this.clmApellido,
             this.clmPM,
             this.clmFIM,
             this.clmFFM,
             this.clmP,
             this.clmDM,
             this.clmPREM});
-            this.dgvMembresia.Location = new System.Drawing.Point(72, 196);
+            this.dgvMembresia.Location = new System.Drawing.Point(12, 191);
             this.dgvMembresia.Name = "dgvMembresia";
             this.dgvMembresia.ReadOnly = true;
-            this.dgvMembresia.Size = new System.Drawing.Size(843, 279);
+            this.dgvMembresia.Size = new System.Drawing.Size(945, 279);
             this.dgvMembresia.TabIndex = 3;
             // 
             // label1
@@ -82,6 +84,12 @@
             this.clmNombre.HeaderText = "NOMBRE";
             this.clmNombre.Name = "clmNombre";
             this.clmNombre.ReadOnly = true;
+            // 
+            // clmApellido
+            // 
+            this.clmApellido.HeaderText = "APELLIDO";
+            this.clmApellido.Name = "clmApellido";
+            this.clmApellido.ReadOnly = true;
             // 
             // clmPM
             // 
@@ -140,6 +148,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmCedula;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmApellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmPM;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmFIM;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmFFM;

@@ -100,5 +100,25 @@ namespace Control
             DataGridViewRow filaSeleccionada = dgvClientes.SelectedRows[0]; 
             cedula = filaSeleccionada.Cells["ClmCedula"].Value.ToString();
         }
+
+        public void LlenarGrid(DataGridView dgvMembresia)
+        {
+            int i = 0;
+            dgvMembresia.Rows.Clear(); // Limpiar filas si las hay 
+            foreach (Membresia x in ListaMembresia)
+            foreach (Cliente y in ListaCli)
+            {
+                i = dgvMembresia.Rows.Add();
+                dgvMembresia.Rows[i].Cells["clmPreM"].Value = x.Precio;
+                dgvMembresia.Rows[i].Cells["clmCedula"].Value = y.Cedula;
+                dgvMembresia.Rows[i].Cells["clmNombre"].Value = y.Nombre;
+                dgvMembresia.Rows[i].Cells["clmApellido"].Value = y.Apellido;
+                dgvMembresia.Rows[i].Cells["clmM"].Value = x.Plan;
+                dgvMembresia.Rows[i].Cells["clmFIM"].Value = x.FechaInicio.ToString("d");
+                dgvMembresia.Rows[i].Cells["clmFFM"].Value = x.FechaFin.ToString("d");
+                dgvMembresia.Rows[i].Cells["clmPM"].Value = x.Promocion;
+                dgvMembresia.Rows[i].Cells["clmD"].Value = x.Descuento;
+            }
+        }
     }
 }

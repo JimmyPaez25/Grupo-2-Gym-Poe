@@ -35,6 +35,7 @@
             this.buttonGestionActividad = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnGM = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -72,6 +73,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnGM);
             this.panel1.Controls.Add(this.buttonGestionActividad);
             this.panel1.Controls.Add(this.btnMembresia);
             this.panel1.Controls.Add(this.btnRegistrar);
@@ -84,7 +86,7 @@
             // buttonGestionActividad
             // 
             this.buttonGestionActividad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonGestionActividad.Location = new System.Drawing.Point(29, 268);
+            this.buttonGestionActividad.Location = new System.Drawing.Point(29, 364);
             this.buttonGestionActividad.Name = "buttonGestionActividad";
             this.buttonGestionActividad.Size = new System.Drawing.Size(122, 53);
             this.buttonGestionActividad.TabIndex = 7;
@@ -111,6 +113,17 @@
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // btnGM
+            // 
+            this.btnGM.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGM.Location = new System.Drawing.Point(29, 271);
+            this.btnGM.Name = "btnGM";
+            this.btnGM.Size = new System.Drawing.Size(122, 53);
+            this.btnGM.TabIndex = 8;
+            this.btnGM.Text = "Gestion de Membresia";
+            this.btnGM.UseVisualStyleBackColor = true;
+            this.btnGM.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // VsPrincipal
             // 
@@ -143,6 +156,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button buttonGestionActividad;
+        private System.Windows.Forms.Button btnGM;
     }
 }
 
