@@ -16,6 +16,7 @@ namespace Modelo
         string detallePromocion;
         string cedulaCliente;
         double precio;
+
  
 
 
@@ -24,11 +25,12 @@ namespace Modelo
             this.Plan = plan;
             this.FechaInicio = fechaInicio;
             this.FechaFin = fechaFin;
-            this.Descuento = descuento;
             this.Promocion = promocion;
+            this.Descuento = descuento;
             this.detallePromocion = detallePromocion;
             this.CedulaCliente = cedulaCliente;
             this.precio = precio;
+
  
     
         }
@@ -40,7 +42,8 @@ namespace Modelo
         public string DetallePromocion { get => detallePromocion; set => detallePromocion = value; }
         public string Descuento { get => descuento; set => descuento = value; }
         public string CedulaCliente { get => cedulaCliente; set => cedulaCliente = value; }
-        public double Precio { get => precio; set => precio = value; }
+        public double Precio { get => precio; set => precio = value; }        
+
 
         public override string ToString()
         {
@@ -49,10 +52,9 @@ namespace Modelo
                    "-> FECHA FIN: " + fechaFin.ToString("d") + Environment.NewLine +
                    "-> PROMOCION: " + promocion + Environment.NewLine +
                    "-> DETALLES PROMOCION: " + Environment.NewLine + detallePromocion + Environment.NewLine +
-                   "-> DESCUENTO: " + descuento + Environment.NewLine+
-                   "-> PRECIO: " + precio + Environment.NewLine;
-
-
+                   "-> DESCUENTO: " + descuento + Environment.NewLine +
+                   "-> PRECIO: " + precio + Environment.NewLine +
+                   "-> CEDULA CLIENTE: " + cedulaCliente + Environment.NewLine;
         }
     }
 }

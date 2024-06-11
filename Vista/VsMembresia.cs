@@ -25,6 +25,7 @@ namespace Vista
         {
             InitializeComponent();
 
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -95,17 +96,17 @@ namespace Vista
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
             string msj = "";
-            string sPlan = txtBoxM.Text.Trim();
-            string sFechaInicio = dateTPFI.Text.Trim();
-            string sFechaFin = dateTPFF.Text.Trim();
-            string promocion = comboBoxP.Text.Trim();
-            string sDescuento = txtBoxD.Text.Trim();
-            string detallePromocion = txtBoxDP.Text.Trim();
-            string cedula = lblCedulaM.Text.Trim();
-            string precio = txtBoxPreM.Text.Trim();
+            string plan = txtBoxM.Text;
+            string FI = dateTPFI.Text;
+            string FF = dateTPFF.Text;
+            string promocion = comboBoxP.Text;
+            string descuento = txtBoxD.Text;
+            string detallePromocion = txtBoxDP.Text;
+            string cedulaCliente = lblCedulaM.Text;
+            string precio   = txtBoxPreM.Text;
 
 
-            msj = ctrMen.IngresarMembresia(sPlan, sFechaInicio, sFechaFin, promocion, sDescuento, detallePromocion , cedula, precio);
+            msj = ctrMen.IngresarMembresia(plan, FI, FF, promocion, descuento, detallePromocion, cedulaCliente, precio);
             MessageBox.Show(msj);
             VsFactura vFactura = new VsFactura();
             vFactura.lblCedulaFact.Text = this.lblCedulaM.Text;
@@ -177,6 +178,11 @@ namespace Vista
         }
 
         private void dateTPFF_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblNombreM_Click(object sender, EventArgs e)
         {
 
         }

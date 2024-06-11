@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvMembresia = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.clmCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,6 +38,7 @@
             this.clmP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmPREM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMembresia)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,16 +62,7 @@
             this.dgvMembresia.ReadOnly = true;
             this.dgvMembresia.Size = new System.Drawing.Size(945, 279);
             this.dgvMembresia.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(279, 47);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(374, 33);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "CONSULTAR MEMBRESIA";
+            this.dgvMembresia.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMembresia_CellContentClick);
             // 
             // clmCedula
             // 
@@ -127,6 +118,16 @@
             this.clmPREM.Name = "clmPREM";
             this.clmPREM.ReadOnly = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(279, 47);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(374, 33);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "CONSULTAR MEMBRESIA";
+            // 
             // VsMembresiaConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -136,6 +137,7 @@
             this.Controls.Add(this.dgvMembresia);
             this.Name = "VsMembresiaConsulta";
             this.Text = "VsMembresiaConsulta";
+            this.Load += new System.EventHandler(this.VsMembresiaConsulta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMembresia)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

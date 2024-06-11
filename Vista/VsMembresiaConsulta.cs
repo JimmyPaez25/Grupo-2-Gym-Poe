@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Control;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,21 @@ namespace Vista
 {
     public partial class VsMembresiaConsulta : Form
     {
+        private CtrMembresia ctrMem = new CtrMembresia();
         public VsMembresiaConsulta()
         {
             InitializeComponent();
+            ctrMem.LlenarGrid(dgvMembresia);
+        }
+
+        private void dgvMembresia_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void VsMembresiaConsulta_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -57,7 +57,8 @@ namespace Vista
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-
+            VsMembresiaConsulta consultaMembresia = new VsMembresiaConsulta();
+            consultaMembresia.ShowDialog();
         }
 
         private void btnVerRegistroFact_Click(object sender, EventArgs e)
