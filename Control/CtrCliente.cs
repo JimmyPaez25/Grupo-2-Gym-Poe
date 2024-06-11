@@ -26,10 +26,10 @@ namespace Control
         public CtrCliente()
         {
             if (ListaCli.Count == 0) { 
-                ListaCli.Add(new ClienteEstudiante("0987654321", "Tulio Jose", "Trivinio Tripanez", DateTime.ParseExact("01/01/1980", "dd/MM/yyyy", CultureInfo.InvariantCulture), "0874563219", "COOP. 31 Minutos","ACTIVO", "E09876543211"));
-                ListaCli.Add(new Cliente("9512368749", "Juan Carlos", "Bodoque Avendanio", DateTime.ParseExact("24/05/1998", "dd/MM/yyyy", CultureInfo.InvariantCulture), "2031659847", "Guasmo Sur", "ACTIVO"));
-                ListaCli.Add(new Cliente("9865231470", "Juan German", "Jarry Sanchez", DateTime.ParseExact("30/07/2009", "dd/MM/yyyy", CultureInfo.InvariantCulture),"0995263417", "Via Daule", "INACTIVO"));
-                ListaCli.Add(new ClienteEstudiante("0963254178", "Patricia Ana", "Tufillo Trivinio", DateTime.ParseExact("24/05/2009", "dd/MM/yyyy", CultureInfo.InvariantCulture), "0963251478", "Pascuales", "ACTIVO", "E10987263541"));
+                ListaCli.Add(new ClienteEstudiante("0987654321", "TULIO JOSE ", "TRIVIÑO FERNANDEZ", DateTime.ParseExact("01/01/1980", "dd/MM/yyyy", CultureInfo.InvariantCulture), "0874563219", "COOP. 31 MINUTOS","ACTIVO", "E09876543211"));
+                ListaCli.Add(new Cliente("9512368749", "JUAN CARLOS", "BODOQUE AVENDAÑO", DateTime.ParseExact("24/05/1998", "dd/MM/yyyy", CultureInfo.InvariantCulture), "2031659847", "GUASMO SUR", "ACTIVO"));
+                ListaCli.Add(new Cliente("9865231470", "JUANIN JUAN", "JARRY SANCHEZ", DateTime.ParseExact("30/07/2009", "dd/MM/yyyy", CultureInfo.InvariantCulture),"0995263417", "VIA DAULE", "INACTIVO"));
+                ListaCli.Add(new ClienteEstudiante("0963254178", "PATRICIA ANA", "TUFILLO TRIVIÑO", DateTime.ParseExact("24/05/2009", "dd/MM/yyyy", CultureInfo.InvariantCulture), "0963251478", "PASCUALES", "ACTIVO", "E10987263541"));
             }
         }
 
@@ -147,7 +147,7 @@ namespace Control
                     }
                 }
             }
-            return "No es estudiante";
+            return "SIN COMPROBANTE";
         }
 
         public string EditarCliEst(string aCedulaOrg, string aCedula, string aNombre, string aApellido, string aFechaNacimiento, string aTelefono, string aDireccion,string aEstado, string aComprobante, string esEstudiante)

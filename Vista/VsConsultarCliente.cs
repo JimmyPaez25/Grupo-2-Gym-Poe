@@ -109,9 +109,5 @@ namespace Vista
             v.ConvertirMayuscula(textBox);
         }
 
-        private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }

@@ -28,16 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblConsultarCliente = new System.Windows.Forms.Label();
+            this.lblGestionCliente = new System.Windows.Forms.Label();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
-            this.clmCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmComprobanteEst = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtCedula = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
@@ -48,18 +40,26 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.btnMostrarTodos = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
+            this.clmCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmComprobanteEst = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblConsultarCliente
+            // lblGestionCliente
             // 
-            this.lblConsultarCliente.AutoSize = true;
-            this.lblConsultarCliente.Font = new System.Drawing.Font("Microsoft YaHei", 20F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.lblConsultarCliente.Location = new System.Drawing.Point(368, 9);
-            this.lblConsultarCliente.Name = "lblConsultarCliente";
-            this.lblConsultarCliente.Size = new System.Drawing.Size(249, 36);
-            this.lblConsultarCliente.TabIndex = 1;
-            this.lblConsultarCliente.Text = "Consultar Cliente";
+            this.lblGestionCliente.AutoSize = true;
+            this.lblGestionCliente.Font = new System.Drawing.Font("Microsoft YaHei", 20F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.lblGestionCliente.Location = new System.Drawing.Point(416, 9);
+            this.lblGestionCliente.Name = "lblGestionCliente";
+            this.lblGestionCliente.Size = new System.Drawing.Size(265, 36);
+            this.lblGestionCliente.TabIndex = 1;
+            this.lblGestionCliente.Text = "Gestión de Cliente";
             // 
             // dgvClientes
             // 
@@ -78,58 +78,8 @@
             this.dgvClientes.Location = new System.Drawing.Point(41, 156);
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
-            this.dgvClientes.Size = new System.Drawing.Size(903, 279);
+            this.dgvClientes.Size = new System.Drawing.Size(983, 279);
             this.dgvClientes.TabIndex = 2;
-            this.dgvClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellContentClick);
-            // 
-            // clmCedula
-            // 
-            this.clmCedula.HeaderText = "CEDULA";
-            this.clmCedula.Name = "clmCedula";
-            this.clmCedula.ReadOnly = true;
-            // 
-            // clmNombre
-            // 
-            this.clmNombre.HeaderText = "NOMBRE";
-            this.clmNombre.Name = "clmNombre";
-            this.clmNombre.ReadOnly = true;
-            // 
-            // clmApellido
-            // 
-            this.clmApellido.HeaderText = "APELLIDO";
-            this.clmApellido.Name = "clmApellido";
-            this.clmApellido.ReadOnly = true;
-            // 
-            // clmTelefono
-            // 
-            this.clmTelefono.HeaderText = "TELEFONO";
-            this.clmTelefono.Name = "clmTelefono";
-            this.clmTelefono.ReadOnly = true;
-            // 
-            // clmDireccion
-            // 
-            this.clmDireccion.HeaderText = "DIRECCION";
-            this.clmDireccion.Name = "clmDireccion";
-            this.clmDireccion.ReadOnly = true;
-            // 
-            // clmDate
-            // 
-            this.clmDate.HeaderText = "FECHA DE NACIMIENTO";
-            this.clmDate.Name = "clmDate";
-            this.clmDate.ReadOnly = true;
-            // 
-            // clmComprobanteEst
-            // 
-            this.clmComprobanteEst.HeaderText = "COMPROBANTE DE ESTUDIANTE";
-            this.clmComprobanteEst.Name = "clmComprobanteEst";
-            this.clmComprobanteEst.ReadOnly = true;
-            this.clmComprobanteEst.Width = 160;
-            // 
-            // clmEstado
-            // 
-            this.clmEstado.HeaderText = "ESTADO";
-            this.clmEstado.Name = "clmEstado";
-            this.clmEstado.ReadOnly = true;
             // 
             // txtCedula
             // 
@@ -175,7 +125,7 @@
             // btnConsultarM
             // 
             this.btnConsultarM.Font = new System.Drawing.Font("Microsoft Tai Le", 9F);
-            this.btnConsultarM.Location = new System.Drawing.Point(869, 92);
+            this.btnConsultarM.Location = new System.Drawing.Point(949, 90);
             this.btnConsultarM.Name = "btnConsultarM";
             this.btnConsultarM.Size = new System.Drawing.Size(75, 41);
             this.btnConsultarM.TabIndex = 8;
@@ -221,7 +171,7 @@
             // 
             // btnCerrar
             // 
-            this.btnCerrar.Location = new System.Drawing.Point(869, 441);
+            this.btnCerrar.Location = new System.Drawing.Point(949, 441);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(75, 41);
             this.btnCerrar.TabIndex = 17;
@@ -229,11 +179,63 @@
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
+            // clmCedula
+            // 
+            this.clmCedula.HeaderText = "CEDULA";
+            this.clmCedula.Name = "clmCedula";
+            this.clmCedula.ReadOnly = true;
+            // 
+            // clmNombre
+            // 
+            this.clmNombre.HeaderText = "NOMBRE";
+            this.clmNombre.Name = "clmNombre";
+            this.clmNombre.ReadOnly = true;
+            this.clmNombre.Width = 130;
+            // 
+            // clmApellido
+            // 
+            this.clmApellido.HeaderText = "APELLIDO";
+            this.clmApellido.Name = "clmApellido";
+            this.clmApellido.ReadOnly = true;
+            this.clmApellido.Width = 130;
+            // 
+            // clmTelefono
+            // 
+            this.clmTelefono.HeaderText = "TELEFONO";
+            this.clmTelefono.Name = "clmTelefono";
+            this.clmTelefono.ReadOnly = true;
+            // 
+            // clmDireccion
+            // 
+            this.clmDireccion.HeaderText = "DIRECCION";
+            this.clmDireccion.Name = "clmDireccion";
+            this.clmDireccion.ReadOnly = true;
+            this.clmDireccion.Width = 130;
+            // 
+            // clmDate
+            // 
+            this.clmDate.HeaderText = "FECHA DE NACIMIENTO";
+            this.clmDate.Name = "clmDate";
+            this.clmDate.ReadOnly = true;
+            // 
+            // clmComprobanteEst
+            // 
+            this.clmComprobanteEst.HeaderText = "COMPROBANTE DE ESTUDIANTE";
+            this.clmComprobanteEst.Name = "clmComprobanteEst";
+            this.clmComprobanteEst.ReadOnly = true;
+            this.clmComprobanteEst.Width = 150;
+            // 
+            // clmEstado
+            // 
+            this.clmEstado.HeaderText = "ESTADO";
+            this.clmEstado.Name = "clmEstado";
+            this.clmEstado.ReadOnly = true;
+            // 
             // VsConsultarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(989, 501);
+            this.ClientSize = new System.Drawing.Size(1069, 513);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnMostrarTodos);
             this.Controls.Add(this.lblNombre);
@@ -245,7 +247,7 @@
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtCedula);
             this.Controls.Add(this.dgvClientes);
-            this.Controls.Add(this.lblConsultarCliente);
+            this.Controls.Add(this.lblGestionCliente);
             this.Name = "VsConsultarCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = " Asignacion Cliente";
@@ -256,13 +258,18 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label lblConsultarCliente;
+        private System.Windows.Forms.Label lblGestionCliente;
         private System.Windows.Forms.DataGridView dgvClientes;
         private System.Windows.Forms.TextBox txtCedula;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnDarBaja;
         private System.Windows.Forms.Button btnConsultarM;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.Label lblCedula;
+        private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.Button btnMostrarTodos;
+        private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmCedula;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmApellido;
@@ -271,10 +278,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmComprobanteEst;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmEstado;
-        private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.Label lblCedula;
-        private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.Button btnMostrarTodos;
-        private System.Windows.Forms.Button btnCerrar;
     }
 }

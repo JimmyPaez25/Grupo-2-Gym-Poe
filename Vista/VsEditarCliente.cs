@@ -81,36 +81,42 @@ namespace Vista
         private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
         {
             v.ValidarNumero(sender, e);
-            v.maximoDigitosNumericos(sender, e, 10, txtCedula);
+            v.ValidarMaximoDeDigito(sender, e,10, 0, txtCedula);
         }
 
         private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
         {
             v.ValidarNumero(sender, e);
-            v.maximoDigitosNumericos(sender, e, 10, txtTelefono);
-        }
-        private void txtNombre_TextChanged(object sender, EventArgs e)
-        {
-            TextBox textBox = sender as TextBox;
-            v.ConvertirMayuscula(textBox);
+            v.ValidarMaximoDeDigito(sender, e,10, 0, txtTelefono);
         }
 
-        private void txtApellido_TextChanged(object sender, EventArgs e)
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBox textBox = sender as TextBox;
             v.ConvertirMayuscula(textBox);
+            v.ValidarMaximoDeDigito(sender, e, 0, 20, txtNombre);
+
         }
 
-        private void txtDireccion_TextChanged(object sender, EventArgs e)
+        private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBox textBox = sender as TextBox;
             v.ConvertirMayuscula(textBox);
+            v.ValidarMaximoDeDigito(sender, e, 0, 20, txtApellido);
         }
 
-        private void txtComprobante_TextChanged(object sender, EventArgs e)
+        private void txtDireccion_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBox textBox = sender as TextBox;
             v.ConvertirMayuscula(textBox);
+            v.ValidarMaximoDeDigito(sender, e, 5, 20, txtDireccion);
+        }
+
+        private void txtComprobante_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            v.ConvertirMayuscula(textBox);
+            v.ValidarMaximoDeDigito(sender, e, 15, 5, txtNombre);
         }
     }
 }

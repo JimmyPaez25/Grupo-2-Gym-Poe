@@ -11,6 +11,7 @@ namespace Control
 {
     public class Validacion
     {
+        private bool isUpdating = false;
         //
         // CONVERSIONES
         //
@@ -167,6 +168,7 @@ namespace Control
             int cursorPosicion = textBox.SelectionStart;
             textBox.Text = textBox.Text.ToUpper();
             textBox.SelectionStart = cursorPosicion;
+            return;
         }
 
         //
@@ -213,12 +215,24 @@ namespace Control
             }
         }
 
-        public void maximoDigitosNumericos(object sender, EventArgs e, int maxLength, TextBox txt) //DIGITOS MAXIMOS PARA UN TEXTBOX
+        public void ValidarMaximoDeDigito(object sender, KeyPressEventArgs e, int maxNumerico, int maxCaracter, TextBox txt) // VALIDAR DIGITOS NUMERICOS Y CARACTERES MAXIMOS DE LETRAS
         {
-            if (txt.Text.Length > maxLength)
+            int cantidadDigito = 0;
+            int cantidadletra = 0;
+
+            foreach (char c in txt.Text)
             {
-                txt.Text = txt.Text.Remove(txt.Text.Length - 1);
-                MessageBox.Show($"Solo se permiten {maxLength} digitos");
+                if (char.IsDigit(c)) cantidadDigito++;
+                if (char.IsLetter(c)) cantidadletra++;
+            }
+            if (char.IsDigit(e.KeyChar) && cantidadDigito >= maxNumerico)
+            {
+                e.Handled = true; 
+            }
+
+            if (char.IsLetter(e.KeyChar) && cantidadletra >= maxCaracter)
+            {
+                e.Handled = true; 
             }
         }
 
