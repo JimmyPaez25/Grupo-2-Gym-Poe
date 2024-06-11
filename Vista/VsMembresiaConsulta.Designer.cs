@@ -30,15 +30,20 @@
         {
             this.dgvMembresia = new System.Windows.Forms.DataGridView();
             this.clmCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmPM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmFIM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmFFM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmDPM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmPREM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
+            this.radioBDP = new System.Windows.Forms.RadioButton();
+            this.txtBoxBM = new System.Windows.Forms.TextBox();
+            this.btnEliminarM = new System.Windows.Forms.Button();
+            this.btnEM = new System.Windows.Forms.Button();
+            this.radioBCM = new System.Windows.Forms.RadioButton();
+            this.btnBM = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMembresia)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,18 +54,17 @@
             this.dgvMembresia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMembresia.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmCedula,
-            this.clmNombre,
-            this.clmApellido,
             this.clmPM,
             this.clmFIM,
             this.clmFFM,
             this.clmP,
+            this.clmDPM,
             this.clmDM,
             this.clmPREM});
-            this.dgvMembresia.Location = new System.Drawing.Point(12, 191);
+            this.dgvMembresia.Location = new System.Drawing.Point(67, 209);
             this.dgvMembresia.Name = "dgvMembresia";
             this.dgvMembresia.ReadOnly = true;
-            this.dgvMembresia.Size = new System.Drawing.Size(945, 279);
+            this.dgvMembresia.Size = new System.Drawing.Size(844, 279);
             this.dgvMembresia.TabIndex = 3;
             this.dgvMembresia.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMembresia_CellContentClick);
             // 
@@ -69,18 +73,6 @@
             this.clmCedula.HeaderText = "CEDULA";
             this.clmCedula.Name = "clmCedula";
             this.clmCedula.ReadOnly = true;
-            // 
-            // clmNombre
-            // 
-            this.clmNombre.HeaderText = "NOMBRE";
-            this.clmNombre.Name = "clmNombre";
-            this.clmNombre.ReadOnly = true;
-            // 
-            // clmApellido
-            // 
-            this.clmApellido.HeaderText = "APELLIDO";
-            this.clmApellido.Name = "clmApellido";
-            this.clmApellido.ReadOnly = true;
             // 
             // clmPM
             // 
@@ -106,6 +98,12 @@
             this.clmP.Name = "clmP";
             this.clmP.ReadOnly = true;
             // 
+            // clmDPM
+            // 
+            this.clmDPM.HeaderText = "DETALLE PROMOCION";
+            this.clmDPM.Name = "clmDPM";
+            this.clmDPM.ReadOnly = true;
+            // 
             // clmDM
             // 
             this.clmDM.HeaderText = "DESCUENTO";
@@ -128,11 +126,75 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "CONSULTAR MEMBRESIA";
             // 
+            // radioBDP
+            // 
+            this.radioBDP.AutoSize = true;
+            this.radioBDP.Location = new System.Drawing.Point(158, 122);
+            this.radioBDP.Name = "radioBDP";
+            this.radioBDP.Size = new System.Drawing.Size(110, 17);
+            this.radioBDP.TabIndex = 6;
+            this.radioBDP.TabStop = true;
+            this.radioBDP.Text = "Detalle promoción";
+            this.radioBDP.UseVisualStyleBackColor = true;
+            // 
+            // txtBoxBM
+            // 
+            this.txtBoxBM.Location = new System.Drawing.Point(67, 158);
+            this.txtBoxBM.Name = "txtBoxBM";
+            this.txtBoxBM.Size = new System.Drawing.Size(201, 20);
+            this.txtBoxBM.TabIndex = 7;
+            // 
+            // btnEliminarM
+            // 
+            this.btnEliminarM.Location = new System.Drawing.Point(844, 122);
+            this.btnEliminarM.Name = "btnEliminarM";
+            this.btnEliminarM.Size = new System.Drawing.Size(67, 56);
+            this.btnEliminarM.TabIndex = 8;
+            this.btnEliminarM.Text = "Eliminar";
+            this.btnEliminarM.UseVisualStyleBackColor = true;
+            // 
+            // btnEM
+            // 
+            this.btnEM.Location = new System.Drawing.Point(741, 122);
+            this.btnEM.Name = "btnEM";
+            this.btnEM.Size = new System.Drawing.Size(67, 56);
+            this.btnEM.TabIndex = 9;
+            this.btnEM.Text = "Editar";
+            this.btnEM.UseVisualStyleBackColor = true;
+            // 
+            // radioBCM
+            // 
+            this.radioBCM.AutoSize = true;
+            this.radioBCM.Checked = true;
+            this.radioBCM.Location = new System.Drawing.Point(67, 122);
+            this.radioBCM.Name = "radioBCM";
+            this.radioBCM.Size = new System.Drawing.Size(58, 17);
+            this.radioBCM.TabIndex = 16;
+            this.radioBCM.TabStop = true;
+            this.radioBCM.Text = "Cedula";
+            this.radioBCM.UseVisualStyleBackColor = true;
+            // 
+            // btnBM
+            // 
+            this.btnBM.Location = new System.Drawing.Point(285, 158);
+            this.btnBM.Name = "btnBM";
+            this.btnBM.Size = new System.Drawing.Size(75, 20);
+            this.btnBM.TabIndex = 17;
+            this.btnBM.Text = "Buscar";
+            this.btnBM.UseVisualStyleBackColor = true;
+            this.btnBM.Click += new System.EventHandler(this.btnBM_Click);
+            // 
             // VsMembresiaConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(980, 542);
+            this.Controls.Add(this.btnBM);
+            this.Controls.Add(this.radioBCM);
+            this.Controls.Add(this.btnEM);
+            this.Controls.Add(this.btnEliminarM);
+            this.Controls.Add(this.txtBoxBM);
+            this.Controls.Add(this.radioBDP);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvMembresia);
             this.Name = "VsMembresiaConsulta";
@@ -149,13 +211,18 @@
         private System.Windows.Forms.DataGridView dgvMembresia;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmCedula;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmApellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmPM;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmFIM;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmFFM;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmDPM;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDM;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmPREM;
+        private System.Windows.Forms.RadioButton radioBDP;
+        private System.Windows.Forms.TextBox txtBoxBM;
+        private System.Windows.Forms.Button btnEliminarM;
+        private System.Windows.Forms.Button btnEM;
+        private System.Windows.Forms.RadioButton radioBCM;
+        private System.Windows.Forms.Button btnBM;
     }
 }

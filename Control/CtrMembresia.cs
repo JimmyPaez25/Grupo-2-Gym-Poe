@@ -99,49 +99,6 @@ namespace Control
             cedula = filaSeleccionada.Cells["ClmCedula"].Value.ToString();
         }
 
-        //public void LlenarGrid(DataGridView dgvMembresia)
-        //{
-        //    // Limpiar filas si las hay 
-        //    dgvMembresia.Rows.Clear();
-
-        //    // Iterar sobre la lista de membresías
-        //    foreach (Membresia x in ListaMembresia)
-        //    {
-        //        // Buscar el cliente correspondiente a la membresía actual por su cédula
-        //        Cliente cliente = ListaCli.Find(y => y.Cedula == x.CedulaCliente);
-
-
-
-        //        // Si se encuentra un cliente con la cédula correspondiente
-        //        if (cliente != null)
-        //        {
-        //            int i = dgvMembresia.Rows.Add();
-        //            dgvMembresia.Rows[i].Cells["clmPREM"].Value = x.Precio;
-        //            dgvMembresia.Rows[i].Cells["clmCedula"].Value = x.CedulaCliente;
-        //            dgvMembresia.Rows[i].Cells["clmNombre"].Value = "NombreCliente";
-        //            dgvMembresia.Rows[i].Cells["clmApellido"].Value = "ApellidoCliente";
-        //            dgvMembresia.Rows[i].Cells["clmPM"].Value = x.Plan;
-        //            dgvMembresia.Rows[i].Cells["clmFIM"].Value = x.FechaInicio.ToString("d");
-        //            dgvMembresia.Rows[i].Cells["clmFFM"].Value = x.FechaFin.ToString("d");
-        //            dgvMembresia.Rows[i].Cells["clmP"].Value = x.Promocion;
-        //            dgvMembresia.Rows[i].Cells["clmDM"].Value = x.Descuento;
-        //        }
-        //        else
-        //            {
-        //                // Si no se encuentra el cliente correspondiente, agregar solo los datos de membresía
-        //                int i = dgvMembresia.Rows.Add();
-        //                dgvMembresia.Rows[i].Cells["clmPREM"].Value = x.Precio;
-        //                dgvMembresia.Rows[i].Cells["clmCedula"].Value = x.CedulaCliente;
-        //                dgvMembresia.Rows[i].Cells["clmNombre"].Value = "Cliente no encontrado";
-        //                dgvMembresia.Rows[i].Cells["clmApellido"].Value = "Cliente no encontrado";
-        //                dgvMembresia.Rows[i].Cells["clmPM"].Value = x.Plan;
-        //                dgvMembresia.Rows[i].Cells["clmFIM"].Value = x.FechaInicio.ToString("d");
-        //                dgvMembresia.Rows[i].Cells["clmFFM"].Value = x.FechaFin.ToString("d");
-        //                dgvMembresia.Rows[i].Cells["clmP"].Value = x.Promocion;
-        //                dgvMembresia.Rows[i].Cells["clmDM"].Value = x.Descuento;
-        //            }
-        //        }
-        //}
         public void LlenarGrid(DataGridView dgvMembresia)
         {
             // Limpiar filas si las hay 
@@ -151,32 +108,37 @@ namespace Control
             foreach (Membresia x in ListaMembresia)
             {
                 int i = dgvMembresia.Rows.Add();
-
-                // Buscar el cliente correspondiente a partir de la cédula
-                Cliente cliente = ListaCli.Find(cli => cli.Cedula == x.CedulaCliente);
-
-                // Verificar si se encontró el cliente
-                if (cliente != null)
-                {
-
-                    dgvMembresia.Rows[i].Cells["clmNombre"].Value = cliente.Nombre;
-                    dgvMembresia.Rows[i].Cells["clmApellido"].Value = cliente.Apellido;
-                }
-                else
-                {
-                    // Manejar el caso donde no se encuentra el cliente
-                    dgvMembresia.Rows[i].Cells["clmNombre"].Value = "Cliente no encontrado";
-                    dgvMembresia.Rows[i].Cells["clmApellido"].Value = "Cliente no encontrado";
-                }
-
-                // Resto de asignaciones de valores a las celdas del DataGridView
                 dgvMembresia.Rows[i].Cells["clmPREM"].Value = x.Precio;
                 dgvMembresia.Rows[i].Cells["clmCedula"].Value = x.CedulaCliente;
                 dgvMembresia.Rows[i].Cells["clmPM"].Value = x.Plan;
                 dgvMembresia.Rows[i].Cells["clmFIM"].Value = x.FechaInicio.ToString("d");
                 dgvMembresia.Rows[i].Cells["clmFFM"].Value = x.FechaFin.ToString("d");
                 dgvMembresia.Rows[i].Cells["clmP"].Value = x.Promocion;
+                dgvMembresia.Rows[i].Cells["clmDPM"].Value = x.DetallePromocion;
                 dgvMembresia.Rows[i].Cells["clmDM"].Value = x.Descuento;
+
+            }
+        }
+        public void TablaConsultarMebresiaFiltro(DataGridView dgvMembresia, string filtro = "", bool buscarPorCedula = true)
+        {
+            int i = 0;
+            dgvMembresia.Rows.Clear(); // LIMPIA FILAS SI LAS HAY
+            foreach (Membresia x in ListaMembresia)
+            {
+                if  (string.IsNullOrEmpty(filtro) ||
+                    (buscarPorCedula && x.CedulaCliente.Contains(filtro)) ||
+                    (!buscarPorCedula && x.DetallePromocion.Contains(filtro)))
+                {
+                    i = dgvMembresia.Rows.Add();
+                    dgvMembresia.Rows[i].Cells["clmPREM"].Value = x.Precio;
+                    dgvMembresia.Rows[i].Cells["clmCedula"].Value = x.CedulaCliente;
+                    dgvMembresia.Rows[i].Cells["clmPM"].Value = x.Plan;
+                    dgvMembresia.Rows[i].Cells["clmFIM"].Value = x.FechaInicio.ToString("d");
+                    dgvMembresia.Rows[i].Cells["clmFFM"].Value = x.FechaFin.ToString("d");
+                    dgvMembresia.Rows[i].Cells["clmP"].Value = x.Promocion;
+                    dgvMembresia.Rows[i].Cells["clmDPM"].Value = x.DetallePromocion;
+                    dgvMembresia.Rows[i].Cells["clmDM"].Value = x.Descuento;
+                }
             }
         }
     }

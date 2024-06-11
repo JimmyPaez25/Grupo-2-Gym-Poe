@@ -29,5 +29,12 @@ namespace Vista
         {
 
         }
+
+        private void btnBM_Click(object sender, EventArgs e)
+        {
+            string filtro = txtBoxBM.Text.Trim();
+            bool buscarPorCedula = radioBCM.Checked;
+            ctrMem.TablaConsultarMebresiaFiltro(dgvMembresia, filtro, buscarPorCedula);
+        }
     }
 }
