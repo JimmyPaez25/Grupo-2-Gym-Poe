@@ -63,12 +63,12 @@ namespace Vista
                 }
                 else if (rFechaNacimiento >= fechaActual)
                 {
-                    MessageBox.Show("ERROR: LA FECHA DE NACIMIENTO NO PUEDE SER POSTERIOR A LA FECHA ACTUAL", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("ERROR: INGRESE FECHA DE NACIIENTO VALIDA", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
                 }
                 else if (rFechaNacimiento >= fechaLimite)
                 {
-                    MessageBox.Show("ERROR: LA FECHA DE NACIMIENTO NO PUEDE SER POSTERIOR AL 2014", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("ERROR: LA FECHA DE NACIMIENTO INVALIDA", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
                 }
                 else if (ctrCli.ClienteExistente(rCedula))

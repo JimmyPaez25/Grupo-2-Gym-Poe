@@ -124,7 +124,7 @@ namespace Control
             string msg = "ERROR: SE ESPERABA DATOS CORRECTOS!!";
             Validacion v = new Validacion();
             DateTime fechaNac = v.ConvertirDateTime(aFechaNacimiento);
-            DateTime fechaLimite = new DateTime(2014, 1, 1); // Fecha límite: 1 de enero de 2014
+            DateTime fechaLimite = new DateTime(2014, 12, 31); // Fecha límite: 1 de enero de 2014
             DateTime fechaActual = DateTime.Now;
 
             // Validaciones
@@ -133,13 +133,13 @@ namespace Control
             {
                 return "ERROR: NO PUEDEN EXISTIR CAMPOS VACIOS";
             }
-            if (fechaNac > fechaActual)
+            else if (fechaNac >= fechaActual)
             {
-                return "ERROR: LA FECHA DE NACIMIENTO NO PUEDE SER POSTERIOR A LA FECHA ACTUAL";
+               return "ERROR: INGRESE FECHA DE NACIIENTO VALIDA";
             }
-            if (fechaNac >= fechaLimite)
+            else if (fechaNac >= fechaLimite)
             {
-                return "ERROR: LA FECHA DE NACIMIENTO NO PUEDE SER POSTERIOR AL 1 DE ENERO DE 2014";
+                return "ERROR: LA FECHA DE NACIMIENTO INVALIDA";
             }
 
 
@@ -208,7 +208,7 @@ namespace Control
             string msg = "ERROR: SE ESPERABA DATOS CORRECTOS!!";
             Validacion v = new Validacion();
             DateTime fechaNac = v.ConvertirDateTime(aFechaNacimiento);
-            DateTime fechaLimite = new DateTime(2014, 1, 1); // Fecha límite: 1 de enero de 2014
+            DateTime fechaLimite = new DateTime(2014, 12, 31); // Fecha límite: 1 de enero de 2014
             DateTime fechaActual = DateTime.Now;
 
             // Validaciones
@@ -217,13 +217,13 @@ namespace Control
             {
                 return "ERROR: NO PUEDEN EXISTIR CAMPOS VACIOS";
             }
-            if (fechaNac > fechaActual)
+            else if (fechaNac >= fechaActual)
             {
-                return "ERROR: LA FECHA DE NACIMIENTO NO PUEDE SER POSTERIOR A LA FECHA ACTUAL";
+                return "ERROR: INGRESE FECHA DE NACIIENTO VALIDA";
             }
-            if (fechaNac >= fechaLimite)
+            else if (fechaNac >= fechaLimite)
             {
-                return "ERROR: LA FECHA DE NACIMIENTO NO PUEDE SER POSTERIOR AL 1 DE ENERO DE 2014";
+                return "ERROR: LA FECHA DE NACIMIENTO INVALIDA";
             }
 
             foreach (Cliente clienteExistente in ListaCli)
