@@ -43,6 +43,7 @@ namespace Vista
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
             DateTime fechaActual = DateTime.Now;
+            DateTime fechaLimite = new DateTime(2014,12,31);
             bool camposValidos = false;
             do
             {
@@ -60,9 +61,14 @@ namespace Vista
                     MessageBox.Show("ERROR: NO PUEDEN EXISTIR CAMPOS VACIOS", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
                 }
-                else if (rFechaNacimiento.Year == fechaActual.Year && rFechaNacimiento.Month == fechaActual.Month)
+                else if (rFechaNacimiento >= fechaActual)
                 {
-                    MessageBox.Show("ERROR: EL AÑO Y EL MES DE LA FECHA DE NACIMIENTO NO PUEDEN SER LOS MISMOS QUE EL AÑO Y MES ACTUALES", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("ERROR: LA FECHA DE NACIMIENTO NO PUEDE SER POSTERIOR A LA FECHA ACTUAL", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+                }
+                else if (rFechaNacimiento >= fechaLimite)
+                {
+                    MessageBox.Show("ERROR: LA FECHA DE NACIMIENTO NO PUEDE SER POSTERIOR AL 2014", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
                 }
                 else if (ctrCli.ClienteExistente(rCedula))

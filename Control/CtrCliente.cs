@@ -124,6 +124,24 @@ namespace Control
             string msg = "ERROR: SE ESPERABA DATOS CORRECTOS!!";
             Validacion v = new Validacion();
             DateTime fechaNac = v.ConvertirDateTime(aFechaNacimiento);
+            DateTime fechaLimite = new DateTime(2014, 1, 1); // Fecha límite: 1 de enero de 2014
+            DateTime fechaActual = DateTime.Now;
+
+            // Validaciones
+            if (string.IsNullOrEmpty(aCedula) || string.IsNullOrEmpty(aNombre) || string.IsNullOrEmpty(aApellido) ||
+                string.IsNullOrEmpty(aFechaNacimiento) || string.IsNullOrEmpty(aTelefono) || string.IsNullOrEmpty(aDireccion))
+            {
+                return "ERROR: NO PUEDEN EXISTIR CAMPOS VACIOS";
+            }
+            if (fechaNac > fechaActual)
+            {
+                return "ERROR: LA FECHA DE NACIMIENTO NO PUEDE SER POSTERIOR A LA FECHA ACTUAL";
+            }
+            if (fechaNac >= fechaLimite)
+            {
+                return "ERROR: LA FECHA DE NACIMIENTO NO PUEDE SER POSTERIOR AL 1 DE ENERO DE 2014";
+            }
+
 
             foreach (Cliente clienteExistente in ListaCli)
             {
@@ -190,6 +208,23 @@ namespace Control
             string msg = "ERROR: SE ESPERABA DATOS CORRECTOS!!";
             Validacion v = new Validacion();
             DateTime fechaNac = v.ConvertirDateTime(aFechaNacimiento);
+            DateTime fechaLimite = new DateTime(2014, 1, 1); // Fecha límite: 1 de enero de 2014
+            DateTime fechaActual = DateTime.Now;
+
+            // Validaciones
+            if (string.IsNullOrEmpty(aCedula) || string.IsNullOrEmpty(aNombre) || string.IsNullOrEmpty(aApellido) ||
+                string.IsNullOrEmpty(aFechaNacimiento) || string.IsNullOrEmpty(aTelefono) || string.IsNullOrEmpty(aDireccion))
+            {
+                return "ERROR: NO PUEDEN EXISTIR CAMPOS VACIOS";
+            }
+            if (fechaNac > fechaActual)
+            {
+                return "ERROR: LA FECHA DE NACIMIENTO NO PUEDE SER POSTERIOR A LA FECHA ACTUAL";
+            }
+            if (fechaNac >= fechaLimite)
+            {
+                return "ERROR: LA FECHA DE NACIMIENTO NO PUEDE SER POSTERIOR AL 1 DE ENERO DE 2014";
+            }
 
             foreach (Cliente clienteExistente in ListaCli)
             {
