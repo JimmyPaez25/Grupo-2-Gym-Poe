@@ -52,13 +52,14 @@
             // 
             // btnRegistrar
             // 
+            this.btnRegistrar.BackColor = System.Drawing.Color.Transparent;
             this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrar.Location = new System.Drawing.Point(29, 81);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(122, 51);
             this.btnRegistrar.TabIndex = 4;
             this.btnRegistrar.Text = "Registrar nuevo cliente";
-            this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.UseVisualStyleBackColor = false;
             this.btnRegistrar.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnMembresia
@@ -89,7 +90,7 @@
             // 
             this.btnVerRegistroFact.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVerRegistroFact.Location = new System.Drawing.Point(29, 373);
-            this.btnVerRegistroFact.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnVerRegistroFact.Margin = new System.Windows.Forms.Padding(2);
             this.btnVerRegistroFact.Name = "btnVerRegistroFact";
             this.btnVerRegistroFact.Size = new System.Drawing.Size(122, 53);
             this.btnVerRegistroFact.TabIndex = 64;
@@ -168,10 +169,10 @@
         private System.Windows.Forms.Button btnMembresia;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button buttonGestionActividad;
         private System.Windows.Forms.Button btnGM;
         private System.Windows.Forms.Button btnVerRegistroFact;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

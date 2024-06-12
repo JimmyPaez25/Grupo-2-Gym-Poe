@@ -15,6 +15,7 @@ namespace Vista
     {
         private CtrMembresia ctrMem = new CtrMembresia();
         private bool cambiosGuardados;
+        private Validacion v = new Validacion();
 
 
         public bool CambiosGuardados { get => cambiosGuardados; set => cambiosGuardados = value; }
@@ -91,7 +92,12 @@ namespace Vista
 
         private void txtBoxPME_KeyPress(object sender, KeyPressEventArgs e)
         {
+            v.ValidarNumeroPrecio(sender, e);
+        }
 
+        private void txtBoxDE_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            v.ValidarNumerosPorcentaje(sender, e);
         }
     }
 }

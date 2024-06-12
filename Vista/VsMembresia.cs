@@ -199,7 +199,7 @@ namespace Vista
 
         private void txtBoxPreM_KeyPress(object sender, KeyPressEventArgs e)
         {
-            v.ValidarNumeroEnteroDecimalDolar(sender, e);
+            v.ValidarNumeroPrecio(sender, e);
         }
 
         private void lblCedulaM_Click(object sender, EventArgs e)

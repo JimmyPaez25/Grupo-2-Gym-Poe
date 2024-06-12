@@ -55,10 +55,10 @@ namespace Control
             {
                 return "ERROR: DEBE SELECCIONAR UNA OPCIÓN VÁLIDA PARA PROMOCIÓN (SI O NO).";
             }
-            //else if (string.IsNullOrEmpty(Sprecio) || precio <= 0)
-            //{
-            //    return "ERROR: EL PRECIO NO PUEDE ESTAR VACÍO O SER CERO.";
-            //}
+            else if (string.IsNullOrEmpty(Sprecio) || precio <= 0)
+            {
+                return "ERROR: EL PRECIO NO PUEDE ESTAR VACÍO O SER CERO.";
+            }
             else if (string.IsNullOrEmpty(plan) || plan.Equals(""))
             {
                 return "ERROR: NO PUEDEN EXISTIR CAMPOS VACIOS.";
@@ -114,14 +114,14 @@ namespace Control
             foreach (Membresia x in ListaMembresia)
             {
                 int i = dgvMembresia.Rows.Add();
-                dgvMembresia.Rows[i].Cells["clmPREM"].Value = x.Precio;
+                dgvMembresia.Rows[i].Cells["clmPREM"].Value = x.Precio.ToString() + "$";
                 dgvMembresia.Rows[i].Cells["clmCedula"].Value = x.CedulaCliente;
                 dgvMembresia.Rows[i].Cells["clmPM"].Value = x.Plan;
                 dgvMembresia.Rows[i].Cells["clmFIM"].Value = x.FechaInicio.ToString("d");
                 dgvMembresia.Rows[i].Cells["clmFFM"].Value = x.FechaFin.ToString("d");
                 dgvMembresia.Rows[i].Cells["clmP"].Value = x.Promocion;
                 dgvMembresia.Rows[i].Cells["clmDPM"].Value = x.DetallePromocion;
-                dgvMembresia.Rows[i].Cells["clmDM"].Value = x.Descuento;
+                dgvMembresia.Rows[i].Cells["clmDM"].Value = x.Descuento.ToString() + "%";
 
             }
         }
@@ -136,14 +136,14 @@ namespace Control
                     (!buscarPorCedula && x.DetallePromocion.Contains(filtro)))
                 {
                     i = dgvMembresia.Rows.Add();
-                    dgvMembresia.Rows[i].Cells["clmPREM"].Value = x.Precio;
+                    dgvMembresia.Rows[i].Cells["clmPREM"].Value = x.Precio.ToString() + "$";
                     dgvMembresia.Rows[i].Cells["clmCedula"].Value = x.CedulaCliente;
                     dgvMembresia.Rows[i].Cells["clmPM"].Value = x.Plan;
                     dgvMembresia.Rows[i].Cells["clmFIM"].Value = x.FechaInicio.ToString("d");
                     dgvMembresia.Rows[i].Cells["clmFFM"].Value = x.FechaFin.ToString("d");
                     dgvMembresia.Rows[i].Cells["clmP"].Value = x.Promocion;
                     dgvMembresia.Rows[i].Cells["clmDPM"].Value = x.DetallePromocion;
-                    dgvMembresia.Rows[i].Cells["clmDM"].Value = x.Descuento;
+                    dgvMembresia.Rows[i].Cells["clmDM"].Value = x.Descuento.ToString()+ "%";
                 }
             }
         }

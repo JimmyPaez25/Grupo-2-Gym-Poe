@@ -84,18 +84,18 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(135, 132);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 13);
+            this.label3.Size = new System.Drawing.Size(69, 13);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Fecha de inicio:";
+            this.label3.Text = "Ultima fecha:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(135, 159);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 13);
+            this.label4.Size = new System.Drawing.Size(101, 13);
             this.label4.TabIndex = 5;
-            this.label4.Text = "Fecha de fin:";
+            this.label4.Text = "Nueva fecha de fin:";
             // 
             // label5
             // 
@@ -118,7 +118,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(135, 266);
+            this.label7.Location = new System.Drawing.Point(133, 292);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(62, 13);
             this.label7.TabIndex = 8;
@@ -126,7 +126,7 @@
             // 
             // btnAME
             // 
-            this.btnAME.Location = new System.Drawing.Point(297, 336);
+            this.btnAME.Location = new System.Drawing.Point(297, 360);
             this.btnAME.Name = "btnAME";
             this.btnAME.Size = new System.Drawing.Size(75, 23);
             this.btnAME.TabIndex = 9;
@@ -147,17 +147,18 @@
             this.txtBoxDPE.Location = new System.Drawing.Point(297, 205);
             this.txtBoxDPE.Multiline = true;
             this.txtBoxDPE.Name = "txtBoxDPE";
-            this.txtBoxDPE.Size = new System.Drawing.Size(200, 48);
+            this.txtBoxDPE.Size = new System.Drawing.Size(200, 74);
             this.txtBoxDPE.TabIndex = 16;
             this.txtBoxDPE.TextChanged += new System.EventHandler(this.txtBoxDPE_TextChanged);
             // 
             // txtBoxDE
             // 
-            this.txtBoxDE.Location = new System.Drawing.Point(297, 259);
+            this.txtBoxDE.Location = new System.Drawing.Point(297, 285);
             this.txtBoxDE.Name = "txtBoxDE";
             this.txtBoxDE.Size = new System.Drawing.Size(75, 20);
             this.txtBoxDE.TabIndex = 17;
             this.txtBoxDE.TextChanged += new System.EventHandler(this.txtBoxDE_TextChanged);
+            this.txtBoxDE.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxDE_KeyPress);
             // 
             // dateTPFIE
             // 
@@ -186,7 +187,7 @@
             // lblPEM
             // 
             this.lblPEM.AutoSize = true;
-            this.lblPEM.Location = new System.Drawing.Point(135, 292);
+            this.lblPEM.Location = new System.Drawing.Point(135, 318);
             this.lblPEM.Name = "lblPEM";
             this.lblPEM.Size = new System.Drawing.Size(40, 13);
             this.lblPEM.TabIndex = 22;
@@ -194,7 +195,7 @@
             // 
             // txtBoxPME
             // 
-            this.txtBoxPME.Location = new System.Drawing.Point(297, 285);
+            this.txtBoxPME.Location = new System.Drawing.Point(297, 311);
             this.txtBoxPME.Name = "txtBoxPME";
             this.txtBoxPME.Size = new System.Drawing.Size(75, 20);
             this.txtBoxPME.TabIndex = 23;
@@ -233,7 +234,7 @@
             // 
             // btnCME
             // 
-            this.btnCME.Location = new System.Drawing.Point(422, 336);
+            this.btnCME.Location = new System.Drawing.Point(422, 360);
             this.btnCME.Name = "btnCME";
             this.btnCME.Size = new System.Drawing.Size(75, 23);
             this.btnCME.TabIndex = 34;

@@ -350,6 +350,7 @@
             // txtBoxPreM
             // 
             this.txtBoxPreM.Location = new System.Drawing.Point(293, 342);
+            this.txtBoxPreM.MaxLength = 6;
             this.txtBoxPreM.Name = "txtBoxPreM";
             this.txtBoxPreM.Size = new System.Drawing.Size(75, 20);
             this.txtBoxPreM.TabIndex = 30;
