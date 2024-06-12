@@ -116,7 +116,7 @@ namespace Vista
         {
             TextBox textBox = sender as TextBox;
             v.ConvertirMayuscula(textBox);
-            v.ValidarMaximoDeDigito(sender, e, 15, 5, txtNombre);
+            v.ValidarMaximoDeDigito(sender, e, 15, 5, txtComprobante);
         }
     }
 }

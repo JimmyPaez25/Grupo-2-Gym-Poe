@@ -42,46 +42,65 @@ namespace Vista
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            string rCedula = txtCedula.Text.Trim(), rTelefono = txtTelefono.Text.Trim();
-            string rNombre = txtNombre.Text.Trim(), rDireccion = txtDireccion.Text.Trim();
-            string rFechaNacimiento = dtpDate.Text.Trim(), esEstudiante = (string)cmbEstudiante.SelectedItem;
-            string rApellido = txtApellido.Text.Trim(), rEstado = "ACTIVO";
-            string rComprobante = txtComprobante.Text.Trim();
-            string msg = "";
-            if (string.IsNullOrEmpty(rCedula) || rCedula.Equals("") &&
-                string.IsNullOrEmpty(rNombre) || rNombre.Equals("") &&
-                 string.IsNullOrEmpty(rTelefono) || rTelefono.Equals("") &&
-                  string.IsNullOrEmpty(rDireccion) || rDireccion.Equals("") &&
-                  string.IsNullOrEmpty(rApellido) || rApellido.Equals("")
-                   || esEstudiante.Equals("") )
+            DateTime fechaActual = DateTime.Now;
+            bool camposValidos = false;
+            do
             {
-                MessageBox.Show("ERROR: NO PUEDEN EXISTIR CAMPOS VACIOS");
-            }
-            else
-            {
+                string rCedula = txtCedula.Text.Trim(), rTelefono = txtTelefono.Text.Trim();
+                string rNombre = txtNombre.Text.Trim(), rDireccion = txtDireccion.Text.Trim();
+                DateTime rFechaNacimiento = dtpDate.Value;  
+                string esEstudiante = (string)cmbEstudiante.SelectedItem;
+                string rApellido = txtApellido.Text.Trim(), rEstado = "ACTIVO";
+                string rComprobante = txtComprobante.Text.Trim();
+                string msg = "";
+                
+                if (string.IsNullOrEmpty(rCedula) || string.IsNullOrEmpty(rNombre) || string.IsNullOrEmpty(rTelefono) ||
+                    string.IsNullOrEmpty(rDireccion) || string.IsNullOrEmpty(rApellido) || string.IsNullOrEmpty(esEstudiante))
+                {
+                    MessageBox.Show("ERROR: NO PUEDEN EXISTIR CAMPOS VACIOS", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+                }
+                else if (rFechaNacimiento.Year == fechaActual.Year && rFechaNacimiento.Month == fechaActual.Month)
+                {
+                    MessageBox.Show("ERROR: EL AÑO Y EL MES DE LA FECHA DE NACIMIENTO NO PUEDEN SER LOS MISMOS QUE EL AÑO Y MES ACTUALES", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+                }
+                else if (ctrCli.ClienteExistente(rCedula))
+                {
+                    MessageBox.Show("ERROR: ESTA CEDULA YA ESTÁ ASIGNADA CON UN CLIENTE", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+                }
+                
+
+                // Ingresar datos del cliente
                 if (esEstudiante.Equals("SI"))
                 {
-                    msg = ctrCli.IngresarCliEst(rCedula, rNombre, rApellido, rFechaNacimiento, rTelefono, rEstado, rDireccion, rComprobante);
+                    msg = ctrCli.IngresarCliEst(rCedula, rNombre, rApellido, rFechaNacimiento.ToString("yyyy-MM-dd"), rTelefono, rEstado, rDireccion, rComprobante);
                 }
                 else
                 {
-                    msg = ctrCli.IngresarCli(rCedula, rNombre, rApellido, rFechaNacimiento, rTelefono, rEstado, rDireccion);
+                    msg = ctrCli.IngresarCli(rCedula, rNombre, rApellido, rFechaNacimiento.ToString("yyyy-MM-dd"), rTelefono, rEstado, rDireccion);
                 }
-            }
 
-            MessageBox.Show(msg);
-            VsMembresia vMembresia = new VsMembresia(); 
-            vMembresia.lblCedulaM.Text = this.txtCedula.Text;
-            vMembresia.lblNombreM.Text = this.txtNombre.Text;
-            vMembresia.lblApellidoM.Text = this.txtApellido.Text;
-            vMembresia.lblEstudianteM.Text = this.cmbEstudiante.Text;
-            vMembresia.CelularInvisible.Text = this.txtTelefono.Text;
-            vMembresia.ComprobanteInvisible.Text = this.txtComprobante.Text;
-            vMembresia.FechaNacInvisible.Text = this.dtpDate.Text;
-            vMembresia.DireccionInvisible.Text = this.txtDireccion.Text;
+                MessageBox.Show(msg);
 
-            vMembresia.Show();
-            this.Close();
+                // Mostrar el formulario VsMembresia
+                VsMembresia vMembresia = new VsMembresia();
+                vMembresia.lblCedulaM.Text = rCedula;
+                vMembresia.lblNombreM.Text = rNombre;
+                vMembresia.lblApellidoM.Text = rApellido;
+                vMembresia.lblEstudianteM.Text = esEstudiante;
+                vMembresia.CelularInvisible.Text = rTelefono;
+                vMembresia.ComprobanteInvisible.Text = rComprobante;
+                vMembresia.FechaNacInvisible.Text = rFechaNacimiento.ToString("yyyy-MM-dd");
+                vMembresia.DireccionInvisible.Text = rDireccion;
+
+                vMembresia.Show();
+                this.Close();
+
+                camposValidos = true;
+
+            } while (!camposValidos);
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

@@ -35,32 +35,17 @@ namespace Control
 
         public string IngresarCli(string rCedula, string rNombre, string rApellido,string rFechaNacimiento, string rTelefono, string rEstado, string rDireccion)
         {
+            
             String msg = "ERROR: SE ESPERABA DATOS CORRECTOS!!";
             Validacion v = new Validacion();
             DateTime hoy = DateTime.Now;
             Cliente cli = null;
             DateTime fechaNac = v.ConvertirDateTime(rFechaNacimiento);
 
-            if (string.IsNullOrEmpty(rCedula) || string.IsNullOrEmpty(rNombre) ||
-                 string.IsNullOrEmpty(rTelefono) || string.IsNullOrEmpty(rDireccion) ||
-                  string.IsNullOrEmpty(rApellido))
-            {
-                MessageBox.Show("ERROR: NO PUEDEN EXISTIR CAMPOS VACIOS", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (fechaNac == hoy)
-            {
-                MessageBox.Show("ERROR: LA FECHA DE NACIMIENTO NO PUEDE SER LA DE HOY", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (ClienteExistente(rCedula))
-            {
-                MessageBox.Show("ERROR: ESTA CEDULA YA EXISTE EN UN CLIENTE", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
                 cli = new Cliente(rCedula, rNombre, rApellido, fechaNac, rTelefono, rDireccion, rEstado);
                 ListaCli.Add(cli); // Agregando datos del cliente
                 msg = cli.ToString() + "\n CLIENTE REGISTRADO EXITOSAMENTE!!";
-            } 
+
             return msg;
         }
 
@@ -72,26 +57,10 @@ namespace Control
             DateTime fechaNac = v.ConvertirDateTime(rFechaNacimiento);
             Cliente cli = null;
 
-            if (string.IsNullOrEmpty(rCedula) || string.IsNullOrEmpty(rNombre) || 
-                 string.IsNullOrEmpty(rTelefono) || string.IsNullOrEmpty(rDireccion) ||
-                  string.IsNullOrEmpty(rApellido) || comprobante.Equals(""))
-            {
-                MessageBox.Show("ERROR: NO PUEDEN EXISTIR CAMPOS VACIOS", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (fechaNac == hoy)
-            {
-                MessageBox.Show("ERROR: LA FECHA DE NACIMIENTO NO PUEDE SER LA DE HOY", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (ClienteExistente(rCedula))
-            {
-                MessageBox.Show("ERROR: ESTA CEDULA YA EXISTE EN UN CLIENTE", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
                 cli = new ClienteEstudiante(rCedula, rNombre, rApellido, fechaNac, rTelefono, rDireccion, rEstado, comprobante);
                 listaCli.Add(cli); // Agregando datos del cliente
                 msg = cli.ToString() + "\n CLIENTE ESTUDIANTE REGISTRADO EXITOSAMENTE11";
-            }
+
             return msg;
         }
 
@@ -245,7 +214,7 @@ namespace Control
 
             if (string.IsNullOrEmpty(filtroPorCedula) && string.IsNullOrEmpty(filtroPorNombre))
             {
-                MessageBox.Show("ERROR: Debe ingresar al menos un campo para la búsqueda (cédula o nombre).", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("ERROR: DEBE INGRESAR AL MENOS UN CAMPO PARA LA BÚSQUEDA (CÉDULA O NOMBRE).", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -273,7 +242,7 @@ namespace Control
                     }
                     else
                     {
-                        dgvClientes.Rows[i].Cells["clmComprobanteEst"].Value = "SIN COMPROBANTE";
+                        dgvClientes.Rows[i].Cells["clmComprobanteEst"].Value = ObtenerComprobanteActualizado(x.Cedula); ;
                     }
                 }
             }
