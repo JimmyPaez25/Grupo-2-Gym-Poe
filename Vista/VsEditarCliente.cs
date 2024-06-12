@@ -41,32 +41,13 @@ namespace Vista
             string aFechaNacimiento = dtpDate.Text.Trim();
             string aComprobante = txtComprobante.Text.Trim();
             string aTelefono = txtTelefono.Text.Trim();
-            string esEstudiante = (string)cmbEstudiante.SelectedItem;
+            bool esEstudiante = ((string)cmbEstudiante.SelectedItem).Equals("SI",StringComparison.OrdinalIgnoreCase);
             string aEstado = (string)cmbEstado.SelectedItem;
-            string msg = "";
-            if (aEstado.Equals("ACTIVO"))
-            {
-                if (esEstudiante.Equals("SI", StringComparison.OrdinalIgnoreCase))
-                {
-                    msg = ctrCli.EditarCliEst(aCedulaOrg, aCedula, aNombre, aApellido, aFechaNacimiento, aTelefono, aDireccion, aEstado , aComprobante, esEstudiante);
-                }
-                else
-                {
-                    msg = ctrCli.EditarCli(aCedulaOrg, aCedula, aNombre, aApellido, aFechaNacimiento, aTelefono, aDireccion, aEstado );
-                }
-            }
-            else
-            {
-                if (esEstudiante.Equals("SI", StringComparison.OrdinalIgnoreCase))
-                {
-                    msg = ctrCli.EditarCliEst(aCedulaOrg, aCedula, aNombre, aApellido, aFechaNacimiento, aTelefono, aDireccion, aEstado , aComprobante, esEstudiante);
-                }
-                else
-                {
-                    msg = ctrCli.EditarCli(aCedulaOrg, aCedula, aNombre, aApellido, aFechaNacimiento, aTelefono, aDireccion, aEstado);
-                }
-            }
-            
+
+            string msg = aEstado.Equals("ACTIVO") ? ctrCli.EditarCliEst(aCedulaOrg, aCedula, aNombre, aApellido, aFechaNacimiento, aTelefono, aDireccion, aEstado, aComprobante, esEstudiante)
+                                           : ctrCli.EditarCli(aCedulaOrg, aCedula, aNombre, aApellido, aFechaNacimiento, aTelefono, aDireccion, aEstado);
+
+
 
             MessageBox.Show(msg, "ACTUALIZACION", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

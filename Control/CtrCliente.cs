@@ -119,7 +119,7 @@ namespace Control
             return "SIN COMPROBANTE";
         }
 
-        public string EditarCliEst(string aCedulaOrg, string aCedula, string aNombre, string aApellido, string aFechaNacimiento, string aTelefono, string aDireccion,string aEstado, string aComprobante, string esEstudiante)
+        public string EditarCliEst(string aCedulaOrg, string aCedula, string aNombre, string aApellido, string aFechaNacimiento, string aTelefono, string aDireccion,string aEstado, string aComprobante, bool esEstudiante)
         {
             string msg = "ERROR: SE ESPERABA DATOS CORRECTOS!!";
             Validacion v = new Validacion();
@@ -144,18 +144,32 @@ namespace Control
                     clienteExistente.Direccion = aDireccion;
                     clienteExistente.Estado = aEstado;
 
-                    if (clienteExistente is ClienteEstudiante clienteEstudiante)
+
+                    // Verificar si debe convertirse en ClienteEstudiante
+                    if (esEstudiante)
                     {
-                        // Verificar si el cliente es estudiante y establecer el comprobante
-                        if (string.IsNullOrEmpty(aComprobante) && esEstudiante.Equals("NO", StringComparison.OrdinalIgnoreCase))
+                        if (clienteExistente is ClienteEstudiante)
                         {
-                            clienteEstudiante.Comprobante = "SIN COMPROBANTE";
+                            ((ClienteEstudiante)clienteExistente).Comprobante = aComprobante;
                         }
                         else
                         {
-                            clienteEstudiante.Comprobante = aComprobante;
+                            ClienteEstudiante clienteEstudiante = new ClienteEstudiante(aCedula, aNombre, aApellido, fechaNac, aTelefono, aDireccion, aEstado, aComprobante);
+                            ListaCli.Remove(clienteExistente);
+                            ListaCli.Add(clienteEstudiante);
                         }
                     }
+                    else
+                    {
+                        if (clienteExistente is ClienteEstudiante)
+                        {
+                            // Convertir ClienteEstudiante a Cliente normal
+                            Cliente cliente = new Cliente(aCedula, aNombre, aApellido, fechaNac, aTelefono, aDireccion, aEstado);
+                            ListaCli.Remove(clienteExistente);
+                            ListaCli.Add(cliente);
+                        }
+                    }
+
 
                     msg = "CLIENTE EDITADO CORRECTAMENTE";
                     break;
@@ -168,6 +182,7 @@ namespace Control
             }
 
             return msg;
+
         }
 
         public string EditarCli(string aCedulaOrg, string aCedula, string aNombre, string aApellido, string aFechaNacimiento, string aTelefono, string aDireccion, string aEstado)

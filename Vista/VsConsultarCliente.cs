@@ -35,7 +35,7 @@ namespace Vista
         }
         private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
         {
-            v.ValidarNumero(sender, e);
+            v.ValidarMaximoDeDigito(sender, e, 10, 0, txtCedula);
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -99,7 +99,7 @@ namespace Vista
             }
             else
             {
-                MessageBox.Show("ERROR: Selecciona una fila antes de dar de baja a un cliente", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("ERROR: SELECCIONA UNA FILA ANTES DE DAR DE BAJA A UN CLIENTE", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
