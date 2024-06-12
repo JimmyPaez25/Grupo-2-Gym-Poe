@@ -14,6 +14,9 @@ namespace Vista
     public partial class VsMembresiaConsulta : Form
     {
         private CtrMembresia ctrMem = new CtrMembresia();
+        private bool cambiosGuardados;
+
+        public bool CambiosGuardados { get => cambiosGuardados; set => cambiosGuardados = value; }
         public VsMembresiaConsulta()
         {
             InitializeComponent();
@@ -35,6 +38,24 @@ namespace Vista
             string filtro = txtBoxBM.Text.Trim();
             bool buscarPorCedula = radioBCM.Checked;
             ctrMem.TablaConsultarMebresiaFiltro(dgvMembresia, filtro, buscarPorCedula);
+        }
+
+        private void btnEM_Click(object sender, EventArgs e)
+        {
+            if (dgvMembresia.SelectedRows.Count > 0)
+            {
+                DataGridViewRow filaSeleccionada = dgvMembresia.SelectedRows[0]; // OBTIENE FILA SELECCIONADA
+                string nombrePlan = filaSeleccionada.Cells["clmPM"].Value.ToString(); // EXTRAE NOMBRE DE FILA SELECCIONADA
+                VsMembresiaEditar editarMem = new VsMembresiaEditar(nombrePlan); editarMem.ShowDialog();
+                if (editarMem.CambiosGuardados)
+                {
+                    ctrMem.LlenarGrid(dgvMembresia);
+                }
+            }
+            else
+            {
+                MessageBox.Show("ERROR: SELECCIONA UNA FILA ANTES DE ELIMINAR UNA ACTIVIDAD.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

@@ -53,7 +53,7 @@ namespace Control
             {
                 return "ERROR: MEMBRESIA YA REGISTRADA.";
             }
-            else if (string.IsNullOrEmpty(plan) || plan.Equals("") && string.IsNullOrEmpty(promocion) || promocion.Equals("") && string.IsNullOrEmpty(detallePromocion) || detallePromocion.Equals("") && string.IsNullOrEmpty(descuento) || descuento.Equals(""))
+            else if (string.IsNullOrEmpty(plan) || (plan.Equals("") && (string.IsNullOrEmpty(Sprecio) || Sprecio == "")))
             {
                 return "ERROR: NO PUEDEN EXISTIR CAMPOS VACIOS.";
             }
@@ -139,6 +139,76 @@ namespace Control
                     dgvMembresia.Rows[i].Cells["clmDPM"].Value = x.DetallePromocion;
                     dgvMembresia.Rows[i].Cells["clmDM"].Value = x.Descuento;
                 }
+            }
+        }
+        public string editarMembresia(string nombreplan, string planE, string SFInicioE, string SFFinE, string promocionE, string descuentoE, string detallePromocionE, string cedulaCliente, string SprecioE)
+        {
+            string msj = "ERROR: SE ESPERABA DATOS CORRECTOS.";
+            Validacion val = new Validacion();
+            Membresia mem = null;
+            //CtrMembresia controlMembresia = new CtrMembresia(CtrCliente.ListaCli);
+            double precio = val.ConvertirDouble(SprecioE);
+            DateTime fechaInicio = val.ConvertirDateTime(SFInicioE);
+            DateTime fechaFin = val.ConvertirDateTime(SFFinE);
+
+            if (fechaInicio.Date == fechaFin.Date)
+            {
+                return "ERROR: FECHA INICIO NO PUEDE SER IGUAL A FECHA FIN.";
+            }
+            else if (fechaFin < fechaInicio)
+            {
+                return "ERROR: FECHA FIN NO PUEDE SER ANTERIOR A FECHA INICIO.";
+            }
+            else if (string.IsNullOrEmpty(planE) || planE.Equals("") && string.IsNullOrEmpty(SprecioE) || SprecioE.Equals("0"))
+            {
+                return "ERROR: NO PUEDEN EXISTIR CAMPOS VACIOS.";
+            }
+            else
+            {
+                Membresia membresiaExistente = ListaMembresia.Find(atv => atv.Plan == nombreplan); // BUSCAR NOMBRE ORIGINAL EN LISTA
+                if (membresiaExistente != null)
+                {
+                    if (membresiaExistente.Plan != planE) // SI NOMBRE ORIGINAL Y NUEVO SON DIFERENTES
+                    {
+                        if (ListaMembresia.Any(atv => atv.Plan == planE)) // BUSCAR SI NOMBRE NUEVO YA EXISTE
+                        {
+                            return "ERROR: YA EXISTE UNA ACTIVIDAD CON EL NUEVO NOMBRE.";
+                        }
+                        membresiaExistente.Plan = planE; // ASIGNAR NOMBRE NUEVO
+                    }
+
+                    // ACTUALIZA DATOS ACTIVIDAD
+                    membresiaExistente.FechaInicio = fechaInicio;
+                    membresiaExistente.FechaFin = fechaFin;
+                    membresiaExistente.Promocion = promocionE;
+                    membresiaExistente.DetallePromocion = detallePromocionE;
+                    membresiaExistente.Descuento = descuentoE;
+                    membresiaExistente.CedulaCliente = cedulaCliente;
+                    membresiaExistente.Precio = precio;
+
+                    msj = "MEMBRESIA EDITADA CORRECTAMENTE";
+                }
+                else
+                {
+                    msj = "ERROR: NO SE PUDO ENCONTRAR LA MEMBRESIA A EDITAR.";
+                }
+            }
+            return msj;
+        }
+        public void PresentarDatosMembresia(TextBox txtBoxME, DateTimePicker dateTPFIE, DateTimePicker dateTPFFE, ComboBox comboBoxPE, TextBox txtBoxDPE, TextBox txtBoxDE, TextBox txtBoxPEM, string nombrePlan)
+        {
+            //Actividad actividadSeleccionada = ExtraerNombreActividad(nombreActividad);
+            Membresia membresiaSeleccionada = ListaMembresia.Find(a => a.Plan == nombrePlan);
+            if (membresiaSeleccionada != null)
+            {
+                //txtBoxPEM.Text = membresiaSeleccionada;
+                txtBoxME.Text = membresiaSeleccionada.Plan;
+                dateTPFIE.Value = membresiaSeleccionada.FechaInicio;
+                dateTPFIE.Value = membresiaSeleccionada.FechaFin;
+                comboBoxPE.Text = membresiaSeleccionada.Promocion;
+                txtBoxDPE.Text = membresiaSeleccionada.DetallePromocion;
+                txtBoxDE.Text = membresiaSeleccionada.Descuento;
+                txtBoxPEM.Text = membresiaSeleccionada.Precio.ToString();
             }
         }
     }

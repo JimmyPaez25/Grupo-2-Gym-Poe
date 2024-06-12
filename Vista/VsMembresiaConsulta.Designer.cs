@@ -161,6 +161,7 @@
             this.btnEM.TabIndex = 9;
             this.btnEM.Text = "Editar";
             this.btnEM.UseVisualStyleBackColor = true;
+            this.btnEM.Click += new System.EventHandler(this.btnEM_Click);
             // 
             // radioBCM
             // 

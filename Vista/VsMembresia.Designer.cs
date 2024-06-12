@@ -37,7 +37,6 @@
             this.labelDP = new System.Windows.Forms.Label();
             this.labelD = new System.Windows.Forms.Label();
             this.btnRegistrar = new System.Windows.Forms.Button();
-            this.btnAnular = new System.Windows.Forms.Button();
             this.txtBoxM = new System.Windows.Forms.TextBox();
             this.dateTPFI = new System.Windows.Forms.DateTimePicker();
             this.dateTPFF = new System.Windows.Forms.DateTimePicker();
@@ -148,24 +147,13 @@
             // btnRegistrar
             // 
             this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrar.Location = new System.Drawing.Point(293, 381);
+            this.btnRegistrar.Location = new System.Drawing.Point(350, 381);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(75, 23);
             this.btnRegistrar.TabIndex = 8;
             this.btnRegistrar.Text = "Asignar";
             this.btnRegistrar.UseVisualStyleBackColor = true;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
-            // 
-            // btnAnular
-            // 
-            this.btnAnular.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnular.Location = new System.Drawing.Point(417, 381);
-            this.btnAnular.Name = "btnAnular";
-            this.btnAnular.Size = new System.Drawing.Size(75, 23);
-            this.btnAnular.TabIndex = 9;
-            this.btnAnular.Text = "Anular";
-            this.btnAnular.UseVisualStyleBackColor = true;
-            this.btnAnular.Click += new System.EventHandler(this.btnAnular_Click);
             // 
             // txtBoxM
             // 
@@ -390,7 +378,6 @@
             this.Controls.Add(this.dateTPFF);
             this.Controls.Add(this.dateTPFI);
             this.Controls.Add(this.txtBoxM);
-            this.Controls.Add(this.btnAnular);
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.labelD);
             this.Controls.Add(this.labelDP);
@@ -420,7 +407,6 @@
         private System.Windows.Forms.Label labelDP;
         private System.Windows.Forms.Label labelD;
         private System.Windows.Forms.Button btnRegistrar;
-        private System.Windows.Forms.Button btnAnular;
         private System.Windows.Forms.TextBox txtBoxM;
         private System.Windows.Forms.DateTimePicker dateTPFI;
         private System.Windows.Forms.DateTimePicker dateTPFF;
