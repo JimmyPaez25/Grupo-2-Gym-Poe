@@ -57,5 +57,10 @@ namespace Vista
                 MessageBox.Show("ERROR: SELECCIONA UNA FILA ANTES DE ELIMINAR UNA ACTIVIDAD.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void btnEliminarM_Click(object sender, EventArgs e)
+        {
+            ctrMem.eliminarMembresia(dgvMembresia);
+        }
     }
 }

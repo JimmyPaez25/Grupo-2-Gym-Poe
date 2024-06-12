@@ -141,7 +141,7 @@ namespace Control
                 }
             }
         }
-        public string editarMembresia(string nombreplan, string planE, string SFInicioE, string SFFinE, string promocionE, string descuentoE, string detallePromocionE, string cedulaCliente, string SprecioE)
+        public string editarMembresia(string nombrePlan, string planE, string SFInicioE, string SFFinE, string promocionE, string descuentoE, string detallePromocionE, string cedulaCliente, string SprecioE)
         {
             string msj = "ERROR: SE ESPERABA DATOS CORRECTOS.";
             Validacion val = new Validacion();
@@ -165,7 +165,7 @@ namespace Control
             }
             else
             {
-                Membresia membresiaExistente = ListaMembresia.Find(atv => atv.Plan == nombreplan); // BUSCAR NOMBRE ORIGINAL EN LISTA
+                Membresia membresiaExistente = ListaMembresia.Find(atv => atv.Plan == nombrePlan); // BUSCAR NOMBRE ORIGINAL EN LISTA
                 if (membresiaExistente != null)
                 {
                     if (membresiaExistente.Plan != planE) // SI NOMBRE ORIGINAL Y NUEVO SON DIFERENTES
@@ -209,6 +209,33 @@ namespace Control
                 txtBoxDPE.Text = membresiaSeleccionada.DetallePromocion;
                 txtBoxDE.Text = membresiaSeleccionada.Descuento;
                 txtBoxPEM.Text = membresiaSeleccionada.Precio.ToString();
+            }
+        }
+        public void eliminarMembresia(DataGridView dgvMembresia)
+        {
+            if (dgvMembresia.SelectedRows.Count > 0)
+            {
+                int filaSeleccionada = dgvMembresia.SelectedRows[0].Index; // OBTIENE EL ÍNDICE DE LA FILA SELECCIONADA
+                if (filaSeleccionada >= 0)
+                {
+                    string nombrePlan = dgvMembresia.Rows[filaSeleccionada].Cells["clmPM"].Value.ToString(); 
+                    Membresia membresia = ListaMembresia.FirstOrDefault(a => a.Plan == nombrePlan); 
+
+                    if (membresia != null)
+                    {
+                        DialogResult resultado = MessageBox.Show("ESTAS SEGURO DE ELIMINAR PERMANENTEMENTE ESTA MEMBRESIA?", "CONFIRMACION", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                        if (resultado == DialogResult.Yes)
+                        {
+                            ListaMembresia.Remove(membresia);
+                            dgvMembresia.Rows.RemoveAt(filaSeleccionada);
+                            MessageBox.Show("MEMBRESIA ELIMINADA CORRECTAMENTE.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("ERROR: SELECCIONA UNA FILA ANTES DE ELIMINAR DE FORMA PERMANENTE UNA MEMBRESIA.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }
