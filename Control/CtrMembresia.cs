@@ -20,12 +20,6 @@ namespace Control
         public static List<Cliente> ListaCli { get => listaCli; set => listaCli = value; }
 
 
-   
-
-        //public CtrMembresia(List<Cliente> listaClientes)
-        //{
-        //    listaCli = listaClientes;
-        //}
         public int GetTotal()
         {
             return ListaMembresia.Count;
@@ -41,11 +35,15 @@ namespace Control
             DateTime fechaInicio = val.ConvertirDateTime(SFInicio);
             DateTime fechaFin = val.ConvertirDateTime(SFFin);
 
-            if (fechaInicio.Date == fechaFin.Date)
+            if (string.IsNullOrEmpty(plan) || plan.Equals(""))
+            {
+                return "ERROR: NO PUEDEN EXISTIR CAMPOS VACIOS.";
+            }
+            else if (fechaInicio.Date == fechaFin.Date)
             {
                 return "ERROR: FECHA INICIO NO PUEDE SER IGUAL A FECHA FIN.";
             }
-            else if (fechaFin < fechaInicio)
+            else if (fechaFin < fechaInicio)  
             {
                 return "ERROR: FECHA FIN NO PUEDE SER ANTERIOR A FECHA INICIO.";
             }
@@ -53,11 +51,19 @@ namespace Control
             {
                 return "ERROR: MEMBRESIA YA REGISTRADA.";
             }
-            else if (string.IsNullOrEmpty(plan) || (plan.Equals("") && (string.IsNullOrEmpty(Sprecio) || Sprecio == "")))
+            else if (promocion != "SI" && promocion != "NO")
+            {
+                return "ERROR: DEBE SELECCIONAR UNA OPCIÓN VÁLIDA PARA PROMOCIÓN (SI O NO).";
+            }
+            //else if (string.IsNullOrEmpty(Sprecio) || precio <= 0)
+            //{
+            //    return "ERROR: EL PRECIO NO PUEDE ESTAR VACÍO O SER CERO.";
+            //}
+            else if (string.IsNullOrEmpty(plan) || plan.Equals(""))
             {
                 return "ERROR: NO PUEDEN EXISTIR CAMPOS VACIOS.";
             }
-            else
+            else 
             {
                 mem = new Membresia(plan, fechaInicio, fechaFin, promocion, descuento, detallePromocion,cedulaCliente, precio);
                 ListaMembresia.Add(mem);
@@ -146,12 +152,15 @@ namespace Control
             string msj = "ERROR: SE ESPERABA DATOS CORRECTOS.";
             Validacion val = new Validacion();
             Membresia mem = null;
-            //CtrMembresia controlMembresia = new CtrMembresia(CtrCliente.ListaCli);
             double precio = val.ConvertirDouble(SprecioE);
             DateTime fechaInicio = val.ConvertirDateTime(SFInicioE);
             DateTime fechaFin = val.ConvertirDateTime(SFFinE);
 
-            if (fechaInicio.Date == fechaFin.Date)
+            if (string.IsNullOrEmpty(planE) || planE.Equals(""))
+            {
+                return "ERROR: NO PUEDEN EXISTIR CAMPOS VACIOS.";
+            }
+            else if (fechaInicio.Date == fechaFin.Date)
             {
                 return "ERROR: FECHA INICIO NO PUEDE SER IGUAL A FECHA FIN.";
             }
@@ -159,9 +168,13 @@ namespace Control
             {
                 return "ERROR: FECHA FIN NO PUEDE SER ANTERIOR A FECHA INICIO.";
             }
-            else if (string.IsNullOrEmpty(planE) || planE.Equals("") && string.IsNullOrEmpty(SprecioE) || SprecioE.Equals("0"))
+            else if (promocionE != "SI" && promocionE != "NO")
             {
-                return "ERROR: NO PUEDEN EXISTIR CAMPOS VACIOS.";
+                return "ERROR: DEBE SELECCIONAR UNA OPCIÓN VÁLIDA PARA PROMOCIÓN (SI O NO).";
+            }
+            else if (string.IsNullOrEmpty(SprecioE) || precio <= 0)
+            {
+                return "ERROR: EL PRECIO NO PUEDE ESTAR VACÍO O SER CERO.";
             }
             else
             {
@@ -172,12 +185,12 @@ namespace Control
                     {
                         if (ListaMembresia.Any(atv => atv.Plan == planE)) // BUSCAR SI NOMBRE NUEVO YA EXISTE
                         {
-                            return "ERROR: YA EXISTE UNA ACTIVIDAD CON EL NUEVO NOMBRE.";
+                            return "ERROR: YA EXISTE UNA MEMBRESIA CON EL NUEVO NOMBRE.";
                         }
                         membresiaExistente.Plan = planE; // ASIGNAR NOMBRE NUEVO
                     }
 
-                    // ACTUALIZA DATOS ACTIVIDAD
+                    // ACTUALIZA DATOS 
                     membresiaExistente.FechaInicio = fechaInicio;
                     membresiaExistente.FechaFin = fechaFin;
                     membresiaExistente.Promocion = promocionE;
@@ -197,11 +210,9 @@ namespace Control
         }
         public void PresentarDatosMembresia(TextBox txtBoxME, DateTimePicker dateTPFIE, DateTimePicker dateTPFFE, ComboBox comboBoxPE, TextBox txtBoxDPE, TextBox txtBoxDE, TextBox txtBoxPEM, string nombrePlan)
         {
-            //Actividad actividadSeleccionada = ExtraerNombreActividad(nombreActividad);
             Membresia membresiaSeleccionada = ListaMembresia.Find(a => a.Plan == nombrePlan);
             if (membresiaSeleccionada != null)
             {
-                //txtBoxPEM.Text = membresiaSeleccionada;
                 txtBoxME.Text = membresiaSeleccionada.Plan;
                 dateTPFIE.Value = membresiaSeleccionada.FechaInicio;
                 dateTPFIE.Value = membresiaSeleccionada.FechaFin;

@@ -57,6 +57,7 @@
             this.DireccionInvisible = new System.Windows.Forms.Label();
             this.lblPreM = new System.Windows.Forms.Label();
             this.txtBoxPreM = new System.Windows.Forms.TextBox();
+            this.btnCM = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,9 +89,9 @@
             this.labelM.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelM.Location = new System.Drawing.Point(143, 154);
             this.labelM.Name = "labelM";
-            this.labelM.Size = new System.Drawing.Size(31, 13);
+            this.labelM.Size = new System.Drawing.Size(99, 13);
             this.labelM.TabIndex = 2;
-            this.labelM.Text = "Plan:";
+            this.labelM.Text = "Plan de membresia:";
             // 
             // labelFI
             // 
@@ -147,7 +148,7 @@
             // btnRegistrar
             // 
             this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrar.Location = new System.Drawing.Point(350, 381);
+            this.btnRegistrar.Location = new System.Drawing.Point(419, 381);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(75, 23);
             this.btnRegistrar.TabIndex = 8;
@@ -352,12 +353,25 @@
             this.txtBoxPreM.Name = "txtBoxPreM";
             this.txtBoxPreM.Size = new System.Drawing.Size(75, 20);
             this.txtBoxPreM.TabIndex = 30;
+            this.txtBoxPreM.TextChanged += new System.EventHandler(this.txtBoxPreM_TextChanged);
+            this.txtBoxPreM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxPreM_KeyPress);
+            // 
+            // btnCM
+            // 
+            this.btnCM.Location = new System.Drawing.Point(294, 381);
+            this.btnCM.Name = "btnCM";
+            this.btnCM.Size = new System.Drawing.Size(75, 23);
+            this.btnCM.TabIndex = 31;
+            this.btnCM.Text = "Cancelar";
+            this.btnCM.UseVisualStyleBackColor = true;
+            this.btnCM.Click += new System.EventHandler(this.btnCM_Click);
             // 
             // VsMembresia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 416);
+            this.Controls.Add(this.btnCM);
             this.Controls.Add(this.txtBoxPreM);
             this.Controls.Add(this.lblPreM);
             this.Controls.Add(this.DireccionInvisible);
@@ -427,5 +441,6 @@
         public System.Windows.Forms.Label DireccionInvisible;
         private System.Windows.Forms.Label lblPreM;
         private System.Windows.Forms.TextBox txtBoxPreM;
+        private System.Windows.Forms.Button btnCM;
     }
 }

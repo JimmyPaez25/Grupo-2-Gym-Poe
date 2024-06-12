@@ -64,12 +64,11 @@ namespace Vista
 
         private void txtBoxD_KeyPress(object sender, KeyPressEventArgs e)
         {
-            v.ValidarCantidad(sender, e);
+            v.ValidarNumerosPorcentaje(sender, e);
         }
 
         private void txtBoxM_KeyPress(object sender, KeyPressEventArgs e)
         {
-            v.ValidarLetra(sender, e);
 
         }
 
@@ -107,6 +106,11 @@ namespace Vista
 
 
             msj = ctrMen.IngresarMembresia(plan, FI, FF, promocion, descuento, detallePromocion, cedulaCliente, precio);
+            if (msj.Contains("ERROR"))
+            {
+                MessageBox.Show(msj, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return; // Detener la ejecución si hay un error
+            }
             MessageBox.Show(msj);
             VsFactura vFactura = new VsFactura();
             vFactura.lblCedulaFact.Text = this.lblCedulaM.Text;
@@ -124,10 +128,6 @@ namespace Vista
 
             vFactura.Show();
             this.Close();
-
-
-
-   
 
             if (msj.Contains("MEMBRESIA REGISTRADA CORRECTAMENTE"))
             {
@@ -185,6 +185,21 @@ namespace Vista
         private void lblNombreM_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnCM_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtBoxPreM_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtBoxPreM_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            v.ValidarNumeroEnteroDecimalDolar(sender, e);
         }
 
         private void lblCedulaM_Click(object sender, EventArgs e)

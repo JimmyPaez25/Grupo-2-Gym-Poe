@@ -78,5 +78,20 @@ namespace Vista
                 this.Close();
             }
         }
+
+        private void btnCME_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtBoxPME_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtBoxPME_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
     }
 }

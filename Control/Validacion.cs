@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Modelo;
@@ -233,6 +234,34 @@ namespace Control
             if (char.IsLetter(e.KeyChar) && cantidadletra >= maxCaracter)
             {
                 e.Handled = true; 
+            }
+        }
+        public void ValidarNumerosPorcentaje(object sender, KeyPressEventArgs e)
+        {
+            char letra = e.KeyChar;
+            TextBox textBox = sender as TextBox; // Suponiendo que estás trabajando con un control TextBox
+
+            // Obtener el texto actual del TextBox y combinarlo con el carácter que se está ingresando
+            string textoActual = textBox.Text.Substring(0, textBox.SelectionStart) + letra + textBox.Text.Substring(textBox.SelectionStart + textBox.SelectionLength);
+
+            // Validar que solo hay máximo tres números seguidos de un signo de porcentaje (%)
+            if (!Regex.IsMatch(textoActual, @"^(100|[0-9]{1,2})%?$") && letra != (char)Keys.Back)
+            {
+                e.Handled = true; // No permite ingresar el carácter
+            }
+        }
+        public void ValidarNumeroEnteroDecimalDolar(object sender, KeyPressEventArgs e)
+        {
+            char letra = e.KeyChar;
+            TextBox textBox = sender as TextBox; // Suponiendo que estás trabajando con un control TextBox
+
+            // Obtener el texto actual del TextBox y combinarlo con el carácter que se está ingresando
+            string textoActual = textBox.Text.Substring(0, textBox.SelectionStart) + letra + textBox.Text.Substring(textBox.SelectionStart + textBox.SelectionLength);
+
+            // Validar si la entrada actual es válida
+            if (!Regex.IsMatch(textoActual, @"^(?!0{2,})\d{0,3}(?:\.\d{0,2})?\$?$") && letra != (char)Keys.Back)
+            {
+                e.Handled = true; // No permite ingresar el carácter
             }
         }
 
