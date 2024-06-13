@@ -54,126 +54,140 @@
             // lblRegistro
             // 
             this.lblRegistro.AutoSize = true;
-            this.lblRegistro.Font = new System.Drawing.Font("Microsoft YaHei", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRegistro.Location = new System.Drawing.Point(117, 38);
+            this.lblRegistro.Font = new System.Drawing.Font("Bernard MT Condensed", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRegistro.ForeColor = System.Drawing.Color.White;
+            this.lblRegistro.Location = new System.Drawing.Point(167, 49);
             this.lblRegistro.Name = "lblRegistro";
-            this.lblRegistro.Size = new System.Drawing.Size(274, 36);
+            this.lblRegistro.Size = new System.Drawing.Size(224, 31);
             this.lblRegistro.TabIndex = 1;
             this.lblRegistro.Text = "Registro de Cliente";
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Font = new System.Drawing.Font("Bernard MT Condensed", 9F);
+            this.lblName.ForeColor = System.Drawing.Color.White;
             this.lblName.Location = new System.Drawing.Point(80, 151);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(74, 20);
+            this.lblName.Size = new System.Drawing.Size(46, 15);
             this.lblName.TabIndex = 4;
             this.lblName.Text = "Nombre:";
             // 
             // lblCedula
             // 
             this.lblCedula.AutoSize = true;
-            this.lblCedula.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCedula.Font = new System.Drawing.Font("Bernard MT Condensed", 9F);
+            this.lblCedula.ForeColor = System.Drawing.Color.White;
             this.lblCedula.Location = new System.Drawing.Point(80, 127);
             this.lblCedula.Name = "lblCedula";
-            this.lblCedula.Size = new System.Drawing.Size(63, 20);
+            this.lblCedula.Size = new System.Drawing.Size(41, 15);
             this.lblCedula.TabIndex = 3;
             this.lblCedula.Text = "Cedula:";
             // 
             // lblEstudiante
             // 
             this.lblEstudiante.AutoSize = true;
-            this.lblEstudiante.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEstudiante.Font = new System.Drawing.Font("Bernard MT Condensed", 9F);
+            this.lblEstudiante.ForeColor = System.Drawing.Color.White;
             this.lblEstudiante.Location = new System.Drawing.Point(80, 283);
             this.lblEstudiante.Name = "lblEstudiante";
-            this.lblEstudiante.Size = new System.Drawing.Size(89, 20);
+            this.lblEstudiante.Size = new System.Drawing.Size(57, 15);
             this.lblEstudiante.TabIndex = 25;
             this.lblEstudiante.Text = "Estudiante:";
             // 
             // lblDireccion
             // 
             this.lblDireccion.AutoSize = true;
-            this.lblDireccion.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDireccion.Font = new System.Drawing.Font("Bernard MT Condensed", 9F);
+            this.lblDireccion.ForeColor = System.Drawing.Color.White;
             this.lblDireccion.Location = new System.Drawing.Point(80, 257);
             this.lblDireccion.Name = "lblDireccion";
-            this.lblDireccion.Size = new System.Drawing.Size(82, 20);
+            this.lblDireccion.Size = new System.Drawing.Size(54, 15);
             this.lblDireccion.TabIndex = 24;
             this.lblDireccion.Text = "Dirección:";
             // 
             // lblTelefono
             // 
             this.lblTelefono.AutoSize = true;
-            this.lblTelefono.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTelefono.Font = new System.Drawing.Font("Bernard MT Condensed", 9F);
+            this.lblTelefono.ForeColor = System.Drawing.Color.White;
             this.lblTelefono.Location = new System.Drawing.Point(80, 231);
             this.lblTelefono.Name = "lblTelefono";
-            this.lblTelefono.Size = new System.Drawing.Size(78, 20);
+            this.lblTelefono.Size = new System.Drawing.Size(50, 15);
             this.lblTelefono.TabIndex = 23;
             this.lblTelefono.Text = "Telefono:";
             // 
             // lblDate
             // 
             this.lblDate.AutoSize = true;
-            this.lblDate.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.Font = new System.Drawing.Font("Bernard MT Condensed", 9F);
+            this.lblDate.ForeColor = System.Drawing.Color.White;
             this.lblDate.Location = new System.Drawing.Point(80, 205);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(166, 20);
+            this.lblDate.Size = new System.Drawing.Size(106, 15);
             this.lblDate.TabIndex = 22;
             this.lblDate.Text = "Fecha de Nacimiento:";
             // 
             // lblApellido
             // 
             this.lblApellido.AutoSize = true;
-            this.lblApellido.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblApellido.Font = new System.Drawing.Font("Bernard MT Condensed", 9F);
+            this.lblApellido.ForeColor = System.Drawing.Color.White;
             this.lblApellido.Location = new System.Drawing.Point(80, 179);
             this.lblApellido.Name = "lblApellido";
-            this.lblApellido.Size = new System.Drawing.Size(75, 20);
+            this.lblApellido.Size = new System.Drawing.Size(48, 15);
             this.lblApellido.TabIndex = 21;
             this.lblApellido.Text = "Apellido:";
             // 
             // txtApellido
             // 
+            this.txtApellido.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtApellido.Location = new System.Drawing.Point(254, 176);
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(202, 20);
+            this.txtApellido.Size = new System.Drawing.Size(202, 21);
             this.txtApellido.TabIndex = 29;
             this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido_KeyPress);
             // 
             // txtNombre
             // 
+            this.txtNombre.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.Location = new System.Drawing.Point(254, 148);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(202, 20);
+            this.txtNombre.Size = new System.Drawing.Size(202, 21);
             this.txtNombre.TabIndex = 28;
             this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // txtCedula
             // 
+            this.txtCedula.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCedula.Location = new System.Drawing.Point(254, 124);
             this.txtCedula.Name = "txtCedula";
-            this.txtCedula.Size = new System.Drawing.Size(202, 20);
+            this.txtCedula.Size = new System.Drawing.Size(202, 21);
             this.txtCedula.TabIndex = 27;
             this.txtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
             // 
             // txtTelefono
             // 
+            this.txtTelefono.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelefono.Location = new System.Drawing.Point(254, 228);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(202, 20);
+            this.txtTelefono.Size = new System.Drawing.Size(202, 21);
             this.txtTelefono.TabIndex = 32;
             this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // txtDireccion
             // 
+            this.txtDireccion.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDireccion.Location = new System.Drawing.Point(254, 254);
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(202, 20);
+            this.txtDireccion.Size = new System.Drawing.Size(202, 21);
             this.txtDireccion.TabIndex = 31;
             this.txtDireccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDireccion_KeyPress);
             // 
             // cmbEstudiante
             // 
             this.cmbEstudiante.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEstudiante.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbEstudiante.FormattingEnabled = true;
             this.cmbEstudiante.Items.AddRange(new object[] {
             "SI",
@@ -209,6 +223,7 @@
             // cmbEstado
             // 
             this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEstado.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbEstado.FormattingEnabled = true;
             this.cmbEstado.Items.AddRange(new object[] {
             "ACTIVO",
@@ -221,37 +236,41 @@
             // lblEstado
             // 
             this.lblEstado.AutoSize = true;
-            this.lblEstado.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEstado.Font = new System.Drawing.Font("Bernard MT Condensed", 9F);
+            this.lblEstado.ForeColor = System.Drawing.Color.White;
             this.lblEstado.Location = new System.Drawing.Point(80, 343);
             this.lblEstado.Name = "lblEstado";
-            this.lblEstado.Size = new System.Drawing.Size(62, 20);
+            this.lblEstado.Size = new System.Drawing.Size(40, 15);
             this.lblEstado.TabIndex = 38;
             this.lblEstado.Text = "Estado:";
             // 
             // lblComprobante
             // 
             this.lblComprobante.AutoSize = true;
-            this.lblComprobante.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblComprobante.Font = new System.Drawing.Font("Bernard MT Condensed", 9F);
+            this.lblComprobante.ForeColor = System.Drawing.Color.White;
             this.lblComprobante.Location = new System.Drawing.Point(80, 312);
             this.lblComprobante.Name = "lblComprobante";
-            this.lblComprobante.Size = new System.Drawing.Size(119, 20);
+            this.lblComprobante.Size = new System.Drawing.Size(75, 15);
             this.lblComprobante.TabIndex = 39;
             this.lblComprobante.Text = "Comprobante: ";
             // 
             // txtComprobante
             // 
+            this.txtComprobante.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtComprobante.Location = new System.Drawing.Point(254, 312);
             this.txtComprobante.Name = "txtComprobante";
-            this.txtComprobante.Size = new System.Drawing.Size(202, 20);
+            this.txtComprobante.Size = new System.Drawing.Size(202, 21);
             this.txtComprobante.TabIndex = 40;
             this.txtComprobante.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtComprobante_KeyPress);
             // 
             // dtpDate
             // 
+            this.dtpDate.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDate.Location = new System.Drawing.Point(254, 204);
             this.dtpDate.Name = "dtpDate";
-            this.dtpDate.Size = new System.Drawing.Size(103, 20);
+            this.dtpDate.Size = new System.Drawing.Size(103, 21);
             this.dtpDate.TabIndex = 41;
             this.dtpDate.Value = new System.DateTime(2024, 6, 5, 0, 0, 0, 0);
             // 
@@ -259,6 +278,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(546, 482);
             this.Controls.Add(this.dtpDate);

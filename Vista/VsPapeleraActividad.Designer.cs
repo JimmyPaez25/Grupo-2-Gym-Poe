@@ -130,9 +130,11 @@
             // radioButtonDescripcion
             // 
             this.radioButtonDescripcion.AutoSize = true;
+            this.radioButtonDescripcion.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonDescripcion.ForeColor = System.Drawing.Color.White;
             this.radioButtonDescripcion.Location = new System.Drawing.Point(127, 65);
             this.radioButtonDescripcion.Name = "radioButtonDescripcion";
-            this.radioButtonDescripcion.Size = new System.Drawing.Size(81, 17);
+            this.radioButtonDescripcion.Size = new System.Drawing.Size(73, 17);
             this.radioButtonDescripcion.TabIndex = 23;
             this.radioButtonDescripcion.TabStop = true;
             this.radioButtonDescripcion.Text = "Descripcion";
@@ -142,9 +144,11 @@
             // 
             this.radioButtonNombre.AutoSize = true;
             this.radioButtonNombre.Checked = true;
+            this.radioButtonNombre.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonNombre.ForeColor = System.Drawing.Color.White;
             this.radioButtonNombre.Location = new System.Drawing.Point(29, 65);
             this.radioButtonNombre.Name = "radioButtonNombre";
-            this.radioButtonNombre.Size = new System.Drawing.Size(62, 17);
+            this.radioButtonNombre.Size = new System.Drawing.Size(57, 17);
             this.radioButtonNombre.TabIndex = 22;
             this.radioButtonNombre.TabStop = true;
             this.radioButtonNombre.Text = "Nombre";
@@ -152,9 +156,10 @@
             // 
             // textBuscar
             // 
+            this.textBuscar.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBuscar.Location = new System.Drawing.Point(29, 88);
             this.textBuscar.Name = "textBuscar";
-            this.textBuscar.Size = new System.Drawing.Size(171, 20);
+            this.textBuscar.Size = new System.Drawing.Size(171, 21);
             this.textBuscar.TabIndex = 21;
             this.textBuscar.TextChanged += new System.EventHandler(this.textBuscar_TextChanged);
             this.textBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBuscar_KeyPress);
@@ -172,9 +177,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(340, 25);
+            this.label1.Font = new System.Drawing.Font("Bernard MT Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(306, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(155, 13);
+            this.label1.Size = new System.Drawing.Size(201, 22);
             this.label1.TabIndex = 19;
             this.label1.Text = "PAPELERA DE ACTIVIDADES";
             // 
@@ -202,6 +209,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(800, 374);
             this.Controls.Add(this.buttonEliminarPermanente);
             this.Controls.Add(this.buttonRestaurar);

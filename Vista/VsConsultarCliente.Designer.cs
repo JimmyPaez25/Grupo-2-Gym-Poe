@@ -30,6 +30,14 @@
         {
             this.lblGestionCliente = new System.Windows.Forms.Label();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
+            this.clmCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmComprobanteEst = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtCedula = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
@@ -40,24 +48,17 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.btnMostrarTodos = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.clmCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmComprobanteEst = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
             // 
             // lblGestionCliente
             // 
             this.lblGestionCliente.AutoSize = true;
-            this.lblGestionCliente.Font = new System.Drawing.Font("Microsoft YaHei", 20F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.lblGestionCliente.Font = new System.Drawing.Font("Bernard MT Condensed", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGestionCliente.ForeColor = System.Drawing.Color.White;
             this.lblGestionCliente.Location = new System.Drawing.Point(416, 9);
             this.lblGestionCliente.Name = "lblGestionCliente";
-            this.lblGestionCliente.Size = new System.Drawing.Size(265, 36);
+            this.lblGestionCliente.Size = new System.Drawing.Size(213, 31);
             this.lblGestionCliente.TabIndex = 1;
             this.lblGestionCliente.Text = "Gestión de Cliente";
             // 
@@ -80,6 +81,58 @@
             this.dgvClientes.ReadOnly = true;
             this.dgvClientes.Size = new System.Drawing.Size(983, 279);
             this.dgvClientes.TabIndex = 2;
+            // 
+            // clmCedula
+            // 
+            this.clmCedula.HeaderText = "CEDULA";
+            this.clmCedula.Name = "clmCedula";
+            this.clmCedula.ReadOnly = true;
+            // 
+            // clmNombre
+            // 
+            this.clmNombre.HeaderText = "NOMBRE";
+            this.clmNombre.Name = "clmNombre";
+            this.clmNombre.ReadOnly = true;
+            this.clmNombre.Width = 130;
+            // 
+            // clmApellido
+            // 
+            this.clmApellido.HeaderText = "APELLIDO";
+            this.clmApellido.Name = "clmApellido";
+            this.clmApellido.ReadOnly = true;
+            this.clmApellido.Width = 130;
+            // 
+            // clmTelefono
+            // 
+            this.clmTelefono.HeaderText = "TELEFONO";
+            this.clmTelefono.Name = "clmTelefono";
+            this.clmTelefono.ReadOnly = true;
+            // 
+            // clmDireccion
+            // 
+            this.clmDireccion.HeaderText = "DIRECCION";
+            this.clmDireccion.Name = "clmDireccion";
+            this.clmDireccion.ReadOnly = true;
+            this.clmDireccion.Width = 130;
+            // 
+            // clmDate
+            // 
+            this.clmDate.HeaderText = "FECHA DE NACIMIENTO";
+            this.clmDate.Name = "clmDate";
+            this.clmDate.ReadOnly = true;
+            // 
+            // clmComprobanteEst
+            // 
+            this.clmComprobanteEst.HeaderText = "COMPROBANTE DE ESTUDIANTE";
+            this.clmComprobanteEst.Name = "clmComprobanteEst";
+            this.clmComprobanteEst.ReadOnly = true;
+            this.clmComprobanteEst.Width = 150;
+            // 
+            // clmEstado
+            // 
+            this.clmEstado.HeaderText = "ESTADO";
+            this.clmEstado.Name = "clmEstado";
+            this.clmEstado.ReadOnly = true;
             // 
             // txtCedula
             // 
@@ -144,18 +197,22 @@
             // lblCedula
             // 
             this.lblCedula.AutoSize = true;
+            this.lblCedula.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCedula.ForeColor = System.Drawing.Color.White;
             this.lblCedula.Location = new System.Drawing.Point(38, 91);
             this.lblCedula.Name = "lblCedula";
-            this.lblCedula.Size = new System.Drawing.Size(40, 13);
+            this.lblCedula.Size = new System.Drawing.Size(34, 13);
             this.lblCedula.TabIndex = 14;
             this.lblCedula.Text = "Cedula";
             // 
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
+            this.lblNombre.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.ForeColor = System.Drawing.Color.White;
             this.lblNombre.Location = new System.Drawing.Point(233, 91);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(44, 13);
+            this.lblNombre.Size = new System.Drawing.Size(39, 13);
             this.lblNombre.TabIndex = 15;
             this.lblNombre.Text = "Nombre";
             // 
@@ -179,62 +236,11 @@
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // clmCedula
-            // 
-            this.clmCedula.HeaderText = "CEDULA";
-            this.clmCedula.Name = "clmCedula";
-            this.clmCedula.ReadOnly = true;
-            // 
-            // clmNombre
-            // 
-            this.clmNombre.HeaderText = "NOMBRE";
-            this.clmNombre.Name = "clmNombre";
-            this.clmNombre.ReadOnly = true;
-            this.clmNombre.Width = 130;
-            // 
-            // clmApellido
-            // 
-            this.clmApellido.HeaderText = "APELLIDO";
-            this.clmApellido.Name = "clmApellido";
-            this.clmApellido.ReadOnly = true;
-            this.clmApellido.Width = 130;
-            // 
-            // clmTelefono
-            // 
-            this.clmTelefono.HeaderText = "TELEFONO";
-            this.clmTelefono.Name = "clmTelefono";
-            this.clmTelefono.ReadOnly = true;
-            // 
-            // clmDireccion
-            // 
-            this.clmDireccion.HeaderText = "DIRECCION";
-            this.clmDireccion.Name = "clmDireccion";
-            this.clmDireccion.ReadOnly = true;
-            this.clmDireccion.Width = 130;
-            // 
-            // clmDate
-            // 
-            this.clmDate.HeaderText = "FECHA DE NACIMIENTO";
-            this.clmDate.Name = "clmDate";
-            this.clmDate.ReadOnly = true;
-            // 
-            // clmComprobanteEst
-            // 
-            this.clmComprobanteEst.HeaderText = "COMPROBANTE DE ESTUDIANTE";
-            this.clmComprobanteEst.Name = "clmComprobanteEst";
-            this.clmComprobanteEst.ReadOnly = true;
-            this.clmComprobanteEst.Width = 150;
-            // 
-            // clmEstado
-            // 
-            this.clmEstado.HeaderText = "ESTADO";
-            this.clmEstado.Name = "clmEstado";
-            this.clmEstado.ReadOnly = true;
-            // 
             // VsConsultarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1069, 513);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnMostrarTodos);

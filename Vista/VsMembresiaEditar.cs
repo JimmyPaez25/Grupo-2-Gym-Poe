@@ -99,5 +99,10 @@ namespace Vista
         {
             v.ValidarNumerosPorcentaje(sender, e);
         }
+
+        private void VsMembresiaEditar_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

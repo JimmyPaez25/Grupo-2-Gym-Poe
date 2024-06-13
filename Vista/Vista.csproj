@@ -229,5 +229,44 @@
   <ItemGroup>
     <None Include="Resources\img_vtnActividad.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_rataPrincipal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_LetrasGym.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_icoRegistro.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_icoRegistro1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_icoRegistro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\registro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\registro_Img.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\registro_Img1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\registro_Img2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Img_RegistroUser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gym_rat_letra_Img.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ico_rata2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_rata3.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

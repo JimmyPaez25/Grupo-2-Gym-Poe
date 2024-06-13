@@ -29,12 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvRegistroFact = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.FacturaRegistroFact = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombreRegistroFact = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ApellidoRegistroFact = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,6 +41,12 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistroFact)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,31 +66,14 @@
             this.Column4,
             this.Column6,
             this.Column5});
-            this.dgvRegistroFact.Location = new System.Drawing.Point(12, 59);
+            this.dgvRegistroFact.Location = new System.Drawing.Point(9, 48);
+            this.dgvRegistroFact.Margin = new System.Windows.Forms.Padding(2);
             this.dgvRegistroFact.Name = "dgvRegistroFact";
             this.dgvRegistroFact.RowHeadersWidth = 51;
             this.dgvRegistroFact.RowTemplate.Height = 24;
-            this.dgvRegistroFact.Size = new System.Drawing.Size(1732, 246);
+            this.dgvRegistroFact.Size = new System.Drawing.Size(1299, 200);
             this.dgvRegistroFact.TabIndex = 0;
             this.dgvRegistroFact.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistroFact_CellContentClick);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(522, 402);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 16);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Motivo:";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(783, 555);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(248, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Borrar Factura Seleccionada";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // FacturaRegistroFact
             // 
@@ -176,11 +159,67 @@
             this.Column5.Name = "Column5";
             this.Column5.Width = 125;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(56, 19);
+            this.button1.TabIndex = 11;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Location = new System.Drawing.Point(0, 0);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(92, 21);
+            this.comboBox1.TabIndex = 10;
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 19);
+            this.label1.TabIndex = 9;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(0, 0);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(76, 79);
+            this.richTextBox1.TabIndex = 8;
+            this.richTextBox1.Text = "";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(392, 327);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(37, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Motivo:";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(587, 451);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(186, 19);
+            this.button2.TabIndex = 7;
+            this.button2.Text = "Borrar Factura Seleccionada";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // VsConsultarFactura
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1924, 597);
+            this.BackColor = System.Drawing.Color.Black;
+            this.ClientSize = new System.Drawing.Size(1028, 485);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.richTextBox1);
@@ -188,6 +227,7 @@
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dgvRegistroFact);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "VsConsultarFactura";
             this.Text = "VsConsultarFactura";
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistroFact)).EndInit();

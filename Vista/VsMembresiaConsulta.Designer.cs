@@ -119,19 +119,22 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(279, 47);
+            this.label1.Font = new System.Drawing.Font("Bernard MT Condensed", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(365, 47);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(374, 33);
+            this.label1.Size = new System.Drawing.Size(266, 34);
             this.label1.TabIndex = 4;
             this.label1.Text = "CONSULTAR MEMBRESIA";
             // 
             // radioBDP
             // 
             this.radioBDP.AutoSize = true;
+            this.radioBDP.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioBDP.ForeColor = System.Drawing.Color.White;
             this.radioBDP.Location = new System.Drawing.Point(158, 122);
             this.radioBDP.Name = "radioBDP";
-            this.radioBDP.Size = new System.Drawing.Size(110, 17);
+            this.radioBDP.Size = new System.Drawing.Size(102, 17);
             this.radioBDP.TabIndex = 6;
             this.radioBDP.TabStop = true;
             this.radioBDP.Text = "Detalle promoción";
@@ -139,9 +142,10 @@
             // 
             // txtBoxBM
             // 
+            this.txtBoxBM.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoxBM.Location = new System.Drawing.Point(67, 158);
             this.txtBoxBM.Name = "txtBoxBM";
-            this.txtBoxBM.Size = new System.Drawing.Size(201, 20);
+            this.txtBoxBM.Size = new System.Drawing.Size(201, 21);
             this.txtBoxBM.TabIndex = 7;
             // 
             // btnEliminarM
@@ -168,9 +172,11 @@
             // 
             this.radioBCM.AutoSize = true;
             this.radioBCM.Checked = true;
+            this.radioBCM.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioBCM.ForeColor = System.Drawing.Color.White;
             this.radioBCM.Location = new System.Drawing.Point(67, 122);
             this.radioBCM.Name = "radioBCM";
-            this.radioBCM.Size = new System.Drawing.Size(58, 17);
+            this.radioBCM.Size = new System.Drawing.Size(52, 17);
             this.radioBCM.TabIndex = 16;
             this.radioBCM.TabStop = true;
             this.radioBCM.Text = "Cedula";
@@ -190,6 +196,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(980, 542);
             this.Controls.Add(this.btnBM);
             this.Controls.Add(this.radioBCM);

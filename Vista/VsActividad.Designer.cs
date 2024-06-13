@@ -39,11 +39,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.label1.Font = new System.Drawing.Font("Impact", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Bernard MT Condensed", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(197, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(206, 26);
+            this.label1.Size = new System.Drawing.Size(192, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Gestion de Actividad";
             // 
@@ -80,9 +81,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Vista.Properties.Resources.img_vtnActividad;
-            this.pictureBox1.Location = new System.Drawing.Point(85, 72);
+            this.pictureBox1.Location = new System.Drawing.Point(29, -22);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(198, 255);
+            this.pictureBox1.Size = new System.Drawing.Size(347, 432);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
@@ -91,13 +92,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Beige;
+            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(595, 376);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonPapelera);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox1);
             this.MaximizeBox = false;
             this.Name = "VsActividad";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -52,19 +52,19 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(463, 30);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(347, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(164, 16);
+            this.label1.Size = new System.Drawing.Size(96, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "CONSULTAR ACTIVIDAD";
             // 
             // buttonCancelar
             // 
-            this.buttonCancelar.Location = new System.Drawing.Point(48, 391);
-            this.buttonCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonCancelar.Location = new System.Drawing.Point(36, 318);
             this.buttonCancelar.Name = "buttonCancelar";
-            this.buttonCancelar.Size = new System.Drawing.Size(100, 28);
+            this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
             this.buttonCancelar.TabIndex = 13;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
@@ -72,10 +72,9 @@
             // 
             // textBuscar
             // 
-            this.textBuscar.Location = new System.Drawing.Point(48, 107);
-            this.textBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBuscar.Location = new System.Drawing.Point(36, 87);
             this.textBuscar.Name = "textBuscar";
-            this.textBuscar.Size = new System.Drawing.Size(227, 22);
+            this.textBuscar.Size = new System.Drawing.Size(171, 20);
             this.textBuscar.TabIndex = 14;
             this.textBuscar.TextChanged += new System.EventHandler(this.textBuscar_TextChanged);
             this.textBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBuscar_KeyPress);
@@ -84,10 +83,11 @@
             // 
             this.radioButtonNombre.AutoSize = true;
             this.radioButtonNombre.Checked = true;
-            this.radioButtonNombre.Location = new System.Drawing.Point(48, 79);
-            this.radioButtonNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButtonNombre.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonNombre.ForeColor = System.Drawing.Color.White;
+            this.radioButtonNombre.Location = new System.Drawing.Point(36, 64);
             this.radioButtonNombre.Name = "radioButtonNombre";
-            this.radioButtonNombre.Size = new System.Drawing.Size(77, 20);
+            this.radioButtonNombre.Size = new System.Drawing.Size(57, 17);
             this.radioButtonNombre.TabIndex = 15;
             this.radioButtonNombre.TabStop = true;
             this.radioButtonNombre.Text = "Nombre";
@@ -96,10 +96,11 @@
             // radioButtonDescripcion
             // 
             this.radioButtonDescripcion.AutoSize = true;
-            this.radioButtonDescripcion.Location = new System.Drawing.Point(179, 79);
-            this.radioButtonDescripcion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButtonDescripcion.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonDescripcion.ForeColor = System.Drawing.Color.White;
+            this.radioButtonDescripcion.Location = new System.Drawing.Point(134, 64);
             this.radioButtonDescripcion.Name = "radioButtonDescripcion";
-            this.radioButtonDescripcion.Size = new System.Drawing.Size(100, 20);
+            this.radioButtonDescripcion.Size = new System.Drawing.Size(73, 17);
             this.radioButtonDescripcion.TabIndex = 16;
             this.radioButtonDescripcion.TabStop = true;
             this.radioButtonDescripcion.Text = "Descripcion";
@@ -107,10 +108,9 @@
             // 
             // buttonBuscar
             // 
-            this.buttonBuscar.Location = new System.Drawing.Point(299, 103);
-            this.buttonBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonBuscar.Location = new System.Drawing.Point(224, 84);
             this.buttonBuscar.Name = "buttonBuscar";
-            this.buttonBuscar.Size = new System.Drawing.Size(100, 28);
+            this.buttonBuscar.Size = new System.Drawing.Size(75, 23);
             this.buttonBuscar.TabIndex = 17;
             this.buttonBuscar.Text = "Buscar";
             this.buttonBuscar.UseVisualStyleBackColor = true;
@@ -130,12 +130,11 @@
             this.ClmFechaFin,
             this.ClmHoraInicio,
             this.ClmHoraFin});
-            this.dgvActividad.Location = new System.Drawing.Point(48, 164);
-            this.dgvActividad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvActividad.Location = new System.Drawing.Point(36, 133);
             this.dgvActividad.Name = "dgvActividad";
             this.dgvActividad.ReadOnly = true;
             this.dgvActividad.RowHeadersWidth = 51;
-            this.dgvActividad.Size = new System.Drawing.Size(992, 199);
+            this.dgvActividad.Size = new System.Drawing.Size(744, 162);
             this.dgvActividad.TabIndex = 18;
             this.dgvActividad.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvActividad_CellContentClick);
             // 
@@ -206,10 +205,9 @@
             // 
             // buttonEditar
             // 
-            this.buttonEditar.Location = new System.Drawing.Point(812, 107);
-            this.buttonEditar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonEditar.Location = new System.Drawing.Point(609, 87);
             this.buttonEditar.Name = "buttonEditar";
-            this.buttonEditar.Size = new System.Drawing.Size(100, 28);
+            this.buttonEditar.Size = new System.Drawing.Size(75, 23);
             this.buttonEditar.TabIndex = 19;
             this.buttonEditar.Text = "Editar";
             this.buttonEditar.UseVisualStyleBackColor = true;
@@ -217,10 +215,9 @@
             // 
             // buttonEliminar
             // 
-            this.buttonEliminar.Location = new System.Drawing.Point(940, 107);
-            this.buttonEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonEliminar.Location = new System.Drawing.Point(705, 87);
             this.buttonEliminar.Name = "buttonEliminar";
-            this.buttonEliminar.Size = new System.Drawing.Size(100, 28);
+            this.buttonEliminar.Size = new System.Drawing.Size(75, 23);
             this.buttonEliminar.TabIndex = 20;
             this.buttonEliminar.Text = "Eliminar";
             this.buttonEliminar.UseVisualStyleBackColor = true;
@@ -228,10 +225,9 @@
             // 
             // buttonSeleccionar
             // 
-            this.buttonSeleccionar.Location = new System.Drawing.Point(176, 391);
-            this.buttonSeleccionar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonSeleccionar.Location = new System.Drawing.Point(132, 318);
             this.buttonSeleccionar.Name = "buttonSeleccionar";
-            this.buttonSeleccionar.Size = new System.Drawing.Size(100, 28);
+            this.buttonSeleccionar.Size = new System.Drawing.Size(75, 23);
             this.buttonSeleccionar.TabIndex = 21;
             this.buttonSeleccionar.Text = "Seleccionar";
             this.buttonSeleccionar.UseVisualStyleBackColor = true;
@@ -239,9 +235,10 @@
             // 
             // VsConsultarActividad
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1097, 460);
+            this.BackColor = System.Drawing.Color.Black;
+            this.ClientSize = new System.Drawing.Size(823, 374);
             this.Controls.Add(this.buttonSeleccionar);
             this.Controls.Add(this.buttonEliminar);
             this.Controls.Add(this.buttonEditar);
@@ -252,7 +249,6 @@
             this.Controls.Add(this.textBuscar);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "VsConsultarActividad";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
