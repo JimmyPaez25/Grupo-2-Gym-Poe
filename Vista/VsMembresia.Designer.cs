@@ -58,6 +58,8 @@
             this.txtBoxPreM = new System.Windows.Forms.TextBox();
             this.btnCM = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblPorcentaje = new System.Windows.Forms.Label();
+            this.lblDinero = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -144,23 +146,31 @@
             // labelD
             // 
             this.labelD.AutoSize = true;
-            this.labelD.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelD.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelD.ForeColor = System.Drawing.Color.White;
             this.labelD.Location = new System.Drawing.Point(143, 323);
             this.labelD.Name = "labelD";
-            this.labelD.Size = new System.Drawing.Size(62, 13);
+            this.labelD.Size = new System.Drawing.Size(52, 13);
             this.labelD.TabIndex = 7;
             this.labelD.Text = "Descuento:";
             this.labelD.Visible = false;
             // 
             // btnRegistrar
             // 
-            this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrar.BackColor = System.Drawing.Color.Transparent;
+            this.btnRegistrar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnRegistrar.FlatAppearance.BorderSize = 2;
+            this.btnRegistrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnRegistrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistrar.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrar.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnRegistrar.Location = new System.Drawing.Point(419, 381);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(75, 23);
             this.btnRegistrar.TabIndex = 8;
             this.btnRegistrar.Text = "Asignar";
-            this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.UseVisualStyleBackColor = false;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // txtBoxM
@@ -358,9 +368,11 @@
             // lblPreM
             // 
             this.lblPreM.AutoSize = true;
-            this.lblPreM.Location = new System.Drawing.Point(142, 349);
+            this.lblPreM.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPreM.ForeColor = System.Drawing.Color.White;
+            this.lblPreM.Location = new System.Drawing.Point(142, 350);
             this.lblPreM.Name = "lblPreM";
-            this.lblPreM.Size = new System.Drawing.Size(40, 13);
+            this.lblPreM.Size = new System.Drawing.Size(37, 13);
             this.lblPreM.TabIndex = 29;
             this.lblPreM.Text = "Precio:";
             // 
@@ -377,12 +389,20 @@
             // 
             // btnCM
             // 
+            this.btnCM.BackColor = System.Drawing.Color.Transparent;
+            this.btnCM.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCM.FlatAppearance.BorderSize = 2;
+            this.btnCM.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnCM.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.btnCM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCM.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCM.ForeColor = System.Drawing.Color.White;
             this.btnCM.Location = new System.Drawing.Point(294, 381);
             this.btnCM.Name = "btnCM";
             this.btnCM.Size = new System.Drawing.Size(75, 23);
             this.btnCM.TabIndex = 31;
             this.btnCM.Text = "Cancelar";
-            this.btnCM.UseVisualStyleBackColor = true;
+            this.btnCM.UseVisualStyleBackColor = false;
             this.btnCM.Click += new System.EventHandler(this.btnCM_Click);
             // 
             // pictureBox1
@@ -395,12 +415,36 @@
             this.pictureBox1.TabIndex = 17;
             this.pictureBox1.TabStop = false;
             // 
+            // lblPorcentaje
+            // 
+            this.lblPorcentaje.AutoSize = true;
+            this.lblPorcentaje.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPorcentaje.ForeColor = System.Drawing.Color.White;
+            this.lblPorcentaje.Location = new System.Drawing.Point(375, 319);
+            this.lblPorcentaje.Name = "lblPorcentaje";
+            this.lblPorcentaje.Size = new System.Drawing.Size(16, 13);
+            this.lblPorcentaje.TabIndex = 36;
+            this.lblPorcentaje.Text = "%";
+            // 
+            // lblDinero
+            // 
+            this.lblDinero.AutoSize = true;
+            this.lblDinero.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDinero.ForeColor = System.Drawing.Color.White;
+            this.lblDinero.Location = new System.Drawing.Point(377, 345);
+            this.lblDinero.Name = "lblDinero";
+            this.lblDinero.Size = new System.Drawing.Size(14, 13);
+            this.lblDinero.TabIndex = 37;
+            this.lblDinero.Text = "$";
+            // 
             // VsMembresia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(800, 416);
+            this.Controls.Add(this.lblDinero);
+            this.Controls.Add(this.lblPorcentaje);
             this.Controls.Add(this.btnCM);
             this.Controls.Add(this.txtBoxPreM);
             this.Controls.Add(this.lblPreM);
@@ -472,5 +516,7 @@
         private System.Windows.Forms.Label lblPreM;
         private System.Windows.Forms.TextBox txtBoxPreM;
         private System.Windows.Forms.Button btnCM;
+        private System.Windows.Forms.Label lblPorcentaje;
+        private System.Windows.Forms.Label lblDinero;
     }
 }

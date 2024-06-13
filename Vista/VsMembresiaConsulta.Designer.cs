@@ -150,22 +150,38 @@
             // 
             // btnEliminarM
             // 
-            this.btnEliminarM.Location = new System.Drawing.Point(844, 122);
+            this.btnEliminarM.BackColor = System.Drawing.Color.Transparent;
+            this.btnEliminarM.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnEliminarM.FlatAppearance.BorderSize = 2;
+            this.btnEliminarM.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnEliminarM.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.btnEliminarM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarM.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarM.ForeColor = System.Drawing.Color.White;
+            this.btnEliminarM.Location = new System.Drawing.Point(844, 147);
             this.btnEliminarM.Name = "btnEliminarM";
-            this.btnEliminarM.Size = new System.Drawing.Size(67, 56);
+            this.btnEliminarM.Size = new System.Drawing.Size(67, 31);
             this.btnEliminarM.TabIndex = 8;
             this.btnEliminarM.Text = "Eliminar";
-            this.btnEliminarM.UseVisualStyleBackColor = true;
+            this.btnEliminarM.UseVisualStyleBackColor = false;
             this.btnEliminarM.Click += new System.EventHandler(this.btnEliminarM_Click);
             // 
             // btnEM
             // 
-            this.btnEM.Location = new System.Drawing.Point(741, 122);
+            this.btnEM.BackColor = System.Drawing.Color.Transparent;
+            this.btnEM.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnEM.FlatAppearance.BorderSize = 2;
+            this.btnEM.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnEM.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.btnEM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEM.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEM.ForeColor = System.Drawing.Color.White;
+            this.btnEM.Location = new System.Drawing.Point(743, 148);
             this.btnEM.Name = "btnEM";
-            this.btnEM.Size = new System.Drawing.Size(67, 56);
+            this.btnEM.Size = new System.Drawing.Size(67, 31);
             this.btnEM.TabIndex = 9;
             this.btnEM.Text = "Editar";
-            this.btnEM.UseVisualStyleBackColor = true;
+            this.btnEM.UseVisualStyleBackColor = false;
             this.btnEM.Click += new System.EventHandler(this.btnEM_Click);
             // 
             // radioBCM
@@ -184,9 +200,16 @@
             // 
             // btnBM
             // 
-            this.btnBM.Location = new System.Drawing.Point(285, 158);
+            this.btnBM.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnBM.FlatAppearance.BorderSize = 2;
+            this.btnBM.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnBM.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.btnBM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBM.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBM.ForeColor = System.Drawing.Color.White;
+            this.btnBM.Location = new System.Drawing.Point(285, 147);
             this.btnBM.Name = "btnBM";
-            this.btnBM.Size = new System.Drawing.Size(75, 20);
+            this.btnBM.Size = new System.Drawing.Size(75, 31);
             this.btnBM.TabIndex = 17;
             this.btnBM.Text = "Buscar";
             this.btnBM.UseVisualStyleBackColor = true;

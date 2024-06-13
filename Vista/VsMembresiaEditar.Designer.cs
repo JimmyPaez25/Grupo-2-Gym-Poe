@@ -56,6 +56,8 @@
             this.lblNEM = new System.Windows.Forms.Label();
             this.lblCEM = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblPorcentajeE = new System.Windows.Forms.Label();
+            this.lblDineroE = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -139,6 +141,13 @@
             // 
             // btnAME
             // 
+            this.btnAME.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnAME.FlatAppearance.BorderSize = 2;
+            this.btnAME.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnAME.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.btnAME.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAME.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAME.ForeColor = System.Drawing.Color.White;
             this.btnAME.Location = new System.Drawing.Point(297, 360);
             this.btnAME.Name = "btnAME";
             this.btnAME.Size = new System.Drawing.Size(75, 23);
@@ -242,12 +251,20 @@
             // 
             // btnCME
             // 
+            this.btnCME.BackColor = System.Drawing.Color.Transparent;
+            this.btnCME.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCME.FlatAppearance.BorderSize = 2;
+            this.btnCME.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnCME.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.btnCME.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCME.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCME.ForeColor = System.Drawing.Color.White;
             this.btnCME.Location = new System.Drawing.Point(422, 360);
             this.btnCME.Name = "btnCME";
             this.btnCME.Size = new System.Drawing.Size(75, 23);
             this.btnCME.TabIndex = 34;
             this.btnCME.Text = "Cancelar";
-            this.btnCME.UseVisualStyleBackColor = true;
+            this.btnCME.UseVisualStyleBackColor = false;
             this.btnCME.Click += new System.EventHandler(this.btnCME_Click);
             // 
             // lblEME
@@ -340,12 +357,36 @@
             this.pictureBox1.TabIndex = 21;
             this.pictureBox1.TabStop = false;
             // 
+            // lblPorcentajeE
+            // 
+            this.lblPorcentajeE.AutoSize = true;
+            this.lblPorcentajeE.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPorcentajeE.ForeColor = System.Drawing.Color.White;
+            this.lblPorcentajeE.Location = new System.Drawing.Point(378, 288);
+            this.lblPorcentajeE.Name = "lblPorcentajeE";
+            this.lblPorcentajeE.Size = new System.Drawing.Size(16, 13);
+            this.lblPorcentajeE.TabIndex = 35;
+            this.lblPorcentajeE.Text = "%";
+            // 
+            // lblDineroE
+            // 
+            this.lblDineroE.AutoSize = true;
+            this.lblDineroE.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDineroE.ForeColor = System.Drawing.Color.White;
+            this.lblDineroE.Location = new System.Drawing.Point(380, 314);
+            this.lblDineroE.Name = "lblDineroE";
+            this.lblDineroE.Size = new System.Drawing.Size(14, 13);
+            this.lblDineroE.TabIndex = 36;
+            this.lblDineroE.Text = "$";
+            // 
             // VsMembresiaEditar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(800, 416);
+            this.Controls.Add(this.lblDineroE);
+            this.Controls.Add(this.lblPorcentajeE);
             this.Controls.Add(this.lblCEM);
             this.Controls.Add(this.btnCME);
             this.Controls.Add(this.lblPAM);
@@ -413,5 +454,7 @@
         private System.Windows.Forms.Label lblAEM;
         private System.Windows.Forms.Label lblNEM;
         private System.Windows.Forms.Label lblCEM;
+        private System.Windows.Forms.Label lblPorcentajeE;
+        private System.Windows.Forms.Label lblDineroE;
     }
 }

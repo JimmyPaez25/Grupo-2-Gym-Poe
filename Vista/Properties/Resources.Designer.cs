@@ -63,6 +63,26 @@ namespace Vista.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap gestion_img {
+            get {
+                object obj = ResourceManager.GetObject("gestion_img", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gestion1_img {
+            get {
+                object obj = ResourceManager.GetObject("gestion1_img", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Gym_rat_letra_Img {
             get {
                 object obj = ResourceManager.GetObject("Gym_rat_letra_Img", resourceCulture);
