@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VsConsultarCliente));
             this.lblGestionCliente = new System.Windows.Forms.Label();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.clmCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,6 +67,7 @@
             // 
             this.dgvClientes.AllowUserToAddRows = false;
             this.dgvClientes.AllowUserToDeleteRows = false;
+            this.dgvClientes.BackgroundColor = System.Drawing.Color.Black;
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmCedula,
@@ -76,6 +78,7 @@
             this.clmDate,
             this.clmComprobanteEst,
             this.clmEstado});
+            this.dgvClientes.GridColor = System.Drawing.SystemColors.ButtonShadow;
             this.dgvClientes.Location = new System.Drawing.Point(41, 156);
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
@@ -136,51 +139,87 @@
             // 
             // txtCedula
             // 
+            this.txtCedula.BackColor = System.Drawing.Color.Black;
+            this.txtCedula.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCedula.Font = new System.Drawing.Font("Bernard MT Condensed", 9F);
+            this.txtCedula.ForeColor = System.Drawing.Color.White;
             this.txtCedula.Location = new System.Drawing.Point(41, 111);
             this.txtCedula.Name = "txtCedula";
-            this.txtCedula.Size = new System.Drawing.Size(189, 20);
+            this.txtCedula.Size = new System.Drawing.Size(189, 22);
             this.txtCedula.TabIndex = 4;
             this.txtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Tai Le", 9F);
+            this.btnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnBuscar.FlatAppearance.BorderSize = 2;
+            this.btnBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Font = new System.Drawing.Font("Bernard MT Condensed", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.ForeColor = System.Drawing.Color.White;
+            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
+            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBuscar.Location = new System.Drawing.Point(445, 91);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(78, 41);
+            this.btnBuscar.Size = new System.Drawing.Size(87, 41);
             this.btnBuscar.TabIndex = 5;
             this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Font = new System.Drawing.Font("Microsoft Tai Le", 9F);
+            this.btnActualizar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnActualizar.FlatAppearance.BorderSize = 2;
+            this.btnActualizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnActualizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActualizar.Font = new System.Drawing.Font("Bernard MT Condensed", 9F);
+            this.btnActualizar.ForeColor = System.Drawing.Color.White;
+            this.btnActualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnActualizar.Image")));
+            this.btnActualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnActualizar.Location = new System.Drawing.Point(41, 442);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(87, 41);
+            this.btnActualizar.Size = new System.Drawing.Size(107, 41);
             this.btnActualizar.TabIndex = 6;
             this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // btnDarBaja
             // 
-            this.btnDarBaja.Font = new System.Drawing.Font("Microsoft Tai Le", 9F);
-            this.btnDarBaja.Location = new System.Drawing.Point(134, 441);
+            this.btnDarBaja.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnDarBaja.FlatAppearance.BorderSize = 2;
+            this.btnDarBaja.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnDarBaja.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.btnDarBaja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDarBaja.Font = new System.Drawing.Font("Bernard MT Condensed", 9F);
+            this.btnDarBaja.ForeColor = System.Drawing.Color.White;
+            this.btnDarBaja.Image = ((System.Drawing.Image)(resources.GetObject("btnDarBaja.Image")));
+            this.btnDarBaja.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDarBaja.Location = new System.Drawing.Point(159, 441);
             this.btnDarBaja.Name = "btnDarBaja";
-            this.btnDarBaja.Size = new System.Drawing.Size(101, 43);
+            this.btnDarBaja.Size = new System.Drawing.Size(113, 41);
             this.btnDarBaja.TabIndex = 7;
             this.btnDarBaja.Text = "Dar de Baja";
+            this.btnDarBaja.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDarBaja.UseVisualStyleBackColor = true;
             this.btnDarBaja.Click += new System.EventHandler(this.btnDarBaja_Click);
             // 
             // btnConsultarM
             // 
-            this.btnConsultarM.Font = new System.Drawing.Font("Microsoft Tai Le", 9F);
-            this.btnConsultarM.Location = new System.Drawing.Point(949, 90);
+            this.btnConsultarM.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnConsultarM.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnConsultarM.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.btnConsultarM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsultarM.Font = new System.Drawing.Font("Bernard MT Condensed", 9F);
+            this.btnConsultarM.ForeColor = System.Drawing.Color.White;
+            this.btnConsultarM.Location = new System.Drawing.Point(941, 90);
             this.btnConsultarM.Name = "btnConsultarM";
-            this.btnConsultarM.Size = new System.Drawing.Size(75, 41);
+            this.btnConsultarM.Size = new System.Drawing.Size(83, 41);
             this.btnConsultarM.TabIndex = 8;
             this.btnConsultarM.Text = "Consultar Membresia";
             this.btnConsultarM.UseVisualStyleBackColor = true;
@@ -188,9 +227,13 @@
             // 
             // txtNombre
             // 
+            this.txtNombre.BackColor = System.Drawing.Color.Black;
+            this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNombre.Font = new System.Drawing.Font("Bernard MT Condensed", 9F);
+            this.txtNombre.ForeColor = System.Drawing.Color.White;
             this.txtNombre.Location = new System.Drawing.Point(236, 112);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(189, 20);
+            this.txtNombre.Size = new System.Drawing.Size(189, 22);
             this.txtNombre.TabIndex = 13;
             this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             // 
@@ -218,21 +261,41 @@
             // 
             // btnMostrarTodos
             // 
-            this.btnMostrarTodos.Location = new System.Drawing.Point(529, 91);
+            this.btnMostrarTodos.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnMostrarTodos.FlatAppearance.BorderSize = 2;
+            this.btnMostrarTodos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnMostrarTodos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.btnMostrarTodos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMostrarTodos.Font = new System.Drawing.Font("Bernard MT Condensed", 9F);
+            this.btnMostrarTodos.ForeColor = System.Drawing.Color.White;
+            this.btnMostrarTodos.Image = global::Vista.Properties.Resources.Img_RegistroUser;
+            this.btnMostrarTodos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMostrarTodos.Location = new System.Drawing.Point(561, 92);
             this.btnMostrarTodos.Name = "btnMostrarTodos";
-            this.btnMostrarTodos.Size = new System.Drawing.Size(75, 40);
+            this.btnMostrarTodos.Size = new System.Drawing.Size(124, 40);
             this.btnMostrarTodos.TabIndex = 16;
             this.btnMostrarTodos.Text = "Mostras Clientes";
+            this.btnMostrarTodos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnMostrarTodos.UseVisualStyleBackColor = true;
             this.btnMostrarTodos.Click += new System.EventHandler(this.btnMostrarTodos_Click);
             // 
             // btnCerrar
             // 
-            this.btnCerrar.Location = new System.Drawing.Point(949, 441);
+            this.btnCerrar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCerrar.FlatAppearance.BorderSize = 2;
+            this.btnCerrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.Font = new System.Drawing.Font("Bernard MT Condensed", 9F);
+            this.btnCerrar.ForeColor = System.Drawing.Color.White;
+            this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
+            this.btnCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCerrar.Location = new System.Drawing.Point(941, 441);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(75, 41);
+            this.btnCerrar.Size = new System.Drawing.Size(83, 41);
             this.btnCerrar.TabIndex = 17;
             this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 

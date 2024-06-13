@@ -56,7 +56,7 @@
             this.lblRegistro.AutoSize = true;
             this.lblRegistro.Font = new System.Drawing.Font("Bernard MT Condensed", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRegistro.ForeColor = System.Drawing.Color.White;
-            this.lblRegistro.Location = new System.Drawing.Point(167, 49);
+            this.lblRegistro.Location = new System.Drawing.Point(151, 9);
             this.lblRegistro.Name = "lblRegistro";
             this.lblRegistro.Size = new System.Drawing.Size(224, 31);
             this.lblRegistro.TabIndex = 1;
@@ -65,143 +65,166 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Bernard MT Condensed", 9F);
+            this.lblName.Font = new System.Drawing.Font("Bernard MT Condensed", 12F);
             this.lblName.ForeColor = System.Drawing.Color.White;
-            this.lblName.Location = new System.Drawing.Point(80, 151);
+            this.lblName.Location = new System.Drawing.Point(83, 90);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(46, 15);
+            this.lblName.Size = new System.Drawing.Size(61, 19);
             this.lblName.TabIndex = 4;
             this.lblName.Text = "Nombre:";
             // 
             // lblCedula
             // 
             this.lblCedula.AutoSize = true;
-            this.lblCedula.Font = new System.Drawing.Font("Bernard MT Condensed", 9F);
+            this.lblCedula.Font = new System.Drawing.Font("Bernard MT Condensed", 12F);
             this.lblCedula.ForeColor = System.Drawing.Color.White;
-            this.lblCedula.Location = new System.Drawing.Point(80, 127);
+            this.lblCedula.Location = new System.Drawing.Point(80, 59);
             this.lblCedula.Name = "lblCedula";
-            this.lblCedula.Size = new System.Drawing.Size(41, 15);
+            this.lblCedula.Size = new System.Drawing.Size(55, 19);
             this.lblCedula.TabIndex = 3;
             this.lblCedula.Text = "Cedula:";
             // 
             // lblEstudiante
             // 
             this.lblEstudiante.AutoSize = true;
-            this.lblEstudiante.Font = new System.Drawing.Font("Bernard MT Condensed", 9F);
+            this.lblEstudiante.Font = new System.Drawing.Font("Bernard MT Condensed", 12F);
             this.lblEstudiante.ForeColor = System.Drawing.Color.White;
-            this.lblEstudiante.Location = new System.Drawing.Point(80, 283);
+            this.lblEstudiante.Location = new System.Drawing.Point(80, 247);
             this.lblEstudiante.Name = "lblEstudiante";
-            this.lblEstudiante.Size = new System.Drawing.Size(57, 15);
+            this.lblEstudiante.Size = new System.Drawing.Size(76, 19);
             this.lblEstudiante.TabIndex = 25;
             this.lblEstudiante.Text = "Estudiante:";
             // 
             // lblDireccion
             // 
             this.lblDireccion.AutoSize = true;
-            this.lblDireccion.Font = new System.Drawing.Font("Bernard MT Condensed", 9F);
+            this.lblDireccion.Font = new System.Drawing.Font("Bernard MT Condensed", 12F);
             this.lblDireccion.ForeColor = System.Drawing.Color.White;
-            this.lblDireccion.Location = new System.Drawing.Point(80, 257);
+            this.lblDireccion.Location = new System.Drawing.Point(80, 214);
             this.lblDireccion.Name = "lblDireccion";
-            this.lblDireccion.Size = new System.Drawing.Size(54, 15);
+            this.lblDireccion.Size = new System.Drawing.Size(71, 19);
             this.lblDireccion.TabIndex = 24;
             this.lblDireccion.Text = "Dirección:";
             // 
             // lblTelefono
             // 
             this.lblTelefono.AutoSize = true;
-            this.lblTelefono.Font = new System.Drawing.Font("Bernard MT Condensed", 9F);
+            this.lblTelefono.Font = new System.Drawing.Font("Bernard MT Condensed", 12F);
             this.lblTelefono.ForeColor = System.Drawing.Color.White;
-            this.lblTelefono.Location = new System.Drawing.Point(80, 231);
+            this.lblTelefono.Location = new System.Drawing.Point(80, 182);
             this.lblTelefono.Name = "lblTelefono";
-            this.lblTelefono.Size = new System.Drawing.Size(50, 15);
+            this.lblTelefono.Size = new System.Drawing.Size(67, 19);
             this.lblTelefono.TabIndex = 23;
             this.lblTelefono.Text = "Telefono:";
             // 
             // lblDate
             // 
             this.lblDate.AutoSize = true;
-            this.lblDate.Font = new System.Drawing.Font("Bernard MT Condensed", 9F);
+            this.lblDate.Font = new System.Drawing.Font("Bernard MT Condensed", 12F);
             this.lblDate.ForeColor = System.Drawing.Color.White;
-            this.lblDate.Location = new System.Drawing.Point(80, 205);
+            this.lblDate.Location = new System.Drawing.Point(80, 152);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(106, 15);
+            this.lblDate.Size = new System.Drawing.Size(140, 19);
             this.lblDate.TabIndex = 22;
             this.lblDate.Text = "Fecha de Nacimiento:";
             // 
             // lblApellido
             // 
             this.lblApellido.AutoSize = true;
-            this.lblApellido.Font = new System.Drawing.Font("Bernard MT Condensed", 9F);
+            this.lblApellido.Font = new System.Drawing.Font("Bernard MT Condensed", 12F);
             this.lblApellido.ForeColor = System.Drawing.Color.White;
-            this.lblApellido.Location = new System.Drawing.Point(80, 179);
+            this.lblApellido.Location = new System.Drawing.Point(83, 122);
             this.lblApellido.Name = "lblApellido";
-            this.lblApellido.Size = new System.Drawing.Size(48, 15);
+            this.lblApellido.Size = new System.Drawing.Size(64, 19);
             this.lblApellido.TabIndex = 21;
             this.lblApellido.Text = "Apellido:";
             // 
             // txtApellido
             // 
-            this.txtApellido.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtApellido.Location = new System.Drawing.Point(254, 176);
+            this.txtApellido.BackColor = System.Drawing.Color.Black;
+            this.txtApellido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtApellido.Font = new System.Drawing.Font("Bernard MT Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtApellido.ForeColor = System.Drawing.Color.White;
+            this.txtApellido.Location = new System.Drawing.Point(254, 115);
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(202, 21);
+            this.txtApellido.Size = new System.Drawing.Size(202, 26);
             this.txtApellido.TabIndex = 29;
             this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido_KeyPress);
             // 
             // txtNombre
             // 
-            this.txtNombre.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(254, 148);
+            this.txtNombre.BackColor = System.Drawing.Color.Black;
+            this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNombre.Font = new System.Drawing.Font("Bernard MT Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombre.ForeColor = System.Drawing.Color.White;
+            this.txtNombre.Location = new System.Drawing.Point(254, 83);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(202, 21);
+            this.txtNombre.Size = new System.Drawing.Size(202, 26);
             this.txtNombre.TabIndex = 28;
             this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // txtCedula
             // 
-            this.txtCedula.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCedula.Location = new System.Drawing.Point(254, 124);
+            this.txtCedula.BackColor = System.Drawing.Color.Black;
+            this.txtCedula.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCedula.Font = new System.Drawing.Font("Bernard MT Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCedula.ForeColor = System.Drawing.Color.White;
+            this.txtCedula.Location = new System.Drawing.Point(254, 52);
             this.txtCedula.Name = "txtCedula";
-            this.txtCedula.Size = new System.Drawing.Size(202, 21);
+            this.txtCedula.Size = new System.Drawing.Size(202, 26);
             this.txtCedula.TabIndex = 27;
             this.txtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefono.Location = new System.Drawing.Point(254, 228);
+            this.txtTelefono.BackColor = System.Drawing.Color.Black;
+            this.txtTelefono.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTelefono.Font = new System.Drawing.Font("Bernard MT Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefono.ForeColor = System.Drawing.Color.White;
+            this.txtTelefono.Location = new System.Drawing.Point(254, 177);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(202, 21);
+            this.txtTelefono.Size = new System.Drawing.Size(202, 26);
             this.txtTelefono.TabIndex = 32;
             this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // txtDireccion
             // 
-            this.txtDireccion.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDireccion.Location = new System.Drawing.Point(254, 254);
+            this.txtDireccion.BackColor = System.Drawing.Color.Black;
+            this.txtDireccion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDireccion.Font = new System.Drawing.Font("Bernard MT Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDireccion.ForeColor = System.Drawing.Color.White;
+            this.txtDireccion.Location = new System.Drawing.Point(254, 207);
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(202, 21);
+            this.txtDireccion.Size = new System.Drawing.Size(202, 26);
             this.txtDireccion.TabIndex = 31;
             this.txtDireccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDireccion_KeyPress);
             // 
             // cmbEstudiante
             // 
+            this.cmbEstudiante.BackColor = System.Drawing.Color.White;
             this.cmbEstudiante.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbEstudiante.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbEstudiante.Font = new System.Drawing.Font("Bernard MT Condensed", 12.25F);
+            this.cmbEstudiante.ForeColor = System.Drawing.Color.Black;
             this.cmbEstudiante.FormattingEnabled = true;
             this.cmbEstudiante.Items.AddRange(new object[] {
             "SI",
             "NO"});
-            this.cmbEstudiante.Location = new System.Drawing.Point(254, 282);
+            this.cmbEstudiante.Location = new System.Drawing.Point(254, 239);
             this.cmbEstudiante.Name = "cmbEstudiante";
-            this.cmbEstudiante.Size = new System.Drawing.Size(84, 21);
+            this.cmbEstudiante.Size = new System.Drawing.Size(84, 27);
             this.cmbEstudiante.TabIndex = 30;
             this.cmbEstudiante.SelectedIndexChanged += new System.EventHandler(this.cmbEstudiante_SelectedIndexChanged);
             // 
             // btnRegistrar
             // 
-            this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Tai Le", 12F);
-            this.btnRegistrar.Location = new System.Drawing.Point(123, 385);
+            this.btnRegistrar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnRegistrar.FlatAppearance.BorderSize = 2;
+            this.btnRegistrar.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.btnRegistrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistrar.Font = new System.Drawing.Font("Bernard MT Condensed", 9F);
+            this.btnRegistrar.ForeColor = System.Drawing.Color.White;
+            this.btnRegistrar.Location = new System.Drawing.Point(119, 385);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(99, 52);
             this.btnRegistrar.TabIndex = 34;
@@ -211,8 +234,14 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(292, 385);
+            this.btnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCancelar.FlatAppearance.BorderSize = 2;
+            this.btnCancelar.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
+            this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Bernard MT Condensed", 9F);
+            this.btnCancelar.ForeColor = System.Drawing.Color.White;
+            this.btnCancelar.Location = new System.Drawing.Point(307, 385);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(99, 52);
             this.btnCancelar.TabIndex = 35;
@@ -222,55 +251,63 @@
             // 
             // cmbEstado
             // 
+            this.cmbEstado.BackColor = System.Drawing.Color.Black;
             this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbEstado.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbEstado.Font = new System.Drawing.Font("Bernard MT Condensed", 12.25F);
+            this.cmbEstado.ForeColor = System.Drawing.Color.White;
             this.cmbEstado.FormattingEnabled = true;
             this.cmbEstado.Items.AddRange(new object[] {
             "ACTIVO",
             "INACTIVO"});
-            this.cmbEstado.Location = new System.Drawing.Point(254, 342);
+            this.cmbEstado.Location = new System.Drawing.Point(254, 303);
             this.cmbEstado.Name = "cmbEstado";
-            this.cmbEstado.Size = new System.Drawing.Size(121, 21);
+            this.cmbEstado.Size = new System.Drawing.Size(121, 27);
             this.cmbEstado.TabIndex = 37;
+            this.cmbEstado.SelectedIndexChanged += new System.EventHandler(this.cmbEstado_SelectedIndexChanged);
             // 
             // lblEstado
             // 
             this.lblEstado.AutoSize = true;
-            this.lblEstado.Font = new System.Drawing.Font("Bernard MT Condensed", 9F);
+            this.lblEstado.Font = new System.Drawing.Font("Bernard MT Condensed", 12F);
             this.lblEstado.ForeColor = System.Drawing.Color.White;
-            this.lblEstado.Location = new System.Drawing.Point(80, 343);
+            this.lblEstado.Location = new System.Drawing.Point(83, 311);
             this.lblEstado.Name = "lblEstado";
-            this.lblEstado.Size = new System.Drawing.Size(40, 15);
+            this.lblEstado.Size = new System.Drawing.Size(53, 19);
             this.lblEstado.TabIndex = 38;
             this.lblEstado.Text = "Estado:";
             // 
             // lblComprobante
             // 
             this.lblComprobante.AutoSize = true;
-            this.lblComprobante.Font = new System.Drawing.Font("Bernard MT Condensed", 9F);
+            this.lblComprobante.Font = new System.Drawing.Font("Bernard MT Condensed", 12F);
             this.lblComprobante.ForeColor = System.Drawing.Color.White;
-            this.lblComprobante.Location = new System.Drawing.Point(80, 312);
+            this.lblComprobante.Location = new System.Drawing.Point(80, 272);
             this.lblComprobante.Name = "lblComprobante";
-            this.lblComprobante.Size = new System.Drawing.Size(75, 15);
+            this.lblComprobante.Size = new System.Drawing.Size(101, 19);
             this.lblComprobante.TabIndex = 39;
             this.lblComprobante.Text = "Comprobante: ";
             // 
             // txtComprobante
             // 
-            this.txtComprobante.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtComprobante.Location = new System.Drawing.Point(254, 312);
+            this.txtComprobante.BackColor = System.Drawing.Color.Black;
+            this.txtComprobante.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtComprobante.Font = new System.Drawing.Font("Bernard MT Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtComprobante.ForeColor = System.Drawing.Color.White;
+            this.txtComprobante.Location = new System.Drawing.Point(254, 272);
             this.txtComprobante.Name = "txtComprobante";
-            this.txtComprobante.Size = new System.Drawing.Size(202, 21);
+            this.txtComprobante.Size = new System.Drawing.Size(202, 26);
             this.txtComprobante.TabIndex = 40;
             this.txtComprobante.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtComprobante_KeyPress);
             // 
             // dtpDate
             // 
-            this.dtpDate.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDate.Font = new System.Drawing.Font("Bernard MT Condensed", 12.25F);
             this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDate.Location = new System.Drawing.Point(254, 204);
+            this.dtpDate.Location = new System.Drawing.Point(254, 144);
+            this.dtpDate.MaxDate = new System.DateTime(3000, 12, 31, 0, 0, 0, 0);
+            this.dtpDate.MinDate = new System.DateTime(1950, 1, 1, 0, 0, 0, 0);
             this.dtpDate.Name = "dtpDate";
-            this.dtpDate.Size = new System.Drawing.Size(103, 21);
+            this.dtpDate.Size = new System.Drawing.Size(103, 27);
             this.dtpDate.TabIndex = 41;
             this.dtpDate.Value = new System.DateTime(2024, 6, 5, 0, 0, 0, 0);
             // 
