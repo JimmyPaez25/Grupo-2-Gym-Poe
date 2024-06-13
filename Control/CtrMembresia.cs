@@ -25,6 +25,17 @@ namespace Control
             return ListaMembresia.Count;
         }
 
+        public CtrMembresia()
+        {
+            if (ListaCli.Count == 0)
+            {
+                ListaMembresia.Add(new Membresia("Plan Basico", new DateTime(2021, 1, 1), new DateTime(2021, 12, 31), "NO", "0", "No aplica", "123456789", 100));
+                ListaMembresia.Add(new Membresia("Plan Premium", new DateTime(2021, 1, 1), new DateTime(2021, 12, 31), "SI", "10", "Promoción estudiante", "987654321", 200));
+                ListaMembresia.Add(new Membresia("Plan Premium #1", new DateTime(2021, 1, 1), new DateTime(2021, 12, 31), "SI", "20", "Promocion Gym Bro", "123456789", 300));
+                ListaMembresia.Add(new Membresia("Plan Basico #2", new DateTime(2021, 1, 1), new DateTime(2021, 12, 31), "NO", "0", "No aplica", "987654321", 100));
+
+            }
+        }
         public string IngresarMembresia(string plan, string SFInicio, string SFFin, string promocion, string descuento, string detallePromocion, string cedulaCliente,string Sprecio)
         {
             string msj = "ERROR: SE ESPERABA DATOS CORRECTOS.";
