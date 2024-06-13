@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Control;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,16 @@ namespace Vista
 {
     public partial class VsConsultarFactura : Form
     {
+        // El original
+        CtrFactura ctrfacto = new CtrFactura();
+        private Validacion val = new Validacion();
+
+
         public VsConsultarFactura()
         {
             InitializeComponent();
+            ctrfacto.LlenarDataFact(dgvRegistroFact);
+            //facturaListi = CtrFactura.GetTotal();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -25,6 +33,54 @@ namespace Vista
         private void dgvRegistroFact_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             
+        }
+
+        private void btnBorrarFact_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(richTextBox1.Text))
+            {
+                MessageBox.Show("POR FAVOR, ESCRIBA EL MOTIVO POR EL CUAL DESEA ELIMINAR ESTA FACTURA", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                ctrfacto.EliminarFactura(dgvRegistroFact);
+                richTextBox1.Clear(); // Agregamos esta línea para borrar el contenido del richTextBox1
+            }
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            richTextBox1.KeyPress += val.ValidarLetra;
+            
+        }
+
+        private void btnBuscarFact_Click(object sender, EventArgs e)
+        {
+            string filtro = txtingresarbuscar.Text.Trim();         
+            ctrfacto.TablaConsultarNombreDescripcion(dgvRegistroFact, filtro);
+        }
+
+        private void txtingresarbuscar_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnVolverFact_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void richTextBox1_TextChanged_1(object sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            richTextBox1.KeyPress += val.ValidarLetra;
+
         }
     }
 }

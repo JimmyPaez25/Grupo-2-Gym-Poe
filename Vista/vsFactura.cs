@@ -15,15 +15,15 @@ namespace Vista
 {
     public partial class VsFactura : Form
     {
-        CtrFactura factura;
+        CtrFactura ctrfact;
 
 
 
         public VsFactura()
         {
             InitializeComponent();
-            factura = new CtrFactura();
-            lblNumFactura.Text = factura.GenerarFactura();
+            ctrfact = new CtrFactura();
+            lblNumFactura.Text = ctrfact.GenerarFactura();
 
         }
 
@@ -35,7 +35,14 @@ namespace Vista
         private void btnRegistrarDatosFact_Click(object sender, EventArgs e)
         {
 
-           
+            int rnumfact = lblNumFactura.Text.Trim();   
+            string rid = lblDireccionFact.Text.Trim();
+
+
+
+
+            
+
 
             // Mostrar mensaje con los datos de la factura
             string mensaje = "\nDATOS DE SU FACTURA REGISTRADOS\n";
@@ -56,9 +63,14 @@ namespace Vista
             
             this.Close();
 
-
-            
-
+  
+            mensaje = ctrfact.IngresarFact(rnumfact, rid);
+            if (mensaje.Contains("\nDATOS DE SU FACTURA REGISTRADOS\n"))
+            {
+                lblNumFactura.Text = "";
+                
+                
+            }
 
         }
 

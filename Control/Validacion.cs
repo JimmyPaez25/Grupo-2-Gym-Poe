@@ -263,6 +263,9 @@ namespace Control
             {
                 e.Handled = true; // No permite ingresar el carácter
             }
-        }   
+        }
+
+
+
     }
 }
