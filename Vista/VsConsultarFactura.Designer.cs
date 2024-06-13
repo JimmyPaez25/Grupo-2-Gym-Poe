@@ -74,41 +74,6 @@
             this.dgvRegistroFact.TabIndex = 0;
             this.dgvRegistroFact.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistroFact_CellContentClick);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(94, 339);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(185, 53);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "BORRAR FACTURA";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(608, 339);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(231, 24);
-            this.comboBox1.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(385, 342);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(187, 16);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Número de Factura a Eliminar:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(608, 399);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(618, 133);
-            this.richTextBox1.TabIndex = 5;
-            this.richTextBox1.Text = "";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
