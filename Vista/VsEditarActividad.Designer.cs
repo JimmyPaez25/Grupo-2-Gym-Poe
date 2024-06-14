@@ -123,6 +123,13 @@
             // 
             // buttonCancelar
             // 
+            this.buttonCancelar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonCancelar.FlatAppearance.BorderSize = 2;
+            this.buttonCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.buttonCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.buttonCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCancelar.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancelar.ForeColor = System.Drawing.Color.White;
             this.buttonCancelar.Location = new System.Drawing.Point(388, 329);
             this.buttonCancelar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.buttonCancelar.Name = "buttonCancelar";
@@ -134,6 +141,13 @@
             // 
             // buttonGuardar
             // 
+            this.buttonGuardar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonGuardar.FlatAppearance.BorderSize = 2;
+            this.buttonGuardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.buttonGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.buttonGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonGuardar.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGuardar.ForeColor = System.Drawing.Color.White;
             this.buttonGuardar.Location = new System.Drawing.Point(246, 329);
             this.buttonGuardar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.buttonGuardar.Name = "buttonGuardar";

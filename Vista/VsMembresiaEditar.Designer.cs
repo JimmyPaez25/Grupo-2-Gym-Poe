@@ -232,22 +232,24 @@
             // 
             this.lblPMA.AutoSize = true;
             this.lblPMA.ForeColor = System.Drawing.Color.White;
-            this.lblPMA.Location = new System.Drawing.Point(294, 81);
+            this.lblPMA.Location = new System.Drawing.Point(692, 30);
             this.lblPMA.Name = "lblPMA";
             this.lblPMA.Size = new System.Drawing.Size(31, 13);
             this.lblPMA.TabIndex = 32;
             this.lblPMA.Text = "____";
+            this.lblPMA.Visible = false;
             // 
             // lblPAM
             // 
             this.lblPAM.AutoSize = true;
             this.lblPAM.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPAM.ForeColor = System.Drawing.Color.White;
-            this.lblPAM.Location = new System.Drawing.Point(135, 81);
+            this.lblPAM.Location = new System.Drawing.Point(584, 30);
             this.lblPAM.Name = "lblPAM";
             this.lblPAM.Size = new System.Drawing.Size(63, 13);
             this.lblPAM.TabIndex = 33;
             this.lblPAM.Text = "Plan antiguo:";
+            this.lblPAM.Visible = false;
             // 
             // btnCME
             // 
@@ -300,12 +302,12 @@
             // lblCME
             // 
             this.lblCME.AutoSize = true;
-            this.lblCME.Location = new System.Drawing.Point(49, 9);
+            this.lblCME.ForeColor = System.Drawing.Color.White;
+            this.lblCME.Location = new System.Drawing.Point(294, 81);
             this.lblCME.Name = "lblCME";
             this.lblCME.Size = new System.Drawing.Size(31, 13);
             this.lblCME.TabIndex = 27;
             this.lblCME.Text = "____";
-            this.lblCME.Visible = false;
             // 
             // lblEEM
             // 
@@ -340,12 +342,13 @@
             // lblCEM
             // 
             this.lblCEM.AutoSize = true;
-            this.lblCEM.Location = new System.Drawing.Point(0, 9);
+            this.lblCEM.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCEM.ForeColor = System.Drawing.Color.White;
+            this.lblCEM.Location = new System.Drawing.Point(135, 81);
             this.lblCEM.Name = "lblCEM";
-            this.lblCEM.Size = new System.Drawing.Size(43, 13);
+            this.lblCEM.Size = new System.Drawing.Size(37, 13);
             this.lblCEM.TabIndex = 24;
             this.lblCEM.Text = "Cédula:";
-            this.lblCEM.Visible = false;
             // 
             // pictureBox1
             // 

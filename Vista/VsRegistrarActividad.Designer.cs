@@ -137,6 +137,13 @@
             // 
             // buttonRegistrar
             // 
+            this.buttonRegistrar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonRegistrar.FlatAppearance.BorderSize = 2;
+            this.buttonRegistrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.buttonRegistrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.buttonRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRegistrar.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRegistrar.ForeColor = System.Drawing.Color.White;
             this.buttonRegistrar.Location = new System.Drawing.Point(248, 328);
             this.buttonRegistrar.Name = "buttonRegistrar";
             this.buttonRegistrar.Size = new System.Drawing.Size(75, 23);
@@ -147,6 +154,13 @@
             // 
             // buttonCancelar
             // 
+            this.buttonCancelar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonCancelar.FlatAppearance.BorderSize = 2;
+            this.buttonCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.buttonCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.buttonCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCancelar.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancelar.ForeColor = System.Drawing.Color.White;
             this.buttonCancelar.Location = new System.Drawing.Point(390, 328);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(75, 23);

@@ -158,7 +158,7 @@ namespace Control
                 }
             }
         }
-        public string editarMembresia(string nombrePlan, string planE, string SFInicioE, string SFFinE, string promocionE, string descuentoE, string detallePromocionE, string cedulaCliente, string SprecioE)
+        public string editarMembresia(string nombrePlan, string planE, string SFInicioE, string SFFinE, string promocionE, string descuentoE, string detallePromocionE, string SprecioE)
         {
             string msj = "ERROR: SE ESPERABA DATOS CORRECTOS.";
             Validacion val = new Validacion();
@@ -207,7 +207,6 @@ namespace Control
                     membresiaExistente.Promocion = promocionE;
                     membresiaExistente.DetallePromocion = detallePromocionE;
                     membresiaExistente.Descuento = descuentoE;
-                    membresiaExistente.CedulaCliente = cedulaCliente;
                     membresiaExistente.Precio = precio;
 
                     msj = "MEMBRESIA EDITADA CORRECTAMENTE";
@@ -219,7 +218,7 @@ namespace Control
             }
             return msj;
         }
-        public void PresentarDatosMembresia(TextBox txtBoxME, DateTimePicker dateTPFIE, DateTimePicker dateTPFFE, ComboBox comboBoxPE, TextBox txtBoxDPE, TextBox txtBoxDE, TextBox txtBoxPEM, string nombrePlan)
+        public void PresentarDatosMembresia(TextBox txtBoxME, DateTimePicker dateTPFIE, DateTimePicker dateTPFFE, ComboBox comboBoxPE, TextBox txtBoxDPE, TextBox txtBoxDE, TextBox txtBoxPEM, Label lblCedulaM, string nombrePlan)
         {
             Membresia membresiaSeleccionada = ListaMembresia.Find(a => a.Plan == nombrePlan);
             if (membresiaSeleccionada != null)
@@ -231,6 +230,7 @@ namespace Control
                 txtBoxDPE.Text = membresiaSeleccionada.DetallePromocion;
                 txtBoxDE.Text = membresiaSeleccionada.Descuento;
                 txtBoxPEM.Text = membresiaSeleccionada.Precio.ToString();
+                lblCedulaM.Text = membresiaSeleccionada.CedulaCliente;
             }
         }
         public void eliminarMembresia(DataGridView dgvMembresia)
@@ -250,7 +250,7 @@ namespace Control
                         {
                             ListaMembresia.Remove(membresia);
                             dgvMembresia.Rows.RemoveAt(filaSeleccionada);
-                            MessageBox.Show("MEMBRESIA ELIMINADA CORRECTAMENTE.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("MEMBRESIA ELIMINADA CORRECTAMENTE." + Environment.NewLine + membresia.ToString(), "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                 }

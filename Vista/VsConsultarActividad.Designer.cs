@@ -52,16 +52,23 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Bernard MT Condensed", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(347, 24);
+            this.label1.Location = new System.Drawing.Point(320, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 13);
+            this.label1.Size = new System.Drawing.Size(215, 28);
             this.label1.TabIndex = 1;
             this.label1.Text = "CONSULTAR ACTIVIDAD";
             // 
             // buttonCancelar
             // 
+            this.buttonCancelar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonCancelar.FlatAppearance.BorderSize = 2;
+            this.buttonCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.buttonCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.buttonCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCancelar.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancelar.ForeColor = System.Drawing.Color.White;
             this.buttonCancelar.Location = new System.Drawing.Point(36, 318);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
@@ -108,6 +115,13 @@
             // 
             // buttonBuscar
             // 
+            this.buttonBuscar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonBuscar.FlatAppearance.BorderSize = 2;
+            this.buttonBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.buttonBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.buttonBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonBuscar.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBuscar.ForeColor = System.Drawing.Color.White;
             this.buttonBuscar.Location = new System.Drawing.Point(224, 84);
             this.buttonBuscar.Name = "buttonBuscar";
             this.buttonBuscar.Size = new System.Drawing.Size(75, 23);
@@ -205,6 +219,13 @@
             // 
             // buttonEditar
             // 
+            this.buttonEditar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonEditar.FlatAppearance.BorderSize = 2;
+            this.buttonEditar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.buttonEditar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.buttonEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEditar.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEditar.ForeColor = System.Drawing.Color.White;
             this.buttonEditar.Location = new System.Drawing.Point(609, 87);
             this.buttonEditar.Name = "buttonEditar";
             this.buttonEditar.Size = new System.Drawing.Size(75, 23);
@@ -215,6 +236,13 @@
             // 
             // buttonEliminar
             // 
+            this.buttonEliminar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonEliminar.FlatAppearance.BorderSize = 2;
+            this.buttonEliminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.buttonEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.buttonEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEliminar.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEliminar.ForeColor = System.Drawing.Color.White;
             this.buttonEliminar.Location = new System.Drawing.Point(705, 87);
             this.buttonEliminar.Name = "buttonEliminar";
             this.buttonEliminar.Size = new System.Drawing.Size(75, 23);
@@ -225,6 +253,13 @@
             // 
             // buttonSeleccionar
             // 
+            this.buttonSeleccionar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonSeleccionar.FlatAppearance.BorderSize = 2;
+            this.buttonSeleccionar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.buttonSeleccionar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.buttonSeleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSeleccionar.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSeleccionar.ForeColor = System.Drawing.Color.White;
             this.buttonSeleccionar.Location = new System.Drawing.Point(132, 318);
             this.buttonSeleccionar.Name = "buttonSeleccionar";
             this.buttonSeleccionar.Size = new System.Drawing.Size(75, 23);

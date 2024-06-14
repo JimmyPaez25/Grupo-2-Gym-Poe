@@ -119,6 +119,13 @@
             // 
             // buttonBuscar
             // 
+            this.buttonBuscar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonBuscar.FlatAppearance.BorderSize = 2;
+            this.buttonBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.buttonBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.buttonBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonBuscar.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBuscar.ForeColor = System.Drawing.Color.White;
             this.buttonBuscar.Location = new System.Drawing.Point(217, 85);
             this.buttonBuscar.Name = "buttonBuscar";
             this.buttonBuscar.Size = new System.Drawing.Size(75, 23);
@@ -187,6 +194,13 @@
             // 
             // buttonRestaurar
             // 
+            this.buttonRestaurar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonRestaurar.FlatAppearance.BorderSize = 2;
+            this.buttonRestaurar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.buttonRestaurar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.buttonRestaurar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRestaurar.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRestaurar.ForeColor = System.Drawing.Color.White;
             this.buttonRestaurar.Location = new System.Drawing.Point(698, 85);
             this.buttonRestaurar.Name = "buttonRestaurar";
             this.buttonRestaurar.Size = new System.Drawing.Size(75, 23);
@@ -197,6 +211,13 @@
             // 
             // buttonEliminarPermanente
             // 
+            this.buttonEliminarPermanente.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonEliminarPermanente.FlatAppearance.BorderSize = 2;
+            this.buttonEliminarPermanente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.buttonEliminarPermanente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.buttonEliminarPermanente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEliminarPermanente.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEliminarPermanente.ForeColor = System.Drawing.Color.White;
             this.buttonEliminarPermanente.Location = new System.Drawing.Point(563, 85);
             this.buttonEliminarPermanente.Name = "buttonEliminarPermanente";
             this.buttonEliminarPermanente.Size = new System.Drawing.Size(117, 23);

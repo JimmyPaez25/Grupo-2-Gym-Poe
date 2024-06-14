@@ -48,14 +48,14 @@ namespace Modelo
 
         public override string ToString()
         {
-            return "-> PlAN: " + plan + Environment.NewLine +
-                   "-> FECHA INICIO: " + fechaInicio.ToString("d") + Environment.NewLine +
-                   "-> FECHA FIN: " + fechaFin.ToString("d") + Environment.NewLine +
-                   "-> PROMOCION: " + promocion + Environment.NewLine +
-                   "-> DETALLES PROMOCION: " + Environment.NewLine + detallePromocion + Environment.NewLine +
-                   "-> DESCUENTO: " + descuento + Environment.NewLine +
-                   "-> PRECIO: " + precio + Environment.NewLine +
-                   "-> CEDULA CLIENTE: " + cedulaCliente + Environment.NewLine;
+            return "PLAN DE MEMBRESIA: " + plan + Environment.NewLine +
+                   "FECHA INICIO: " + fechaInicio.ToString("d") + Environment.NewLine +
+                   "FECHA FIN: " + fechaFin.ToString("d") + Environment.NewLine +
+                   "PROMOCION: " + promocion + Environment.NewLine +
+                   "DETALLES PROMOCION: "  + detallePromocion + Environment.NewLine +
+                   "DESCUENTO: " + descuento + Environment.NewLine +
+                   "PRECIO: " + precio + Environment.NewLine +
+                   "CEDULA CLIENTE: " + cedulaCliente + Environment.NewLine;
         }
     }
 }
