@@ -154,5 +154,10 @@ namespace Vista
             v.ConvertirMayuscula(textBox);
             v.ValidarMaximoDeDigito(sender, e, 15, 5, txtComprobante);
         }
+
+        private void cmbEstado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
