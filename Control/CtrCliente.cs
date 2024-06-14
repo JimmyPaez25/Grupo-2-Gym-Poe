@@ -30,6 +30,8 @@ namespace Control
                 ListaCli.Add(new Cliente("9512368749", "JUAN CARLOS", "BODOQUE AVENDAÑO", DateTime.ParseExact("24/05/1998", "dd/MM/yyyy", CultureInfo.InvariantCulture), "2031659847", "GUASMO SUR", "ACTIVO"));
                 ListaCli.Add(new Cliente("9865231470", "JUANIN JUAN", "JARRY SANCHEZ", DateTime.ParseExact("30/07/2009", "dd/MM/yyyy", CultureInfo.InvariantCulture),"0995263417", "VIA DAULE", "INACTIVO"));
                 ListaCli.Add(new ClienteEstudiante("0963254178", "PATRICIA ANA", "TUFILLO TRIVIÑO", DateTime.ParseExact("24/05/2009", "dd/MM/yyyy", CultureInfo.InvariantCulture), "0963251478", "PASCUALES", "ACTIVO", "E10987263541"));
+                ListaCli.Add(new ClienteEstudiante("0192837465", "MARIO HUGO", "TORRES FERNANDEZ", DateTime.ParseExact("01/07/2003", "dd/MM/yyyy", CultureInfo.InvariantCulture),"0753962148", "SAMANES", "ACTIVO", "E10293849121"));
+
             }
         }
 

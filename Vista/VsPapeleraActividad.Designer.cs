@@ -119,6 +119,13 @@
             // 
             // buttonBuscar
             // 
+            this.buttonBuscar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonBuscar.FlatAppearance.BorderSize = 2;
+            this.buttonBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.buttonBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.buttonBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonBuscar.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBuscar.ForeColor = System.Drawing.Color.White;
             this.buttonBuscar.Location = new System.Drawing.Point(217, 85);
             this.buttonBuscar.Name = "buttonBuscar";
             this.buttonBuscar.Size = new System.Drawing.Size(75, 23);
@@ -130,9 +137,11 @@
             // radioButtonDescripcion
             // 
             this.radioButtonDescripcion.AutoSize = true;
+            this.radioButtonDescripcion.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonDescripcion.ForeColor = System.Drawing.Color.White;
             this.radioButtonDescripcion.Location = new System.Drawing.Point(127, 65);
             this.radioButtonDescripcion.Name = "radioButtonDescripcion";
-            this.radioButtonDescripcion.Size = new System.Drawing.Size(81, 17);
+            this.radioButtonDescripcion.Size = new System.Drawing.Size(73, 17);
             this.radioButtonDescripcion.TabIndex = 23;
             this.radioButtonDescripcion.TabStop = true;
             this.radioButtonDescripcion.Text = "Descripcion";
@@ -142,9 +151,11 @@
             // 
             this.radioButtonNombre.AutoSize = true;
             this.radioButtonNombre.Checked = true;
+            this.radioButtonNombre.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonNombre.ForeColor = System.Drawing.Color.White;
             this.radioButtonNombre.Location = new System.Drawing.Point(29, 65);
             this.radioButtonNombre.Name = "radioButtonNombre";
-            this.radioButtonNombre.Size = new System.Drawing.Size(62, 17);
+            this.radioButtonNombre.Size = new System.Drawing.Size(57, 17);
             this.radioButtonNombre.TabIndex = 22;
             this.radioButtonNombre.TabStop = true;
             this.radioButtonNombre.Text = "Nombre";
@@ -152,9 +163,10 @@
             // 
             // textBuscar
             // 
+            this.textBuscar.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBuscar.Location = new System.Drawing.Point(29, 88);
             this.textBuscar.Name = "textBuscar";
-            this.textBuscar.Size = new System.Drawing.Size(171, 20);
+            this.textBuscar.Size = new System.Drawing.Size(171, 21);
             this.textBuscar.TabIndex = 21;
             this.textBuscar.TextChanged += new System.EventHandler(this.textBuscar_TextChanged);
             this.textBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBuscar_KeyPress);
@@ -172,14 +184,23 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(340, 25);
+            this.label1.Font = new System.Drawing.Font("Bernard MT Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(306, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(155, 13);
+            this.label1.Size = new System.Drawing.Size(201, 22);
             this.label1.TabIndex = 19;
             this.label1.Text = "PAPELERA DE ACTIVIDADES";
             // 
             // buttonRestaurar
             // 
+            this.buttonRestaurar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonRestaurar.FlatAppearance.BorderSize = 2;
+            this.buttonRestaurar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.buttonRestaurar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.buttonRestaurar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRestaurar.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRestaurar.ForeColor = System.Drawing.Color.White;
             this.buttonRestaurar.Location = new System.Drawing.Point(698, 85);
             this.buttonRestaurar.Name = "buttonRestaurar";
             this.buttonRestaurar.Size = new System.Drawing.Size(75, 23);
@@ -190,6 +211,13 @@
             // 
             // buttonEliminarPermanente
             // 
+            this.buttonEliminarPermanente.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonEliminarPermanente.FlatAppearance.BorderSize = 2;
+            this.buttonEliminarPermanente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.buttonEliminarPermanente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.buttonEliminarPermanente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEliminarPermanente.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEliminarPermanente.ForeColor = System.Drawing.Color.White;
             this.buttonEliminarPermanente.Location = new System.Drawing.Point(563, 85);
             this.buttonEliminarPermanente.Name = "buttonEliminarPermanente";
             this.buttonEliminarPermanente.Size = new System.Drawing.Size(117, 23);
@@ -202,6 +230,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(800, 374);
             this.Controls.Add(this.buttonEliminarPermanente);
             this.Controls.Add(this.buttonRestaurar);

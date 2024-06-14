@@ -119,19 +119,22 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(279, 47);
+            this.label1.Font = new System.Drawing.Font("Bernard MT Condensed", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(365, 47);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(374, 33);
+            this.label1.Size = new System.Drawing.Size(266, 34);
             this.label1.TabIndex = 4;
             this.label1.Text = "CONSULTAR MEMBRESIA";
             // 
             // radioBDP
             // 
             this.radioBDP.AutoSize = true;
+            this.radioBDP.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioBDP.ForeColor = System.Drawing.Color.White;
             this.radioBDP.Location = new System.Drawing.Point(158, 122);
             this.radioBDP.Name = "radioBDP";
-            this.radioBDP.Size = new System.Drawing.Size(110, 17);
+            this.radioBDP.Size = new System.Drawing.Size(102, 17);
             this.radioBDP.TabIndex = 6;
             this.radioBDP.TabStop = true;
             this.radioBDP.Text = "Detalle promoción";
@@ -139,38 +142,57 @@
             // 
             // txtBoxBM
             // 
+            this.txtBoxBM.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoxBM.Location = new System.Drawing.Point(67, 158);
             this.txtBoxBM.Name = "txtBoxBM";
-            this.txtBoxBM.Size = new System.Drawing.Size(201, 20);
+            this.txtBoxBM.Size = new System.Drawing.Size(201, 21);
             this.txtBoxBM.TabIndex = 7;
             // 
             // btnEliminarM
             // 
-            this.btnEliminarM.Location = new System.Drawing.Point(844, 122);
+            this.btnEliminarM.BackColor = System.Drawing.Color.Transparent;
+            this.btnEliminarM.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnEliminarM.FlatAppearance.BorderSize = 2;
+            this.btnEliminarM.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnEliminarM.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.btnEliminarM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarM.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarM.ForeColor = System.Drawing.Color.White;
+            this.btnEliminarM.Location = new System.Drawing.Point(844, 147);
             this.btnEliminarM.Name = "btnEliminarM";
-            this.btnEliminarM.Size = new System.Drawing.Size(67, 56);
+            this.btnEliminarM.Size = new System.Drawing.Size(67, 31);
             this.btnEliminarM.TabIndex = 8;
             this.btnEliminarM.Text = "Eliminar";
-            this.btnEliminarM.UseVisualStyleBackColor = true;
+            this.btnEliminarM.UseVisualStyleBackColor = false;
             this.btnEliminarM.Click += new System.EventHandler(this.btnEliminarM_Click);
             // 
             // btnEM
             // 
-            this.btnEM.Location = new System.Drawing.Point(741, 122);
+            this.btnEM.BackColor = System.Drawing.Color.Transparent;
+            this.btnEM.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnEM.FlatAppearance.BorderSize = 2;
+            this.btnEM.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnEM.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.btnEM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEM.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEM.ForeColor = System.Drawing.Color.White;
+            this.btnEM.Location = new System.Drawing.Point(743, 148);
             this.btnEM.Name = "btnEM";
-            this.btnEM.Size = new System.Drawing.Size(67, 56);
+            this.btnEM.Size = new System.Drawing.Size(67, 31);
             this.btnEM.TabIndex = 9;
             this.btnEM.Text = "Editar";
-            this.btnEM.UseVisualStyleBackColor = true;
+            this.btnEM.UseVisualStyleBackColor = false;
             this.btnEM.Click += new System.EventHandler(this.btnEM_Click);
             // 
             // radioBCM
             // 
             this.radioBCM.AutoSize = true;
             this.radioBCM.Checked = true;
+            this.radioBCM.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioBCM.ForeColor = System.Drawing.Color.White;
             this.radioBCM.Location = new System.Drawing.Point(67, 122);
             this.radioBCM.Name = "radioBCM";
-            this.radioBCM.Size = new System.Drawing.Size(58, 17);
+            this.radioBCM.Size = new System.Drawing.Size(52, 17);
             this.radioBCM.TabIndex = 16;
             this.radioBCM.TabStop = true;
             this.radioBCM.Text = "Cedula";
@@ -178,9 +200,16 @@
             // 
             // btnBM
             // 
-            this.btnBM.Location = new System.Drawing.Point(285, 158);
+            this.btnBM.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnBM.FlatAppearance.BorderSize = 2;
+            this.btnBM.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnBM.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.btnBM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBM.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBM.ForeColor = System.Drawing.Color.White;
+            this.btnBM.Location = new System.Drawing.Point(285, 147);
             this.btnBM.Name = "btnBM";
-            this.btnBM.Size = new System.Drawing.Size(75, 20);
+            this.btnBM.Size = new System.Drawing.Size(75, 31);
             this.btnBM.TabIndex = 17;
             this.btnBM.Text = "Buscar";
             this.btnBM.UseVisualStyleBackColor = true;
@@ -190,6 +219,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(980, 542);
             this.Controls.Add(this.btnBM);
             this.Controls.Add(this.radioBCM);

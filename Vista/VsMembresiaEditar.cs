@@ -22,7 +22,7 @@ namespace Vista
         public VsMembresiaEditar(string nombrePlan)
         {
             InitializeComponent();
-            ctrMem.PresentarDatosMembresia(txtBoxME, dateTPFIE, dateTPFFE, comboBoxPE, txtBoxDPE, txtBoxDE, txtBoxPME, nombrePlan);
+            ctrMem.PresentarDatosMembresia(txtBoxME, dateTPFIE, dateTPFFE, comboBoxPE, txtBoxDPE, txtBoxDE, txtBoxPME, lblCME, nombrePlan);
             lblPMA.Text = txtBoxME.Text;
         }
 
@@ -66,11 +66,10 @@ namespace Vista
             string promocionE = comboBoxPE.Text.Trim();
             string detallePromocionE = txtBoxDPE.Text.Trim();
             string descuentoE = txtBoxDE.Text.Trim();
-            string cedulaCliente = txtBoxPME.Text.Trim();
             string SprecioE = txtBoxPME.Text.Trim();
  
 
-            msj = ctrMem.editarMembresia(nombrePlan, planE, SFInicioE, SFFinE, promocionE, descuentoE, detallePromocionE, cedulaCliente, SprecioE);
+            msj = ctrMem.editarMembresia(nombrePlan, planE, SFInicioE, SFFinE, promocionE, descuentoE, detallePromocionE, SprecioE);
             MessageBox.Show(msj, "NOTIFICACION", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             if (msj.Contains("MEMBRESIA EDITADA CORRECTAMENTE"))
@@ -98,6 +97,11 @@ namespace Vista
         private void txtBoxDE_KeyPress(object sender, KeyPressEventArgs e)
         {
             v.ValidarNumerosPorcentaje(sender, e);
+        }
+
+        private void VsMembresiaEditar_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

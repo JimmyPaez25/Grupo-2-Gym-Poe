@@ -54,7 +54,7 @@ namespace Vista
             }
             else
             {
-                MessageBox.Show("ERROR: SELECCIONA UNA FILA ANTES DE ELIMINAR UNA ACTIVIDAD.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("ERROR: SELECCIONA UNA FILA ANTES DE EDITAR UNA MEMBRESIA.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

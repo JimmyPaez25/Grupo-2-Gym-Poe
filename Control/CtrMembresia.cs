@@ -25,6 +25,17 @@ namespace Control
             return ListaMembresia.Count;
         }
 
+        public CtrMembresia()
+        {
+            if (ListaMembresia.Count == 0)
+            {
+                ListaMembresia.Add(new Membresia("Plan Basico", new DateTime(2021, 1, 1), new DateTime(2021, 12, 31), "NO", "0", "No aplica", "123456789", 100));
+                ListaMembresia.Add(new Membresia("Plan Premium", new DateTime(2021, 1, 1), new DateTime(2021, 12, 31), "SI", "10", "Promoción estudiante", "987654321", 200));
+                ListaMembresia.Add(new Membresia("Plan Premium #1", new DateTime(2021, 1, 1), new DateTime(2021, 12, 31), "SI", "20", "Promocion Gym Bro", "123456789", 300));
+                ListaMembresia.Add(new Membresia("Plan Basico #2", new DateTime(2021, 1, 1), new DateTime(2021, 12, 31), "NO", "0", "No aplica", "987654321", 100));
+
+            }
+        }
         public string IngresarMembresia(string plan, string SFInicio, string SFFin, string promocion, string descuento, string detallePromocion, string cedulaCliente,string Sprecio)
         {
             string msj = "ERROR: SE ESPERABA DATOS CORRECTOS.";
@@ -147,7 +158,7 @@ namespace Control
                 }
             }
         }
-        public string editarMembresia(string nombrePlan, string planE, string SFInicioE, string SFFinE, string promocionE, string descuentoE, string detallePromocionE, string cedulaCliente, string SprecioE)
+        public string editarMembresia(string nombrePlan, string planE, string SFInicioE, string SFFinE, string promocionE, string descuentoE, string detallePromocionE, string SprecioE)
         {
             string msj = "ERROR: SE ESPERABA DATOS CORRECTOS.";
             Validacion val = new Validacion();
@@ -196,7 +207,6 @@ namespace Control
                     membresiaExistente.Promocion = promocionE;
                     membresiaExistente.DetallePromocion = detallePromocionE;
                     membresiaExistente.Descuento = descuentoE;
-                    membresiaExistente.CedulaCliente = cedulaCliente;
                     membresiaExistente.Precio = precio;
 
                     msj = "MEMBRESIA EDITADA CORRECTAMENTE";
@@ -208,7 +218,7 @@ namespace Control
             }
             return msj;
         }
-        public void PresentarDatosMembresia(TextBox txtBoxME, DateTimePicker dateTPFIE, DateTimePicker dateTPFFE, ComboBox comboBoxPE, TextBox txtBoxDPE, TextBox txtBoxDE, TextBox txtBoxPEM, string nombrePlan)
+        public void PresentarDatosMembresia(TextBox txtBoxME, DateTimePicker dateTPFIE, DateTimePicker dateTPFFE, ComboBox comboBoxPE, TextBox txtBoxDPE, TextBox txtBoxDE, TextBox txtBoxPEM, Label lblCedulaM, string nombrePlan)
         {
             Membresia membresiaSeleccionada = ListaMembresia.Find(a => a.Plan == nombrePlan);
             if (membresiaSeleccionada != null)
@@ -220,6 +230,7 @@ namespace Control
                 txtBoxDPE.Text = membresiaSeleccionada.DetallePromocion;
                 txtBoxDE.Text = membresiaSeleccionada.Descuento;
                 txtBoxPEM.Text = membresiaSeleccionada.Precio.ToString();
+                lblCedulaM.Text = membresiaSeleccionada.CedulaCliente;
             }
         }
         public void eliminarMembresia(DataGridView dgvMembresia)
@@ -239,7 +250,7 @@ namespace Control
                         {
                             ListaMembresia.Remove(membresia);
                             dgvMembresia.Rows.RemoveAt(filaSeleccionada);
-                            MessageBox.Show("MEMBRESIA ELIMINADA CORRECTAMENTE.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("MEMBRESIA ELIMINADA CORRECTAMENTE." + Environment.NewLine + membresia.ToString(), "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                 }

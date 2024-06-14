@@ -277,7 +277,7 @@ namespace Control
                             {
                                 dgvActividad.Rows[i].Cells["ClmNumero"].Value = i + 1;
                             }
-                            MessageBox.Show("ACTIVIDAD ELIMINADA CORRECTAMENTE.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("ACTIVIDAD ELIMINADA CORRECTAMENTE." + Environment.NewLine + actividad.ToString(), "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                 }

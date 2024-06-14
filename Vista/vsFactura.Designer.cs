@@ -63,20 +63,24 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(71, 104);
+            this.label1.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(53, 84);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(150, 20);
+            this.label1.Size = new System.Drawing.Size(87, 13);
             this.label1.TabIndex = 4;
             this.label1.Text = "Numero de factura:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 8F);
-            this.label2.Location = new System.Drawing.Point(71, 156);
+            this.label2.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(53, 127);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(137, 20);
+            this.label2.Size = new System.Drawing.Size(85, 13);
             this.label2.TabIndex = 5;
             this.label2.Text = "Numero de cedula:";
             // 
@@ -84,88 +88,105 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 8F);
-            this.label3.Location = new System.Drawing.Point(71, 207);
+            this.label3.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(53, 168);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 20);
+            this.label3.Size = new System.Drawing.Size(42, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Nombre:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(71, 659);
+            this.label4.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(53, 535);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(121, 20);
+            this.label4.Size = new System.Drawing.Size(72, 13);
             this.label4.TabIndex = 7;
             this.label4.Text = "Fecha de Inicio:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(71, 258);
+            this.label6.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(53, 210);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 20);
+            this.label6.Size = new System.Drawing.Size(44, 13);
             this.label6.TabIndex = 10;
             this.label6.Text = "Apellido:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(71, 311);
+            this.label7.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(53, 253);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(166, 20);
+            this.label7.Size = new System.Drawing.Size(95, 13);
             this.label7.TabIndex = 11;
             this.label7.Text = "Fecha de Nacimiento:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(71, 368);
+            this.label8.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(53, 299);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(78, 20);
+            this.label8.Size = new System.Drawing.Size(46, 13);
             this.label8.TabIndex = 12;
             this.label8.Text = "Teléfono:";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(71, 417);
+            this.label9.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(53, 339);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(82, 20);
+            this.label9.Size = new System.Drawing.Size(49, 13);
             this.label9.TabIndex = 13;
             this.label9.Text = "Dirección:";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(71, 511);
+            this.label10.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(53, 415);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(115, 20);
+            this.label10.Size = new System.Drawing.Size(64, 13);
             this.label10.TabIndex = 20;
             this.label10.Text = "Comprobante:";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(71, 607);
+            this.label12.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(53, 493);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(93, 20);
+            this.label12.Size = new System.Drawing.Size(55, 13);
             this.label12.TabIndex = 26;
             this.label12.Text = "Promoción:";
             // 
             // btnRegistrarDatosFact
             // 
-            this.btnRegistrarDatosFact.Location = new System.Drawing.Point(562, 475);
+            this.btnRegistrarDatosFact.Location = new System.Drawing.Point(422, 386);
+            this.btnRegistrarDatosFact.Margin = new System.Windows.Forms.Padding(2);
             this.btnRegistrarDatosFact.Name = "btnRegistrarDatosFact";
-            this.btnRegistrarDatosFact.Size = new System.Drawing.Size(144, 52);
+            this.btnRegistrarDatosFact.Size = new System.Drawing.Size(108, 42);
             this.btnRegistrarDatosFact.TabIndex = 27;
             this.btnRegistrarDatosFact.Text = "REGISTRAR";
             this.btnRegistrarDatosFact.UseVisualStyleBackColor = true;
@@ -174,9 +195,11 @@
             // lblCedulaFact
             // 
             this.lblCedulaFact.AutoSize = true;
-            this.lblCedulaFact.Location = new System.Drawing.Point(257, 160);
+            this.lblCedulaFact.ForeColor = System.Drawing.Color.White;
+            this.lblCedulaFact.Location = new System.Drawing.Point(193, 130);
+            this.lblCedulaFact.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCedulaFact.Name = "lblCedulaFact";
-            this.lblCedulaFact.Size = new System.Drawing.Size(56, 16);
+            this.lblCedulaFact.Size = new System.Drawing.Size(49, 13);
             this.lblCedulaFact.TabIndex = 29;
             this.lblCedulaFact.Text = "_______";
             this.lblCedulaFact.Click += new System.EventHandler(this.label13_Click);
@@ -184,10 +207,12 @@
             // lblNombreFact
             // 
             this.lblNombreFact.AutoSize = true;
-            this.lblNombreFact.Location = new System.Drawing.Point(257, 211);
+            this.lblNombreFact.ForeColor = System.Drawing.Color.White;
+            this.lblNombreFact.Location = new System.Drawing.Point(193, 171);
+            this.lblNombreFact.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNombreFact.Name = "lblNombreFact";
             this.lblNombreFact.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblNombreFact.Size = new System.Drawing.Size(56, 16);
+            this.lblNombreFact.Size = new System.Drawing.Size(49, 13);
             this.lblNombreFact.TabIndex = 30;
             this.lblNombreFact.Text = "_______";
             this.lblNombreFact.Click += new System.EventHandler(this.lblNombreFact_Click);
@@ -195,9 +220,11 @@
             // lblApellidoFact
             // 
             this.lblApellidoFact.AutoSize = true;
-            this.lblApellidoFact.Location = new System.Drawing.Point(257, 262);
+            this.lblApellidoFact.ForeColor = System.Drawing.Color.White;
+            this.lblApellidoFact.Location = new System.Drawing.Point(193, 213);
+            this.lblApellidoFact.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblApellidoFact.Name = "lblApellidoFact";
-            this.lblApellidoFact.Size = new System.Drawing.Size(56, 16);
+            this.lblApellidoFact.Size = new System.Drawing.Size(49, 13);
             this.lblApellidoFact.TabIndex = 31;
             this.lblApellidoFact.Text = "_______";
             this.lblApellidoFact.Click += new System.EventHandler(this.lblApellidoFact_Click);
@@ -205,9 +232,11 @@
             // lblTelefonoFact
             // 
             this.lblTelefonoFact.AutoSize = true;
-            this.lblTelefonoFact.Location = new System.Drawing.Point(257, 371);
+            this.lblTelefonoFact.ForeColor = System.Drawing.Color.White;
+            this.lblTelefonoFact.Location = new System.Drawing.Point(193, 301);
+            this.lblTelefonoFact.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTelefonoFact.Name = "lblTelefonoFact";
-            this.lblTelefonoFact.Size = new System.Drawing.Size(56, 16);
+            this.lblTelefonoFact.Size = new System.Drawing.Size(49, 13);
             this.lblTelefonoFact.TabIndex = 32;
             this.lblTelefonoFact.Text = "_______";
             this.lblTelefonoFact.Click += new System.EventHandler(this.lblTelefonoFact_Click);
@@ -215,9 +244,11 @@
             // lblDireccionFact
             // 
             this.lblDireccionFact.AutoSize = true;
-            this.lblDireccionFact.Location = new System.Drawing.Point(257, 421);
+            this.lblDireccionFact.ForeColor = System.Drawing.Color.White;
+            this.lblDireccionFact.Location = new System.Drawing.Point(193, 342);
+            this.lblDireccionFact.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDireccionFact.Name = "lblDireccionFact";
-            this.lblDireccionFact.Size = new System.Drawing.Size(56, 16);
+            this.lblDireccionFact.Size = new System.Drawing.Size(49, 13);
             this.lblDireccionFact.TabIndex = 33;
             this.lblDireccionFact.Text = "_______";
             this.lblDireccionFact.Click += new System.EventHandler(this.lblDireccionFact_Click);
@@ -225,9 +256,11 @@
             // lblComprobanteFact
             // 
             this.lblComprobanteFact.AutoSize = true;
-            this.lblComprobanteFact.Location = new System.Drawing.Point(257, 515);
+            this.lblComprobanteFact.ForeColor = System.Drawing.Color.White;
+            this.lblComprobanteFact.Location = new System.Drawing.Point(193, 418);
+            this.lblComprobanteFact.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblComprobanteFact.Name = "lblComprobanteFact";
-            this.lblComprobanteFact.Size = new System.Drawing.Size(56, 16);
+            this.lblComprobanteFact.Size = new System.Drawing.Size(49, 13);
             this.lblComprobanteFact.TabIndex = 35;
             this.lblComprobanteFact.Text = "_______";
             this.lblComprobanteFact.Click += new System.EventHandler(this.lblComprobanteFact_Click);
@@ -235,9 +268,11 @@
             // lblPromocionFact
             // 
             this.lblPromocionFact.AutoSize = true;
-            this.lblPromocionFact.Location = new System.Drawing.Point(257, 611);
+            this.lblPromocionFact.ForeColor = System.Drawing.Color.White;
+            this.lblPromocionFact.Location = new System.Drawing.Point(193, 496);
+            this.lblPromocionFact.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPromocionFact.Name = "lblPromocionFact";
-            this.lblPromocionFact.Size = new System.Drawing.Size(56, 16);
+            this.lblPromocionFact.Size = new System.Drawing.Size(49, 13);
             this.lblPromocionFact.TabIndex = 37;
             this.lblPromocionFact.Text = "_______";
             this.lblPromocionFact.Click += new System.EventHandler(this.lblPromocionFact_Click);
@@ -245,19 +280,23 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(71, 463);
+            this.label11.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(53, 376);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(89, 20);
+            this.label11.Size = new System.Drawing.Size(53, 13);
             this.label11.TabIndex = 38;
             this.label11.Text = "Estudiante:";
             // 
             // lblEstudianteFact
             // 
             this.lblEstudianteFact.AutoSize = true;
-            this.lblEstudianteFact.Location = new System.Drawing.Point(257, 467);
+            this.lblEstudianteFact.ForeColor = System.Drawing.Color.White;
+            this.lblEstudianteFact.Location = new System.Drawing.Point(193, 379);
+            this.lblEstudianteFact.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEstudianteFact.Name = "lblEstudianteFact";
-            this.lblEstudianteFact.Size = new System.Drawing.Size(56, 16);
+            this.lblEstudianteFact.Size = new System.Drawing.Size(49, 13);
             this.lblEstudianteFact.TabIndex = 39;
             this.lblEstudianteFact.Text = "_______";
             this.lblEstudianteFact.Click += new System.EventHandler(this.lblEstudianteFact_Click);
@@ -265,19 +304,23 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(71, 560);
+            this.label5.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(53, 455);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 20);
+            this.label5.Size = new System.Drawing.Size(29, 13);
             this.label5.TabIndex = 40;
             this.label5.Text = "Plan:";
             // 
             // lblPlanFact
             // 
             this.lblPlanFact.AutoSize = true;
-            this.lblPlanFact.Location = new System.Drawing.Point(257, 563);
+            this.lblPlanFact.ForeColor = System.Drawing.Color.White;
+            this.lblPlanFact.Location = new System.Drawing.Point(193, 457);
+            this.lblPlanFact.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPlanFact.Name = "lblPlanFact";
-            this.lblPlanFact.Size = new System.Drawing.Size(56, 16);
+            this.lblPlanFact.Size = new System.Drawing.Size(49, 13);
             this.lblPlanFact.TabIndex = 41;
             this.lblPlanFact.Text = "_______";
             this.lblPlanFact.Click += new System.EventHandler(this.lblPlanFact_Click);
@@ -285,9 +328,11 @@
             // lblNumFactura
             // 
             this.lblNumFactura.AutoSize = true;
-            this.lblNumFactura.Location = new System.Drawing.Point(257, 104);
+            this.lblNumFactura.ForeColor = System.Drawing.Color.White;
+            this.lblNumFactura.Location = new System.Drawing.Point(193, 84);
+            this.lblNumFactura.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNumFactura.Name = "lblNumFactura";
-            this.lblNumFactura.Size = new System.Drawing.Size(56, 16);
+            this.lblNumFactura.Size = new System.Drawing.Size(49, 13);
             this.lblNumFactura.TabIndex = 42;
             this.lblNumFactura.Text = "_______";
             this.lblNumFactura.Click += new System.EventHandler(this.lblNumFactura_Click);
@@ -295,20 +340,21 @@
             // lblFechaNacimientoFact
             // 
             this.lblFechaNacimientoFact.AutoSize = true;
-            this.lblFechaNacimientoFact.Location = new System.Drawing.Point(257, 315);
+            this.lblFechaNacimientoFact.ForeColor = System.Drawing.Color.White;
+            this.lblFechaNacimientoFact.Location = new System.Drawing.Point(193, 256);
+            this.lblFechaNacimientoFact.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFechaNacimientoFact.Name = "lblFechaNacimientoFact";
-            this.lblFechaNacimientoFact.Size = new System.Drawing.Size(56, 16);
+            this.lblFechaNacimientoFact.Size = new System.Drawing.Size(49, 13);
             this.lblFechaNacimientoFact.TabIndex = 43;
             this.lblFechaNacimientoFact.Text = "_______";
             this.lblFechaNacimientoFact.Click += new System.EventHandler(this.lblFechaNacimientoFact_Click);
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Vista.Properties.Resources.Img_Gym2;
-            this.pictureBox1.Location = new System.Drawing.Point(512, 111);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Image = global::Vista.Properties.Resources.img_rata3;
+            this.pictureBox1.Location = new System.Drawing.Point(384, 90);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(249, 322);
+            this.pictureBox1.Size = new System.Drawing.Size(187, 262);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 44;
             this.pictureBox1.TabStop = false;
@@ -316,9 +362,11 @@
             // lblFechaInicioFact
             // 
             this.lblFechaInicioFact.AutoSize = true;
-            this.lblFechaInicioFact.Location = new System.Drawing.Point(257, 662);
+            this.lblFechaInicioFact.ForeColor = System.Drawing.Color.White;
+            this.lblFechaInicioFact.Location = new System.Drawing.Point(193, 538);
+            this.lblFechaInicioFact.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFechaInicioFact.Name = "lblFechaInicioFact";
-            this.lblFechaInicioFact.Size = new System.Drawing.Size(56, 16);
+            this.lblFechaInicioFact.Size = new System.Drawing.Size(49, 13);
             this.lblFechaInicioFact.TabIndex = 46;
             this.lblFechaInicioFact.Text = "_______";
             this.lblFechaInicioFact.Click += new System.EventHandler(this.lblFechaInicioFact_Click);
@@ -326,11 +374,13 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Font = new System.Drawing.Font("Bernard MT Condensed", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.White;
             this.label13.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label13.Location = new System.Drawing.Point(232, 25);
+            this.label13.Location = new System.Drawing.Point(174, 20);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(349, 31);
+            this.label13.Size = new System.Drawing.Size(203, 25);
             this.label13.TabIndex = 60;
             this.label13.Text = "DATOS DE LA FACTURA";
             this.label13.Click += new System.EventHandler(this.label13_Click_1);
@@ -338,28 +388,33 @@
             // label
             // 
             this.label.AutoSize = true;
-            this.label.Font = new System.Drawing.Font("Microsoft YaHei", 9F);
-            this.label.Location = new System.Drawing.Point(72, 704);
+            this.label.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label.ForeColor = System.Drawing.Color.White;
+            this.label.Location = new System.Drawing.Point(54, 572);
+            this.label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(80, 20);
+            this.label.Size = new System.Drawing.Size(48, 13);
             this.label.TabIndex = 61;
             this.label.Text = "Fecha Fin:";
             // 
             // lblFechaFinFact
             // 
             this.lblFechaFinFact.AutoSize = true;
-            this.lblFechaFinFact.Location = new System.Drawing.Point(257, 704);
+            this.lblFechaFinFact.ForeColor = System.Drawing.Color.White;
+            this.lblFechaFinFact.Location = new System.Drawing.Point(193, 572);
+            this.lblFechaFinFact.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFechaFinFact.Name = "lblFechaFinFact";
-            this.lblFechaFinFact.Size = new System.Drawing.Size(56, 16);
+            this.lblFechaFinFact.Size = new System.Drawing.Size(49, 13);
             this.lblFechaFinFact.TabIndex = 62;
             this.lblFechaFinFact.Text = "_______";
             this.lblFechaFinFact.Click += new System.EventHandler(this.lblFechaFinFact_Click);
             // 
             // VsFactura
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(816, 754);
+            this.BackColor = System.Drawing.Color.Black;
+            this.ClientSize = new System.Drawing.Size(612, 609);
             this.Controls.Add(this.lblFechaFinFact);
             this.Controls.Add(this.label);
             this.Controls.Add(this.label13);
@@ -389,7 +444,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "VsFactura";
             this.Text = "Datos Factura";
             this.Load += new System.EventHandler(this.VsFactura_Load);

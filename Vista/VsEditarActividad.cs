@@ -75,6 +75,11 @@ namespace Vista
             val.ConvertirMayuscula(textBox);
         }
 
+        private void VsEditarActividad_Load(object sender, EventArgs e)
+        {
+
+        }
+
 
         // FIN
     }
