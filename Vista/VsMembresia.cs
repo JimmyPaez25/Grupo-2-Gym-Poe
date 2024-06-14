@@ -125,6 +125,8 @@ namespace Vista
             vFactura.lblDireccionFact.Text = this.DireccionInvisible.Text;
             vFactura.lblFechaInicioFact.Text = this.dateTPFI.Text;
             vFactura.lblFechaFinFact.Text = this.dateTPFF.Text;
+            vFactura.lblPrecioFact.Text = this.txtBoxPreM.Text;
+            vFactura.lblDescuentoFact.Text = this.txtBoxD.Text;
 
             vFactura.Show();
             this.Close();

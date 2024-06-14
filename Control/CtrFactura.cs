@@ -15,16 +15,23 @@ namespace Control
         Factura fac = new Factura();
 
         public static List<Factura> listaFact = new List<Factura>();
+        private static List<Membresia> listaMembresia = new List<Membresia>();
         public static List<Factura> ListaFact { get => listaFact; set => listaFact = value; }
+        public static List<Membresia> ListaMembresia { get => listaMembresia; set => listaMembresia = value; }
+
+
+
+
+
 
         //Lista quemada
         public CtrFactura()
         {
             if (ListaFact.Count == 0)
             {
-                ListaFact.Add(new Factura(1, "3434"/*, "200","0.12","2"*/));
-                ListaFact.Add(new Factura(2, "2222"));
-                ListaFact.Add(new Factura(3, "Super"));
+                ListaFact.Add(new Factura(1, "JKSD23329 ","140","20", "0.12","105.6"));
+                ListaFact.Add(new Factura(2, "JKDI43JYW", "580", "50", "0.12", "466.4"));
+                ListaFact.Add(new Factura(3, "34TEOI0D0", "700", "67", "0.12", "557.04"));
             }
         }
 
@@ -59,12 +66,12 @@ namespace Control
 
 
         //Guardar datos
-        public string IngresarFact(int numfactura, string serie)
+        public string IngresarFact(int numfactura, string serie, string preciofact, string descuentofact, string iva, string total)
         {
             string msg = "ERROR";
             Factura fact = null;
 
-            fact = new Factura(numfactura, serie);
+            fact = new Factura(numfactura, serie, preciofact, descuentofact, iva, total);
             listaFact.Add(fact);
             msg = fact.ToString() + Environment.NewLine + "---REGISTRO EXITOSO---" + Environment.NewLine;
 
@@ -90,8 +97,11 @@ namespace Control
                 {
 
                     i = dgvRegistroFact.Rows.Add();
-                    dgvRegistroFact.Rows[i].Cells["FacturaRegistroFact"].Value = f.Numfactura;
-                    dgvRegistroFact.Rows[i].Cells["PrecioDataFact"].Value = f.Serie;
+                    dgvRegistroFact.Rows[i].Cells["FacturaRegistroFact"].Value = f.Serie;
+                    dgvRegistroFact.Rows[i].Cells["PrecioDataFact"].Value = f.Preciofact;
+                    dgvRegistroFact.Rows[i].Cells["DescuentoDataFact"].Value = f.Descuentofact;
+                    dgvRegistroFact.Rows[i].Cells["IvaDataFact"].Value = f.Iva;
+                    dgvRegistroFact.Rows[i].Cells["TotalDataFact"].Value = f.Total;
                     //dgvRegistroFact
                     //dgvRegistroFact
                 }
@@ -102,7 +112,7 @@ namespace Control
 
 
 
-        //Eliminar factura seleccionando fila
+        //Eliminar factura seleccionando fila No tocar
         public void EliminarFactura(DataGridView dgvRegistroFact)
         {
             if (dgvRegistroFact.SelectedRows.Count > 0)
@@ -117,6 +127,7 @@ namespace Control
                         ListaFact[cl].Estadofact = 2; // ESTADO 2 = INACTIVO
                         LlenarDataFact(dgvRegistroFact);
                         MessageBox.Show("BORRADO EXITOSO.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     }
                 }
             }
@@ -130,7 +141,7 @@ namespace Control
 
 
 
-
+        //Buscar No tocar
         public void TablaConsultarNombreDescripcion(DataGridView dgvRegistroFact, string filtro = "", bool buscarPorNombrefact = true)
         {
             int i = 0;
@@ -138,18 +149,15 @@ namespace Control
             foreach (Factura x in ListaFact)
             {
                 if (string.IsNullOrEmpty(filtro) ||
-                    (buscarPorNombrefact && x.Numfactura.ToString().Contains(filtro)) ||
-                    (!buscarPorNombrefact && x.Serie.Contains(filtro)))
+                    (buscarPorNombrefact && x.Serie.ToString().Contains(filtro)) ||
+                    (!buscarPorNombrefact && x.Preciofact.ToString().Contains(filtro)))
                 {
                     i = dgvRegistroFact.Rows.Add();
-                    //dgvRegistroFact.Rows[i].Cells["clmPREM"].Value = x.Precio.ToString() + "$";
-                    dgvRegistroFact.Rows[i].Cells["FacturaRegistroFact"].Value = x.Numfactura;
-                    dgvRegistroFact.Rows[i].Cells["PrecioDataFact"].Value = x.Serie;
-                    //dgvMembresia.Rows[i].Cells["clmFIM"].Value = x.FechaInicio.ToString("d");
-                    //dgvMembresia.Rows[i].Cells["clmFFM"].Value = x.FechaFin.ToString("d");
-                    //dgvMembresia.Rows[i].Cells["clmP"].Value = x.Promocion;
-                    //dgvMembresia.Rows[i].Cells["clmDPM"].Value = x.DetallePromocion;
-                    //dgvMembresia.Rows[i].Cells["clmDM"].Value = x.Descuento.ToString() + "%";
+                    dgvRegistroFact.Rows[i].Cells["FacturaRegistroFact"].Value = x.Serie;
+                    dgvRegistroFact.Rows[i].Cells["PrecioDataFact"].Value = x.Preciofact;
+                    dgvRegistroFact.Rows[i].Cells["DescuentoDataFact"].Value = x.Descuentofact;
+                    dgvRegistroFact.Rows[i].Cells["IvaDataFact"].Value = x.Iva;
+                    dgvRegistroFact.Rows[i].Cells["TotalDataFact"].Value = x.Total;
                 }
             }
         }
