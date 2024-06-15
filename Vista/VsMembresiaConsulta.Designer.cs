@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvMembresia = new System.Windows.Forms.DataGridView();
             this.clmCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmPM = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,6 +54,15 @@
             // 
             this.dgvMembresia.AllowUserToAddRows = false;
             this.dgvMembresia.AllowUserToDeleteRows = false;
+            this.dgvMembresia.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(16)))));
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(16)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMembresia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvMembresia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMembresia.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmCedula,
@@ -61,9 +73,27 @@
             this.clmDPM,
             this.clmDM,
             this.clmPREM});
+            this.dgvMembresia.Cursor = System.Windows.Forms.Cursors.IBeam;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(16)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvMembresia.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvMembresia.EnableHeadersVisualStyles = false;
             this.dgvMembresia.Location = new System.Drawing.Point(67, 209);
             this.dgvMembresia.Name = "dgvMembresia";
             this.dgvMembresia.ReadOnly = true;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(12)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMembresia.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvMembresia.Size = new System.Drawing.Size(844, 279);
             this.dgvMembresia.TabIndex = 3;
             this.dgvMembresia.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMembresia_CellContentClick);
@@ -158,11 +188,14 @@
             this.btnEliminarM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminarM.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminarM.ForeColor = System.Drawing.Color.White;
-            this.btnEliminarM.Location = new System.Drawing.Point(844, 147);
+            this.btnEliminarM.Image = global::Vista.Properties.Resources.borrarUsuario;
+            this.btnEliminarM.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminarM.Location = new System.Drawing.Point(821, 137);
             this.btnEliminarM.Name = "btnEliminarM";
-            this.btnEliminarM.Size = new System.Drawing.Size(67, 31);
+            this.btnEliminarM.Size = new System.Drawing.Size(90, 42);
             this.btnEliminarM.TabIndex = 8;
             this.btnEliminarM.Text = "Eliminar";
+            this.btnEliminarM.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminarM.UseVisualStyleBackColor = false;
             this.btnEliminarM.Click += new System.EventHandler(this.btnEliminarM_Click);
             // 
@@ -176,11 +209,14 @@
             this.btnEM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEM.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEM.ForeColor = System.Drawing.Color.White;
-            this.btnEM.Location = new System.Drawing.Point(743, 148);
+            this.btnEM.Image = global::Vista.Properties.Resources.editarUsuario;
+            this.btnEM.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEM.Location = new System.Drawing.Point(711, 137);
             this.btnEM.Name = "btnEM";
-            this.btnEM.Size = new System.Drawing.Size(67, 31);
+            this.btnEM.Size = new System.Drawing.Size(80, 41);
             this.btnEM.TabIndex = 9;
             this.btnEM.Text = "Editar";
+            this.btnEM.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEM.UseVisualStyleBackColor = false;
             this.btnEM.Click += new System.EventHandler(this.btnEM_Click);
             // 
@@ -207,11 +243,14 @@
             this.btnBM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBM.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBM.ForeColor = System.Drawing.Color.White;
-            this.btnBM.Location = new System.Drawing.Point(285, 147);
+            this.btnBM.Image = global::Vista.Properties.Resources.buscar;
+            this.btnBM.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBM.Location = new System.Drawing.Point(285, 137);
             this.btnBM.Name = "btnBM";
-            this.btnBM.Size = new System.Drawing.Size(75, 31);
+            this.btnBM.Size = new System.Drawing.Size(82, 41);
             this.btnBM.TabIndex = 17;
             this.btnBM.Text = "Buscar";
+            this.btnBM.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBM.UseVisualStyleBackColor = true;
             this.btnBM.Click += new System.EventHandler(this.btnBM_Click);
             // 
