@@ -397,7 +397,7 @@
             this.btnCM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCM.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCM.ForeColor = System.Drawing.Color.White;
-            this.btnCM.Location = new System.Drawing.Point(294, 381);
+            this.btnCM.Location = new System.Drawing.Point(293, 381);
             this.btnCM.Name = "btnCM";
             this.btnCM.Size = new System.Drawing.Size(75, 23);
             this.btnCM.TabIndex = 31;

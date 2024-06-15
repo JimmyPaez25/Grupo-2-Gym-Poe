@@ -148,7 +148,7 @@
             this.btnAME.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAME.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAME.ForeColor = System.Drawing.Color.White;
-            this.btnAME.Location = new System.Drawing.Point(297, 360);
+            this.btnAME.Location = new System.Drawing.Point(422, 360);
             this.btnAME.Name = "btnAME";
             this.btnAME.Size = new System.Drawing.Size(75, 23);
             this.btnAME.TabIndex = 9;
@@ -261,7 +261,7 @@
             this.btnCME.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCME.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCME.ForeColor = System.Drawing.Color.White;
-            this.btnCME.Location = new System.Drawing.Point(422, 360);
+            this.btnCME.Location = new System.Drawing.Point(297, 360);
             this.btnCME.Name = "btnCME";
             this.btnCME.Size = new System.Drawing.Size(75, 23);
             this.btnCME.TabIndex = 34;
