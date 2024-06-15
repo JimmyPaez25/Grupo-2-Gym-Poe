@@ -112,9 +112,7 @@ namespace Control
             dgvRegistroFact.Rows.Clear(); // LIMPIA FILAS SI LAS HAY
             foreach (Factura f in ListaFact)
             {
-                if (f.Estadofact == 1)
-                {
-
+            
                     i = dgvRegistroFact.Rows.Add();
                     dgvRegistroFact.Rows[i].Cells["FacturaRegistroFact"].Value = f.Serie;
                     dgvRegistroFact.Rows[i].Cells["PrecioDataFact"].Value = f.Preciofact;
@@ -123,7 +121,7 @@ namespace Control
                     dgvRegistroFact.Rows[i].Cells["TotalDataFact"].Value = f.Total;
                     //dgvRegistroFact
                     //dgvRegistroFact
-                }
+                
 
             }
 
@@ -171,7 +169,7 @@ namespace Control
                         DialogResult result = MessageBox.Show("ESTA SEGURO DE BORRAR LA FACTURA SELECCIONADA?", "CONFIRMACION", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                         if (result == DialogResult.Yes)
                         {
-                            ListaFact.Remove(fac);
+                            ListaFact.Remove(factura); // <--- Actualiza la yabla y ya no muestra lo borrado
                             dgvRegistroFact.Rows.RemoveAt(filaSelecc);
                             MessageBox.Show("BORRADO EXITOSO.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
@@ -184,9 +182,8 @@ namespace Control
                 MessageBox.Show("ERROR: SELECCIONA UNA FILA ANTES DE ELIMINAR.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-     
-         
-           
+
+
     }
 }
 

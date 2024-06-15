@@ -24,7 +24,7 @@ namespace Vista
             InitializeComponent();
             ctrfact = new CtrFactura();
             lblNumFactura.Text = ctrfact.GenerarFactura();
-            //lblTotalFact.Text = ctrfact.CalcularTotal();
+            //lblTotalFact.Text = ctrfact.IngresarFact();
 
         }
 
