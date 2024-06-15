@@ -52,11 +52,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Bernard MT Condensed", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(320, 22);
+            this.label1.Location = new System.Drawing.Point(401, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(215, 28);
+            this.label1.Size = new System.Drawing.Size(291, 29);
             this.label1.TabIndex = 1;
             this.label1.Text = "CONSULTAR ACTIVIDAD";
             // 
@@ -67,7 +67,7 @@
             this.buttonCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.buttonCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
             this.buttonCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCancelar.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCancelar.ForeColor = System.Drawing.Color.White;
             this.buttonCancelar.Location = new System.Drawing.Point(36, 318);
             this.buttonCancelar.Name = "buttonCancelar";
@@ -90,11 +90,11 @@
             // 
             this.radioButtonNombre.AutoSize = true;
             this.radioButtonNombre.Checked = true;
-            this.radioButtonNombre.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButtonNombre.ForeColor = System.Drawing.Color.White;
             this.radioButtonNombre.Location = new System.Drawing.Point(36, 64);
             this.radioButtonNombre.Name = "radioButtonNombre";
-            this.radioButtonNombre.Size = new System.Drawing.Size(57, 17);
+            this.radioButtonNombre.Size = new System.Drawing.Size(62, 17);
             this.radioButtonNombre.TabIndex = 15;
             this.radioButtonNombre.TabStop = true;
             this.radioButtonNombre.Text = "Nombre";
@@ -103,11 +103,11 @@
             // radioButtonDescripcion
             // 
             this.radioButtonDescripcion.AutoSize = true;
-            this.radioButtonDescripcion.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButtonDescripcion.ForeColor = System.Drawing.Color.White;
             this.radioButtonDescripcion.Location = new System.Drawing.Point(134, 64);
             this.radioButtonDescripcion.Name = "radioButtonDescripcion";
-            this.radioButtonDescripcion.Size = new System.Drawing.Size(73, 17);
+            this.radioButtonDescripcion.Size = new System.Drawing.Size(81, 17);
             this.radioButtonDescripcion.TabIndex = 16;
             this.radioButtonDescripcion.TabStop = true;
             this.radioButtonDescripcion.Text = "Descripcion";
@@ -120,7 +120,7 @@
             this.buttonBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.buttonBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
             this.buttonBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonBuscar.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonBuscar.ForeColor = System.Drawing.Color.White;
             this.buttonBuscar.Location = new System.Drawing.Point(224, 84);
             this.buttonBuscar.Name = "buttonBuscar";
@@ -148,9 +148,8 @@
             this.dgvActividad.Name = "dgvActividad";
             this.dgvActividad.ReadOnly = true;
             this.dgvActividad.RowHeadersWidth = 51;
-            this.dgvActividad.Size = new System.Drawing.Size(744, 162);
+            this.dgvActividad.Size = new System.Drawing.Size(928, 162);
             this.dgvActividad.TabIndex = 18;
-            this.dgvActividad.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvActividad_CellContentClick);
             // 
             // ClmNumero
             // 
@@ -224,9 +223,9 @@
             this.buttonEditar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.buttonEditar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
             this.buttonEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonEditar.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonEditar.ForeColor = System.Drawing.Color.White;
-            this.buttonEditar.Location = new System.Drawing.Point(609, 87);
+            this.buttonEditar.Location = new System.Drawing.Point(793, 87);
             this.buttonEditar.Name = "buttonEditar";
             this.buttonEditar.Size = new System.Drawing.Size(75, 23);
             this.buttonEditar.TabIndex = 19;
@@ -241,9 +240,9 @@
             this.buttonEliminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.buttonEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
             this.buttonEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonEliminar.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonEliminar.ForeColor = System.Drawing.Color.White;
-            this.buttonEliminar.Location = new System.Drawing.Point(705, 87);
+            this.buttonEliminar.Location = new System.Drawing.Point(889, 87);
             this.buttonEliminar.Name = "buttonEliminar";
             this.buttonEliminar.Size = new System.Drawing.Size(75, 23);
             this.buttonEliminar.TabIndex = 20;
@@ -258,7 +257,7 @@
             this.buttonSeleccionar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.buttonSeleccionar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
             this.buttonSeleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSeleccionar.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSeleccionar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSeleccionar.ForeColor = System.Drawing.Color.White;
             this.buttonSeleccionar.Location = new System.Drawing.Point(132, 318);
             this.buttonSeleccionar.Name = "buttonSeleccionar";
@@ -273,7 +272,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(823, 374);
+            this.ClientSize = new System.Drawing.Size(1005, 374);
             this.Controls.Add(this.buttonSeleccionar);
             this.Controls.Add(this.buttonEliminar);
             this.Controls.Add(this.buttonEditar);

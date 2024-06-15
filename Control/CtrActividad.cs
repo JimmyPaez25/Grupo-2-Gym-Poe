@@ -66,7 +66,7 @@ namespace Control
             {
                 act = new Actividad(sNombre, sDescripcion, fechaInicio, fechaFin, horaInicio, horaFin);
                 ListaActividad.Add(act);
-                msj = act.ToString() + Environment.NewLine + "---ACTIVIDAD REGISTRADA CORRECTAMENTE---" + Environment.NewLine;
+                msj = "ACTIVIDAD REGISTRADA CORRECTAMENTE" + Environment.NewLine + act.ToString();
             }
             return msj;
         }
@@ -117,7 +117,7 @@ namespace Control
                     {
                         ListaActividad[clmId].Estado = 2; // ESTADO 2 = INACTIVO
                         TablaConsultarActividad(dgvActividad);
-                        MessageBox.Show("BORRADO DE ACTIVIDAD EXITOSO.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("BORRADO DE ACTIVIDAD EXITOSO." + Environment.NewLine + ListaActividad[clmId].ToString(), "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
@@ -197,7 +197,7 @@ namespace Control
                     actividadExistente.HoraInicio = horaInicio;
                     actividadExistente.HoraFin = horaFin;
 
-                    msj = "ACTIVIDAD EDITADA CORRECTAMENTE";
+                    msj = "ACTIVIDAD EDITADA CORRECTAMENTE" + Environment.NewLine + actividadExistente.ToString();
                 }
                 else
                 {
@@ -245,7 +245,7 @@ namespace Control
                         {
                             actividad.Estado = 1; // CAMBIA EL ESTADO A ACTIVO
                             TablaConsultarActividadPapelera(dgvActividad);
-                            MessageBox.Show("ACTIVIDAD RESTAURADA EXITOSAMENTE.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("ACTIVIDAD RESTAURADA EXITOSAMENTE." + Environment.NewLine + actividad.ToString(), "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                 }
