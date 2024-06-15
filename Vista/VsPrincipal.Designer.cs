@@ -30,14 +30,14 @@
         {
             this.labelTituloGym = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnRegistrar = new System.Windows.Forms.Button();
             this.btnVerRegistroFact = new System.Windows.Forms.Button();
             this.btnGM = new System.Windows.Forms.Button();
             this.buttonGestionActividad = new System.Windows.Forms.Button();
+            this.btnMembresia = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnRegistrar = new System.Windows.Forms.Button();
-            this.btnMembresia = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -66,9 +66,32 @@
             this.panel1.Size = new System.Drawing.Size(184, 489);
             this.panel1.TabIndex = 8;
             // 
+            // btnRegistrar
+            // 
+            this.btnRegistrar.BackColor = System.Drawing.Color.Transparent;
+            this.btnRegistrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegistrar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnRegistrar.FlatAppearance.BorderSize = 2;
+            this.btnRegistrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnRegistrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistrar.Font = new System.Drawing.Font("Bernard MT Condensed", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrar.ForeColor = System.Drawing.Color.White;
+            this.btnRegistrar.Image = global::Vista.Properties.Resources.Img_RegistroUser;
+            this.btnRegistrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRegistrar.Location = new System.Drawing.Point(18, 76);
+            this.btnRegistrar.Name = "btnRegistrar";
+            this.btnRegistrar.Size = new System.Drawing.Size(143, 49);
+            this.btnRegistrar.TabIndex = 4;
+            this.btnRegistrar.Text = "Registrar cliente";
+            this.btnRegistrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRegistrar.UseVisualStyleBackColor = false;
+            this.btnRegistrar.Click += new System.EventHandler(this.button2_Click);
+            // 
             // btnVerRegistroFact
             // 
             this.btnVerRegistroFact.BackColor = System.Drawing.Color.Transparent;
+            this.btnVerRegistroFact.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVerRegistroFact.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnVerRegistroFact.FlatAppearance.BorderSize = 2;
             this.btnVerRegistroFact.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
@@ -91,6 +114,7 @@
             // btnGM
             // 
             this.btnGM.BackColor = System.Drawing.Color.Transparent;
+            this.btnGM.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGM.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnGM.FlatAppearance.BorderSize = 2;
             this.btnGM.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
@@ -112,6 +136,7 @@
             // buttonGestionActividad
             // 
             this.buttonGestionActividad.BackColor = System.Drawing.Color.Black;
+            this.buttonGestionActividad.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonGestionActividad.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.buttonGestionActividad.FlatAppearance.BorderSize = 2;
             this.buttonGestionActividad.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
@@ -129,6 +154,29 @@
             this.buttonGestionActividad.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonGestionActividad.UseVisualStyleBackColor = false;
             this.buttonGestionActividad.Click += new System.EventHandler(this.buttonGestionActividad_Click);
+            // 
+            // btnMembresia
+            // 
+            this.btnMembresia.BackColor = System.Drawing.Color.Transparent;
+            this.btnMembresia.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMembresia.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnMembresia.FlatAppearance.BorderSize = 2;
+            this.btnMembresia.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnMembresia.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.btnMembresia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMembresia.Font = new System.Drawing.Font("Bernard MT Condensed", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMembresia.ForeColor = System.Drawing.Color.White;
+            this.btnMembresia.Image = global::Vista.Properties.Resources.gestion1_img;
+            this.btnMembresia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMembresia.Location = new System.Drawing.Point(18, 146);
+            this.btnMembresia.Name = "btnMembresia";
+            this.btnMembresia.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnMembresia.Size = new System.Drawing.Size(143, 53);
+            this.btnMembresia.TabIndex = 5;
+            this.btnMembresia.Text = "Gestionar cliente";
+            this.btnMembresia.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnMembresia.UseVisualStyleBackColor = false;
+            this.btnMembresia.Click += new System.EventHandler(this.btnMembresia_Click);
             // 
             // panel2
             // 
@@ -158,49 +206,6 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 11;
             this.pictureBox2.TabStop = false;
-            // 
-            // btnRegistrar
-            // 
-            this.btnRegistrar.BackColor = System.Drawing.Color.Transparent;
-            this.btnRegistrar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnRegistrar.FlatAppearance.BorderSize = 2;
-            this.btnRegistrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnRegistrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
-            this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegistrar.Font = new System.Drawing.Font("Bernard MT Condensed", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrar.ForeColor = System.Drawing.Color.White;
-            this.btnRegistrar.Image = global::Vista.Properties.Resources.Img_RegistroUser;
-            this.btnRegistrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRegistrar.Location = new System.Drawing.Point(18, 76);
-            this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(143, 49);
-            this.btnRegistrar.TabIndex = 4;
-            this.btnRegistrar.Text = "Registrar cliente";
-            this.btnRegistrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnRegistrar.UseVisualStyleBackColor = false;
-            this.btnRegistrar.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // btnMembresia
-            // 
-            this.btnMembresia.BackColor = System.Drawing.Color.Transparent;
-            this.btnMembresia.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnMembresia.FlatAppearance.BorderSize = 2;
-            this.btnMembresia.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnMembresia.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
-            this.btnMembresia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMembresia.Font = new System.Drawing.Font("Bernard MT Condensed", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMembresia.ForeColor = System.Drawing.Color.White;
-            this.btnMembresia.Image = global::Vista.Properties.Resources.gestion1_img;
-            this.btnMembresia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMembresia.Location = new System.Drawing.Point(18, 146);
-            this.btnMembresia.Name = "btnMembresia";
-            this.btnMembresia.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnMembresia.Size = new System.Drawing.Size(143, 53);
-            this.btnMembresia.TabIndex = 5;
-            this.btnMembresia.Text = "Gestionar cliente";
-            this.btnMembresia.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnMembresia.UseVisualStyleBackColor = false;
-            this.btnMembresia.Click += new System.EventHandler(this.btnMembresia_Click);
             // 
             // VsPrincipal
             // 

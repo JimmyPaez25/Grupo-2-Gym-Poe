@@ -275,5 +275,17 @@
   <ItemGroup>
     <None Include="Resources\gestion1_img.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cerrar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\borrarUsuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editarUsuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buscar.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
