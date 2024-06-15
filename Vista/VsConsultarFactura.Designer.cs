@@ -35,12 +35,12 @@
             this.btnBorrarFact = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtingresarbuscar = new System.Windows.Forms.TextBox();
+            this.btnVolverFact = new System.Windows.Forms.Button();
             this.FacturaRegistroFact = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrecioDataFact = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DescuentoDataFact = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IvaDataFact = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalDataFact = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnVolverFact = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistroFact)).BeginInit();
             this.SuspendLayout();
             // 
@@ -120,41 +120,6 @@
             this.txtingresarbuscar.TabIndex = 12;
             this.txtingresarbuscar.TextChanged += new System.EventHandler(this.txtingresarbuscar_TextChanged_1);
             // 
-            // FacturaRegistroFact
-            // 
-            this.FacturaRegistroFact.HeaderText = "Factura";
-            this.FacturaRegistroFact.MinimumWidth = 6;
-            this.FacturaRegistroFact.Name = "FacturaRegistroFact";
-            this.FacturaRegistroFact.Width = 125;
-            // 
-            // PrecioDataFact
-            // 
-            this.PrecioDataFact.HeaderText = "Precio";
-            this.PrecioDataFact.MinimumWidth = 6;
-            this.PrecioDataFact.Name = "PrecioDataFact";
-            this.PrecioDataFact.Width = 125;
-            // 
-            // DescuentoDataFact
-            // 
-            this.DescuentoDataFact.HeaderText = "Descuento";
-            this.DescuentoDataFact.MinimumWidth = 6;
-            this.DescuentoDataFact.Name = "DescuentoDataFact";
-            this.DescuentoDataFact.Width = 125;
-            // 
-            // IvaDataFact
-            // 
-            this.IvaDataFact.HeaderText = "IVA";
-            this.IvaDataFact.MinimumWidth = 6;
-            this.IvaDataFact.Name = "IvaDataFact";
-            this.IvaDataFact.Width = 125;
-            // 
-            // TotalDataFact
-            // 
-            this.TotalDataFact.HeaderText = "Total";
-            this.TotalDataFact.MinimumWidth = 6;
-            this.TotalDataFact.Name = "TotalDataFact";
-            this.TotalDataFact.Width = 125;
-            // 
             // btnVolverFact
             // 
             this.btnVolverFact.Location = new System.Drawing.Point(37, 535);
@@ -164,6 +129,46 @@
             this.btnVolverFact.Text = "VOLVER";
             this.btnVolverFact.UseVisualStyleBackColor = true;
             this.btnVolverFact.Click += new System.EventHandler(this.btnVolverFact_Click_1);
+            // 
+            // FacturaRegistroFact
+            // 
+            this.FacturaRegistroFact.HeaderText = "Factura";
+            this.FacturaRegistroFact.MinimumWidth = 6;
+            this.FacturaRegistroFact.Name = "FacturaRegistroFact";
+            this.FacturaRegistroFact.ReadOnly = true;
+            this.FacturaRegistroFact.Width = 125;
+            // 
+            // PrecioDataFact
+            // 
+            this.PrecioDataFact.HeaderText = "Precio";
+            this.PrecioDataFact.MinimumWidth = 6;
+            this.PrecioDataFact.Name = "PrecioDataFact";
+            this.PrecioDataFact.ReadOnly = true;
+            this.PrecioDataFact.Width = 125;
+            // 
+            // DescuentoDataFact
+            // 
+            this.DescuentoDataFact.HeaderText = "Descuento";
+            this.DescuentoDataFact.MinimumWidth = 6;
+            this.DescuentoDataFact.Name = "DescuentoDataFact";
+            this.DescuentoDataFact.ReadOnly = true;
+            this.DescuentoDataFact.Width = 125;
+            // 
+            // IvaDataFact
+            // 
+            this.IvaDataFact.HeaderText = "IVA";
+            this.IvaDataFact.MinimumWidth = 6;
+            this.IvaDataFact.Name = "IvaDataFact";
+            this.IvaDataFact.ReadOnly = true;
+            this.IvaDataFact.Width = 125;
+            // 
+            // TotalDataFact
+            // 
+            this.TotalDataFact.HeaderText = "Total";
+            this.TotalDataFact.MinimumWidth = 6;
+            this.TotalDataFact.Name = "TotalDataFact";
+            this.TotalDataFact.ReadOnly = true;
+            this.TotalDataFact.Width = 125;
             // 
             // VsConsultarFactura
             // 
@@ -197,11 +202,11 @@
         private System.Windows.Forms.Button btnBorrarFact;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtingresarbuscar;
+        private System.Windows.Forms.Button btnVolverFact;
         private System.Windows.Forms.DataGridViewTextBoxColumn FacturaRegistroFact;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioDataFact;
         private System.Windows.Forms.DataGridViewTextBoxColumn DescuentoDataFact;
         private System.Windows.Forms.DataGridViewTextBoxColumn IvaDataFact;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalDataFact;
-        private System.Windows.Forms.Button btnVolverFact;
     }
 }

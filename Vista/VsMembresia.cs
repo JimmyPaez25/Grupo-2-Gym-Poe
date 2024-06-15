@@ -18,6 +18,7 @@ namespace Vista
         private CtrMembresia ctrMen = new CtrMembresia();
         private Validacion v = new Validacion();
         private VsRegistrarCliente vscliente = new VsRegistrarCliente();
+        private CtrFactura ctrfact = new CtrFactura();
         string celular, direccion, comprobante;
 
 

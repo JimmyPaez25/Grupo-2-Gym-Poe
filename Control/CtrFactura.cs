@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using System.Windows.Forms;
 using Modelo;
 
@@ -29,9 +30,9 @@ namespace Control
         {
             if (ListaFact.Count == 0)
             {
-                ListaFact.Add(new Factura(1, "JKSD23329 ","140","20", "0.12","105.6"));
-                ListaFact.Add(new Factura(2, "JKDI43JYW", "580", "50", "0.12", "466.4"));
-                ListaFact.Add(new Factura(3, "34TEOI0D0", "700", "67", "0.12", "557.04"));
+                ListaFact.Add(new Factura(1, "JKSD23FJ32K9 ","144","20%", "0.15","136.80"));
+                ListaFact.Add(new Factura(2, "JKDI43JYW3FG", "556", "24%", "0.15", "505.06"));
+                ListaFact.Add(new Factura(3, "34TEOI0D0GG7", "700", "13%", "0.15", "714"));
             }
         }
 
@@ -65,26 +66,44 @@ namespace Control
 
 
 
-        //Guardar datos
+
+        //Guardar datos y realizar cálculo
         public string IngresarFact(int numfactura, string serie, string preciofact, string descuentofact, string iva, string total)
         {
             string msg = "ERROR";
             Factura fact = null;
 
             fact = new Factura(numfactura, serie, preciofact, descuentofact, iva, total);
+
+            double precioFact;
+            double descuentoFact = 0; // Inicializo descuentoFact a 0 por defecto
+
+            if (double.TryParse(preciofact, out precioFact))
+            {
+                if (!string.IsNullOrEmpty(descuentofact) && double.TryParse(descuentofact, out descuentoFact) && descuentoFact > 0)
+                {
+                    // Si hay descuento y es mayor a 0, lo aplico
+                    double totalFact = precioFact - (precioFact * (descuentoFact / 100)) + (precioFact * 0.15);
+                    fact.Total = totalFact.ToString();
+                }
+                else
+                {
+                    // Si no hay descuento o es 0, solo calculo el IVA
+                    double totalFact = precioFact + (precioFact * 0.15);
+                    fact.Total = totalFact.ToString();
+                }
+            }
+            else
+            {
+                msg = "Error: Valor de precio no válido";
+                return msg;
+            }
+
             listaFact.Add(fact);
             msg = fact.ToString() + Environment.NewLine + "---REGISTRO EXITOSO---" + Environment.NewLine;
 
             return msg;
-
         }
-
-
-
-
-
-
-
 
         //LLenar la tabla
         public void LlenarDataFact(DataGridView dgvRegistroFact)
@@ -111,37 +130,7 @@ namespace Control
         }
 
 
-
-        //Eliminar factura seleccionando fila No tocar
-        public void EliminarFactura(DataGridView dgvRegistroFact)
-        {
-            if (dgvRegistroFact.SelectedRows.Count > 0)
-            {
-                int filaSelecc = dgvRegistroFact.SelectedRows[0].Index; // OBTIENE INDICE DE FILA SELECCIONADA
-                if (filaSelecc >= 0)
-                {
-                    int cl = (int)dgvRegistroFact.Rows[filaSelecc].Cells["FacturaRegistroFact"].Value - 1; // OBTIENE NUMERO DE LA ACTIVIDAD
-                    DialogResult result = MessageBox.Show("ESTA SEGURO DE BORRAR LA FACTURA SELECCIONADA?", "CONFIRMACION", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
-                    if (result == DialogResult.Yes)
-                    {
-                        ListaFact[cl].Estadofact = 2; // ESTADO 2 = INACTIVO
-                        LlenarDataFact(dgvRegistroFact);
-                        MessageBox.Show("BORRADO EXITOSO.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("ERROR: SELECCIONA UNA FILA ANTES DE ELIMINAR.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-
-
-
-
-        //Buscar No tocar
+        //Buscar
         public void TablaConsultarNombreDescripcion(DataGridView dgvRegistroFact, string filtro = "", bool buscarPorNombrefact = true)
         {
             int i = 0;
@@ -163,8 +152,40 @@ namespace Control
         }
 
 
-       
-           
+
+
+
+        //Eliminar factura seleccionando fila
+        public void EliminarFactura(DataGridView dgvRegistroFact)
+        {
+            if (dgvRegistroFact.SelectedRows.Count > 0)
+            {
+                int filaSelecc = dgvRegistroFact.SelectedRows[0].Index; // OBTIENE INDICE DE FILA SELECCIONADA
+                if (filaSelecc >= 0)
+                {
+                    string cl = dgvRegistroFact.Rows[filaSelecc].Cells["FacturaRegistroFact"].Value.ToString(); // OBTIENE NUMERO DE LA ACTIVIDAD
+                    Factura factura = ListaFact.FirstOrDefault(f => f.Serie == cl);
+
+                    if (factura != null)
+                    {
+                        DialogResult result = MessageBox.Show("ESTA SEGURO DE BORRAR LA FACTURA SELECCIONADA?", "CONFIRMACION", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                        if (result == DialogResult.Yes)
+                        {
+                            ListaFact.Remove(fac);
+                            dgvRegistroFact.Rows.RemoveAt(filaSelecc);
+                            MessageBox.Show("BORRADO EXITOSO.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("ERROR: SELECCIONA UNA FILA ANTES DE ELIMINAR.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+     
+         
            
     }
 }

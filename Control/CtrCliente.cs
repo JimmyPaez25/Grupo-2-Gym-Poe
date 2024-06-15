@@ -13,7 +13,6 @@ namespace Control
     {
         private static List<Cliente> listaCli = new List<Cliente>();
 
-        private int poc;
 
         public static List<Cliente> ListaCli { get => listaCli; set => listaCli = value; }
         

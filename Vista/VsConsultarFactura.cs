@@ -22,6 +22,7 @@ namespace Vista
         {
             InitializeComponent();
             ctrfacto.LlenarDataFact(dgvRegistroFact);
+            
             //facturaListi = CtrFactura.GetTotal();
         }
 

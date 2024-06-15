@@ -59,12 +59,11 @@
             this.lblFechaFinFact = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             this.lblPrecioFact = new System.Windows.Forms.Label();
             this.lblDescuentoFact = new System.Windows.Forms.Label();
-            this.lblTotalFact = new System.Windows.Forms.Label();
             this.lbl = new System.Windows.Forms.Label();
             this.lblIVA = new System.Windows.Forms.Label();
+            this.lblTotalFact = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,7 +106,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(71, 853);
+            this.label4.Location = new System.Drawing.Point(71, 794);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(93, 17);
             this.label4.TabIndex = 7;
@@ -349,7 +348,7 @@
             // 
             this.lblFechaInicioFact.AutoSize = true;
             this.lblFechaInicioFact.ForeColor = System.Drawing.Color.White;
-            this.lblFechaInicioFact.Location = new System.Drawing.Point(257, 854);
+            this.lblFechaInicioFact.Location = new System.Drawing.Point(257, 795);
             this.lblFechaInicioFact.Name = "lblFechaInicioFact";
             this.lblFechaInicioFact.Size = new System.Drawing.Size(56, 16);
             this.lblFechaInicioFact.TabIndex = 46;
@@ -374,7 +373,7 @@
             this.label.AutoSize = true;
             this.label.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label.ForeColor = System.Drawing.Color.White;
-            this.label.Location = new System.Drawing.Point(71, 907);
+            this.label.Location = new System.Drawing.Point(71, 843);
             this.label.Name = "label";
             this.label.Size = new System.Drawing.Size(63, 17);
             this.label.TabIndex = 61;
@@ -384,7 +383,7 @@
             // 
             this.lblFechaFinFact.AutoSize = true;
             this.lblFechaFinFact.ForeColor = System.Drawing.Color.White;
-            this.lblFechaFinFact.Location = new System.Drawing.Point(257, 907);
+            this.lblFechaFinFact.Location = new System.Drawing.Point(257, 844);
             this.lblFechaFinFact.Name = "lblFechaFinFact";
             this.lblFechaFinFact.Size = new System.Drawing.Size(56, 16);
             this.lblFechaFinFact.TabIndex = 62;
@@ -413,17 +412,6 @@
             this.label15.TabIndex = 65;
             this.label15.Text = "Descuento:";
             // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(71, 796);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(41, 17);
-            this.label16.TabIndex = 66;
-            this.label16.Text = "Total:";
-            // 
             // lblPrecioFact
             // 
             this.lblPrecioFact.AutoSize = true;
@@ -443,16 +431,6 @@
             this.lblDescuentoFact.Size = new System.Drawing.Size(56, 16);
             this.lblDescuentoFact.TabIndex = 68;
             this.lblDescuentoFact.Text = "_______";
-            // 
-            // lblTotalFact
-            // 
-            this.lblTotalFact.AutoSize = true;
-            this.lblTotalFact.ForeColor = System.Drawing.Color.White;
-            this.lblTotalFact.Location = new System.Drawing.Point(257, 797);
-            this.lblTotalFact.Name = "lblTotalFact";
-            this.lblTotalFact.Size = new System.Drawing.Size(56, 16);
-            this.lblTotalFact.TabIndex = 69;
-            this.lblTotalFact.Text = "_______";
             // 
             // lbl
             // 
@@ -474,20 +452,30 @@
             this.lblIVA.Name = "lblIVA";
             this.lblIVA.Size = new System.Drawing.Size(31, 17);
             this.lblIVA.TabIndex = 72;
-            this.lblIVA.Text = "0.12";
+            this.lblIVA.Text = "0.15";
+            // 
+            // lblTotalFact
+            // 
+            this.lblTotalFact.AutoSize = true;
+            this.lblTotalFact.ForeColor = System.Drawing.Color.Black;
+            this.lblTotalFact.Location = new System.Drawing.Point(621, 579);
+            this.lblTotalFact.Name = "lblTotalFact";
+            this.lblTotalFact.Size = new System.Drawing.Size(10, 16);
+            this.lblTotalFact.TabIndex = 69;
+            this.lblTotalFact.Text = ".";
+            this.lblTotalFact.Click += new System.EventHandler(this.lblTotalFact_Click_1);
             // 
             // VsFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(816, 971);
+            this.ClientSize = new System.Drawing.Size(816, 885);
             this.Controls.Add(this.lblIVA);
             this.Controls.Add(this.lbl);
             this.Controls.Add(this.lblTotalFact);
             this.Controls.Add(this.lblDescuentoFact);
             this.Controls.Add(this.lblPrecioFact);
-            this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.lblFechaFinFact);
@@ -561,11 +549,10 @@
         public System.Windows.Forms.Label lblFechaFinFact;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
         public System.Windows.Forms.Label lblPrecioFact;
         public System.Windows.Forms.Label lblDescuentoFact;
-        public System.Windows.Forms.Label lblTotalFact;
         private System.Windows.Forms.Label lbl;
         private System.Windows.Forms.Label lblIVA;
+        public System.Windows.Forms.Label lblTotalFact;
     }
 }
