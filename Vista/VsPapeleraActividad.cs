@@ -23,11 +23,6 @@ namespace Vista
             ctrActividad.TablaConsultarActividadPapelera(dgvActividad);
         }
 
-        private void buttonEliminarPermanente_Click(object sender, EventArgs e)
-        {
-            ctrActividad.RemoverActividad(dgvActividad);
-        }
-
         private void buttonRestaurar_Click(object sender, EventArgs e)
         {
             ctrActividad.RestaurarActividad(dgvActividad);
@@ -54,6 +49,11 @@ namespace Vista
         {
             TextBox textBox = sender as TextBox;
             val.ConvertirMayuscula(textBox);
+        }
+
+        private void buttonEliminar_Click(object sender, EventArgs e)
+        {
+            ctrActividad.RemoverActividad(dgvActividad);
         }
 
         // FIN

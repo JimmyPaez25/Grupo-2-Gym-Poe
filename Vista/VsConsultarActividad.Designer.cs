@@ -44,7 +44,7 @@
             this.ClmHoraInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClmHoraFin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonEditar = new System.Windows.Forms.Button();
-            this.buttonEliminar = new System.Windows.Forms.Button();
+            this.buttonInactivar = new System.Windows.Forms.Button();
             this.buttonSeleccionar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvActividad)).BeginInit();
             this.SuspendLayout();
@@ -233,22 +233,22 @@
             this.buttonEditar.UseVisualStyleBackColor = true;
             this.buttonEditar.Click += new System.EventHandler(this.buttonEditar_Click);
             // 
-            // buttonEliminar
+            // buttonInactivar
             // 
-            this.buttonEliminar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.buttonEliminar.FlatAppearance.BorderSize = 2;
-            this.buttonEliminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.buttonEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
-            this.buttonEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEliminar.ForeColor = System.Drawing.Color.White;
-            this.buttonEliminar.Location = new System.Drawing.Point(889, 87);
-            this.buttonEliminar.Name = "buttonEliminar";
-            this.buttonEliminar.Size = new System.Drawing.Size(75, 23);
-            this.buttonEliminar.TabIndex = 20;
-            this.buttonEliminar.Text = "Eliminar";
-            this.buttonEliminar.UseVisualStyleBackColor = true;
-            this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
+            this.buttonInactivar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonInactivar.FlatAppearance.BorderSize = 2;
+            this.buttonInactivar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.buttonInactivar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.buttonInactivar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInactivar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonInactivar.ForeColor = System.Drawing.Color.White;
+            this.buttonInactivar.Location = new System.Drawing.Point(889, 87);
+            this.buttonInactivar.Name = "buttonInactivar";
+            this.buttonInactivar.Size = new System.Drawing.Size(75, 23);
+            this.buttonInactivar.TabIndex = 20;
+            this.buttonInactivar.Text = "Inactivar";
+            this.buttonInactivar.UseVisualStyleBackColor = true;
+            this.buttonInactivar.Click += new System.EventHandler(this.buttonInactivar_Click);
             // 
             // buttonSeleccionar
             // 
@@ -274,7 +274,7 @@
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1005, 374);
             this.Controls.Add(this.buttonSeleccionar);
-            this.Controls.Add(this.buttonEliminar);
+            this.Controls.Add(this.buttonInactivar);
             this.Controls.Add(this.buttonEditar);
             this.Controls.Add(this.dgvActividad);
             this.Controls.Add(this.buttonBuscar);
@@ -303,7 +303,7 @@
         private System.Windows.Forms.Button buttonBuscar;
         private System.Windows.Forms.DataGridView dgvActividad;
         private System.Windows.Forms.Button buttonEditar;
-        private System.Windows.Forms.Button buttonEliminar;
+        private System.Windows.Forms.Button buttonInactivar;
         private System.Windows.Forms.Button buttonSeleccionar;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmNumero;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmEstado;

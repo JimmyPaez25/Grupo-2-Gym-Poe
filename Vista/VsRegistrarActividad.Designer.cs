@@ -50,82 +50,82 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Bernard MT Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(244, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(224, 22);
+            this.label1.Size = new System.Drawing.Size(296, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "REGISTRAR COMBO ACTIVIDAD";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Bernard MT Condensed", 9F);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(53, 79);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(167, 15);
+            this.label2.Size = new System.Drawing.Size(199, 15);
             this.label2.TabIndex = 1;
             this.label2.Text = "Nombre del Combo de Actividades:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Bernard MT Condensed", 9F);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(87, 117);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(133, 15);
+            this.label3.Size = new System.Drawing.Size(156, 15);
             this.label3.TabIndex = 2;
             this.label3.Text = "Descripcion de Actividades:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Bernard MT Condensed", 9F);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(51, 252);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 15);
+            this.label4.Size = new System.Drawing.Size(76, 15);
             this.label4.TabIndex = 3;
             this.label4.Text = "Fecha Inicio:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Bernard MT Condensed", 9F);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(64, 285);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(54, 15);
+            this.label5.Size = new System.Drawing.Size(64, 15);
             this.label5.TabIndex = 4;
             this.label5.Text = "Fecha Fin:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Bernard MT Condensed", 9F);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(345, 252);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(63, 15);
+            this.label6.Size = new System.Drawing.Size(69, 15);
             this.label6.TabIndex = 5;
             this.label6.Text = "Hora Inicio:";
             // 
             // textNombre
             // 
-            this.textNombre.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textNombre.Location = new System.Drawing.Point(248, 74);
             this.textNombre.Name = "textNombre";
-            this.textNombre.Size = new System.Drawing.Size(217, 21);
+            this.textNombre.Size = new System.Drawing.Size(217, 20);
             this.textNombre.TabIndex = 6;
             this.textNombre.TextChanged += new System.EventHandler(this.textNombre_TextChanged);
             this.textNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textNombre_KeyPress);
             // 
             // textDescripcion
             // 
-            this.textDescripcion.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textDescripcion.Location = new System.Drawing.Point(248, 117);
             this.textDescripcion.Multiline = true;
             this.textDescripcion.Name = "textDescripcion";
@@ -142,7 +142,7 @@
             this.buttonRegistrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.buttonRegistrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
             this.buttonRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonRegistrar.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonRegistrar.ForeColor = System.Drawing.Color.White;
             this.buttonRegistrar.Location = new System.Drawing.Point(248, 328);
             this.buttonRegistrar.Name = "buttonRegistrar";
@@ -159,7 +159,7 @@
             this.buttonCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.buttonCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
             this.buttonCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCancelar.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCancelar.ForeColor = System.Drawing.Color.White;
             this.buttonCancelar.Location = new System.Drawing.Point(390, 328);
             this.buttonCancelar.Name = "buttonCancelar";
@@ -201,11 +201,11 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Bernard MT Condensed", 9F);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(358, 286);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(50, 15);
+            this.label7.Size = new System.Drawing.Size(57, 15);
             this.label7.TabIndex = 15;
             this.label7.Text = "Hora Fin:";
             // 
@@ -223,9 +223,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Vista.Properties.Resources.img_rata3;
-            this.pictureBox1.Location = new System.Drawing.Point(491, 31);
+            this.pictureBox1.Location = new System.Drawing.Point(491, 47);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(187, 269);
+            this.pictureBox1.Size = new System.Drawing.Size(187, 253);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 18;
             this.pictureBox1.TabStop = false;

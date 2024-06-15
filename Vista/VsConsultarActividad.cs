@@ -28,11 +28,6 @@ namespace Vista
             val.ValidarCaracterEspecial(sender, e);
         }
 
-        private void buttonEliminar_Click(object sender, EventArgs e)
-        {
-            ctrActividad.InactivarActividad(dgvActividad);
-        }
-
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
             string filtro = textBuscar.Text.Trim();
@@ -67,6 +62,11 @@ namespace Vista
         {
             TextBox textBox = sender as TextBox;
             val.ConvertirMayuscula(textBox);
+        }
+
+        private void buttonInactivar_Click(object sender, EventArgs e)
+        {
+            ctrActividad.InactivarActividad(dgvActividad);
         }
 
         // FIN

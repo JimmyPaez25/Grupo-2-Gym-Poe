@@ -112,18 +112,18 @@ namespace Control
                 if (filaSeleccionada >= 0)
                 {
                     int clmId = (int)dgvActividad.Rows[filaSeleccionada].Cells["ClmNumero"].Value - 1; // OBTIENE NUMERO DE LA ACTIVIDAD
-                    DialogResult resultado = MessageBox.Show("ESTAS SEGURO DE BORRAR ESTA ACTIVIDAD?", "CONFIRMACION", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                    DialogResult resultado = MessageBox.Show("ESTAS SEGURO DE INACTIVAR ESTA ACTIVIDAD?", "CONFIRMACION", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                     if (resultado == DialogResult.Yes)
                     {
                         ListaActividad[clmId].Estado = 2; // ESTADO 2 = INACTIVO
                         TablaConsultarActividad(dgvActividad);
-                        MessageBox.Show("BORRADO DE ACTIVIDAD EXITOSO." + Environment.NewLine + ListaActividad[clmId].ToString(), "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("ACTIVIDAD INACTIVADA EXITOSO." + Environment.NewLine + ListaActividad[clmId].ToString(), "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
             else
             {
-                MessageBox.Show("ERROR: SELECCIONA UNA FILA ANTES DE ELIMINAR UNA ACTIVIDAD.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("ERROR: SELECCIONA UNA FILA ANTES DE INACTIVAR UNA ACTIVIDAD.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -268,7 +268,7 @@ namespace Control
 
                     if (actividad != null)
                     {
-                        DialogResult resultado = MessageBox.Show("ESTAS SEGURO DE ELIMINAR PERMANENTEMENTE ESTA ACTIVIDAD?", "CONFIRMACION", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                        DialogResult resultado = MessageBox.Show("ESTAS SEGURO DE ELIMINAR ESTA ACTIVIDAD?", "CONFIRMACION", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                         if (resultado == DialogResult.Yes)
                         {
                             ListaActividad.Remove(actividad);
@@ -284,7 +284,7 @@ namespace Control
             }
             else
             {
-                MessageBox.Show("ERROR: SELECCIONA UNA FILA ANTES DE ELIMINAR DE FORMA PERMANENTE UNA ACTIVIDAD.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("ERROR: SELECCIONA UNA FILA ANTES DE ELIMINAR  UNA ACTIVIDAD.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
