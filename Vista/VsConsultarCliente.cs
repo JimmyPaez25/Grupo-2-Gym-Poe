@@ -18,7 +18,7 @@ namespace Vista
         private CtrCliente ctrCli = new CtrCliente();
         private Validacion v = new Validacion();
         private VsRegistrarCliente vRC = new VsRegistrarCliente();
-        private int poc;
+        //private int poc;
 
 
         public VsConsultarCliente()

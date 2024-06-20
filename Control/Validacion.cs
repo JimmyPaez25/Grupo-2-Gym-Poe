@@ -35,7 +35,7 @@ namespace Control
                     Console.WriteLine("ERROR: DATO DEBE SER NUMERO ENTERO.\n");
                 }
             }
-            catch (FormatException ex)
+            catch (FormatException /*ex*/)
             {
                 Console.WriteLine("ERROR: DATO INVALIDO.\n");
                 //Console.WriteLine("ERROR namespace:Control/ class:Validacion/ ConvertirEntero: {0}\n", ex);
@@ -62,7 +62,7 @@ namespace Control
                     Console.WriteLine("ERROR: DATO DEBE SER MAYOR A CERO.\n");
                 }
             }
-            catch (FormatException ex)
+            catch (FormatException /*ex*/)
             {
                 Console.WriteLine("ERROR: DATO INVALIDO.\n");
                 //Console.WriteLine("ERROR namespace:Control/ class:Validacion/ ConvertirDouble: {0}\n", ex);
@@ -84,7 +84,7 @@ namespace Control
                     valor = Convert.ToDouble(dato);
                 }
             }
-            catch (FormatException ex)
+            catch (FormatException /*ex*/)
             {
                 Console.WriteLine("ERROR: SE ESPERABA UN NUMERO REAL.");
                 //Console.WriteLine("ERROR namespace:Control/ class:Validacion/ ConvertirReal: {0}\n", ex);
@@ -111,7 +111,7 @@ namespace Control
                     Console.WriteLine("ERROR: SOLO PUEDE INGRESAR 1 LETRA.\n");
                 }
             }
-            catch (FormatException ex)
+            catch (FormatException /*ex*/)
             {
                 Console.WriteLine("ERROR: DATO INVALIDO.\n");
                 //Console.WriteLine("ERROR namespace:Control/ class:Validacion/ ConvertirChar: {0}\n", ex);
@@ -133,7 +133,7 @@ namespace Control
                     valor = TimeSpan.Parse(dato);
                 }
             }
-            catch (FormatException ex)
+            catch (FormatException /*ex*/)
             {
                 Console.WriteLine("ERROR: DATO INVALIDO.\n");
                 //Console.WriteLine("ERROR namespace:Control/ class:Validacion/ ConvertirTimeSpan: {0}\n", ex);
@@ -156,7 +156,7 @@ namespace Control
                     //valor = DateTime.ParseExact(dato, "d/M/yyyy", CultureInfo.InvariantCulture); // FECHA SIN FORMATO DE HORA
                 }
             }
-            catch (FormatException ex)
+            catch (FormatException /*ex*/)
             {
                 Console.WriteLine("ERROR: DATO INVALIDO.\n");
                 //Console.WriteLine("ERROR namespace:Control/ class:Validacion/ ConvertirDateTime: {0}\n", ex);

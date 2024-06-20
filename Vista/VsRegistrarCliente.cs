@@ -15,7 +15,7 @@ namespace Vista
     {
         private CtrCliente ctrCli = new Control.CtrCliente();
         private Validacion v = new Validacion();
-        private bool edicion = false;
+        //private bool edicion = false;
         public VsRegistrarCliente()
         {
             InitializeComponent();
