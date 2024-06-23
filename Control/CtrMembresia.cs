@@ -162,7 +162,7 @@ namespace Control
         {
             string msj = "ERROR: SE ESPERABA DATOS CORRECTOS.";
             Validacion val = new Validacion();
-            Membresia mem = null;
+            //Membresia mem = null;
             double precio = val.ConvertirDouble(SprecioE);
             DateTime fechaInicio = val.ConvertirDateTime(SFInicioE);
             DateTime fechaFin = val.ConvertirDateTime(SFFinE);

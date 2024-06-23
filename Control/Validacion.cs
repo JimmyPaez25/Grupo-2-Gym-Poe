@@ -12,7 +12,7 @@ namespace Control
 {
     public class Validacion
     {
-        private bool isUpdating = false;
+        //private bool isUpdating = false;
         //
         // CONVERSIONES
         //
