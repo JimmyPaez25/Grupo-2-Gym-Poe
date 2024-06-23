@@ -16,6 +16,7 @@ namespace Modelo
         string iva;
         string total;
         public string estadofact;
+        public string motivoinactivacion;
 
 
         public Factura()
@@ -26,6 +27,7 @@ namespace Modelo
             Descuentofact = string.Empty;
             iva = string.Empty;
             total = string.Empty;
+            motivoinactivacion = string.Empty;
 
         }
 
@@ -38,8 +40,11 @@ namespace Modelo
             Descuentofact = descuentofact;
             Iva = iva;
             Total = total;
+            
+            
         }
 
+        public string Motivoinactivacion { get => motivoinactivacion; set => motivoinactivacion = value; }
         public string Estadofact { get => estadofact; set => estadofact = value; }
 
         public int Numfactura { get => numfactura; set => numfactura = value; }

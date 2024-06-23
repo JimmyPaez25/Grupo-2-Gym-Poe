@@ -43,6 +43,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtingresarbuscar = new System.Windows.Forms.TextBox();
             this.btnVolverFact = new System.Windows.Forms.Button();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistroFact)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,7 +63,7 @@
             this.dgvRegistroFact.Name = "dgvRegistroFact";
             this.dgvRegistroFact.RowHeadersWidth = 51;
             this.dgvRegistroFact.RowTemplate.Height = 24;
-            this.dgvRegistroFact.Size = new System.Drawing.Size(1170, 246);
+            this.dgvRegistroFact.Size = new System.Drawing.Size(1289, 246);
             this.dgvRegistroFact.TabIndex = 0;
             this.dgvRegistroFact.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistroFact_CellContentClick);
             // 
@@ -119,7 +120,6 @@
             this.MotivoDataFact.HeaderText = "Motivo";
             this.MotivoDataFact.MinimumWidth = 6;
             this.MotivoDataFact.Name = "MotivoDataFact";
-            this.MotivoDataFact.ReadOnly = true;
             this.MotivoDataFact.Width = 125;
             // 
             // btnBuscarFact
@@ -144,7 +144,7 @@
             this.richTextBox1.Location = new System.Drawing.Point(357, 402);
             this.richTextBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(417, 96);
+            this.richTextBox1.Size = new System.Drawing.Size(467, 96);
             this.richTextBox1.TabIndex = 8;
             this.richTextBox1.Text = "";
             this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
@@ -169,7 +169,7 @@
             this.btnInactivarFact.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInactivarFact.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInactivarFact.ForeColor = System.Drawing.Color.White;
-            this.btnInactivarFact.Location = new System.Drawing.Point(435, 529);
+            this.btnInactivarFact.Location = new System.Drawing.Point(480, 529);
             this.btnInactivarFact.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnInactivarFact.Name = "btnInactivarFact";
             this.btnInactivarFact.Size = new System.Drawing.Size(248, 30);
@@ -212,20 +212,28 @@
             this.btnVolverFact.UseVisualStyleBackColor = true;
             this.btnVolverFact.Click += new System.EventHandler(this.btnVolverFact_Click_1);
             // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Location = new System.Drawing.Point(0, 0);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
+            this.btnLimpiar.TabIndex = 0;
+            // 
             // VsConsultarFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1479, 597);
+            this.ClientSize = new System.Drawing.Size(1494, 597);
+            this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnVolverFact);
-            this.Controls.Add(this.txtingresarbuscar);
             this.Controls.Add(this.btnInactivarFact);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnBuscarFact);
             this.Controls.Add(this.dgvRegistroFact);
+            this.Controls.Add(this.txtingresarbuscar);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "VsConsultarFactura";
             this.Text = "VsConsultarFactura";
@@ -253,5 +261,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalDataFact;
         private System.Windows.Forms.DataGridViewTextBoxColumn EstadoDataFact;
         private System.Windows.Forms.DataGridViewTextBoxColumn MotivoDataFact;
+        private System.Windows.Forms.Button btnLimpiar;
     }
 }

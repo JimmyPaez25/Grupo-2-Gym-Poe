@@ -36,12 +36,6 @@ namespace Vista
             
         }
 
-        
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
@@ -49,16 +43,6 @@ namespace Vista
             richTextBox1.KeyPress += val.ValidarLetra;
             
         }
-
-       
-
-        private void txtingresarbuscar_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-        
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -68,22 +52,34 @@ namespace Vista
 
         private void btnInactivarFact_Click(object sender, EventArgs e)
         {
-            
-            if (string.IsNullOrEmpty(richTextBox1.Text))
-            {
-                MessageBox.Show("POR FAVOR, ESCRIBA EL MOTIVO POR EL CUAL DESEA ELIMINAR ESTA FACTURA", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
+            if (dgvRegistroFact.SelectedRows.Count > 0)
             {
                 var filaSeleccionada = dgvRegistroFact.SelectedRows[0];
                 var serie = (string)filaSeleccionada.Cells["FacturaRegistroFact"].Value;
 
-                ctrfacto.InactivarFactura(serie, dgvRegistroFact);
+                string motivoInactivacion = richTextBox1.Text;
+
+                if (string.IsNullOrWhiteSpace(motivoInactivacion))
+                {
+                    MessageBox.Show("ERROR: ESCRIBA EL MOTIVO POR EL QUE DESEA INACTIVAR LA FACTURA.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+
+                filaSeleccionada.Cells["MotivoDataFact"].Value = motivoInactivacion;
+
+                ctrfacto.InactivarFactura(serie, filaSeleccionada);
+
                 ctrfacto.LlenarDataFact(dgvRegistroFact);
-                richTextBox1.Clear(); // Borrar el contenido del richTextBox1
+
+                richTextBox1.Clear();
             }
-            
+            else
+            {
+                MessageBox.Show("ERROR: SELECCIONA UNA FILA ANTES DE ELIMINAR.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
+
 
         private void richTextBox1_TextChanged_1(object sender, EventArgs e)
         {
@@ -91,11 +87,7 @@ namespace Vista
             richTextBox1.KeyPress += val.ValidarLetra;
 
         }
-
-        private void btnBuscarFact_Click_1(object sender, EventArgs e)
-        {
-            
-        }
+    
 
         private void txtingresarbuscar_TextChanged_1(object sender, EventArgs e)
         {
@@ -111,5 +103,6 @@ namespace Vista
         {
 
         }
+
     }
 }

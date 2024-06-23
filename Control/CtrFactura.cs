@@ -70,13 +70,13 @@ namespace Control
         //Guardar datos y realizar cálculo
         public string IngresarFact(int numfactura, string serie, string preciofact, string descuentofact, string iva, string total)
         {
-            string msg = "ERROR";
-            Factura fact = null;
+            string msg;
+            Factura fact;
 
             fact = new Factura(numfactura, serie, preciofact, descuentofact, iva, total);
 
             double precioFact;
-            double descuentoFact = 0; // Inicializo descuentoFact a 0 por defecto
+            double descuentoFact;
 
             if (double.TryParse(preciofact, out precioFact))
             {
@@ -109,7 +109,7 @@ namespace Control
         //LLenar la tabla
         public void LlenarDataFact(DataGridView dgvRegistroFact)
         {
-            int i = 0;
+            int i;
             dgvRegistroFact.Rows.Clear(); // LIMPIA FILAS SI LAS HAY
             foreach (Factura f in ListaFact)
             {
@@ -121,19 +121,17 @@ namespace Control
                     dgvRegistroFact.Rows[i].Cells["IvaDataFact"].Value = f.Iva;
                     dgvRegistroFact.Rows[i].Cells["TotalDataFact"].Value = f.Total;
                     dgvRegistroFact.Rows[i].Cells["EstadoDataFact"].Value = f.Estadofact;
+                    dgvRegistroFact.Rows[i].Cells["MotivoDataFact"].Value = f.Motivoinactivacion;
                     //dgvRegistroFact
                     //dgvRegistroFact
-                
-
             }
-
         }
 
 
         //Buscar
         public void TablaConsultarNombreDescripcion(DataGridView dgvRegistroFact, string filtro = "", bool buscarPorNombrefact = true)
         {
-            int i = 0;
+            int i;
             dgvRegistroFact.Rows.Clear(); // LIMPIA FILAS SI LAS HAY
             foreach (Factura x in ListaFact)
             {
@@ -147,6 +145,8 @@ namespace Control
                     dgvRegistroFact.Rows[i].Cells["DescuentoDataFact"].Value = x.Descuentofact;
                     dgvRegistroFact.Rows[i].Cells["IvaDataFact"].Value = x.Iva;
                     dgvRegistroFact.Rows[i].Cells["TotalDataFact"].Value = x.Total;
+                    dgvRegistroFact.Rows[i].Cells["EstadoDataFact"].Value = x.Estadofact;
+                    dgvRegistroFact.Rows[i].Cells["MotivoDataFact"].Value = x.Motivoinactivacion;
                 }
             }
         }
@@ -156,49 +156,38 @@ namespace Control
 
 
         //Eliminar factura seleccionando fila
-        public void EliminarFactura(DataGridView dgvRegistroFact)
-        {
-            if (dgvRegistroFact.SelectedRows.Count > 0)
-            {
-                int filaSelecc = dgvRegistroFact.SelectedRows[0].Index; // OBTIENE INDICE DE FILA SELECCIONADA
-                if (filaSelecc >= 0)
-                {
-                    string cl = dgvRegistroFact.Rows[filaSelecc].Cells["FacturaRegistroFact"].Value.ToString(); // OBTIENE NUMERO DE LA ACTIVIDAD
-                    Factura factura = ListaFact.FirstOrDefault(f => f.Serie == cl);
+        //public void EliminarFactura(DataGridView dgvRegistroFact)
+        //{
+        //    if (dgvRegistroFact.SelectedRows.Count > 0)
+        //    {
+        //        int filaSelecc = dgvRegistroFact.SelectedRows[0].Index; // OBTIENE INDICE DE FILA SELECCIONADA
+        //        if (filaSelecc >= 0)
+        //        {
+        //            string cl = dgvRegistroFact.Rows[filaSelecc].Cells["FacturaRegistroFact"].Value.ToString(); // OBTIENE NUMERO DE LA ACTIVIDAD
+        //            Factura factura = ListaFact.FirstOrDefault(f => f.Serie == cl);
 
-                    if (factura != null)
-                    {
-                        DialogResult result = MessageBox.Show("ESTA SEGURO DE BORRAR LA FACTURA SELECCIONADA?", "CONFIRMACION", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
-                        if (result == DialogResult.Yes)
-                        {
-                            ListaFact.Remove(factura); // <--- Actualiza la yabla y ya no muestra lo borrado
-                            dgvRegistroFact.Rows.RemoveAt(filaSelecc);
-                            MessageBox.Show("BORRADO EXITOSO.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                    }
+        //            if (factura != null)
+        //            {
+        //                DialogResult result = MessageBox.Show("ESTA SEGURO DE BORRAR LA FACTURA SELECCIONADA?", "CONFIRMACION", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+        //                if (result == DialogResult.Yes)
+        //                {
+        //                    ListaFact.Remove(factura); // <--- Actualiza la tabla y ya no muestra lo borrado
+        //                    dgvRegistroFact.Rows.RemoveAt(filaSelecc);
+        //                    MessageBox.Show("BORRADO EXITOSO.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //                }
+        //            }
 
-                }
-            }
-            else
-            {
-                MessageBox.Show("ERROR: SELECCIONA UNA FILA ANTES DE ELIMINAR.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
+        //        }
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("ERROR: SELECCIONA UNA FILA ANTES DE ELIMINAR.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //    }
+        //}
 
-
-        public enum EstadoFactura //Transforma el string de Estadofactura a int
-        {
-            Inactivo = 0,
-            Activo = 1,
-            //...
-        }
-
-
-        public void InactivarFactura(string serie, DataGridView dgvRegistroFact)
+        public void InactivarFactura(string serie, DataGridViewRow filaSeleccionada)
         {
             
-
-
             DialogResult resultado = MessageBox.Show("¿DESEA INACTIVAR LA FACTURA SELECCIONADA?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (resultado == DialogResult.Yes)
             {
@@ -206,13 +195,10 @@ namespace Control
                 if (factura != null)
                 {
                     factura.estadofact = "INACTIVO"; //Pone el estado Inactivo a la factura
-
+                    factura.motivoinactivacion = filaSeleccionada.Cells["MotivoDataFact"].Value.ToString();
                 }
             }
-            
         }
-
-
     }
 }
 
