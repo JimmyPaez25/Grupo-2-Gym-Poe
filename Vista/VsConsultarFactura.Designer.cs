@@ -53,12 +53,12 @@
             this.DescuentoDataFact,
             this.IvaDataFact,
             this.TotalDataFact});
-            this.dgvRegistroFact.Location = new System.Drawing.Point(54, 77);
-            this.dgvRegistroFact.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvRegistroFact.Location = new System.Drawing.Point(72, 95);
+            this.dgvRegistroFact.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvRegistroFact.Name = "dgvRegistroFact";
             this.dgvRegistroFact.RowHeadersWidth = 51;
             this.dgvRegistroFact.RowTemplate.Height = 24;
-            this.dgvRegistroFact.Size = new System.Drawing.Size(652, 200);
+            this.dgvRegistroFact.Size = new System.Drawing.Size(869, 246);
             this.dgvRegistroFact.TabIndex = 0;
             this.dgvRegistroFact.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistroFact_CellContentClick);
             // 
@@ -111,20 +111,20 @@
             this.btnBuscarFact.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarFact.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarFact.ForeColor = System.Drawing.Color.White;
-            this.btnBuscarFact.Location = new System.Drawing.Point(106, 36);
-            this.btnBuscarFact.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBuscarFact.Location = new System.Drawing.Point(141, 44);
+            this.btnBuscarFact.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBuscarFact.Name = "btnBuscarFact";
-            this.btnBuscarFact.Size = new System.Drawing.Size(190, 24);
+            this.btnBuscarFact.Size = new System.Drawing.Size(253, 30);
             this.btnBuscarFact.TabIndex = 11;
             this.btnBuscarFact.Text = "BUSCAR POR FACTURA";
             this.btnBuscarFact.Click += new System.EventHandler(this.button1_Click);
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(224, 327);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.richTextBox1.Location = new System.Drawing.Point(299, 402);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(314, 79);
+            this.richTextBox1.Size = new System.Drawing.Size(417, 96);
             this.richTextBox1.TabIndex = 8;
             this.richTextBox1.Text = "";
             this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
@@ -134,10 +134,9 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(162, 328);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(216, 404);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 13);
+            this.label2.Size = new System.Drawing.Size(48, 17);
             this.label2.TabIndex = 6;
             this.label2.Text = "Motivo:";
             // 
@@ -150,29 +149,28 @@
             this.btnBorrarFact.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBorrarFact.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBorrarFact.ForeColor = System.Drawing.Color.White;
-            this.btnBorrarFact.Location = new System.Drawing.Point(283, 430);
-            this.btnBorrarFact.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBorrarFact.Location = new System.Drawing.Point(377, 529);
+            this.btnBorrarFact.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBorrarFact.Name = "btnBorrarFact";
-            this.btnBorrarFact.Size = new System.Drawing.Size(186, 24);
+            this.btnBorrarFact.Size = new System.Drawing.Size(248, 30);
             this.btnBorrarFact.TabIndex = 7;
-            this.btnBorrarFact.Text = "Borrar Factura Seleccionada";
+            this.btnBorrarFact.Text = "Inactivar Factura Seleccionada";
             this.btnBorrarFact.UseVisualStyleBackColor = true;
             this.btnBorrarFact.Click += new System.EventHandler(this.btnBorrarFact_Click);
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(426, 279);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(568, 343);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 19);
+            this.label1.Size = new System.Drawing.Size(100, 23);
             this.label1.TabIndex = 9;
             // 
             // txtingresarbuscar
             // 
-            this.txtingresarbuscar.Location = new System.Drawing.Point(326, 40);
-            this.txtingresarbuscar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtingresarbuscar.Location = new System.Drawing.Point(435, 49);
+            this.txtingresarbuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtingresarbuscar.Name = "txtingresarbuscar";
-            this.txtingresarbuscar.Size = new System.Drawing.Size(161, 20);
+            this.txtingresarbuscar.Size = new System.Drawing.Size(213, 22);
             this.txtingresarbuscar.TabIndex = 12;
             this.txtingresarbuscar.TextChanged += new System.EventHandler(this.txtingresarbuscar_TextChanged_1);
             // 
@@ -185,10 +183,10 @@
             this.btnVolverFact.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVolverFact.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVolverFact.ForeColor = System.Drawing.Color.White;
-            this.btnVolverFact.Location = new System.Drawing.Point(54, 430);
-            this.btnVolverFact.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnVolverFact.Location = new System.Drawing.Point(72, 529);
+            this.btnVolverFact.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnVolverFact.Name = "btnVolverFact";
-            this.btnVolverFact.Size = new System.Drawing.Size(75, 24);
+            this.btnVolverFact.Size = new System.Drawing.Size(100, 30);
             this.btnVolverFact.TabIndex = 13;
             this.btnVolverFact.Text = "VOLVER";
             this.btnVolverFact.UseVisualStyleBackColor = true;
@@ -196,10 +194,10 @@
             // 
             // VsConsultarFactura
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(773, 485);
+            this.ClientSize = new System.Drawing.Size(1031, 597);
             this.Controls.Add(this.btnVolverFact);
             this.Controls.Add(this.txtingresarbuscar);
             this.Controls.Add(this.btnBorrarFact);
@@ -208,7 +206,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnBuscarFact);
             this.Controls.Add(this.dgvRegistroFact);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "VsConsultarFactura";
             this.Text = "VsConsultarFactura";
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistroFact)).EndInit();
