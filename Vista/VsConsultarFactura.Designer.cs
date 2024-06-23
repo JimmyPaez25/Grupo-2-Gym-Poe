@@ -43,7 +43,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtingresarbuscar = new System.Windows.Forms.TextBox();
             this.btnVolverFact = new System.Windows.Forms.Button();
-            this.btnLimpiar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistroFact)).BeginInit();
             this.SuspendLayout();
             // 
@@ -212,20 +211,12 @@
             this.btnVolverFact.UseVisualStyleBackColor = true;
             this.btnVolverFact.Click += new System.EventHandler(this.btnVolverFact_Click_1);
             // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.Location = new System.Drawing.Point(0, 0);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpiar.TabIndex = 0;
-            // 
             // VsConsultarFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1494, 597);
-            this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnVolverFact);
             this.Controls.Add(this.btnInactivarFact);
             this.Controls.Add(this.label2);
@@ -261,6 +252,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalDataFact;
         private System.Windows.Forms.DataGridViewTextBoxColumn EstadoDataFact;
         private System.Windows.Forms.DataGridViewTextBoxColumn MotivoDataFact;
-        private System.Windows.Forms.Button btnLimpiar;
     }
 }

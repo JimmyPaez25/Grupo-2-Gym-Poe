@@ -28,12 +28,13 @@ namespace Modelo
             iva = string.Empty;
             total = string.Empty;
             motivoinactivacion = string.Empty;
+            Estadofact = "ACTIVO";
 
         }
 
         public Factura(int numfactura, string serie, string preciofact, string descuentofact, string iva, string total)
         {
-            Estadofact = estadofact;
+            Estadofact = "ACTIVO";
             Numfactura = numfactura;
             Serie = serie;
             Preciofact = preciofact;

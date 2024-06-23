@@ -30,9 +30,9 @@ namespace Control
         {
             if (ListaFact.Count == 0)
             {
-                ListaFact.Add(new Factura(1, "JKSD23FJ32K9 ","144","20%", "0.15","136.80"));
-                ListaFact.Add(new Factura(2, "JKDI43JYW3FG", "556", "24%", "0.15", "505.06"));
-                ListaFact.Add(new Factura(3, "34TEOI0D0GG7", "700", "13%", "0.15", "714"));
+                ListaFact.Add(new Factura(1, "JKSD23FJ3D52K9 ","144","20%", "0.15","136.80"));
+                ListaFact.Add(new Factura(2, "JKDI43JYWHG3FG", "556", "24%", "0.15", "505.06"));
+                ListaFact.Add(new Factura(3, "34TEOI0D07KGG7", "700", "13%", "0.15", "714"));
             }
         }
 
@@ -74,7 +74,7 @@ namespace Control
             Factura fact;
 
             fact = new Factura(numfactura, serie, preciofact, descuentofact, iva, total);
-
+            fact.Estadofact = "ACTIVO";
             double precioFact;
             double descuentoFact;
 
