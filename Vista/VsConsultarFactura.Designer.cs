@@ -34,10 +34,12 @@
             this.DescuentoDataFact = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IvaDataFact = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalDataFact = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EstadoDataFact = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MotivoDataFact = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnBuscarFact = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnBorrarFact = new System.Windows.Forms.Button();
+            this.btnInactivarFact = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtingresarbuscar = new System.Windows.Forms.TextBox();
             this.btnVolverFact = new System.Windows.Forms.Button();
@@ -52,13 +54,15 @@
             this.PrecioDataFact,
             this.DescuentoDataFact,
             this.IvaDataFact,
-            this.TotalDataFact});
+            this.TotalDataFact,
+            this.EstadoDataFact,
+            this.MotivoDataFact});
             this.dgvRegistroFact.Location = new System.Drawing.Point(72, 95);
             this.dgvRegistroFact.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvRegistroFact.Name = "dgvRegistroFact";
             this.dgvRegistroFact.RowHeadersWidth = 51;
             this.dgvRegistroFact.RowTemplate.Height = 24;
-            this.dgvRegistroFact.Size = new System.Drawing.Size(869, 246);
+            this.dgvRegistroFact.Size = new System.Drawing.Size(1170, 246);
             this.dgvRegistroFact.TabIndex = 0;
             this.dgvRegistroFact.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistroFact_CellContentClick);
             // 
@@ -102,6 +106,22 @@
             this.TotalDataFact.ReadOnly = true;
             this.TotalDataFact.Width = 125;
             // 
+            // EstadoDataFact
+            // 
+            this.EstadoDataFact.HeaderText = "Estado";
+            this.EstadoDataFact.MinimumWidth = 6;
+            this.EstadoDataFact.Name = "EstadoDataFact";
+            this.EstadoDataFact.ReadOnly = true;
+            this.EstadoDataFact.Width = 125;
+            // 
+            // MotivoDataFact
+            // 
+            this.MotivoDataFact.HeaderText = "Motivo";
+            this.MotivoDataFact.MinimumWidth = 6;
+            this.MotivoDataFact.Name = "MotivoDataFact";
+            this.MotivoDataFact.ReadOnly = true;
+            this.MotivoDataFact.Width = 125;
+            // 
             // btnBuscarFact
             // 
             this.btnBuscarFact.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -121,7 +141,7 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(299, 402);
+            this.richTextBox1.Location = new System.Drawing.Point(357, 402);
             this.richTextBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(417, 96);
@@ -134,29 +154,29 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(216, 404);
+            this.label2.Location = new System.Drawing.Point(273, 404);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 17);
             this.label2.TabIndex = 6;
             this.label2.Text = "Motivo:";
             // 
-            // btnBorrarFact
+            // btnInactivarFact
             // 
-            this.btnBorrarFact.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnBorrarFact.FlatAppearance.BorderSize = 2;
-            this.btnBorrarFact.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnBorrarFact.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
-            this.btnBorrarFact.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBorrarFact.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBorrarFact.ForeColor = System.Drawing.Color.White;
-            this.btnBorrarFact.Location = new System.Drawing.Point(377, 529);
-            this.btnBorrarFact.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnBorrarFact.Name = "btnBorrarFact";
-            this.btnBorrarFact.Size = new System.Drawing.Size(248, 30);
-            this.btnBorrarFact.TabIndex = 7;
-            this.btnBorrarFact.Text = "Inactivar Factura Seleccionada";
-            this.btnBorrarFact.UseVisualStyleBackColor = true;
-            this.btnBorrarFact.Click += new System.EventHandler(this.btnBorrarFact_Click);
+            this.btnInactivarFact.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnInactivarFact.FlatAppearance.BorderSize = 2;
+            this.btnInactivarFact.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnInactivarFact.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.btnInactivarFact.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInactivarFact.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInactivarFact.ForeColor = System.Drawing.Color.White;
+            this.btnInactivarFact.Location = new System.Drawing.Point(435, 529);
+            this.btnInactivarFact.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnInactivarFact.Name = "btnInactivarFact";
+            this.btnInactivarFact.Size = new System.Drawing.Size(248, 30);
+            this.btnInactivarFact.TabIndex = 7;
+            this.btnInactivarFact.Text = "Inactivar Factura Seleccionada";
+            this.btnInactivarFact.UseVisualStyleBackColor = true;
+            this.btnInactivarFact.Click += new System.EventHandler(this.btnInactivarFact_Click);
             // 
             // label1
             // 
@@ -197,10 +217,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1031, 597);
+            this.ClientSize = new System.Drawing.Size(1479, 597);
             this.Controls.Add(this.btnVolverFact);
             this.Controls.Add(this.txtingresarbuscar);
-            this.Controls.Add(this.btnBorrarFact);
+            this.Controls.Add(this.btnInactivarFact);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.label1);
@@ -209,6 +229,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "VsConsultarFactura";
             this.Text = "VsConsultarFactura";
+            this.Load += new System.EventHandler(this.VsConsultarFactura_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistroFact)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -221,7 +242,7 @@
         private System.Windows.Forms.Button btnBuscarFact;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnBorrarFact;
+        private System.Windows.Forms.Button btnInactivarFact;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtingresarbuscar;
         private System.Windows.Forms.Button btnVolverFact;
@@ -230,5 +251,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DescuentoDataFact;
         private System.Windows.Forms.DataGridViewTextBoxColumn IvaDataFact;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalDataFact;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EstadoDataFact;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MotivoDataFact;
     }
 }

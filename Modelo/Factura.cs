@@ -15,7 +15,7 @@ namespace Modelo
         string descuentofact;
         string iva;
         string total;
-        int estadofact;
+        public string estadofact;
 
 
         public Factura()
@@ -31,7 +31,7 @@ namespace Modelo
 
         public Factura(int numfactura, string serie, string preciofact, string descuentofact, string iva, string total)
         {
-            this.estadofact = 1;
+            Estadofact = estadofact;
             Numfactura = numfactura;
             Serie = serie;
             Preciofact = preciofact;
@@ -40,7 +40,7 @@ namespace Modelo
             Total = total;
         }
 
-        public int Estadofact { get => estadofact; set => estadofact = value; }
+        public string Estadofact { get => estadofact; set => estadofact = value; }
 
         public int Numfactura { get => numfactura; set => numfactura = value; }
         public string Preciofact { get => preciofact; set => preciofact = value; }

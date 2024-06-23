@@ -66,15 +66,20 @@ namespace Vista
             ctrfacto.TablaConsultarNombreDescripcion(dgvRegistroFact, filtro);
         }
 
-        private void btnBorrarFact_Click(object sender, EventArgs e)
+        private void btnInactivarFact_Click(object sender, EventArgs e)
         {
+            
             if (string.IsNullOrEmpty(richTextBox1.Text))
             {
                 MessageBox.Show("POR FAVOR, ESCRIBA EL MOTIVO POR EL CUAL DESEA ELIMINAR ESTA FACTURA", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                ctrfacto.EliminarFactura(dgvRegistroFact);
+                var filaSeleccionada = dgvRegistroFact.SelectedRows[0];
+                var serie = (string)filaSeleccionada.Cells["FacturaRegistroFact"].Value;
+
+                ctrfacto.InactivarFactura(serie, dgvRegistroFact);
+                ctrfacto.LlenarDataFact(dgvRegistroFact);
                 richTextBox1.Clear(); // Borrar el contenido del richTextBox1
             }
             
@@ -100,6 +105,11 @@ namespace Vista
         private void btnVolverFact_Click_1(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void VsConsultarFactura_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

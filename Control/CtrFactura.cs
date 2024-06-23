@@ -105,6 +105,7 @@ namespace Control
             return msg;
         }
 
+
         //LLenar la tabla
         public void LlenarDataFact(DataGridView dgvRegistroFact)
         {
@@ -119,6 +120,7 @@ namespace Control
                     dgvRegistroFact.Rows[i].Cells["DescuentoDataFact"].Value = f.Descuentofact;
                     dgvRegistroFact.Rows[i].Cells["IvaDataFact"].Value = f.Iva;
                     dgvRegistroFact.Rows[i].Cells["TotalDataFact"].Value = f.Total;
+                    dgvRegistroFact.Rows[i].Cells["EstadoDataFact"].Value = f.Estadofact;
                     //dgvRegistroFact
                     //dgvRegistroFact
                 
@@ -181,6 +183,33 @@ namespace Control
             {
                 MessageBox.Show("ERROR: SELECCIONA UNA FILA ANTES DE ELIMINAR.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+
+        public enum EstadoFactura //Transforma el string de Estadofactura a int
+        {
+            Inactivo = 0,
+            Activo = 1,
+            //...
+        }
+
+
+        public void InactivarFactura(string serie, DataGridView dgvRegistroFact)
+        {
+            
+
+
+            DialogResult resultado = MessageBox.Show("¿DESEA INACTIVAR LA FACTURA SELECCIONADA?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (resultado == DialogResult.Yes)
+            {
+                var factura = listaFact.FirstOrDefault(facto => facto.Serie == serie);
+                if (factura != null)
+                {
+                    factura.estadofact = "INACTIVO"; //Pone el estado Inactivo a la factura
+
+                }
+            }
+            
         }
 
 
