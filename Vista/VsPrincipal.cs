@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,9 +13,12 @@ namespace Vista
 {
     public partial class VsPrincipal : Form
     {
-        public VsPrincipal()
+        private VsConexion VsConn;
+
+        public VsPrincipal(VsConexion VsConn)
         {
             InitializeComponent();
+            this.VsConn = VsConn;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -67,6 +71,12 @@ namespace Vista
                 vRegistroFact.ShowDialog();
             
         }
+
+        private void VsPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            VsConn.Close();
+        }
+
 
         // FIN
     }

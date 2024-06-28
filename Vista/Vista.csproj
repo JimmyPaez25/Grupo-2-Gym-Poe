@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="VsConexion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VsConexion.Designer.cs">
+      <DependentUpon>VsConexion.cs</DependentUpon>
+    </Compile>
     <Compile Include="VsConsultarFactura.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +149,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="VsActividad.resx">
       <DependentUpon>VsActividad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VsConexion.resx">
+      <DependentUpon>VsConexion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VsConsultarActividad.resx">
       <DependentUpon>VsConsultarActividad.cs</DependentUpon>

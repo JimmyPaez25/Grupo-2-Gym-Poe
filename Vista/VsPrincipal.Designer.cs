@@ -75,7 +75,7 @@
             this.btnRegistrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnRegistrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
             this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegistrar.Font = new System.Drawing.Font("Bernard MT Condensed", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrar.ForeColor = System.Drawing.Color.White;
             this.btnRegistrar.Image = global::Vista.Properties.Resources.Img_RegistroUser;
             this.btnRegistrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -97,7 +97,7 @@
             this.btnVerRegistroFact.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnVerRegistroFact.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
             this.btnVerRegistroFact.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVerRegistroFact.Font = new System.Drawing.Font("Bernard MT Condensed", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerRegistroFact.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVerRegistroFact.ForeColor = System.Drawing.Color.White;
             this.btnVerRegistroFact.Image = global::Vista.Properties.Resources.gestion1_img;
             this.btnVerRegistroFact.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -120,7 +120,7 @@
             this.btnGM.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnGM.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
             this.btnGM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGM.Font = new System.Drawing.Font("Bernard MT Condensed", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGM.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGM.ForeColor = System.Drawing.Color.White;
             this.btnGM.Image = global::Vista.Properties.Resources.gestion1_img;
             this.btnGM.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -142,7 +142,7 @@
             this.buttonGestionActividad.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.buttonGestionActividad.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
             this.buttonGestionActividad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonGestionActividad.Font = new System.Drawing.Font("Bernard MT Condensed", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGestionActividad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonGestionActividad.ForeColor = System.Drawing.Color.White;
             this.buttonGestionActividad.Image = global::Vista.Properties.Resources.gestion1_img;
             this.buttonGestionActividad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -164,7 +164,7 @@
             this.btnMembresia.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnMembresia.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
             this.btnMembresia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMembresia.Font = new System.Drawing.Font("Bernard MT Condensed", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMembresia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMembresia.ForeColor = System.Drawing.Color.White;
             this.btnMembresia.Image = global::Vista.Properties.Resources.gestion1_img;
             this.btnMembresia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -224,6 +224,7 @@
             this.Name = "VsPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Principal";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VsPrincipal_FormClosing);
             this.Load += new System.EventHandler(this.VsPrincipal_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

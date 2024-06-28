@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dato;
 using Modelo;
 
 namespace Control
@@ -11,21 +12,24 @@ namespace Control
     // GONZALEZ ASTUDILLO ADRIAN
     public class CtrActividad
     {
+        Conexion conn = new Conexion();
+        DatoActividad dtActividad = new DatoActividad();
+
         private DateTime fechaActual = DateTime.Now;
         private static List<Actividad> listaActividad = new List<Actividad>();
 
         public DateTime FechaActual { get => fechaActual; set => fechaActual = value; }
         public static List<Actividad> ListaActividad { get => listaActividad; set => listaActividad = value; }
 
-        public CtrActividad()
-        {
-            if (ListaActividad.Count == 0)
-            {
-                ListaActividad.Add(new Actividad("ACTIVIDAD 1", "PESAS", DateTime.Now, DateTime.Now.AddDays(1), new TimeSpan(9, 0, 0), new TimeSpan(12, 0, 0)));
-                ListaActividad.Add(new Actividad("ACTIVIDAD 2", "MANCUERNAS", DateTime.Now.AddDays(2), DateTime.Now.AddDays(3), new TimeSpan(10, 0, 0), new TimeSpan(13, 0, 0)));
-                ListaActividad.Add(new Actividad("ACTIVIDAD 3", "FLEXIONES", DateTime.Now.AddDays(4), DateTime.Now.AddDays(5), new TimeSpan(11, 0, 0), new TimeSpan(14, 0, 0)));
-            }
-        }
+        //public CtrActividad()
+        //{
+        //    if (ListaActividad.Count == 0)
+        //    {
+        //        ListaActividad.Add(new Actividad("ACTIVIDAD 1", "PESAS", DateTime.Now, DateTime.Now.AddDays(1), new TimeSpan(9, 0, 0), new TimeSpan(12, 0, 0)));
+        //        ListaActividad.Add(new Actividad("ACTIVIDAD 2", "MANCUERNAS", DateTime.Now.AddDays(2), DateTime.Now.AddDays(3), new TimeSpan(10, 0, 0), new TimeSpan(13, 0, 0)));
+        //        ListaActividad.Add(new Actividad("ACTIVIDAD 3", "FLEXIONES", DateTime.Now.AddDays(4), DateTime.Now.AddDays(5), new TimeSpan(11, 0, 0), new TimeSpan(14, 0, 0)));
+        //    }
+        //}
 
         public int GetTotal()
         {
@@ -65,10 +69,29 @@ namespace Control
             else
             {
                 act = new Actividad(sNombre, sDescripcion, fechaInicio, fechaFin, horaInicio, horaFin);
-                ListaActividad.Add(act);
+                //ListaActividad.Add(act);
+
+                // BASE DE DATOS
+                IngresarActividadBD(act);
+
                 msj = "ACTIVIDAD REGISTRADA CORRECTAMENTE" + Environment.NewLine + act.ToString();
             }
             return msj;
+        }
+
+        public void IngresarActividadBD(Actividad act)
+        {
+            string msj = string.Empty;
+            string msjCnx = conn.AbrirConexion();
+            if (msjCnx[0] == '1')
+            {
+                msj = dtActividad.IngresarActividad(act, conn.Connect);
+                conn.CerrarConexion();
+            }
+            else if (msjCnx[0] == '0')
+            {
+                MessageBox.Show("ERROR: " + msj);
+            }
         }
 
         public bool ActividadExistente(string nombre)
