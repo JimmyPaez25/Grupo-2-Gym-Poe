@@ -18,6 +18,7 @@ namespace Control
 
         public void Conectar()
         {
+            Console.WriteLine("-----CONEXION-----");
             string msj = conn.AbrirConexion();
             if (msj[0] == '1')
             {
