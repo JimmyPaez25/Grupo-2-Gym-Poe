@@ -110,7 +110,8 @@ namespace Control
             int i = 0;
             dgvActividad.Rows.Clear(); // LIMPIA FILAS SI LAS HAY
             // BASE DE DATOS
-            TablaConsultarActividadDB();
+            TablaConsultarActividadDB(1);
+            //TablaConsultarActividadDB();
 
             foreach (Actividad x in ListaActividad)
             {
@@ -129,14 +130,30 @@ namespace Control
             }
         }
 
-        public void TablaConsultarActividadDB()
+        //public void TablaConsultarActividadDB()
+        //{
+        //    string msj = string.Empty;
+        //    string msjCnx = conn.AbrirConexion();
+
+        //    if (msjCnx[0] == '1')
+        //    {
+        //        ListaActividad = dtActividad.SelectActividades(conn.Connect);
+        //        conn.CerrarConexion();
+        //    }
+        //    else if (msjCnx[0] == '0')
+        //    {
+        //        MessageBox.Show("ERROR: " + msj);
+        //    }
+        //}
+
+        public void TablaConsultarActividadDB(int estado)
         {
             string msj = string.Empty;
             string msjCnx = conn.AbrirConexion();
 
             if (msjCnx[0] == '1')
             {
-                ListaActividad = dtActividad.SelectActividades(conn.Connect);
+                ListaActividad = dtActividad.SelectActividades(conn.Connect, estado);
                 conn.CerrarConexion();
             }
             else if (msjCnx[0] == '0')
@@ -298,7 +315,7 @@ namespace Control
             int i = 0;
             dgvActividad.Rows.Clear(); // LIMPIA FILAS SI LAS HAY
             // BASE DE DATOS
-            TablaConsultarActividadPapeleraDB();
+            TablaConsultarActividadDB(2);
 
             foreach (Actividad x in ListaActividad)
             {
@@ -314,22 +331,6 @@ namespace Control
                     dgvActividad.Rows[i].Cells["ClmHoraInicio"].Value = x.HoraInicio.ToString(@"hh\:mm");
                     dgvActividad.Rows[i].Cells["ClmHoraFin"].Value = x.HoraFin.ToString(@"hh\:mm");
                 }
-            }
-        }
-
-        public void TablaConsultarActividadPapeleraDB()
-        {
-            string msj = string.Empty;
-            string msjCnx = conn.AbrirConexion();
-
-            if (msjCnx[0] == '1')
-            {
-                ListaActividad = dtActividad.SelectActividadesInactivas(conn.Connect);
-                conn.CerrarConexion();
-            }
-            else if (msjCnx[0] == '0')
-            {
-                MessageBox.Show("ERROR: " + msj);
             }
         }
 
