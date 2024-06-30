@@ -13,10 +13,10 @@ namespace Dato
     {
         SqlCommand cmd = new SqlCommand();
 
-        public string IngresarActividad(Actividad act, SqlConnection conn)
+        public string InsertActividad(Actividad act, SqlConnection conn)
         {
             Console.WriteLine("-----INSERT ACTIVIDAD-----");
-            string resultado;
+            string x = "";
             string comando = "INSERT INTO Actividad(Estado, Nombre, Descripcion, FechaInicio, FechaFin, HoraInicio, HoraFin) \n" +
                              "VALUES (@Estado, @Nombre, @Descripcion, @FechaInicio, @FechaFin, @HoraInicio, @HoraFin); \n";
 
@@ -34,14 +34,14 @@ namespace Dato
                 cmd.Parameters.AddWithValue("@HoraFin", act.HoraFin);
 
                 cmd.ExecuteNonQuery();
-                resultado = "1";
+                x = "1";
             }
             catch (Exception ex)
             {
-                resultado = "0" + ex.Message;
-                Console.WriteLine(resultado);
+                x = "0" + ex.Message;
+                Console.WriteLine(x);
             }
-            return resultado;
+            return x;
         }
 
 

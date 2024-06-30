@@ -85,7 +85,7 @@ namespace Control
             string msjCnx = conn.AbrirConexion();
             if (msjCnx[0] == '1')
             {
-                msj = dtActividad.IngresarActividad(act, conn.Connect);
+                msj = dtActividad.InsertActividad(act, conn.Connect);
                 conn.CerrarConexion();
             }
             else if (msjCnx[0] == '0')
