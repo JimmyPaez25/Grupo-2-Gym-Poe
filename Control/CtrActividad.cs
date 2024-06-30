@@ -67,9 +67,8 @@ namespace Control
             else
             {
                 act = new Actividad(sNombre, sDescripcion, fechaInicio, fechaFin, horaInicio, horaFin);
-                //ListaActividad.Add(act);
-                // BASE DE DATOS
-                IngresarActividadBD(act);
+                //ListaActividad.Add(act);              
+                IngresarActividadBD(act); // BASE DE DATOS
                 msj = "ACTIVIDAD REGISTRADA CORRECTAMENTE" + Environment.NewLine + act.ToString();
             }
             return msj;
@@ -97,9 +96,8 @@ namespace Control
         public void TablaConsultarActividad(DataGridView dgvActividad)
         {
             int i = 0;
-            dgvActividad.Rows.Clear(); // LIMPIA FILAS SI LAS HAY
-            // BASE DE DATOS
-            TablaConsultarActividadBD(1);
+            dgvActividad.Rows.Clear(); // LIMPIA FILAS SI LAS HAY          
+            TablaConsultarActividadBD(1); // BASE DE DATOS
             //TablaConsultarActividadBD();
 
             foreach (Actividad x in ListaActividad)
@@ -123,8 +121,7 @@ namespace Control
         {
             int i = 0;
             dgvActividad.Rows.Clear(); // LIMPIA FILAS SI LAS HAY
-            // BASE DE DATOS
-            TablaConsultarActividadBD(2);
+            TablaConsultarActividadBD(2); // BASE DE DATOS
 
             foreach (Actividad x in ListaActividad)
             {
@@ -196,9 +193,7 @@ namespace Control
                         if (resultado == DialogResult.Yes)
                         {
                             actividad.Estado = 2; // ESTADO 2 = INACTIVO
-
-                            // BASE DE DATOS
-                            EstadoActividadBD(actividad);
+                            EstadoActividadBD(actividad); // BASE DE DATOS
                             TablaConsultarActividad(dgvActividad);
                             MessageBox.Show("ACTIVIDAD INACTIVADA EXITOSAMENTE." + Environment.NewLine + actividad.ToString(), "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
@@ -229,8 +224,7 @@ namespace Control
                         if (resultado == DialogResult.Yes)
                         {
                             actividad.Estado = 1; // CAMBIA EL ESTADO A ACTIVO
-                            // BASE DE DATOS
-                            EstadoActividadBD(actividad);
+                            EstadoActividadBD(actividad); // BASE DE DATOS
                             TablaConsultarActividadPapelera(dgvActividad);
                             MessageBox.Show("ACTIVIDAD RESTAURADA EXITOSAMENTE." + Environment.NewLine + actividad.ToString(), "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
@@ -308,8 +302,7 @@ namespace Control
                     actividadExistente.HoraInicio = horaInicio;
                     actividadExistente.HoraFin = horaFin;
 
-                    // BASE DE DATOS
-                    EditarActividadBD(actividadExistente, sNombreOriginal);
+                    EditarActividadBD(actividadExistente, sNombreOriginal); // BASE DE DATOS
                     msj = "ACTIVIDAD EDITADA CORRECTAMENTE" + Environment.NewLine + actividadExistente.ToString();
                 }
                 else
@@ -357,8 +350,7 @@ namespace Control
                         if (resultado == DialogResult.Yes)
                         {
                             //ListaActividad.Remove(actividad);
-                            // BASE DE DATOS
-                            RemoverActividadBD(actividad);
+                            RemoverActividadBD(actividad); // BASE DE DATOS
                             TablaConsultarActividadPapelera(dgvActividad);
 
                             for (int i = filaSeleccionada; i < dgvActividad.Rows.Count; i++)
