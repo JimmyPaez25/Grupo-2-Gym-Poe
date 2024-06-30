@@ -13,6 +13,9 @@ namespace Dato
     {
         SqlCommand cmd = new SqlCommand();
 
+        //
+        // INSERTS
+        //
         public string InsertActividad(Actividad act, SqlConnection conn)
         {
             Console.WriteLine("-----INSERT ACTIVIDAD-----");
@@ -43,41 +46,10 @@ namespace Dato
             }
             return x;
         }
-
-        //public List<Actividad> SelectActividades(SqlConnection conn)
-        //{
-        //    List<Actividad> actividades = new List<Actividad>();
-        //    SqlDataReader reader = null; // TABLA VIRTUAL
-        //    Actividad actividad = null;
-        //    string comando = "SELECT Estado, Nombre, Descripcion, FechaInicio, FechaFin, HoraInicio, HoraFin FROM Actividad; \n";
-
-        //    try
-        //    {
-        //        cmd.Connection = conn;
-        //        cmd.CommandText = comando;
-        //        reader = cmd.ExecuteReader();
-
-        //        while (reader.Read())
-        //        {
-        //            actividad = new Actividad();
-        //            actividad.Estado = Convert.ToInt32(reader["Estado"]);
-        //            actividad.Nombre = reader["Nombre"].ToString();
-        //            actividad.Descripcion = reader["Descripcion"].ToString();
-        //            actividad.FechaInicio = Convert.ToDateTime(reader["FechaInicio"]);
-        //            actividad.FechaFin = Convert.ToDateTime(reader["FechaFin"]);
-        //            actividad.HoraInicio = TimeSpan.Parse(reader["HoraInicio"].ToString());
-        //            actividad.HoraFin = TimeSpan.Parse(reader["HoraFin"].ToString());
-
-        //            actividades.Add(actividad);
-        //        }
-        //    }
-        //    catch(SqlException ex)
-        //    {
-        //        Console.WriteLine(ex.Message);
-        //    }
-        //    return actividades;
-        //}
-
+        
+        //
+        // SELECTS
+        //
         public List<Actividad> SelectActividades(SqlConnection conn, int estado)
         {
             Console.WriteLine("-----SELECT ACTIVIDAD-----");
@@ -116,7 +88,44 @@ namespace Dato
             }
             return actividades;
         }
-      
+
+        //public List<Actividad> SelectActividades(SqlConnection conn)
+        //{
+        //    List<Actividad> actividades = new List<Actividad>();
+        //    SqlDataReader reader = null; // TABLA VIRTUAL
+        //    Actividad actividad = null;
+        //    string comando = "SELECT Estado, Nombre, Descripcion, FechaInicio, FechaFin, HoraInicio, HoraFin FROM Actividad; \n";
+
+        //    try
+        //    {
+        //        cmd.Connection = conn;
+        //        cmd.CommandText = comando;
+        //        reader = cmd.ExecuteReader();
+
+        //        while (reader.Read())
+        //        {
+        //            actividad = new Actividad();
+        //            actividad.Estado = Convert.ToInt32(reader["Estado"]);
+        //            actividad.Nombre = reader["Nombre"].ToString();
+        //            actividad.Descripcion = reader["Descripcion"].ToString();
+        //            actividad.FechaInicio = Convert.ToDateTime(reader["FechaInicio"]);
+        //            actividad.FechaFin = Convert.ToDateTime(reader["FechaFin"]);
+        //            actividad.HoraInicio = TimeSpan.Parse(reader["HoraInicio"].ToString());
+        //            actividad.HoraFin = TimeSpan.Parse(reader["HoraFin"].ToString());
+
+        //            actividades.Add(actividad);
+        //        }
+        //    }
+        //    catch(SqlException ex)
+        //    {
+        //        Console.WriteLine(ex.Message);
+        //    }
+        //    return actividades;
+        //}
+
+        //
+        // UPDATES
+        //
         public string UpdateCamposActividad(Actividad act, SqlConnection conn, string sNombreOriginal)
         {
             Console.WriteLine("-----UPDATE ACTIVIDAD-----");
@@ -181,6 +190,9 @@ namespace Dato
             return x;
         }
 
+        //
+        // DELETES
+        //
         public string DeleteActividad(Actividad act, SqlConnection conn)
         {
             Console.WriteLine("-----DELETE ACTIVIDAD-----");
@@ -204,6 +216,8 @@ namespace Dato
             }
             return x;
         }
+
+
     // FIN
     }
 }
