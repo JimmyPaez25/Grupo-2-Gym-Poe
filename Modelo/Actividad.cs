@@ -17,6 +17,8 @@ namespace Modelo
         protected TimeSpan horaInicio;
         protected TimeSpan horaFin;
 
+        public Actividad() {}
+
         public Actividad(/*int estado, */string nombre, string descripcion, DateTime fechaInicio, DateTime fechaFin, TimeSpan horaInicio, TimeSpan horaFin)
         {
             //this.estado = estado;

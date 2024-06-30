@@ -28,7 +28,7 @@ namespace Control
             else if (msj[0] == '0')
             {
                 MsjConexion = "ERROR: " + msj;
-                MessageBox.Show(MsjConexion, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(MsjConexion, "ERROR DE CONEXION", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

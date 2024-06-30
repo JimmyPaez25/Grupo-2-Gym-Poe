@@ -25,6 +25,7 @@ namespace Dato
                 cmd.Connection = conn;
                 cmd.CommandText = comando;
 
+                cmd.Parameters.Clear(); // LIMPIA PARAMETROS UTILIZADOS
                 cmd.Parameters.AddWithValue("@Estado", act.Estado);
                 cmd.Parameters.AddWithValue("@Nombre", act.Nombre);
                 cmd.Parameters.AddWithValue("@Descripcion", act.Descripcion);
@@ -36,15 +37,168 @@ namespace Dato
                 cmd.ExecuteNonQuery();
                 x = "1";
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
-                x = "0" + ex.Message;
-                Console.WriteLine(x);
+                x = "0" + ex.Message; Console.WriteLine(x);
             }
             return x;
         }
 
+        public List<Actividad> SelectActividades(SqlConnection conn)
+        {
+            List<Actividad> actividades = new List<Actividad>();
+            SqlDataReader reader = null; // TABLA VIRTUAL
+            Actividad actividad = null;
+            string comando = "SELECT Estado, Nombre, Descripcion, FechaInicio, FechaFin, HoraInicio, HoraFin FROM Actividad; \n";
 
+            try
+            {
+                cmd.Connection = conn;
+                cmd.CommandText = comando;
+                reader = cmd.ExecuteReader();
 
+                while (reader.Read())
+                {
+                    actividad = new Actividad();
+                    actividad.Estado = Convert.ToInt32(reader["Estado"]);
+                    actividad.Nombre = reader["Nombre"].ToString();
+                    actividad.Descripcion = reader["Descripcion"].ToString();
+                    actividad.FechaInicio = Convert.ToDateTime(reader["FechaInicio"]);
+                    actividad.FechaFin = Convert.ToDateTime(reader["FechaFin"]);
+                    actividad.HoraInicio = TimeSpan.Parse(reader["HoraInicio"].ToString());
+                    actividad.HoraFin = TimeSpan.Parse(reader["HoraFin"].ToString());
+
+                    actividades.Add(actividad);
+                }
+            }
+            catch(SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return actividades;
+        }
+
+        public List<Actividad> SelectActividadesInactivas(SqlConnection conn)
+        {
+            List<Actividad> actividades = new List<Actividad>();
+            SqlDataReader reader = null; // TABLA VIRTUAL
+            Actividad actividad = null;
+            string comando = "SELECT Estado, Nombre, Descripcion, FechaInicio, FechaFin, HoraInicio, HoraFin FROM Actividad WHERE Estado = 2; \n";
+
+            try
+            {
+                cmd.Connection = conn;
+                cmd.CommandText = comando;
+                reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    actividad = new Actividad();
+                    actividad.Estado = Convert.ToInt32(reader["Estado"]);
+                    actividad.Nombre = reader["Nombre"].ToString();
+                    actividad.Descripcion = reader["Descripcion"].ToString();
+                    actividad.FechaInicio = Convert.ToDateTime(reader["FechaInicio"]);
+                    actividad.FechaFin = Convert.ToDateTime(reader["FechaFin"]);
+                    actividad.HoraInicio = TimeSpan.Parse(reader["HoraInicio"].ToString());
+                    actividad.HoraFin = TimeSpan.Parse(reader["HoraFin"].ToString());
+
+                    actividades.Add(actividad);
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return actividades;
+        }
+
+        public string UpdateCamposActividad(Actividad act, SqlConnection conn, string sNombreOriginal)
+        {
+            Console.WriteLine("-----UPDATE ACTIVIDAD-----");
+            string x = "";
+            string comando = "UPDATE Actividad SET \n" +
+                             "Nombre = @Nombre, \n" +
+                             "Descripcion = @Descripcion, \n" +
+                             "FechaInicio = @FechaInicio, \n" +
+                             "FechaFin = @FechaFin, \n" +
+                             "HoraInicio = @HoraInicio, \n" +
+                             "HoraFin = @HoraFin \n" +
+                             "WHERE Nombre = @NombreOriginal; \n";
+
+            try
+            {
+                cmd.Connection = conn;
+                cmd.CommandText = comando;
+
+                cmd.Parameters.Clear(); // LIMPIA PARAMETROS UTILIZADOS
+                cmd.Parameters.AddWithValue("@Nombre", act.Nombre);
+                cmd.Parameters.AddWithValue("@Descripcion", act.Descripcion);
+                cmd.Parameters.AddWithValue("@FechaInicio", act.FechaInicio);
+                cmd.Parameters.AddWithValue("@FechaFin", act.FechaFin);
+                cmd.Parameters.AddWithValue("@HoraInicio", act.HoraInicio);
+                cmd.Parameters.AddWithValue("@HoraFin", act.HoraFin);
+                cmd.Parameters.AddWithValue("@NombreOriginal", sNombreOriginal);
+
+                cmd.ExecuteNonQuery();
+                x = "1";
+            }
+            catch (SqlException ex)
+            {
+                x = "0" + ex.Message; Console.WriteLine(x);
+            }
+            return x;
+        }
+
+        public string UpdateEstadoActividad(Actividad act, SqlConnection conn)
+        {
+            Console.WriteLine("-----UPDATE ACTIVIDAD-----");
+            string x = "";
+            string comando = "UPDATE Actividad SET \n" +
+                             "Estado = @Estado \n" +
+                             "WHERE Nombre = @Nombre; \n";
+
+            try
+            {
+                cmd.Connection = conn;
+                cmd.CommandText = comando;
+
+                cmd.Parameters.Clear(); // LIMPIA PARAMETROS UTILIZADOS
+                cmd.Parameters.AddWithValue("@Estado", act.Estado);
+                cmd.Parameters.AddWithValue("@Nombre", act.Nombre);
+
+                cmd.ExecuteNonQuery();
+                x = "1";
+            }
+            catch (SqlException ex)
+            {
+                x = "0" + ex.Message; Console.WriteLine(x);
+            }
+            return x;
+        }
+
+        public string DeleteActividad(Actividad act, SqlConnection conn)
+        {
+            Console.WriteLine("-----DELETE ACTIVIDAD-----");
+            string x = "";
+            string comando = "DELETE FROM Actividad WHERE Nombre = @Nombre; \n";
+
+            try
+            {
+                cmd.Connection= conn;
+                cmd.CommandText = comando;
+
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@Nombre", act.Nombre);
+
+                cmd.ExecuteNonQuery(); 
+                x = "1";
+            }
+            catch (SqlException ex)
+            {
+                x = "0" + ex.Message; Console.WriteLine(x);
+            }
+            return x;
+        }
+    // FIN
     }
 }
