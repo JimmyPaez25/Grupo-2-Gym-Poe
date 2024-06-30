@@ -199,6 +199,32 @@ namespace Control
                 }
             }
         }
+
+
+
+
+        public void LlenarRegistroPrecio(DataGridView dgvRegistroFact)
+        {
+            int i;
+            dgvRegistroFact.Rows.Clear(); // LIMPIA FILAS SI LAS HAY
+            foreach (Factura f in ListaFact)
+            {
+
+                i = dgvRegistroFact.Rows.Add();
+                dgvRegistroFact.Rows[i].Cells["FacturaRegistroFact"].Value = f.Serie;
+                dgvRegistroFact.Rows[i].Cells["PrecioDataFact"].Value = f.Preciofact;
+                dgvRegistroFact.Rows[i].Cells["DescuentoDataFact"].Value = f.Descuentofact;
+                dgvRegistroFact.Rows[i].Cells["IvaDataFact"].Value = f.Iva;
+                dgvRegistroFact.Rows[i].Cells["TotalDataFact"].Value = f.Total;
+                dgvRegistroFact.Rows[i].Cells["EstadoDataFact"].Value = f.Estadofact;
+                dgvRegistroFact.Rows[i].Cells["MotivoDataFact"].Value = f.Motivoinactivacion;
+                //dgvRegistroFact
+                //dgvRegistroFact
+            }
+        }
+
+
+
     }
 }
 
