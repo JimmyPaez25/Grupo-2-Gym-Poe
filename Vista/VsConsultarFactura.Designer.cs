@@ -43,6 +43,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtingresarbuscar = new System.Windows.Forms.TextBox();
             this.btnVolverFact = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnActivarFact = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistroFact)).BeginInit();
             this.SuspendLayout();
             // 
@@ -168,7 +170,7 @@
             this.btnInactivarFact.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInactivarFact.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInactivarFact.ForeColor = System.Drawing.Color.White;
-            this.btnInactivarFact.Location = new System.Drawing.Point(480, 529);
+            this.btnInactivarFact.Location = new System.Drawing.Point(357, 529);
             this.btnInactivarFact.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnInactivarFact.Name = "btnInactivarFact";
             this.btnInactivarFact.Size = new System.Drawing.Size(248, 30);
@@ -211,12 +213,42 @@
             this.btnVolverFact.UseVisualStyleBackColor = true;
             this.btnVolverFact.Click += new System.EventHandler(this.btnVolverFact_Click_1);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1169, 450);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(192, 38);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "REGISTRO (PRECIO)";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // btnActivarFact
+            // 
+            this.btnActivarFact.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnActivarFact.FlatAppearance.BorderSize = 2;
+            this.btnActivarFact.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnActivarFact.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.btnActivarFact.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActivarFact.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActivarFact.ForeColor = System.Drawing.Color.White;
+            this.btnActivarFact.Location = new System.Drawing.Point(686, 529);
+            this.btnActivarFact.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnActivarFact.Name = "btnActivarFact";
+            this.btnActivarFact.Size = new System.Drawing.Size(248, 30);
+            this.btnActivarFact.TabIndex = 15;
+            this.btnActivarFact.Text = "Activar Factura Seleccionada";
+            this.btnActivarFact.UseVisualStyleBackColor = true;
+            this.btnActivarFact.Click += new System.EventHandler(this.btnActivarFact_Click);
+            // 
             // VsConsultarFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1494, 597);
+            this.Controls.Add(this.btnActivarFact);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnVolverFact);
             this.Controls.Add(this.btnInactivarFact);
             this.Controls.Add(this.label2);
@@ -252,5 +284,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalDataFact;
         private System.Windows.Forms.DataGridViewTextBoxColumn EstadoDataFact;
         private System.Windows.Forms.DataGridViewTextBoxColumn MotivoDataFact;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnActivarFact;
     }
 }

@@ -30,16 +30,13 @@ namespace Control
         {
             if (ListaFact.Count == 0)
             {
-                ListaFact.Add(new Factura(1, "JKSD23FJ3D52K9 ","144","20%", "0.15","136.80"));
+                ListaFact.Add(new Factura(1, "JKSD23FJ3D52K9 ", "144", "20%", "0.15", "136.80"));
                 ListaFact.Add(new Factura(2, "JKDI43JYWHG3FG", "556", "24%", "0.15", "505.06"));
                 ListaFact.Add(new Factura(3, "34TEOI0D07KGG7", "700", "13%", "0.15", "714"));
             }
         }
 
-        public int GetFacto()
-        {
-            return listaFact.Count;
-        }
+
 
 
 
@@ -113,17 +110,17 @@ namespace Control
             dgvRegistroFact.Rows.Clear(); // LIMPIA FILAS SI LAS HAY
             foreach (Factura f in ListaFact)
             {
-            
-                    i = dgvRegistroFact.Rows.Add();
-                    dgvRegistroFact.Rows[i].Cells["FacturaRegistroFact"].Value = f.Serie;
-                    dgvRegistroFact.Rows[i].Cells["PrecioDataFact"].Value = f.Preciofact;
-                    dgvRegistroFact.Rows[i].Cells["DescuentoDataFact"].Value = f.Descuentofact;
-                    dgvRegistroFact.Rows[i].Cells["IvaDataFact"].Value = f.Iva;
-                    dgvRegistroFact.Rows[i].Cells["TotalDataFact"].Value = f.Total;
-                    dgvRegistroFact.Rows[i].Cells["EstadoDataFact"].Value = f.Estadofact;
-                    dgvRegistroFact.Rows[i].Cells["MotivoDataFact"].Value = f.Motivoinactivacion;
-                    //dgvRegistroFact
-                    //dgvRegistroFact
+
+                i = dgvRegistroFact.Rows.Add();
+                dgvRegistroFact.Rows[i].Cells["FacturaRegistroFact"].Value = f.Serie;
+                dgvRegistroFact.Rows[i].Cells["PrecioDataFact"].Value = f.Preciofact;
+                dgvRegistroFact.Rows[i].Cells["DescuentoDataFact"].Value = f.Descuentofact;
+                dgvRegistroFact.Rows[i].Cells["IvaDataFact"].Value = f.Iva;
+                dgvRegistroFact.Rows[i].Cells["TotalDataFact"].Value = f.Total;
+                dgvRegistroFact.Rows[i].Cells["EstadoDataFact"].Value = f.Estadofact;
+                dgvRegistroFact.Rows[i].Cells["MotivoDataFact"].Value = f.Motivoinactivacion;
+                //dgvRegistroFact
+                //dgvRegistroFact
             }
         }
 
@@ -185,9 +182,13 @@ namespace Control
         //    }
         //}
 
+
+
+
+        //INACTIVAR FACTURA
         public void InactivarFactura(string serie, DataGridViewRow filaSeleccionada)
         {
-            
+
             DialogResult resultado = MessageBox.Show("¿DESEA INACTIVAR LA FACTURA SELECCIONADA?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (resultado == DialogResult.Yes)
             {
@@ -201,26 +202,61 @@ namespace Control
         }
 
 
+        //RE-ACTIVAR FACTURA
+        public void ActivarFactura(string serie, DataGridViewRow filaSeleccionada)
+        {
+            var factura = listaFact.FirstOrDefault(facto => facto.Serie == serie);
+            if (factura != null)
+            {
+                if (factura.estadofact == "ACTIVO")
+                {
+                    MessageBox.Show("LA FACTURA YA ESTÁ ACTIVA.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (factura.estadofact == "INACTIVO")
+                {
+                    factura.estadofact = "ACTIVO"; //Pone el estado Activo a la factura
+                    factura.motivoinactivacion = string.Empty; //Borra el rich de motivo
+                    MessageBox.Show("LA FACTURA AHORA ESTÁ ACTIVA.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
 
 
-        public void LlenarRegistroPrecio(DataGridView dgvRegistroFact)
+
+
+        //LLENAR EL REGISTRO DE PRECIO
+        public void LlenarRegistroPrecio(DataGridView dgvRegistroPrecio)
         {
             int i;
-            dgvRegistroFact.Rows.Clear(); // LIMPIA FILAS SI LAS HAY
+            dgvRegistroPrecio.Rows.Clear(); // LIMPIA FILAS SI LAS HAY
             foreach (Factura f in ListaFact)
             {
-
-                i = dgvRegistroFact.Rows.Add();
-                dgvRegistroFact.Rows[i].Cells["FacturaRegistroFact"].Value = f.Serie;
-                dgvRegistroFact.Rows[i].Cells["PrecioDataFact"].Value = f.Preciofact;
-                dgvRegistroFact.Rows[i].Cells["DescuentoDataFact"].Value = f.Descuentofact;
-                dgvRegistroFact.Rows[i].Cells["IvaDataFact"].Value = f.Iva;
-                dgvRegistroFact.Rows[i].Cells["TotalDataFact"].Value = f.Total;
-                dgvRegistroFact.Rows[i].Cells["EstadoDataFact"].Value = f.Estadofact;
-                dgvRegistroFact.Rows[i].Cells["MotivoDataFact"].Value = f.Motivoinactivacion;
-                //dgvRegistroFact
-                //dgvRegistroFact
+                if (f.Estadofact == "ACTIVO")
+                {
+                    i = dgvRegistroPrecio.Rows.Add();
+                    dgvRegistroPrecio.Rows[i].Cells["clmNroFactRegistro"].Value = f.Serie;
+                    dgvRegistroPrecio.Rows[i].Cells["clmPrecioFactRegistro"].Value = f.Total;
+                    //dgvRegistroPrecio.Rows[i].Cells["DescuentoDataFact"].Value = f.Descuentofact;
+                    //dgvRegistroPrecio.Rows[i].Cells["IvaDataFact"].Value = f.Iva;
+                    //dgvRegistroPrecio.Rows[i].Cells["TotalDataFact"].Value = f.Total;
+                    //dgvRegistroPrecio.Rows[i].Cells["EstadoDataFact"].Value = f.Estadofact;
+                    //dgvRegistroPrecio.Rows[i].Cells["MotivoDataFact"].Value = f.Motivoinactivacion;
+                }
             }
+        }
+
+
+        public decimal CalcularSumaPrecios()
+        {
+            decimal sumaPrecios = 0;
+            foreach (Factura f in ListaFact)
+            {
+                if (f.Estadofact == "ACTIVO")
+                {
+                    sumaPrecios += decimal.Parse(f.Preciofact);
+                }
+            }
+            return sumaPrecios;
         }
 
 

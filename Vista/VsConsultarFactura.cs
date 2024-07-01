@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Vista
 {
@@ -76,7 +77,7 @@ namespace Vista
             }
             else
             {
-                MessageBox.Show("ERROR: SELECCIONA UNA FILA ANTES DE ELIMINAR.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("ERROR: SELECCIONA UNA FILA ANTES DE INACTIVAR.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -104,5 +105,31 @@ namespace Vista
 
         }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            VsRegistroPrecio vRegistroPrecio = new VsRegistroPrecio();
+            vRegistroPrecio.ShowDialog();
+        }
+
+        private void btnActivarFact_Click(object sender, EventArgs e)
+        {
+            
+            if (dgvRegistroFact.SelectedRows.Count > 0)
+            {
+                var filaSeleccionada = dgvRegistroFact.SelectedRows[0];
+                var serie = (string)filaSeleccionada.Cells["FacturaRegistroFact"].Value;
+
+                ctrfacto.ActivarFactura(serie, filaSeleccionada);
+
+                ctrfacto.LlenarDataFact(dgvRegistroFact);
+
+                richTextBox1.Clear();
+            }
+            else
+            {
+                MessageBox.Show("ERROR: SELECCIONA UNA FILA ANTES DE ACTIVAR.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+        }
     }
 }
