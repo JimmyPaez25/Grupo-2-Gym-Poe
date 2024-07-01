@@ -119,7 +119,7 @@ namespace Vista
 
         private void btnRegistrarDatosFact_Click(object sender, EventArgs e)
         {
-            string mensaje = "";
+            string mensaje;
             int rnumfact = 0;
             string rseriefact = lblNumFactura.Text.Trim();
             string rpreciofact = lblPrecioFact.Text.Trim();

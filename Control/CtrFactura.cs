@@ -6,21 +6,17 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Windows.Forms;
 using Modelo;
+using System.Numerics;
 
 
 namespace Control
 {
     public class CtrFactura
     {
-
-        Factura fac = new Factura();
-
         public static List<Factura> listaFact = new List<Factura>();
         private static List<Membresia> listaMembresia = new List<Membresia>();
         public static List<Factura> ListaFact { get => listaFact; set => listaFact = value; }
         public static List<Membresia> ListaMembresia { get => listaMembresia; set => listaMembresia = value; }
-
-
 
 
 
@@ -64,7 +60,35 @@ namespace Control
 
 
 
-        //Guardar datos y realizar cálculo
+
+
+
+
+
+
+
+
+        //Método para caluclar datos ingresados
+        public string CalcularTotal(double precioFact, double descuentoFact)
+        {
+            double totalFact;
+            if (descuentoFact > 0)
+            {
+                // Si hay descuento y es mayor a 0, lo aplico
+                totalFact = precioFact - (precioFact * (descuentoFact / 100)) + (precioFact * 0.15);
+            }
+            else
+            {
+                // Si no hay descuento o es 0, solo calculo el IVA
+                totalFact = precioFact + (precioFact * 0.15);
+            }
+            return totalFact.ToString();
+        }
+
+
+
+
+        //Guardar datos
         public string IngresarFact(int numfactura, string serie, string preciofact, string descuentofact, string iva, string total)
         {
             string msg;
@@ -79,15 +103,11 @@ namespace Control
             {
                 if (!string.IsNullOrEmpty(descuentofact) && double.TryParse(descuentofact, out descuentoFact) && descuentoFact > 0)
                 {
-                    // Si hay descuento y es mayor a 0, lo aplico
-                    double totalFact = precioFact - (precioFact * (descuentoFact / 100)) + (precioFact * 0.15);
-                    fact.Total = totalFact.ToString();
+                    fact.Total = CalcularTotal(precioFact, descuentoFact);
                 }
                 else
                 {
-                    // Si no hay descuento o es 0, solo calculo el IVA
-                    double totalFact = precioFact + (precioFact * 0.15);
-                    fact.Total = totalFact.ToString();
+                    fact.Total = CalcularTotal(precioFact, 0);
                 }
             }
             else
@@ -101,6 +121,46 @@ namespace Control
 
             return msg;
         }
+
+
+
+        //Guardar datos y realizar cálculo
+        //public string IngresarFact(int numfactura, string serie, string preciofact, string descuentofact, string iva, string total)
+        //{
+        //    string msg;
+        //    Factura fact;
+
+        //    fact = new Factura(numfactura, serie, preciofact, descuentofact, iva, total);
+        //    fact.Estadofact = "ACTIVO";
+        //    double precioFact;
+        //    double descuentoFact;
+
+        //    if (double.TryParse(preciofact, out precioFact))
+        //    {
+        //        if (!string.IsNullOrEmpty(descuentofact) && double.TryParse(descuentofact, out descuentoFact) && descuentoFact > 0)
+        //        {
+        //            // Si hay descuento y es mayor a 0, lo aplico
+        //            double totalFact = precioFact - (precioFact * (descuentoFact / 100)) + (precioFact * 0.15);
+        //            fact.Total = totalFact.ToString();
+        //        }
+        //        else
+        //        {
+        //            // Si no hay descuento o es 0, solo calculo el IVA
+        //            double totalFact = precioFact + (precioFact * 0.15);
+        //            fact.Total = totalFact.ToString();
+        //        }
+        //    }
+        //    else
+        //    {
+        //        msg = "Error: Valor de precio no válido";
+        //        return msg;
+        //    }
+
+        //    listaFact.Add(fact);
+        //    msg = fact.ToString() + Environment.NewLine + "---REGISTRO EXITOSO---" + Environment.NewLine;
+
+        //    return msg;
+        //}
 
 
         //LLenar la tabla
@@ -245,7 +305,7 @@ namespace Control
             }
         }
 
-
+        //Calcular el total de los precios
         public decimal CalcularSumaPrecios()
         {
             decimal sumaPrecios = 0;
@@ -253,12 +313,11 @@ namespace Control
             {
                 if (f.Estadofact == "ACTIVO")
                 {
-                    sumaPrecios += decimal.Parse(f.Preciofact);
+                    sumaPrecios += decimal.Parse(f.Total);
                 }
             }
             return sumaPrecios;
         }
-
 
 
     }

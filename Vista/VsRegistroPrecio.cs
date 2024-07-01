@@ -20,7 +20,7 @@ namespace Vista
         {
             InitializeComponent();
             ctrfacto.LlenarRegistroPrecio(dgvRegistroPrecio);
-            lblTotalRegistroPrecio.Text = ctrfacto.CalcularSumaPrecios().ToString();
+            lblTotalRegistroPrecio.Text = ctrfacto.CalcularSumaPrecios().ToString("N2");
         }
 
         private void lblTotalRegistroPrecio_Click(object sender, EventArgs e)
