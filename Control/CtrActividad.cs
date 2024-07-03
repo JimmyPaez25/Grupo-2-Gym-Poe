@@ -77,17 +77,21 @@ namespace Control
         public void IngresarActividadBD(Actividad act)
         {
             string msj = string.Empty;
-            string msjCnx = conn.AbrirConexion();
+            string msjBD = conn.AbrirConexion();
 
-            if (msjCnx[0] == '1')
+            if (msjBD[0] == '1')
             {
                 msj = dtActividad.InsertActividad(act, conn.Connect);
-                conn.CerrarConexion();
+                if (msj[0] == '0')
+                {
+                    MessageBox.Show("ERROR INESPERADO: " + msj);
+                }
             }
-            else if (msjCnx[0] == '0')
+            else if (msjBD[0] == '0')
             {
-                MessageBox.Show("ERROR: " + msj);
+                MessageBox.Show("ERROR: " + msjBD);
             }
+            conn.CerrarConexion();
         }     
 
         //
@@ -142,19 +146,35 @@ namespace Control
 
         public void TablaConsultarActividadBD(int estado)
         {
-            string msj = string.Empty;
-            string msjCnx = conn.AbrirConexion();
+            string msjBD = conn.AbrirConexion();
 
-            if (msjCnx[0] == '1')
+            if (msjBD[0] == '1')
             {
                 ListaActividad = dtActividad.SelectActividades(conn.Connect, estado);
-                conn.CerrarConexion();
             }
-            else if (msjCnx[0] == '0')
+            else if (msjBD[0] == '0')
             {
-                MessageBox.Show("ERROR: " + msj);
+                MessageBox.Show("ERROR: " + msjBD);
             }
+            conn.CerrarConexion();
         }
+
+        //public List<Actividad> TablaConsultarActividadBD(int estado)
+        //{
+        //    List<Actividad> actividades = new List<Actividad>();
+        //    string msjBD = conn.AbrirConexion();
+
+        //    if (msjBD[0] == '1')
+        //    {
+        //        actividades = dtActividad.SelectActividades(conn.Connect, estado);
+        //    }
+        //    else if (msjBD[0] == '0')
+        //    {
+        //        MessageBox.Show("ERROR: " + msjBD);
+        //    }
+        //    conn.CerrarConexion();
+        //    return actividades;
+        //}
 
         //public void TablaConsultarActividadBD()
         //{
@@ -240,17 +260,21 @@ namespace Control
         public void EstadoActividadBD(Actividad act)
         {
             string msj = string.Empty;
-            string msjCnx = conn.AbrirConexion();
+            string msjBD = conn.AbrirConexion();
 
-            if (msjCnx[0] == '1')
+            if (msjBD[0] == '1')
             {
                 msj = dtActividad.UpdateEstadoActividad(act, conn.Connect);
-                conn.CerrarConexion();
+                if (msj[0] == '0')
+                {
+                    MessageBox.Show("ERROR INESPERADO: " + msj);
+                }
             }
-            else if (msjCnx[0] == '0')
+            else if (msjBD[0] == '0')
             {
-                MessageBox.Show("ERROR: " + msj);
+                MessageBox.Show("ERROR: " + msjBD);
             }
+            conn.CerrarConexion();
         }
 
         //
@@ -316,17 +340,21 @@ namespace Control
         public void EditarActividadBD(Actividad act, string sNombreOriginal)
         {
             string msj = string.Empty;
-            string msjCnx = conn.AbrirConexion();
+            string msjBD = conn.AbrirConexion();
 
-            if (msjCnx[0] == '1')
+            if (msjBD[0] == '1')
             {
                 msj = dtActividad.UpdateCamposActividad(act, conn.Connect, sNombreOriginal);
-                conn.CerrarConexion();
+                if (msj[0] == '0')
+                {
+                    MessageBox.Show("ERROR INESPERADO: " + msj);
+                }
             }
-            else if (msjCnx[0] == '0')
+            else if (msjBD[0] == '0')
             {
-                MessageBox.Show("ERROR: " + msj);
+                MessageBox.Show("ERROR: " + msjBD);
             }
+            conn.CerrarConexion();
         }
 
         //
@@ -371,17 +399,21 @@ namespace Control
         public void RemoverActividadBD(Actividad act)
         {
             string msj = string.Empty;
-            string msjCnx = conn.AbrirConexion();
+            string msjBD = conn.AbrirConexion();
 
-            if (msjCnx[0] == '1')
+            if (msjBD[0] == '1')
             {
                 msj = dtActividad.DeleteActividad(act, conn.Connect);
-                conn.CerrarConexion();
+                if (msj[0] == '0')
+                {
+                    MessageBox.Show("ERROR INESPERADO: " + msj);
+                }
             }
-            else if (msjCnx[0] == '0')
+            else if (msjBD[0] == '0')
             {
-                MessageBox.Show("ERROR: " + msj);
+                MessageBox.Show("ERROR: " + msjBD);
             }
+            conn.CerrarConexion();
         }
 
         //
