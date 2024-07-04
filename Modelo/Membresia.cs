@@ -13,27 +13,21 @@ namespace Modelo
         DateTime fechaInicio;
         DateTime fechaFin;
         string promocion;
-        string descuento;
+        int descuento;
         string detallePromocion;
         string cedulaCliente;
         double precio;
 
- 
-
-
-        public Membresia(string plan, DateTime fechaInicio, DateTime fechaFin, string promocion, string descuento, string detallePromocion, string cedulaCliente, double precio) 
+        public Membresia(string plan, DateTime fechaInicio, DateTime fechaFin, string promocion, int descuento, string detallePromocion, string cedulaCliente, double precio)
         {
-            this.Plan = plan;
-            this.FechaInicio = fechaInicio;
-            this.FechaFin = fechaFin;
-            this.Promocion = promocion;
-            this.Descuento = descuento;
+            this.plan = plan;
+            this.fechaInicio = fechaInicio;
+            this.fechaFin = fechaFin;
+            this.promocion = promocion;
+            this.descuento = descuento;
             this.detallePromocion = detallePromocion;
-            this.CedulaCliente = cedulaCliente;
+            this.cedulaCliente = cedulaCliente;
             this.precio = precio;
-
- 
-    
         }
 
         public string Plan { get => plan; set => plan = value; }
@@ -41,7 +35,7 @@ namespace Modelo
         public DateTime FechaFin { get => fechaFin; set => fechaFin = value; }
         public string Promocion { get => promocion; set => promocion = value; }
         public string DetallePromocion { get => detallePromocion; set => detallePromocion = value; }
-        public string Descuento { get => descuento; set => descuento = value; }
+        public int Descuento { get => descuento; set => descuento = value; }
         public string CedulaCliente { get => cedulaCliente; set => cedulaCliente = value; }
         public double Precio { get => precio; set => precio = value; }
 

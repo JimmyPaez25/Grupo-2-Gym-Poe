@@ -5,11 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using Modelo;
 using System.Windows.Forms;
+using Dato;
 
 namespace Control
 {
     public class CtrMembresia
     {
+        Conexion conn = new Conexion();
+        DatoMembresia dtMembresia = new DatoMembresia();
+
         CtrCliente CtrCliente = new CtrCliente();
         private DateTime fechaActual = DateTime.Now;
         private static List<Membresia> listaMembresia = new List<Membresia>();
@@ -25,24 +29,26 @@ namespace Control
             return ListaMembresia.Count;
         }
 
-        public CtrMembresia()
-        {
-            if (ListaMembresia.Count == 0)
-            {
-                ListaMembresia.Add(new Membresia("Plan Basico", new DateTime(2021, 1, 1), new DateTime(2021, 12, 31), "NO", "0", "No aplica", "123456789", 100));
-                ListaMembresia.Add(new Membresia("Plan Premium", new DateTime(2021, 1, 1), new DateTime(2021, 12, 31), "SI", "10", "Promoción estudiante", "987654321", 200));
-                ListaMembresia.Add(new Membresia("Plan Premium #1", new DateTime(2021, 1, 1), new DateTime(2021, 12, 31), "SI", "20", "Promocion Gym Bro", "123456789", 300));
-                ListaMembresia.Add(new Membresia("Plan Basico #2", new DateTime(2021, 1, 1), new DateTime(2021, 12, 31), "NO", "0", "No aplica", "987654321", 100));
+        //public CtrMembresia()
+        //{
+        //    if (ListaMembresia.Count == 0)
+        //    {
+        //        ListaMembresia.Add(new Membresia("Plan Basico", new DateTime(2021, 1, 1), new DateTime(2021, 12, 31), "NO", 0, "No aplica", "123456789", 100));
+        //        ListaMembresia.Add(new Membresia("Plan Premium", new DateTime(2021, 1, 1), new DateTime(2021, 12, 31), "SI", 10, "Promoción estudiante", "987654321", 200));
+        //        ListaMembresia.Add(new Membresia("Plan Premium #1", new DateTime(2021, 1, 1), new DateTime(2021, 12, 31), "SI", 20, "Promocion Gym Bro", "123456789", 300));
+        //        ListaMembresia.Add(new Membresia("Plan Basico #2", new DateTime(2021, 1, 1), new DateTime(2021, 12, 31), "NO", 0, "No aplica", "987654321", 100));
 
-            }
-        }
-        public string IngresarMembresia(string plan, string SFInicio, string SFFin, string promocion, string descuento, string detallePromocion, string cedulaCliente,string Sprecio)
+        //    }
+        //}
+        public string IngresarMembresia(string plan, string SFInicio, string SFFin, string promocion, string Sdescuento, string detallePromocion, string cedulaCliente,string Sprecio)
         {
             string msj = "ERROR: SE ESPERABA DATOS CORRECTOS.";
             Validacion val = new Validacion();
             Membresia mem = null;
             //CtrMembresia controlMembresia = new CtrMembresia(CtrCliente.ListaCli);
             double precio = val.ConvertirDouble(Sprecio);
+            int descuento = val.ConvertirEntero(Sdescuento);
+
             DateTime fechaInicio = val.ConvertirDateTime(SFInicio);
             DateTime fechaFin = val.ConvertirDateTime(SFFin);
 
@@ -77,10 +83,30 @@ namespace Control
             else 
             {
                 mem = new Membresia(plan, fechaInicio, fechaFin, promocion, descuento, detallePromocion,cedulaCliente, precio);
-                ListaMembresia.Add(mem);
+                //ListaMembresia.Add(mem);
+                IngresarMembresiaBD(mem);
                 msj = mem.ToString() + Environment.NewLine + "MEMBRESIA REGISTRADA CORRECTAMENTE" + Environment.NewLine;
             }
             return msj;
+        }
+        public void IngresarMembresiaBD(Membresia mem)
+        {
+            string msj = string.Empty;
+            string msjBD = conn.AbrirConexion();
+
+            if (msjBD[0] == '1')
+            {
+                msj = dtMembresia.InsertMembresia(mem, conn.Connect);
+                if (msj[0] == '0')
+                {
+                    MessageBox.Show("ERROR INESPERADO: " + msj);
+                }
+            }
+            else if (msjBD[0] == '0')
+            {
+                MessageBox.Show("ERROR: " + msjBD);
+            }
+            conn.CerrarConexion();
         }
         public bool MembresiaExistente(string cedula)
         {
@@ -158,12 +184,13 @@ namespace Control
                 }
             }
         }
-        public string editarMembresia(string nombrePlan, string planE, string SFInicioE, string SFFinE, string promocionE, string descuentoE, string detallePromocionE, string SprecioE)
+        public string editarMembresia(string nombrePlan, string planE, string SFInicioE, string SFFinE, string promocionE, string SdescuentoE, string detallePromocionE, string SprecioE)
         {
             string msj = "ERROR: SE ESPERABA DATOS CORRECTOS.";
             Validacion val = new Validacion();
             //Membresia mem = null;
             double precio = val.ConvertirDouble(SprecioE);
+            int descuento = val.ConvertirEntero(SdescuentoE);
             DateTime fechaInicio = val.ConvertirDateTime(SFInicioE);
             DateTime fechaFin = val.ConvertirDateTime(SFFinE);
 
@@ -206,7 +233,7 @@ namespace Control
                     membresiaExistente.FechaFin = fechaFin;
                     membresiaExistente.Promocion = promocionE;
                     membresiaExistente.DetallePromocion = detallePromocionE;
-                    membresiaExistente.Descuento = descuentoE;
+                    membresiaExistente.Descuento = descuento;
                     membresiaExistente.Precio = precio;
 
                     msj = "MEMBRESIA EDITADA CORRECTAMENTE";
@@ -228,7 +255,7 @@ namespace Control
                 dateTPFIE.Value = membresiaSeleccionada.FechaFin;
                 comboBoxPE.Text = membresiaSeleccionada.Promocion;
                 txtBoxDPE.Text = membresiaSeleccionada.DetallePromocion;
-                txtBoxDE.Text = membresiaSeleccionada.Descuento;
+                txtBoxDE.Text = membresiaSeleccionada.Descuento.ToString();
                 txtBoxPEM.Text = membresiaSeleccionada.Precio.ToString();
                 lblCedulaM.Text = membresiaSeleccionada.CedulaCliente;
             }
