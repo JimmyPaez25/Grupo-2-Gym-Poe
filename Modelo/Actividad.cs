@@ -9,6 +9,7 @@ namespace Modelo
     // GONZALEZ ASTUDILLO ADRIAN
     public class Actividad
     {
+        protected int idActividad;
         protected int estado;
         protected string nombre;
         protected string descripcion;
@@ -19,9 +20,10 @@ namespace Modelo
 
         public Actividad() {}
 
-        public Actividad(/*int estado, */string nombre, string descripcion, DateTime fechaInicio, DateTime fechaFin, TimeSpan horaInicio, TimeSpan horaFin)
+        public Actividad(/*int idActividad,*//* int estado,*/ string nombre, string descripcion, DateTime fechaInicio, DateTime fechaFin, TimeSpan horaInicio, TimeSpan horaFin)
         {
             //this.estado = estado;
+            //IdActividad = idActividad;
             this.estado = 1; // ESTADO 1 = ACTIVO
             this.nombre = nombre;
             this.descripcion = descripcion;
@@ -31,6 +33,7 @@ namespace Modelo
             this.horaFin = horaFin;
         }
 
+        protected int IdActividad { get => idActividad; set => idActividad = value; }
         public int Estado { get => estado; set => estado = value; }
         public string Nombre { get => nombre; set => nombre = value; }
         public string Descripcion { get => descripcion; set => descripcion = value; }

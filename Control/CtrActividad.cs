@@ -92,104 +92,70 @@ namespace Control
                 MessageBox.Show("ERROR: " + msjBD);
             }
             conn.CerrarConexion();
-        }     
+        }
 
         //
         // CONSULTAR LIST - BD
         //
-        public void TablaConsultarActividad(DataGridView dgvActividad)
+        public int GetTotal()
         {
-            int i = 0;
-            dgvActividad.Rows.Clear(); // LIMPIA FILAS SI LAS HAY          
-            TablaConsultarActividadBD(1); // BASE DE DATOS
-            //TablaConsultarActividadBD();
-
-            foreach (Actividad x in ListaActividad)
-            {
-                if (x.Estado == 1)
-                {
-                    i = dgvActividad.Rows.Add();
-                    dgvActividad.Rows[i].Cells["ClmNumero"].Value = i + 1;
-                    dgvActividad.Rows[i].Cells["ClmEstado"].Value = x.Estado;
-                    dgvActividad.Rows[i].Cells["ClmNombre"].Value = x.Nombre;
-                    dgvActividad.Rows[i].Cells["ClmDescripcion"].Value = x.Descripcion;
-                    dgvActividad.Rows[i].Cells["ClmFechaInicio"].Value = x.FechaInicio.ToString("d");
-                    dgvActividad.Rows[i].Cells["ClmFechaFin"].Value = x.FechaFin.ToString("d");
-                    dgvActividad.Rows[i].Cells["ClmHoraInicio"].Value = x.HoraInicio.ToString(@"hh\:mm");
-                    dgvActividad.Rows[i].Cells["ClmHoraFin"].Value = x.HoraFin.ToString(@"hh\:mm");
-                }
-            }
+            ListaActividad = TablaConsultarActividadBD(1); // BASE DE DATOS
+            return ListaActividad.Count;
         }
 
-        public void TablaConsultarActividadPapelera(DataGridView dgvActividad)
+        public int GetTotalInactivas()
         {
-            int i = 0;
-            dgvActividad.Rows.Clear(); // LIMPIA FILAS SI LAS HAY
-            TablaConsultarActividadBD(2); // BASE DE DATOS
-
-            foreach (Actividad x in ListaActividad)
-            {
-                if (x.Estado == 2)
-                {
-                    i = dgvActividad.Rows.Add();
-                    dgvActividad.Rows[i].Cells["ClmNumero"].Value = i + 1;
-                    dgvActividad.Rows[i].Cells["ClmEstado"].Value = x.Estado;
-                    dgvActividad.Rows[i].Cells["ClmNombre"].Value = x.Nombre;
-                    dgvActividad.Rows[i].Cells["ClmDescripcion"].Value = x.Descripcion;
-                    dgvActividad.Rows[i].Cells["ClmFechaInicio"].Value = x.FechaInicio.ToString("d");
-                    dgvActividad.Rows[i].Cells["ClmFechaFin"].Value = x.FechaFin.ToString("d");
-                    dgvActividad.Rows[i].Cells["ClmHoraInicio"].Value = x.HoraInicio.ToString(@"hh\:mm");
-                    dgvActividad.Rows[i].Cells["ClmHoraFin"].Value = x.HoraFin.ToString(@"hh\:mm");
-                }
-            }
+            ListaActividad = TablaConsultarActividadBD(2); // BASE DE DATOS
+            return ListaActividad.Count(act => act.Estado == 2);
         }
 
-        public void TablaConsultarActividadBD(int estado)
+        public List<Actividad> TablaConsultarActividadBD(int estado)
         {
+            List<Actividad> actividades = new List<Actividad>();
             string msjBD = conn.AbrirConexion();
 
             if (msjBD[0] == '1')
             {
-                ListaActividad = dtActividad.SelectActividades(conn.Connect, estado);
+                actividades = dtActividad.SelectActividades(conn.Connect, estado);
             }
             else if (msjBD[0] == '0')
             {
                 MessageBox.Show("ERROR: " + msjBD);
             }
             conn.CerrarConexion();
+            return actividades;
         }
 
-        //public List<Actividad> TablaConsultarActividadBD(int estado)
+        //// 1
+        //public void TablaConsultarActividadBD(int estado)
         //{
-        //    List<Actividad> actividades = new List<Actividad>();
         //    string msjBD = conn.AbrirConexion();
 
         //    if (msjBD[0] == '1')
         //    {
-        //        actividades = dtActividad.SelectActividades(conn.Connect, estado);
+        //        ListaActividad = dtActividad.SelectActividades(conn.Connect, estado);
         //    }
         //    else if (msjBD[0] == '0')
         //    {
         //        MessageBox.Show("ERROR: " + msjBD);
         //    }
         //    conn.CerrarConexion();
-        //    return actividades;
         //}
 
+        //// 2
         //public void TablaConsultarActividadBD()
         //{
-        //    string msj = string.Empty;
-        //    string msjCnx = conn.AbrirConexion();
+        //    string msjBD = conn.AbrirConexion();
 
-        //    if (msjCnx[0] == '1')
+        //    if (msjBD[0] == '1')
         //    {
         //        ListaActividad = dtActividad.SelectActividades(conn.Connect);
-        //        conn.CerrarConexion();
         //    }
-        //    else if (msjCnx[0] == '0')
+        //    else if (msjBD[0] == '0')
         //    {
-        //        MessageBox.Show("ERROR: " + msj);
+        //        MessageBox.Show("ERROR: " + msjBD);
         //    }
+        //    conn.CerrarConexion();
         //}
 
         //
@@ -483,6 +449,53 @@ namespace Control
             return false;
         }
 
+        public void TablaConsultarActividad(DataGridView dgvActividad)
+        {
+            int i = 0;
+            dgvActividad.Rows.Clear(); // LIMPIA FILAS SI LAS HAY          
+            //TablaConsultarActividadBD(1); // BASE DE DATOS
+            //TablaConsultarActividadBD();
+
+            foreach (Actividad x in ListaActividad)
+            {
+                if (x.Estado == 1)
+                {
+                    i = dgvActividad.Rows.Add();
+                    dgvActividad.Rows[i].Cells["ClmNumero"].Value = i + 1;
+                    dgvActividad.Rows[i].Cells["ClmEstado"].Value = x.Estado;
+                    dgvActividad.Rows[i].Cells["ClmNombre"].Value = x.Nombre;
+                    dgvActividad.Rows[i].Cells["ClmDescripcion"].Value = x.Descripcion;
+                    dgvActividad.Rows[i].Cells["ClmFechaInicio"].Value = x.FechaInicio.ToString("d");
+                    dgvActividad.Rows[i].Cells["ClmFechaFin"].Value = x.FechaFin.ToString("d");
+                    dgvActividad.Rows[i].Cells["ClmHoraInicio"].Value = x.HoraInicio.ToString(@"hh\:mm");
+                    dgvActividad.Rows[i].Cells["ClmHoraFin"].Value = x.HoraFin.ToString(@"hh\:mm");
+                }
+            }
+        }
+
+        public void TablaConsultarActividadPapelera(DataGridView dgvActividad)
+        {
+            int i = 0;
+            dgvActividad.Rows.Clear(); // LIMPIA FILAS SI LAS HAY
+            //TablaConsultarActividadBD(2); // BASE DE DATOS
+
+            foreach (Actividad x in ListaActividad)
+            {
+                if (x.Estado == 2)
+                {
+                    i = dgvActividad.Rows.Add();
+                    dgvActividad.Rows[i].Cells["ClmNumero"].Value = i + 1;
+                    dgvActividad.Rows[i].Cells["ClmEstado"].Value = x.Estado;
+                    dgvActividad.Rows[i].Cells["ClmNombre"].Value = x.Nombre;
+                    dgvActividad.Rows[i].Cells["ClmDescripcion"].Value = x.Descripcion;
+                    dgvActividad.Rows[i].Cells["ClmFechaInicio"].Value = x.FechaInicio.ToString("d");
+                    dgvActividad.Rows[i].Cells["ClmFechaFin"].Value = x.FechaFin.ToString("d");
+                    dgvActividad.Rows[i].Cells["ClmHoraInicio"].Value = x.HoraInicio.ToString(@"hh\:mm");
+                    dgvActividad.Rows[i].Cells["ClmHoraFin"].Value = x.HoraFin.ToString(@"hh\:mm");
+                }
+            }
+        }
+
         public void PresentarDatosActividad(TextBox textNombre, TextBox textDescripcion, DateTimePicker dtpFechaInicio, DateTimePicker dtpFechaFin, DateTimePicker dtpHoraInicio, DateTimePicker dtpHoraFin, string nombreActividad)
         {
             //Actividad actividadSeleccionada = ExtraerNombreActividad(nombreActividad);
@@ -501,16 +514,6 @@ namespace Control
         //
         // METODOS SIN USO ACTUAL
         //
-        public int GetTotal()
-        {
-            return ListaActividad.Count;
-        }
-
-        public int GetTotalInactivas()
-        {
-            return ListaActividad.Count(act => act.Estado == 2);
-        } 
-
         public Actividad ExtraerNombreActividad(string nombreActividad)
         {
             return listaActividad.Find(a => a.Nombre == nombreActividad);

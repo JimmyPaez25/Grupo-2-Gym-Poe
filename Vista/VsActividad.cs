@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Control;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace Vista
 {
@@ -30,27 +29,27 @@ namespace Vista
         private void buttonConsultar_Click(object sender, EventArgs e)
         {
             VsConsultarActividad vConsActividad = null;
-            //if (ctrActividad.GetTotal() > 0)
-            //{
+            if (ctrActividad.GetTotal() > 0)
+            {
                 vConsActividad = new VsConsultarActividad(); vConsActividad.ShowDialog();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("ERROR: NO EXISTEN ACTIVIDADES REGISTRADAS.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //}
+            }
+            else
+            {
+                MessageBox.Show("ERROR: NO EXISTEN ACTIVIDADES REGISTRADAS.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void buttonPapelera_Click(object sender, EventArgs e)
         {
             VsPapeleraActividad vPapeleraAct = null;
-            //if (ctrActividad.GetTotalInactivas() > 0)
-            //{
+            if (ctrActividad.GetTotalInactivas() > 0)
+            {
                 vPapeleraAct = new VsPapeleraActividad(); vPapeleraAct.ShowDialog();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("ERROR: NO EXISTEN ACTIVIDADES ELIMINADAS DENTRO DE LA PAPELERA.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //}
+            }
+            else
+            {
+                MessageBox.Show("ERROR: NO EXISTEN ACTIVIDADES ELIMINADAS DENTRO DE LA PAPELERA.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         // FIN
