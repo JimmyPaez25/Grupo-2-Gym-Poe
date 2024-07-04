@@ -13,6 +13,16 @@ namespace Dato
     {
         SqlCommand cmd = new SqlCommand();
 
+        public void ImprimirSQL(string sentencia)
+        {
+            string sqlWithValues = sentencia;
+            foreach (SqlParameter param in cmd.Parameters)
+            {
+                sqlWithValues = sqlWithValues.Replace(param.ParameterName, param.Value.ToString());
+            }
+            Console.WriteLine("COMANDO SQL: " + sqlWithValues);
+        }
+
         //
         // INSERTS
         //
@@ -37,6 +47,7 @@ namespace Dato
                 cmd.Parameters.AddWithValue("@horaInicio", act.HoraInicio);
                 cmd.Parameters.AddWithValue("@horaFin", act.HoraFin);
 
+                ImprimirSQL(comando);
                 cmd.ExecuteNonQuery();
                 x = "1";
             }
@@ -66,6 +77,7 @@ namespace Dato
                 cmd.Parameters.Clear(); // LIMPIA PARAMETROS UTILIZADOS
                 cmd.Parameters.AddWithValue("@estado", estado);
 
+                ImprimirSQL(comando);
                 reader = cmd.ExecuteReader();
 
                 while (reader.Read())
@@ -153,6 +165,7 @@ namespace Dato
                 cmd.Parameters.AddWithValue("@horaFin", act.HoraFin);
                 cmd.Parameters.AddWithValue("@nombreOriginal", sNombreOriginal);
 
+                ImprimirSQL(comando);
                 cmd.ExecuteNonQuery();
                 x = "1";
             }
@@ -180,6 +193,7 @@ namespace Dato
                 cmd.Parameters.AddWithValue("@estado", act.Estado);
                 cmd.Parameters.AddWithValue("@nombre", act.Nombre);
 
+                ImprimirSQL(comando);
                 cmd.ExecuteNonQuery();
                 x = "1";
             }
@@ -207,6 +221,7 @@ namespace Dato
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@nombre", act.Nombre);
 
+                ImprimirSQL(comando);
                 cmd.ExecuteNonQuery(); 
                 x = "1";
             }
@@ -216,7 +231,7 @@ namespace Dato
             }
             return x;
         }
-
+        
 
     // FIN
     }
