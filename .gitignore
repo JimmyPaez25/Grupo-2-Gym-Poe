@@ -373,5 +373,9 @@ FodyWeavers.xsd
 /Dato/ProyectoDB_log.ldf
 /Dato/ProyectoDB.mdf
 /Dato/ProyectoDB_log.ldf
+<<<<<<< HEAD
+=======
+/Dato/DatoCliente.cs
+>>>>>>> a170a6e797c422c1e31ff22152a9ebfd9490ad79
 /Dato/ProyectoDB.mdf
 /Dato/ProyectoDB_log.ldf
