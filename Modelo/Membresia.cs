@@ -30,6 +30,8 @@ namespace Modelo
             this.precio = precio;
         }
 
+        public Membresia() { }
+
         public string Plan { get => plan; set => plan = value; }
         public DateTime FechaInicio { get => fechaInicio; set => fechaInicio = value; }
         public DateTime FechaFin { get => fechaFin; set => fechaFin = value; }

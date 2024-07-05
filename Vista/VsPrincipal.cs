@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Control;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,7 @@ namespace Vista
 {
     public partial class VsPrincipal : Form
     {
+        private CtrMembresia ctrMembresia = new CtrMembresia();
         private VsConexion VsConn;
 
         public VsPrincipal(VsConexion VsConn)
@@ -61,8 +63,17 @@ namespace Vista
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            VsMembresiaConsulta consultaMembresia = new VsMembresiaConsulta();
-            consultaMembresia.ShowDialog();
+            VsMembresiaConsulta vConsMembresia = null;
+            if (ctrMembresia.GetTotal() > 0)
+            {
+                vConsMembresia = new VsMembresiaConsulta(); vConsMembresia.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("ERROR: NO EXISTEN MEMBRESIA REGISTRADAS.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            //VsMembresiaConsulta consultaMembresia = new VsMembresiaConsulta();
+            //consultaMembresia.ShowDialog();
         }
 
         private void btnVerRegistroFact_Click(object sender, EventArgs e)

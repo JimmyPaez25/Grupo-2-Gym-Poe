@@ -24,10 +24,10 @@ namespace Control
         public static List<Cliente> ListaCli { get => listaCli; set => listaCli = value; }
 
 
-        public int GetTotal()
-        {
-            return ListaMembresia.Count;
-        }
+        //public int GetTotal()
+        //{
+        //    return ListaMembresia.Count;
+        //}
 
         //public CtrMembresia()
         //{
@@ -108,6 +108,33 @@ namespace Control
             }
             conn.CerrarConexion();
         }
+
+        //
+        // CONSULTAR LIST - BD
+        //
+        public int GetTotal()
+        {
+            ListaMembresia = TablaConsultarMembresiaBD(); // BASE DE DATOS
+            return ListaMembresia.Count;
+        }
+
+        public List<Membresia> TablaConsultarMembresiaBD()
+        {
+            List<Membresia> membresias = new List<Membresia>();
+            string msjBD = conn.AbrirConexion();
+
+            if (msjBD[0] == '1')
+            {
+                membresias = dtMembresia.SelectMembresias(conn.Connect);
+            }
+            else if (msjBD[0] == '0')
+            {
+                MessageBox.Show("ERROR: " + msjBD);
+            }
+            conn.CerrarConexion();
+            return membresias;
+        }
+
         public bool MembresiaExistente(string cedula)
         {
             foreach (Cliente men in ListaCli)
@@ -236,7 +263,8 @@ namespace Control
                     membresiaExistente.Descuento = descuento;
                     membresiaExistente.Precio = precio;
 
-                    msj = "MEMBRESIA EDITADA CORRECTAMENTE";
+                    EditarMembresiaBD(membresiaExistente, nombrePlan); // BASE DE DATOS
+                    msj = "MEMBRESIA EDITADA CORRECTAMENTE" + Environment.NewLine + membresiaExistente.ToString();
                 }
                 else
                 {
@@ -244,6 +272,26 @@ namespace Control
                 }
             }
             return msj;
+        }
+
+        public void EditarMembresiaBD(Membresia mem, string nombrePlan)
+        {
+            string msj = string.Empty;
+            string msjBD = conn.AbrirConexion();
+
+            if (msjBD[0] == '1')
+            {
+                msj = dtMembresia.UpdateCamposMembresia(mem, conn.Connect, nombrePlan);
+                if (msj[0] == '0')
+                {
+                    MessageBox.Show("ERROR INESPERADO: " + msj);
+                }
+            }
+            else if (msjBD[0] == '0')
+            {
+                MessageBox.Show("ERROR: " + msjBD);
+            }
+            conn.CerrarConexion();
         }
         public void PresentarDatosMembresia(TextBox txtBoxME, DateTimePicker dateTPFIE, DateTimePicker dateTPFFE, ComboBox comboBoxPE, TextBox txtBoxDPE, TextBox txtBoxDE, TextBox txtBoxPEM, Label lblCedulaM, string nombrePlan)
         {
