@@ -16,16 +16,12 @@ namespace Vista
     {
         private CtrMembresia ctrMembresia = new CtrMembresia();
         private VsConexion VsConn;
+        private CtrCliente ctrCliente = new CtrCliente();
 
         public VsPrincipal(VsConexion VsConn)
         {
             InitializeComponent();
             this.VsConn = VsConn;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //VsActividad act = new VsActividad(); act.ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -36,19 +32,19 @@ namespace Vista
 
         private void btnMembresia_Click(object sender, EventArgs e)
         {
-           VsConsultarCliente conCli = new VsConsultarCliente();
-            conCli.ShowDialog();
+            VsConsultarCliente conCli = null; 
+            if(ctrCliente.GetTotal() > 0)
+            {
+                conCli = new VsConsultarCliente();
+                conCli.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("ERROR: NO EXISTEN CLIENTES REGISTRADAS.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
         }
 
-        private void VsPrincipal_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void button2_Click_1(object sender, EventArgs e)
         {

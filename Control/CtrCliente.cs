@@ -6,33 +6,37 @@ using System.Runtime.Remoting.Lifetime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dato;
+using Microsoft.Win32.SafeHandles;
 using Modelo;
 namespace Control
 {
     public class CtrCliente
     {
         private static List<Cliente> listaCli = new List<Cliente>();
-
+        private Conexion conn = new Conexion();
+        private DatoCliente dtCliente = new DatoCliente();
 
         public static List<Cliente> ListaCli { get => listaCli; set => listaCli = value; }
         
 
         public int GetTotal()
         {
+            ListaCli = ConsultarTablaCliBD();
             return listaCli.Count;
         }
 
-        public CtrCliente()
-        {
-            if (ListaCli.Count == 0) { 
-                ListaCli.Add(new ClienteEstudiante("0987654321", "TULIO JOSE ", "TRIVIÑO FERNANDEZ", DateTime.ParseExact("01/01/1980", "dd/MM/yyyy", CultureInfo.InvariantCulture), "0874563219", "COOP. 31 MINUTOS","ACTIVO", "E09876543211"));
-                ListaCli.Add(new Cliente("9512368749", "JUAN CARLOS", "BODOQUE AVENDAÑO", DateTime.ParseExact("24/05/1998", "dd/MM/yyyy", CultureInfo.InvariantCulture), "2031659847", "GUASMO SUR", "ACTIVO"));
-                ListaCli.Add(new Cliente("9865231470", "JUANIN JUAN", "JARRY SANCHEZ", DateTime.ParseExact("30/07/2009", "dd/MM/yyyy", CultureInfo.InvariantCulture),"0995263417", "VIA DAULE", "INACTIVO"));
-                ListaCli.Add(new ClienteEstudiante("0963254178", "PATRICIA ANA", "TUFILLO TRIVIÑO", DateTime.ParseExact("24/05/2009", "dd/MM/yyyy", CultureInfo.InvariantCulture), "0963251478", "PASCUALES", "ACTIVO", "E10987263541"));
-                ListaCli.Add(new ClienteEstudiante("0192837465", "MARIO HUGO", "TORRES FERNANDEZ", DateTime.ParseExact("01/07/2003", "dd/MM/yyyy", CultureInfo.InvariantCulture),"0753962148", "SAMANES", "ACTIVO", "E10293849121"));
+        //public CtrCliente()
+        //{
+        //    if (ListaCli.Count == 0) { 
+        //        ListaCli.Add(new ClienteEstudiante("0987654321", "TULIO JOSE ", "TRIVIÑO FERNANDEZ", DateTime.ParseExact("01/01/1980", "dd/MM/yyyy", CultureInfo.InvariantCulture), "0874563219", "COOP. 31 MINUTOS","ACTIVO", "E09876543211"));
+        //        ListaCli.Add(new Cliente("9512368749", "JUAN CARLOS", "BODOQUE AVENDAÑO", DateTime.ParseExact("24/05/1998", "dd/MM/yyyy", CultureInfo.InvariantCulture), "2031659847", "GUASMO SUR", "ACTIVO"));
+        //        ListaCli.Add(new Cliente("9865231470", "JUANIN JUAN", "JARRY SANCHEZ", DateTime.ParseExact("30/07/2009", "dd/MM/yyyy", CultureInfo.InvariantCulture),"0995263417", "VIA DAULE", "INACTIVO"));
+        //        ListaCli.Add(new ClienteEstudiante("0963254178", "PATRICIA ANA", "TUFILLO TRIVIÑO", DateTime.ParseExact("24/05/2009", "dd/MM/yyyy", CultureInfo.InvariantCulture), "0963251478", "PASCUALES", "ACTIVO", "E10987263541"));
+        //        ListaCli.Add(new ClienteEstudiante("0192837465", "MARIO HUGO", "TORRES FERNANDEZ", DateTime.ParseExact("01/07/2003", "dd/MM/yyyy", CultureInfo.InvariantCulture),"0753962148", "SAMANES", "ACTIVO", "E10293849121"));
 
-            }
-        }
+        //    }
+        //}
 
         public string IngresarCli(string rCedula, string rNombre, string rApellido,string rFechaNacimiento, string rTelefono, string rEstado, string rDireccion)
         {
@@ -44,7 +48,8 @@ namespace Control
             DateTime fechaNac = v.ConvertirDateTime(rFechaNacimiento);
 
                 cli = new Cliente(rCedula, rNombre, rApellido, fechaNac, rTelefono, rDireccion, rEstado);
-                ListaCli.Add(cli); // Agregando datos del cliente
+                //ListaCli.Add(cli); // Agregando datos del cliente
+                IngresarClienteBD(cli);
                 msg = cli.ToString() + "\n CLIENTE REGISTRADO EXITOSAMENTE!!";
 
             return msg;
@@ -58,11 +63,32 @@ namespace Control
             DateTime fechaNac = v.ConvertirDateTime(rFechaNacimiento);
             Cliente cli = null;
 
-                cli = new ClienteEstudiante(rCedula, rNombre, rApellido, fechaNac, rTelefono, rDireccion, rEstado, comprobante);
-                listaCli.Add(cli); // Agregando datos del cliente
-                msg = cli.ToString() + "\n CLIENTE ESTUDIANTE REGISTRADO EXITOSAMENTE11";
+            cli = new ClienteEstudiante(rCedula, rNombre, rApellido, fechaNac, rTelefono, rDireccion, rEstado, comprobante);
+            listaCli.Add(cli); // Agregando datos del cliente
+            //IngresarClienteBD(cli);
+            msg = cli.ToString() + "\n CLIENTE ESTUDIANTE REGISTRADO EXITOSAMENTE11";
 
             return msg;
+        }
+
+        public void IngresarClienteBD(Cliente cliente)
+        {
+            string msg = string.Empty;
+            string msgBD = conn.AbrirConexion();
+            if (msgBD[0] == '1')
+            {
+                msg = dtCliente.InsertarCliente(cliente, conn.Connect);
+                if (msg[0] == '0')
+                {
+                    MessageBox.Show("ERROR INESPERADO: " + msg);
+                }
+                
+            }
+            else if (msgBD[0] == '0')
+            {
+                MessageBox.Show("ERROR: " + msgBD);
+            }
+            conn.CerrarConexion();
         }
 
         public bool ClienteExistente(string cedula)
@@ -76,6 +102,23 @@ namespace Control
             }
             return false;
 
+        }
+
+        public List<Cliente> ConsultarTablaCliBD()
+        {
+            List<Cliente> clientes = new List<Cliente>();
+            string msgBD = conn.AbrirConexion();
+
+            if (msgBD[0] == '1')
+            {
+                clientes = dtCliente.ConsultarCliente(conn.Connect);
+            }
+            else if (msgBD[0] == '0')
+            {
+                MessageBox.Show("ERROR: " + msgBD);
+            }
+            conn.CerrarConexion();
+            return clientes;
         }
 
         public void LlenarGrid(DataGridView dgvClientes)
