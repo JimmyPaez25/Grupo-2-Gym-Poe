@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Dato
 {
-    internal class DatoCliente
+    public class DatoCliente
     {
+
     }
 }
