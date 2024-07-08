@@ -323,8 +323,10 @@ namespace Control
                         DialogResult resultado = MessageBox.Show("ESTAS SEGURO DE ELIMINAR PERMANENTEMENTE ESTA MEMBRESIA?", "CONFIRMACION", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                         if (resultado == DialogResult.Yes)
                         {
-                            ListaMembresia.Remove(membresia);
+                            //ListaMembresia.Remove(membresia);
+                            RemoverMembresiaBD(membresia);
                             dgvMembresia.Rows.RemoveAt(filaSeleccionada);
+                            LlenarGrid(dgvMembresia);
                             MessageBox.Show("MEMBRESIA ELIMINADA CORRECTAMENTE." + Environment.NewLine + membresia.ToString(), "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
@@ -334,6 +336,25 @@ namespace Control
             {
                 MessageBox.Show("ERROR: SELECCIONA UNA FILA ANTES DE ELIMINAR DE FORMA PERMANENTE UNA MEMBRESIA.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+        public void RemoverMembresiaBD(Membresia mem)
+        {
+            string msj = string.Empty;
+            string msjBD = conn.AbrirConexion();
+
+            if (msjBD[0] == '1')
+            {
+                msj = dtMembresia.DeleteMembresia(mem, conn.Connect);
+                if (msj[0] == '0')
+                {
+                    MessageBox.Show("ERROR INESPERADO: " + msj);
+                }
+            }
+            else if (msjBD[0] == '0')
+            {
+                MessageBox.Show("ERROR: " + msjBD);
+            }
+            conn.CerrarConexion();
         }
     }
 }

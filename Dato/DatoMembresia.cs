@@ -142,5 +142,30 @@ namespace Dato
             }
             return x;
         }
+        public string DeleteMembresia(Membresia mem, SqlConnection conn)
+        {
+            Console.WriteLine("-----DELETE MEMBRESIA-----");
+            string x = "";
+            string comando = "DELETE FROM Membresia WHERE planMembresia = @plan; \n";
+
+            try
+            {
+                cmd.Connection = conn;
+                cmd.CommandText = comando;
+
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@plan", mem.Plan);
+
+                ImprimirSQL(comando);
+                cmd.ExecuteNonQuery();
+                x = "1";
+            }
+            catch (SqlException ex)
+            {
+                x = "0" + ex.Message; Console.WriteLine(x);
+            }
+            return x;
+        }
+        // FIN
     }
 }
