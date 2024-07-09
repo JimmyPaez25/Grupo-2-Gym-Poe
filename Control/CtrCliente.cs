@@ -48,7 +48,6 @@ namespace Control
             DateTime fechaNac = v.ConvertirDateTime(rFechaNacimiento);
 
                 cli = new Cliente(rCedula, rNombre, rApellido, fechaNac, rTelefono, rDireccion, rEstado);
-                //ListaCli.Add(cli); // Agregando datos del cliente
                 IngresarClienteBD(cli);
                 msg = cli.ToString() + "\n CLIENTE REGISTRADO EXITOSAMENTE!!";
 
@@ -64,8 +63,7 @@ namespace Control
             Cliente cli = null;
 
             cli = new ClienteEstudiante(rCedula, rNombre, rApellido, fechaNac, rTelefono, rDireccion, rEstado, comprobante);
-            listaCli.Add(cli); // Agregando datos del cliente
-            //IngresarClienteBD(cli);
+            IngresarClienteBD(cli);
             msg = cli.ToString() + "\n CLIENTE ESTUDIANTE REGISTRADO EXITOSAMENTE11";
 
             return msg;
@@ -111,7 +109,7 @@ namespace Control
 
             if (msgBD[0] == '1')
             {
-                clientes = dtCliente.ConsultarCliente(conn.Connect);
+                clientes = dtCliente.SeleccionarCliente(conn.Connect);
             }
             else if (msgBD[0] == '0')
             {
@@ -232,7 +230,7 @@ namespace Control
                         }
                     }
 
-
+                    EditarCliBD(clienteExistente, aCedulaOrg);
                     msg = "CLIENTE EDITADO CORRECTAMENTE";
                     break;
                 }
@@ -289,6 +287,7 @@ namespace Control
                     clienteExistente.Direccion = aDireccion;
                     clienteExistente.Estado = aEstado;
 
+                    EditarCliBD(clienteExistente, aCedulaOrg);
                     msg = "CLIENTE EDITADO CORRECTAMENTE";
                     break;
                 }
@@ -302,6 +301,25 @@ namespace Control
             return msg;
         }
 
+        public void EditarCliBD(Cliente cli, string CedulaOrg)
+        {
+            string msj = string.Empty;
+            string msjBD = conn.AbrirConexion();
+
+            if (msjBD[0] == '1')
+            {
+                msj = dtCliente.UpdateCliente(cli, conn.Connect, CedulaOrg);
+                if (msj[0] == '0')
+                {
+                    MessageBox.Show("ERROR INESPERADO: " + msj);
+                }
+            }
+            else if (msjBD[0] == '0')
+            {
+                MessageBox.Show("ERROR: " + msjBD);
+            }
+            conn.CerrarConexion();
+        }
 
         public void BuscarCliente(DataGridView dgvClientes, string filtroPorCedula = "", string filtroPorNombre = "")
         {
