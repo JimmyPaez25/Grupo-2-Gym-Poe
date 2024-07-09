@@ -7,33 +7,32 @@ using System.Web;
 using System.Windows.Forms;
 using Modelo;
 using System.Numerics;
+using Dato;
 
 
 namespace Control
 {
     public class CtrFactura
     {
+        Conexion conn = new Conexion();
+        DatoFactura dtFactura = new DatoFactura();
+
         public static List<Factura> listaFact = new List<Factura>();
         private static List<Membresia> listaMembresia = new List<Membresia>();
         public static List<Factura> ListaFact { get => listaFact; set => listaFact = value; }
         public static List<Membresia> ListaMembresia { get => listaMembresia; set => listaMembresia = value; }
 
 
-
-
         //Lista quemada
-        public CtrFactura()
-        {
-            if (ListaFact.Count == 0)
-            {
-                ListaFact.Add(new Factura(1, "JKSD23FJ3D52K9 ", "144", "20%", "0.15", "136.80"));
-                ListaFact.Add(new Factura(2, "JKDI43JYWHG3FG", "556", "24%", "0.15", "505.06"));
-                ListaFact.Add(new Factura(3, "34TEOI0D07KGG7", "700", "13%", "0.15", "714"));
-            }
-        }
-
-
-
+        //public CtrFactura()
+        //{
+        //    if (ListaFact.Count == 0)
+        //    {
+        //        ListaFact.Add(new Factura(1, "JKSD23FJ3D52K9 ", "144", "20%", "0.15", "136.80"));
+        //        ListaFact.Add(new Factura(2, "JKDI43JYWHG3FG", "556", "24%", "0.15", "505.06"));
+        //        ListaFact.Add(new Factura(3, "34TEOI0D07KGG7", "700", "13%", "0.15", "714"));
+        //    }
+        //}
 
 
         //Generar código de la factura
@@ -57,18 +56,7 @@ namespace Control
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
-        //Método para caluclar datos ingresados
+        //Método para calcular datos ingresados
         public string CalcularTotal(double precioFact, double descuentoFact)
         {
             double totalFact;
@@ -88,13 +76,13 @@ namespace Control
 
 
 
-        //Guardar datos
-        public string IngresarFact(int numfactura, string serie, string preciofact, string descuentofact, string iva, string total)
+        //Guardar datos temporal
+        public string IngresarFact(int numfactura, string serie, string preciofact, string descuentofact, string iva, string motivoinactivacion)
         {
             string msg;
             Factura fact;
 
-            fact = new Factura(numfactura, serie, preciofact, descuentofact, iva, total);
+            fact = new Factura(numfactura, serie, preciofact, descuentofact, iva, motivoinactivacion);
             fact.Estadofact = "ACTIVO";
             double precioFact;
             double descuentoFact;
@@ -116,12 +104,61 @@ namespace Control
                 return msg;
             }
 
-            listaFact.Add(fact);
+            //listaFact.Add(fact);            
+            IngresarFacturaBD(fact);
             msg = fact.ToString() + Environment.NewLine + "---REGISTRO EXITOSO---" + Environment.NewLine;
 
             return msg;
         }
 
+        //Ingresar-Guardar en el BD
+        public void IngresarFacturaBD(Factura fact)
+        {
+            string msj = string.Empty;
+            string msjBD = conn.AbrirConexion();
+
+            if (msjBD[0] == '1')
+            {
+                msj = dtFactura.InsertFactura(fact, conn.Connect);
+                if (msj[0] == '0')
+                {
+                    MessageBox.Show("ERROR INESPERADO: " + msj);
+                }
+            }
+            else if (msjBD[0] == '0')
+            {
+                MessageBox.Show("ERROR: " + msjBD);
+            }
+            conn.CerrarConexion();
+        }
+
+
+
+
+        //Consultar list BD
+        //public int GetTotalFacturacion()
+        //{
+        //    ListaFact = TablaConsultarFacturaBD(); // BASE DE DATOS
+        //    return ListaFact.Count;
+        //}
+
+
+        //public List<Factura> TablaConsultarFacturaBD(string estadofact)
+        //{
+        //    List<Factura> facturas = new List<Factura>();
+        //    string msjBD = conn.AbrirConexion();
+
+        //    if (msjBD[0] == '1')
+        //    {
+        //        facturas = dtFactura.SelectFact(conn.Connect, estadofact);
+        //    }
+        //    else if (msjBD[0] == '0')
+        //    {
+        //        MessageBox.Show("ERROR: " + msjBD);
+        //    }
+        //    conn.CerrarConexion();
+        //    return facturas;
+        //}
 
 
         //Guardar datos y realizar cálculo
@@ -210,8 +247,6 @@ namespace Control
 
 
 
-
-
         //Eliminar factura seleccionando fila
         //public void EliminarFactura(DataGridView dgvRegistroFact)
         //{
@@ -244,7 +279,6 @@ namespace Control
 
 
 
-
         //INACTIVAR FACTURA
         public void InactivarFactura(string serie, DataGridViewRow filaSeleccionada)
         {
@@ -256,10 +290,34 @@ namespace Control
                 if (factura != null)
                 {
                     factura.estadofact = "INACTIVO"; //Pone el estado Inactivo a la factura
+
                     factura.motivoinactivacion = filaSeleccionada.Cells["MotivoDataFact"].Value.ToString();
                 }
             }
         }
+
+
+        public void EstadoFacturaBD(Factura fact)
+        {
+            string msj = string.Empty;
+            string msjBD = conn.AbrirConexion();
+
+            if (msjBD[0] == '1')
+            {
+                msj = dtFactura.UpdateEstadoFactura(fact, conn.Connect);
+                if (msj[0] == '0')
+                {
+                    MessageBox.Show("ERROR INESPERADO: " + msj);
+                }
+            }
+            else if (msjBD[0] == '0')
+            {
+                MessageBox.Show("ERROR: " + msjBD);
+            }
+            conn.CerrarConexion();
+        }
+
+
 
 
         //RE-ACTIVAR FACTURA
@@ -306,14 +364,14 @@ namespace Control
         }
 
         //Calcular el total de los precios
-        public decimal CalcularSumaPrecios()
+        public float CalcularSumaPrecios()
         {
-            decimal sumaPrecios = 0;
+            float sumaPrecios = 0;
             foreach (Factura f in ListaFact)
             {
                 if (f.Estadofact == "ACTIVO")
                 {
-                    sumaPrecios += decimal.Parse(f.Total);
+                    sumaPrecios += float.Parse(f.Preciofact);
                 }
             }
             return sumaPrecios;
@@ -322,7 +380,4 @@ namespace Control
 
     }
 }
-
-
-
 

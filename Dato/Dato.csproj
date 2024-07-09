@@ -60,6 +60,7 @@
     <Compile Include="Conexion.cs" />
     <Compile Include="DatoActividad.cs" />
     <Compile Include="DatoCliente.cs" />
+    <Compile Include="DatoFactura.cs" />
     <Compile Include="DatoMembresia.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
