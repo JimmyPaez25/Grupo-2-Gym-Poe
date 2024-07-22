@@ -30,8 +30,8 @@ namespace Dato
             Console.WriteLine("-----INSERT MEMBRESIA-----");
             string x = "";
             string precio = mem.Precio.ToString().Replace(",", ".");
-            string comando = "INSERT INTO Membresia (planMembresia, fechaInicio, fechaFin, promocion, descuento, detallePromocion, cedulaCliente, precio) \n" +
-                             "VALUES (@plan, @fechaInicio, @fechaFin, @promocion, @descuento, @detallePromocion, @cedulaCliente, @precio); \n";
+            string comando = "INSERT INTO Membresia (planMembresia, fechaInicio, fechaFin, promocion, descuento, detallePromocion, precio, idCliente) \n" +
+                             "VALUES (@plan, @fechaInicio, @fechaFin, @promocion, @descuento, @detallePromocion, @precio, @idCliente); \n";
             //"VALUES ('"+ mem.Plan + "', '"+ mem.FechaInicio + "', '"+ mem.FechaFin + "', '"+mem.Promocion+"', "+mem.Descuento+", '"+mem.DetallePromocion+"','"+mem.CedulaCliente+"', "+precio +"); \n";  
             Console.WriteLine(comando);
                            
@@ -48,7 +48,7 @@ namespace Dato
                 cmd.Parameters.AddWithValue("@descuento", mem.Descuento);
                 cmd.Parameters.AddWithValue("@detallePromocion", mem.DetallePromocion);
                 cmd.Parameters.AddWithValue("@precio", precio);
-                cmd.Parameters.AddWithValue("@cedulaCliente", mem.CedulaCliente);
+                cmd.Parameters.AddWithValue("@idCliente", mem.IdCliente);
 
 
                 ImprimirSQL(comando);
@@ -68,7 +68,10 @@ namespace Dato
             List<Membresia> membresias = new List<Membresia>();
             SqlDataReader reader = null; // TABLA VIRTUAL
             Membresia membresia = null;
-            string comando = "SELECT  planMembresia, fechaInicio, fechaFin, promocion, descuento, detallePromocion, cedulaCliente, precio FROM Membresia ; \n";
+            string comando = "SELECT \n" +
+                "men.planMembresia, men.fechaInicio, men.fechaFin, men.promocion, men.descuento, men.detallePromocion, men.precio, cli.Cedula, cli.Apellido, cli.Nombre \n" +
+                "FROM Membresia AS men \n" +
+                "INNER JOIN CLIENTE AS cli ON men.idCliente = cli.Id_Cliente; \n";
 
             try
             {
@@ -87,8 +90,19 @@ namespace Dato
                     membresia.Promocion = reader["promocion"].ToString();
                     membresia.Descuento = Convert.ToInt32(reader["descuento"]);
                     membresia.DetallePromocion = reader["detallePromocion"].ToString();
-                    membresia.CedulaCliente = reader["cedulaCliente"].ToString();
+                    //membresia.CedulaCliente = reader["cedulaCliente"].ToString();
                     membresia.Precio = Convert.ToDouble(reader["precio"]);
+
+                    // Crear una nueva instancia de Cliente y asignar propiedades
+                    Cliente cliente = new Cliente
+                    {
+                        Cedula = reader["Cedula"].ToString(),
+                        Nombre = reader["Nombre"].ToString(),
+                        Apellido = reader["Apellido"].ToString()
+                    };
+
+                    // Asignar la instancia de Cliente a la Membresia
+                    membresia.Cliente = cliente;
 
                     membresias.Add(membresia);
                 }
@@ -100,7 +114,70 @@ namespace Dato
             return membresias;
         }
 
-        public string UpdateCamposMembresia(Membresia mem, SqlConnection conn, string SNombrePlan)
+
+
+
+        public string SelectCliente(SqlConnection conn, string cedula)
+        {
+            Console.WriteLine("-----SELECT MEMBRESIA-----");
+            SqlDataReader reader = null; // TABLA VIRTUAL
+            Cliente cli = null;
+            string idCliente = "";
+            string comando = "SELECT id_Cliente, cedula, nombre, apellido, fechaNacimiento, telefono, direccion, estado, tipo, comprobante FROM Cliente WHERE cedula = @cedula; \n";
+
+            try
+            {
+                cmd.Connection = conn;
+                cmd.CommandText = comando;
+
+                cmd.Parameters.Clear(); // LIMPIA PARAMETROS UTILIZADOS
+                cmd.Parameters.AddWithValue("@cedula", cedula);
+
+                ImprimirSQL(comando);
+                reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    idCliente = reader["id_Cliente"].ToString();
+                    string tipo = reader["tipo"]?.ToString();
+
+                    if (tipo == "ESTUDIANTE")
+                    {
+                        cli = new ClienteEstudiante(
+                            reader["cedula"].ToString(),
+                            reader["nombre"].ToString(),
+                            reader["apellido"].ToString(),
+                            DateTime.Parse(reader["fechaNacimiento"].ToString()),
+                            reader["telefono"].ToString(),
+                            reader["direccion"].ToString(),
+                            reader["estado"].ToString(),
+                            reader["comprobante"].ToString()
+                        );
+                    }
+                    else
+                    {
+                        cli = new Cliente(
+                            reader["cedula"].ToString(),
+                            reader["nombre"].ToString(),
+                            reader["apellido"].ToString(),
+                            DateTime.Parse(reader["fechaNacimiento"].ToString()),
+                            reader["telefono"].ToString(),
+                            reader["direccion"].ToString(),
+                            reader["estado"].ToString()
+                        );
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return idCliente;
+        }
+
+
+
+            public string UpdateCamposMembresia(Membresia mem, SqlConnection conn, string SNombrePlan)
         {
             Console.WriteLine("-----UPDATE CAMPOS MEMBRESIA-----");
             string x = "";
@@ -111,7 +188,6 @@ namespace Dato
                              "promocion = @promocion, \n" +
                              "descuento = @descuento, \n" +
                              "detallePromocion = @detallePromocion, \n" +
-                             "cedulaCliente = @cedulaCliente, \n" +
                              "precio = @precio \n" +
                              "WHERE planMembresia = @nombrePlan; \n";
 
@@ -127,7 +203,6 @@ namespace Dato
                 cmd.Parameters.AddWithValue("@promocion", mem.Promocion);
                 cmd.Parameters.AddWithValue("@descuento", mem.Descuento);
                 cmd.Parameters.AddWithValue("@detallePromocion", mem.DetallePromocion);
-                cmd.Parameters.AddWithValue("@cedulaCliente", mem.CedulaCliente);
                 cmd.Parameters.AddWithValue("@precio", mem.Precio);
                 cmd.Parameters.AddWithValue("@nombrePlan", SNombrePlan);
 ;

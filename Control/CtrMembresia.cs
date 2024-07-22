@@ -52,6 +52,11 @@ namespace Control
             DateTime fechaInicio = val.ConvertirDateTime(SFInicio);
             DateTime fechaFin = val.ConvertirDateTime(SFFin);
 
+            string idCliente = SelectClienteBD(cedulaCliente);
+            Console.WriteLine(idCliente);
+            int idCli = val.ConvertirEntero(idCliente);
+            Console.WriteLine(idCli);
+
             if (string.IsNullOrEmpty(plan) || plan.Equals(""))
             {
                 return "ERROR: NO PUEDEN EXISTIR CAMPOS VACIOS.";
@@ -82,7 +87,7 @@ namespace Control
             }
             else 
             {
-                mem = new Membresia(plan, fechaInicio, fechaFin, promocion, descuento, detallePromocion,cedulaCliente, precio);
+                mem = new Membresia(plan, fechaInicio, fechaFin, promocion, detallePromocion, descuento, precio, idCli);
                 //ListaMembresia.Add(mem);
                 IngresarMembresiaBD(mem);
                 msj = mem.ToString() + Environment.NewLine + "MEMBRESIA REGISTRADA CORRECTAMENTE" + Environment.NewLine;
@@ -146,23 +151,47 @@ namespace Control
             }
             return false;
         }
-        public void Llenar(TextBox txtBoxLMA, string cedula)
-        {
-            txtBoxLMA.Text = "";
-            List<Membresia> membresiaEncontrados = ListaMembresia.Where(abc => abc.CedulaCliente.Contains(cedula)).ToList();
 
-            if (membresiaEncontrados.Count > 0)
+
+        public string SelectClienteBD(string cedulaCliente)
+        {
+            string msj = string.Empty;
+            string msjBD = conn.AbrirConexion();
+
+            if (msjBD[0] == '1')
             {
-                foreach (var Membresia in membresiaEncontrados)
+                try
                 {
-                    txtBoxLMA.Text += Membresia.ToString() + Environment.NewLine;
+                    string idCliente = dtMembresia.SelectCliente(conn.Connect, cedulaCliente);
+                    if (!string.IsNullOrEmpty(idCliente))
+                    {
+                        msj = idCliente;
+                    }
+                    else
+                    {
+                        msj = "Cliente no encontrado.";
+                        Console.WriteLine(msj);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    msj = "ERROR INESPERADO: " + ex.Message;
+                    MessageBox.Show(msj);
+                }
+                finally
+                {
+                    conn.CerrarConexion();
                 }
             }
-            else
+            else if (msjBD[0] == '0')
             {
-                txtBoxLMA.Text = "No se encontraron clientes con la cédula especificada.";
+                msj = "ERROR: " + msjBD;
+                MessageBox.Show(msj);
             }
+
+            return msj;
         }
+
         public void ExtraerDatosTablaMembresia(DataGridView dgvClientes, out string cedula)
         {
             DataGridViewRow filaSeleccionada = dgvClientes.SelectedRows[0]; 
@@ -179,7 +208,7 @@ namespace Control
             {
                 int i = dgvMembresia.Rows.Add();
                 dgvMembresia.Rows[i].Cells["clmPREM"].Value = x.Precio.ToString() + "$";
-                dgvMembresia.Rows[i].Cells["clmCedula"].Value = x.CedulaCliente;
+                //dgvMembresia.Rows[i].Cells["clmCedula"].Value = x.CedulaCliente;
                 dgvMembresia.Rows[i].Cells["clmPM"].Value = x.Plan;
                 dgvMembresia.Rows[i].Cells["clmFIM"].Value = x.FechaInicio.ToString("d");
                 dgvMembresia.Rows[i].Cells["clmFFM"].Value = x.FechaFin.ToString("d");
@@ -187,8 +216,12 @@ namespace Control
                 dgvMembresia.Rows[i].Cells["clmDPM"].Value = x.DetallePromocion;
                 dgvMembresia.Rows[i].Cells["clmDM"].Value = x.Descuento.ToString() + "%";
 
+                dgvMembresia.Rows[i].Cells["clmCedulaCliente"].Value = x.Cliente?.Cedula ?? "N/A"; // Cedula del cliente
+                dgvMembresia.Rows[i].Cells["clmNombreCliente"].Value = x.Cliente?.Nombre ?? "N/A"; // Nombre del cliente
+                dgvMembresia.Rows[i].Cells["clmApellidoCliente"].Value = x.Cliente?.Apellido ?? "N/A"; // Apellido del cliente
             }
         }
+
         public void TablaConsultarMebresiaFiltro(DataGridView dgvMembresia, string filtro = "", bool buscarPorCedula = true)
         {
             int i = 0;
@@ -196,18 +229,20 @@ namespace Control
             foreach (Membresia x in ListaMembresia)
             {
                 if  (string.IsNullOrEmpty(filtro) ||
-                    (buscarPorCedula && x.CedulaCliente.Contains(filtro)) ||
+                    (buscarPorCedula && x.Cliente?.Cedula.Contains(filtro) == true) ||
                     (!buscarPorCedula && x.DetallePromocion.Contains(filtro)))
                 {
                     i = dgvMembresia.Rows.Add();
                     dgvMembresia.Rows[i].Cells["clmPREM"].Value = x.Precio.ToString() + "$";
-                    dgvMembresia.Rows[i].Cells["clmCedula"].Value = x.CedulaCliente;
+                    dgvMembresia.Rows[i].Cells["clmCedulaCliente"].Value = x.Cliente?.Cedula ?? "N/A";
                     dgvMembresia.Rows[i].Cells["clmPM"].Value = x.Plan;
                     dgvMembresia.Rows[i].Cells["clmFIM"].Value = x.FechaInicio.ToString("d");
                     dgvMembresia.Rows[i].Cells["clmFFM"].Value = x.FechaFin.ToString("d");
                     dgvMembresia.Rows[i].Cells["clmP"].Value = x.Promocion;
                     dgvMembresia.Rows[i].Cells["clmDPM"].Value = x.DetallePromocion;
                     dgvMembresia.Rows[i].Cells["clmDM"].Value = x.Descuento.ToString()+ "%";
+                    dgvMembresia.Rows[i].Cells["clmNombreCliente"].Value = x.Cliente?.Nombre ?? "N/A"; // Nombre del cliente
+                    dgvMembresia.Rows[i].Cells["clmApellidoCliente"].Value = x.Cliente?.Apellido ?? "N/A"; // Apellido del cliente
                 }
             }
         }
@@ -305,7 +340,7 @@ namespace Control
                 txtBoxDPE.Text = membresiaSeleccionada.DetallePromocion;
                 txtBoxDE.Text = membresiaSeleccionada.Descuento.ToString();
                 txtBoxPEM.Text = membresiaSeleccionada.Precio.ToString();
-                lblCedulaM.Text = membresiaSeleccionada.CedulaCliente;
+                lblCedulaM.Text = membresiaSeleccionada.Cliente?.Cedula ?? "N/A";
             }
         }
         public void eliminarMembresia(DataGridView dgvMembresia)

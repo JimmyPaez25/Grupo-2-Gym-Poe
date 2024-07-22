@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Modelo
 {
+
     public class Cliente
     {
         String cedula;
@@ -23,6 +24,8 @@ namespace Modelo
         public string Telefono { get => telefono; set => telefono = value; }
         public string Direccion { get => direccion; set => direccion = value; }
         public string Estado { get => estado; set => estado = value; }
+
+        public Cliente() { }
 
         public Cliente(string cedula, string nombre, string apellido, DateTime fechaNacimiento, string telefono, string direccion, string estado)
         {

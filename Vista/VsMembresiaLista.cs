@@ -20,7 +20,6 @@ namespace Vista
         {
             InitializeComponent();
             Cedula= cedula;
-            ctrMem.Llenar(txtBoxLMA, cedula);
             this.cedula = cedula;
             Cedula = cedula;
         }

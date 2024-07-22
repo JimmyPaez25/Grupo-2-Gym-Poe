@@ -15,22 +15,26 @@ namespace Modelo
         string promocion;
         int descuento;
         string detallePromocion;
-        string cedulaCliente;
         double precio;
+        int idCliente;
 
-        public Membresia(string plan, DateTime fechaInicio, DateTime fechaFin, string promocion, int descuento, string detallePromocion, string cedulaCliente, double precio)
-        {
-            this.plan = plan;
-            this.fechaInicio = fechaInicio;
-            this.fechaFin = fechaFin;
-            this.promocion = promocion;
-            this.descuento = descuento;
-            this.detallePromocion = detallePromocion;
-            this.cedulaCliente = cedulaCliente;
-            this.precio = precio;
-        }
 
+
+        Cliente cliente;
+        public Cliente Cliente { get => cliente; set => cliente = value; }
         public Membresia() { }
+
+        public Membresia(string plan, DateTime fechaInicio, DateTime fechaFin, string promocion, string detallePromocion, int descuento, double precio, int idCliente)
+        {
+            Plan = plan;
+            FechaInicio = fechaInicio;
+            FechaFin = fechaFin;
+            Promocion = promocion;
+            DetallePromocion = detallePromocion;
+            Descuento = descuento;
+            Precio = precio;
+            IdCliente = idCliente;
+        }
 
         public string Plan { get => plan; set => plan = value; }
         public DateTime FechaInicio { get => fechaInicio; set => fechaInicio = value; }
@@ -38,8 +42,8 @@ namespace Modelo
         public string Promocion { get => promocion; set => promocion = value; }
         public string DetallePromocion { get => detallePromocion; set => detallePromocion = value; }
         public int Descuento { get => descuento; set => descuento = value; }
-        public string CedulaCliente { get => cedulaCliente; set => cedulaCliente = value; }
         public double Precio { get => precio; set => precio = value; }
+        public int IdCliente { get => idCliente; set => idCliente = value; }
 
         public override string ToString()
         {
@@ -49,8 +53,7 @@ namespace Modelo
                    ">PROMOCION: " + promocion + Environment.NewLine +
                    ">DETALLES PROMOCION: " + detallePromocion + Environment.NewLine +
                    ">DESCUENTO: " + descuento + Environment.NewLine +
-                   ">PRECIO: " + precio + Environment.NewLine +
-                   ">CEDULA CLIENTE: " + cedulaCliente + Environment.NewLine;
+                   ">PRECIO: " + precio + Environment.NewLine;
         }
     }
 }
