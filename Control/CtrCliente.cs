@@ -26,17 +26,6 @@ namespace Control
             return listaCli.Count;
         }
 
-        //public CtrCliente()
-        //{
-        //    if (ListaCli.Count == 0) { 
-        //        ListaCli.Add(new ClienteEstudiante("0987654321", "TULIO JOSE ", "TRIVIÑO FERNANDEZ", DateTime.ParseExact("01/01/1980", "dd/MM/yyyy", CultureInfo.InvariantCulture), "0874563219", "COOP. 31 MINUTOS","ACTIVO", "E09876543211"));
-        //        ListaCli.Add(new Cliente("9512368749", "JUAN CARLOS", "BODOQUE AVENDAÑO", DateTime.ParseExact("24/05/1998", "dd/MM/yyyy", CultureInfo.InvariantCulture), "2031659847", "GUASMO SUR", "ACTIVO"));
-        //        ListaCli.Add(new Cliente("9865231470", "JUANIN JUAN", "JARRY SANCHEZ", DateTime.ParseExact("30/07/2009", "dd/MM/yyyy", CultureInfo.InvariantCulture),"0995263417", "VIA DAULE", "INACTIVO"));
-        //        ListaCli.Add(new ClienteEstudiante("0963254178", "PATRICIA ANA", "TUFILLO TRIVIÑO", DateTime.ParseExact("24/05/2009", "dd/MM/yyyy", CultureInfo.InvariantCulture), "0963251478", "PASCUALES", "ACTIVO", "E10987263541"));
-        //        ListaCli.Add(new ClienteEstudiante("0192837465", "MARIO HUGO", "TORRES FERNANDEZ", DateTime.ParseExact("01/07/2003", "dd/MM/yyyy", CultureInfo.InvariantCulture),"0753962148", "SAMANES", "ACTIVO", "E10293849121"));
-
-        //    }
-        //}
 
         public string IngresarCli(string rCedula, string rNombre, string rApellido,string rFechaNacimiento, string rTelefono, string rEstado, string rDireccion)
         {
@@ -161,7 +150,7 @@ namespace Control
             return "SIN COMPROBANTE";
         }
 
-        public string EditarCliEst(string aCedulaOrg, string aCedula, string aNombre, string aApellido, string aFechaNacimiento, string aTelefono, string aDireccion,string aEstado, string aComprobante, bool esEstudiante)
+        public string EditarCliente(string aCedulaOrg, string aCedula, string aNombre, string aApellido, string aFechaNacimiento, string aTelefono, string aDireccion, string aEstado, bool esEstudiante, string aComprobante = null)
         {
             string msg = "ERROR: SE ESPERABA DATOS CORRECTOS!!";
             Validacion v = new Validacion();
@@ -177,129 +166,117 @@ namespace Control
             }
             else if (fechaNac >= fechaActual)
             {
-               return "ERROR: INGRESE FECHA DE NACIIENTO VALIDA";
+                return "ERROR: INGRESE FECHA DE NACIMIENTO VALIDA";
             }
             else if (fechaNac >= fechaLimite)
             {
                 return "ERROR: LA FECHA DE NACIMIENTO INVALIDA";
             }
 
-
-            foreach (Cliente clienteExistente in ListaCli)
+            Cliente clienteExistente = ListaCli.FirstOrDefault(c => c.Cedula == aCedulaOrg);
+            if (clienteExistente == null)
             {
-                if (clienteExistente.Cedula == aCedulaOrg)
+                return "ERROR: NO SE ENCONTRO EL CLIENTE";
+            }
+
+            if (ListaCli.Any(cli => cli.Cedula == aCedula && cli.Cedula != aCedulaOrg))
+            {
+                return "ERROR: YA EXISTE UN CLIENTE CON ESA CEDULA.";
+            }
+
+            clienteExistente.Cedula = aCedula;
+            clienteExistente.Nombre = aNombre;
+            clienteExistente.Apellido = aApellido;
+            clienteExistente.FechaNacimiento = fechaNac;
+            clienteExistente.Telefono = aTelefono;
+            clienteExistente.Direccion = aDireccion;
+            clienteExistente.Estado = aEstado;
+
+            // Manejo de tipo y comprobante
+            if (esEstudiante)
+            {
+                if (clienteExistente is ClienteEstudiante cliEst)
                 {
-                    if (clienteExistente.Cedula != aCedula)
-                    {
-                        if (ListaCli.Any(cli => cli.Cedula == aCedula))
-                        {
-                            return "ERROR: YA EXISTE UN CLIENTE CON ESA CEDULA.";
-                        }
-                        clienteExistente.Cedula = aCedula;
-                    }
-                    clienteExistente.Nombre = aNombre;
-                    clienteExistente.Apellido = aApellido;
-                    clienteExistente.FechaNacimiento = fechaNac;
-                    clienteExistente.Telefono = aTelefono;
-                    clienteExistente.Direccion = aDireccion;
-                    clienteExistente.Estado = aEstado;
-
-
-                    // Verificar si debe convertirse en ClienteEstudiante
-                    if (esEstudiante)
-                    {
-                        if (clienteExistente is ClienteEstudiante)
-                        {
-                            ((ClienteEstudiante)clienteExistente).Comprobante = aComprobante;
-                        }
-                        else
-                        {
-                            ClienteEstudiante clienteEstudiante = new ClienteEstudiante(aCedula, aNombre, aApellido, fechaNac, aTelefono, aDireccion, aEstado, aComprobante);
-                            ListaCli.Remove(clienteExistente);
-                            ListaCli.Add(clienteEstudiante);
-                        }
-                    }
-                    else
-                    {
-                        if (clienteExistente is ClienteEstudiante)
-                        {
-                            // Convertir ClienteEstudiante a Cliente normal
-                            Cliente cliente = new Cliente(aCedula, aNombre, aApellido, fechaNac, aTelefono, aDireccion, aEstado);
-                            ListaCli.Remove(clienteExistente);
-                            ListaCli.Add(cliente);
-                        }
-                    }
-
-                    EditarCliBD(clienteExistente, aCedulaOrg);
-                    msg = "CLIENTE EDITADO CORRECTAMENTE";
-                    break;
+                    cliEst.Comprobante = aComprobante;
+                }
+                else
+                {
+                    ClienteEstudiante nuevoClienteEstudiante = new ClienteEstudiante(aCedula, aNombre, aApellido, fechaNac, aTelefono, aDireccion, aEstado, aComprobante);
+                    int index = ListaCli.IndexOf(clienteExistente);
+                    ListaCli[index] = nuevoClienteEstudiante;
+                    clienteExistente = nuevoClienteEstudiante; // Actualiza clienteExistente para la actualización en la BD
+                }
+            }
+            else
+            {
+                if (clienteExistente is ClienteEstudiante)
+                {
+                    Cliente nuevoCliente = new Cliente(aCedula, aNombre, aApellido, fechaNac, aTelefono, aDireccion, aEstado);
+                    int index = ListaCli.IndexOf(clienteExistente);
+                    ListaCli[index] = nuevoCliente;
+                    clienteExistente = nuevoCliente; // Actualiza clienteExistente para la actualización en la BD
                 }
             }
 
-            if (msg == "ERROR: SE ESPERABA DATOS CORRECTOS!!")
-            {
-                msg = "ERROR: NO SE ENCONTRO EL CLIENTE";
-            }
-
-            return msg;
-
+            EditarCliBD(clienteExistente, aCedulaOrg);
+            return "CLIENTE EDITADO CORRECTAMENTE";
         }
 
-        public string EditarCli(string aCedulaOrg, string aCedula, string aNombre, string aApellido, string aFechaNacimiento, string aTelefono, string aDireccion, string aEstado)
-        {
-            string msg = "ERROR: SE ESPERABA DATOS CORRECTOS!!";
-            Validacion v = new Validacion();
-            DateTime fechaNac = v.ConvertirDateTime(aFechaNacimiento);
-            DateTime fechaLimite = new DateTime(2014, 12, 31); // Fecha límite: 1 de enero de 2014
-            DateTime fechaActual = DateTime.Now;
+        //public string EditarCli(string aCedulaOrg, string aCedula, string aNombre, string aApellido, string aFechaNacimiento, string aTelefono, string aDireccion, string aEstado)
+        //{
+        //    string msg = "ERROR: SE ESPERABA DATOS CORRECTOS!!";
+        //    Validacion v = new Validacion();
+        //    DateTime fechaNac = v.ConvertirDateTime(aFechaNacimiento);
+        //    DateTime fechaLimite = new DateTime(2014, 12, 31); // Fecha límite: 1 de enero de 2014
+        //    DateTime fechaActual = DateTime.Now;
 
-            // Validaciones
-            if (string.IsNullOrEmpty(aCedula) || string.IsNullOrEmpty(aNombre) || string.IsNullOrEmpty(aApellido) ||
-                string.IsNullOrEmpty(aFechaNacimiento) || string.IsNullOrEmpty(aTelefono) || string.IsNullOrEmpty(aDireccion))
-            {
-                return "ERROR: NO PUEDEN EXISTIR CAMPOS VACIOS";
-            }
-            else if (fechaNac >= fechaActual)
-            {
-                return "ERROR: INGRESE FECHA DE NACIIENTO VALIDA";
-            }
-            else if (fechaNac >= fechaLimite)
-            {
-                return "ERROR: LA FECHA DE NACIMIENTO INVALIDA";
-            }
+        //    // Validaciones
+        //    if (string.IsNullOrEmpty(aCedula) || string.IsNullOrEmpty(aNombre) || string.IsNullOrEmpty(aApellido) ||
+        //        string.IsNullOrEmpty(aFechaNacimiento) || string.IsNullOrEmpty(aTelefono) || string.IsNullOrEmpty(aDireccion))
+        //    {
+        //        return "ERROR: NO PUEDEN EXISTIR CAMPOS VACIOS";
+        //    }
+        //    else if (fechaNac >= fechaActual)
+        //    {
+        //        return "ERROR: INGRESE FECHA DE NACIIENTO VALIDA";
+        //    }
+        //    else if (fechaNac >= fechaLimite)
+        //    {
+        //        return "ERROR: LA FECHA DE NACIMIENTO INVALIDA";
+        //    }
 
-            foreach (Cliente clienteExistente in ListaCli)
-            {
-                if (clienteExistente.Cedula == aCedulaOrg)
-                {
-                    if (clienteExistente.Cedula != aCedula)
-                    {
-                        if (ListaCli.Any(cli => cli.Cedula == aCedula))
-                        {
-                            return "ERROR: YA EXISTE UN CLIENTE CON ESA CEDULA.";
-                        }
-                        clienteExistente.Cedula = aCedula;
-                    }
-                    clienteExistente.Nombre = aNombre;
-                    clienteExistente.Apellido = aApellido;
-                    clienteExistente.FechaNacimiento = fechaNac;
-                    clienteExistente.Telefono = aTelefono;
-                    clienteExistente.Direccion = aDireccion;
-                    clienteExistente.Estado = aEstado;
+        //    foreach (Cliente clienteExistente in ListaCli)
+        //    {
+        //        if (clienteExistente.Cedula == aCedulaOrg)
+        //        {
+        //            if (clienteExistente.Cedula != aCedula)
+        //            {
+        //                if (ListaCli.Any(cli => cli.Cedula == aCedula))
+        //                {
+        //                    return "ERROR: YA EXISTE UN CLIENTE CON ESA CEDULA.";
+        //                }
+        //                clienteExistente.Cedula = aCedula;
+        //            }
+        //            clienteExistente.Nombre = aNombre;
+        //            clienteExistente.Apellido = aApellido;
+        //            clienteExistente.FechaNacimiento = fechaNac;
+        //            clienteExistente.Telefono = aTelefono;
+        //            clienteExistente.Direccion = aDireccion;
+        //            clienteExistente.Estado = aEstado;
 
-                    EditarCliBD(clienteExistente, aCedulaOrg);
-                    msg = "CLIENTE EDITADO CORRECTAMENTE";
-                    break;
-                }
-            }
+        //            EditarCliBD(clienteExistente, aCedulaOrg);
+        //            msg = "CLIENTE EDITADO CORRECTAMENTE";
+        //            break;
+        //        }
+        //    }
 
-            if (msg == "ERROR: SE ESPERABA DATOS CORRECTOS!!")
-            {
-                msg = "ERROR: NO SE ENCONTRO EL CLIENTE";
-            }
+        //    if (msg == "ERROR: SE ESPERABA DATOS CORRECTOS!!")
+        //    {
+        //        msg = "ERROR: NO SE ENCONTRO EL CLIENTE";
+        //    }
 
-            return msg;
-        }
+        //    return msg;
+        //}
 
         public void EditarCliBD(Cliente cli, string CedulaOrg)
         {
@@ -374,9 +351,29 @@ namespace Control
                     var cliente = ListaCli.FirstOrDefault(cli => cli.Cedula == cedula);
                     if (cliente != null)
                     {
-                        cliente.Estado = "INACTIVO";
+                        RemoverClienteBD(cliente);
                     }
+            }
+        }
+
+        public void RemoverClienteBD(Cliente cli)
+        {
+            string msg = string.Empty;
+            string msgBD = conn.AbrirConexion();
+
+            if (msgBD[0] == '1')
+            {
+                msg = dtCliente.DeleteCliente(cli, conn.Connect);
+                if (msg[0] == '0')
+                {
+                    MessageBox.Show("ERROR INESPERADO: " + msg);
                 }
+            }
+            else if (msgBD[0] == '0')
+            {
+                MessageBox.Show("ERROR: " + msgBD);
+            }
+            conn.CerrarConexion();
         }
 
         public void MostrarDatosCliente(string cedulaCliente, TextBox txtCedula, TextBox txtNombre, TextBox txtApellido, DateTimePicker dtpDate, TextBox txtTelefono, TextBox txtDireccion, TextBox txtComprobante, ComboBox cmbEstado, ComboBox cmbEstudiante)

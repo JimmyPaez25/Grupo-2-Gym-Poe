@@ -33,10 +33,7 @@ namespace Vista
             string filtroPorNombre = txtNombre.Text.Trim();
             ctrCli.BuscarCliente(dgvClientes,filtroPorCedula, filtroPorNombre);
         }
-        private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            v.ValidarMaximoDeDigito(sender, e, 10, 0, txtCedula);
-        }
+
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
@@ -109,5 +106,9 @@ namespace Vista
             v.ConvertirMayuscula(textBox);
         }
 
+        private void txtCedula_TextChanged(object sender, EventArgs e)
+        {
+            v.ValidarMaximoDeDigito(sender, e, 10, 0, txtCedula);
+        }
     }
 }

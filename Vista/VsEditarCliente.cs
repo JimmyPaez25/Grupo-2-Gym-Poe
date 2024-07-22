@@ -44,10 +44,7 @@ namespace Vista
             bool esEstudiante = ((string)cmbEstudiante.SelectedItem).Equals("SI",StringComparison.OrdinalIgnoreCase);
             string aEstado = (string)cmbEstado.SelectedItem;
 
-            string msg = aEstado.Equals("ACTIVO") ? ctrCli.EditarCliEst(aCedulaOrg, aCedula, aNombre, aApellido, aFechaNacimiento, aTelefono, aDireccion, aEstado, aComprobante, esEstudiante)
-                                           : ctrCli.EditarCli(aCedulaOrg, aCedula, aNombre, aApellido, aFechaNacimiento, aTelefono, aDireccion, aEstado);
-
-
+            string msg = ctrCli.EditarCliente(aCedulaOrg, aCedula, aNombre, aApellido, aFechaNacimiento, aTelefono, aDireccion, aEstado, esEstudiante, aComprobante);
 
             MessageBox.Show(msg, "ACTUALIZACION", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -59,41 +56,41 @@ namespace Vista
 
         }
 
-        private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
+
+        private void txtCedula_TextChanged(object sender, EventArgs e)
         {
             v.ValidarNumero(sender, e);
-            v.ValidarMaximoDeDigito(sender, e,10, 0, txtCedula);
+            v.ValidarMaximoDeDigito(sender, e, 10, 0, txtCedula);
         }
 
-        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            v.ValidarNumero(sender, e);
-            v.ValidarMaximoDeDigito(sender, e,10, 0, txtTelefono);
-        }
-
-        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtNombre_TextChanged(object sender, EventArgs e)
         {
             TextBox textBox = sender as TextBox;
             v.ConvertirMayuscula(textBox);
             v.ValidarMaximoDeDigito(sender, e, 0, 20, txtNombre);
-
         }
 
-        private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtApellido_TextChanged(object sender, EventArgs e)
         {
             TextBox textBox = sender as TextBox;
             v.ConvertirMayuscula(textBox);
             v.ValidarMaximoDeDigito(sender, e, 0, 20, txtApellido);
         }
 
-        private void txtDireccion_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtTelefono_TextChanged(object sender, EventArgs e)
+        {
+            v.ValidarNumero(sender, e);
+            v.ValidarMaximoDeDigito(sender, e, 10, 0, txtTelefono);
+        }
+
+        private void txtDireccion_TextChanged(object sender, EventArgs e)
         {
             TextBox textBox = sender as TextBox;
             v.ConvertirMayuscula(textBox);
             v.ValidarMaximoDeDigito(sender, e, 5, 20, txtDireccion);
         }
 
-        private void txtComprobante_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtComprobante_TextChanged(object sender, EventArgs e)
         {
             TextBox textBox = sender as TextBox;
             v.ConvertirMayuscula(textBox);

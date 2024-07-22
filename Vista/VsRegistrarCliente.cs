@@ -115,49 +115,43 @@ namespace Vista
         }
 
 
-
-        private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtCedula_TextChanged(object sender, EventArgs e)
         {
             v.ValidarNumero(sender, e);
             v.ValidarMaximoDeDigito(sender, e, 10, 0, txtCedula);
         }
 
-        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            v.ValidarNumero(sender, e);
-            v.ValidarMaximoDeDigito(sender, e, 10, 0, txtTelefono);
-        }
-
-        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtNombre_TextChanged(object sender, EventArgs e)
         {
             v.ConvertirMayuscula(txtNombre);
             v.ValidarMaximoDeDigito(sender, e, 0, 20, txtNombre);
         }
 
-        private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtApellido_TextChanged(object sender, EventArgs e)
         {
             TextBox textBox = sender as TextBox;
             v.ConvertirMayuscula(textBox);
             v.ValidarMaximoDeDigito(sender, e, 0, 20, txtApellido);
         }
 
-        private void txtDireccion_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtTelefono_TextChanged(object sender, EventArgs e)
+        {
+            v.ValidarNumero(sender, e);
+            v.ValidarMaximoDeDigito(sender, e, 10, 0, txtTelefono);
+        }
+
+        private void txtDireccion_TextChanged(object sender, EventArgs e)
         {
             TextBox textBox = sender as TextBox;
             v.ConvertirMayuscula(textBox);
             v.ValidarMaximoDeDigito(sender, e, 5, 20, txtDireccion);
         }
 
-        private void txtComprobante_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtComprobante_TextChanged(object sender, EventArgs e)
         {
             TextBox textBox = sender as TextBox;
             v.ConvertirMayuscula(textBox);
             v.ValidarMaximoDeDigito(sender, e, 15, 5, txtComprobante);
-        }
-
-        private void cmbEstado_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -186,13 +186,18 @@ namespace Control
             }
         }
 
-        public void ValidarNumero(object sender, KeyPressEventArgs e) // ENTRADA DE SOLO NUMEROS
+        public void ValidarNumero(object sender, EventArgs e)
         {
-            char letra = e.KeyChar;
-            if (!char.IsDigit(letra) && letra != (char)Keys.Back)
+            TextBox txt = sender as TextBox;
+            if (txt == null) return;
+
+            string textoOriginal = txt.Text;
+            string textoValido = new string(textoOriginal.Where(char.IsDigit).ToArray());
+
+            if (textoOriginal != textoValido)
             {
-                e.Handled = true;
-                return;
+                txt.Text = textoValido;
+                txt.SelectionStart = txt.Text.Length;
             }
         }
 
@@ -216,25 +221,27 @@ namespace Control
             }
         }
 
-        public void ValidarMaximoDeDigito(object sender, KeyPressEventArgs e, int maxNumerico, int maxCaracter, TextBox txt) // VALIDAR DIGITOS NUMERICOS Y CARACTERES MAXIMOS DE LETRAS
+        public void ValidarMaximoDeDigito(object sender, EventArgs e, int maxNumerico, int maxCaracter, TextBox txt)
         {
+            if (txt == null) return;
             int cantidadDigito = 0;
-            int cantidadletra = 0;
+            int cantidadLetra = 0;
 
             foreach (char c in txt.Text)
             {
                 if (char.IsDigit(c)) cantidadDigito++;
-                if (char.IsLetter(c)) cantidadletra++;
+                if (char.IsLetter(c)) cantidadLetra++;
             }
-            if (char.IsDigit(e.KeyChar) && cantidadDigito >= maxNumerico)
+            if (cantidadDigito > maxNumerico)
             {
-                e.Handled = true; 
+                txt.Text = txt.Text.Remove(txt.Text.Length - 1);
             }
 
-            if (char.IsLetter(e.KeyChar) && cantidadletra >= maxCaracter)
+            if (cantidadLetra > maxCaracter)
             {
-                e.Handled = true; 
+                txt.Text = txt.Text.Remove(txt.Text.Length - 1);
             }
+            txt.SelectionStart = txt.Text.Length;
         }
         public void ValidarNumerosPorcentaje(object sender, KeyPressEventArgs e)
         {

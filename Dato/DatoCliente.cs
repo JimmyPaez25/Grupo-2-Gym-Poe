@@ -148,35 +148,65 @@ namespace Dato
             {
                 cmd.Connection = cn;
                 cmd.CommandText = comando;
+                {
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("@cedula", cli.Cedula);
+                    cmd.Parameters.AddWithValue("@nombre", cli.Nombre);
+                    cmd.Parameters.AddWithValue("@apellido", cli.Apellido);
+                    cmd.Parameters.AddWithValue("@fechaNacimiento", cli.FechaNacimiento.ToString("yyyy-MM-dd"));
+                    cmd.Parameters.AddWithValue("@telefono", cli.Telefono);
+                    cmd.Parameters.AddWithValue("@direccion", cli.Direccion);
+                    cmd.Parameters.AddWithValue("@estado", cli.Estado);
+                    cmd.Parameters.AddWithValue("@cedulaOrg", uCedulaOrg);
+
+                    if (cli is ClienteEstudiante cliEst)
+                    {
+                        cmd.Parameters.AddWithValue("@tipo", "ESTUDIANTE");
+                        cmd.Parameters.AddWithValue("@comprobante", cliEst.Comprobante);
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@tipo", "ESTANDAR");
+                        cmd.Parameters.AddWithValue("@comprobante", "SIN COMPROBANTE");
+                    }
+
+                    ImprimirSQL(comando);
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    x = rowsAffected > 0 ? "1" : "ERROR: NO SE PUDO ACTUALIZAR EL CLIENTE";
+                }
+            }
+            catch (SqlException ex)
+            {
+                x = "0" + ex.Message;
+                Console.WriteLine(x);
+            }
+
+            return x;
+        }
+        //
+        // DELETE
+        //
+        public string DeleteCliente(Cliente cli, SqlConnection conn)
+        {
+            Console.WriteLine("-----DELETE CLIENTE-----");
+            string x = "";
+            string comando = "DELETE FROM Cliente WHERE cedula = @cedula; \n";
+
+            try
+            {
+                cmd.Connection = conn;
+                cmd.CommandText = comando;
 
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@cedula", cli.Cedula);
-                cmd.Parameters.AddWithValue("@nombre", cli.Nombre);
-                cmd.Parameters.AddWithValue("@apellido", cli.Apellido);
-                cmd.Parameters.AddWithValue("@fechaNacimiento", cli.FechaNacimiento.ToString("yyyy-MM-dd"));
-                cmd.Parameters.AddWithValue("@telefono", cli.Telefono);
-                cmd.Parameters.AddWithValue("@direccion", cli.Direccion);
-                cmd.Parameters.AddWithValue("@estado", cli.Estado);
-                cmd.Parameters.AddWithValue("@cedulaOrg", uCedulaOrg);
 
-                if (cli is ClienteEstudiante cliEst)
-                {
-                    cmd.Parameters.AddWithValue("@tipo", "ESTUDIANTE");
-                    cmd.Parameters.AddWithValue("@comprobante", cliEst.Comprobante);
-                }
-                else
-                {
-                    cmd.Parameters.AddWithValue("@tipo", "ESTANDAR");
-                    cmd.Parameters.AddWithValue("@comprobante", DBNull.Value);
-                }
                 ImprimirSQL(comando);
                 cmd.ExecuteNonQuery();
                 x = "1";
             }
             catch (SqlException ex)
             {
-                x = "0" + ex.Message;
-                Console.WriteLine(x);
+                x = "0" + ex.Message; Console.WriteLine(x);
             }
 
             return x;
