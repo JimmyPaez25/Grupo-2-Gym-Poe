@@ -69,6 +69,16 @@ namespace Vista
             ctrActividad.InactivarActividad(dgvActividad);
         }
 
+        private void buttonGenerarPDF_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show("DESEA GENERAR REPORTE PDF DE ACTIVIDADES?", "CONFIRMACION", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (resultado == DialogResult.Yes)
+            {
+                ctrActividad.GenerarPDF();
+                ctrActividad.AbrirPDF();
+            }
+        }
+
         // FIN
     }
 }

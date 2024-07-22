@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dato;
 using Modelo;
+using System.IO;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 
 namespace Control
 {
@@ -21,6 +24,7 @@ namespace Control
         public DateTime FechaActual { get => fechaActual; set => fechaActual = value; }
         public static List<Actividad> ListaActividad { get => listaActividad; set => listaActividad = value; }
 
+
         //public CtrActividad()
         //{
         //    if (ListaActividad.Count == 0)
@@ -31,6 +35,7 @@ namespace Control
         //    }
         //}
     
+
         //
         // INGRESAR LIST - BD
         //
@@ -126,6 +131,7 @@ namespace Control
             return actividades;
         }
 
+
         //// 1
         //public void TablaConsultarActividadBD(int estado)
         //{
@@ -157,6 +163,7 @@ namespace Control
         //    }
         //    conn.CerrarConexion();
         //}
+
 
         //
         // CAMBIAR ESTADO - BD
@@ -508,6 +515,105 @@ namespace Control
                 dtpFechaFin.Value = actividadSeleccionada.FechaFin;
                 dtpHoraInicio.Value = DateTime.Today + actividadSeleccionada.HoraInicio;
                 dtpHoraFin.Value = DateTime.Today + actividadSeleccionada.HoraFin;
+            }
+        }
+
+        public List<Actividad> GetListaActividad()
+        {
+            return TablaConsultarActividadBD(1);
+        }
+
+        //
+        // GENERAR PDF
+        //
+        public void AbrirPDF()
+        {
+            if (File.Exists("REPORTE-PDF-ACTIVIDADES.pdf")) // Verificar si el archivo PDF existe antes de intentar abrirlo
+            {
+                System.Diagnostics.Process.Start("REPORTE-PDF-ACTIVIDADES.pdf"); // Abrir el archivo PDF con el visor de PDF predeterminado del sistema
+            }
+            else
+            {
+                MessageBox.Show("ARCHIVO PDF NO ENCONTRADO.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void GenerarPDF()
+        {
+            FileStream stream = null;
+            Document document = null;
+            string[] etiquetas = { "NOMBRE", "DESCRIPCION", "FECHA INICIO", "FECHA FIN", "HORA INICIO", "HORA FIN" };
+            int numCol = 6;
+            List<Actividad> actividades = GetListaActividad();
+
+            try
+            {
+                // Crear documento PDF
+                stream = new FileStream("REPORTE-PDF-ACTIVIDADES.pdf", FileMode.Create);
+                document = new Document(PageSize.A4, 5, 5, 7, 7);
+                PdfWriter pdf = PdfWriter.GetInstance(document, stream);
+                document.Open();
+
+                // Crear fuentes
+                iTextSharp.text.Font Miletra = FontFactory.GetFont(FontFactory.TIMES_ROMAN, 12, Font.NORMAL, BaseColor.RED);
+                iTextSharp.text.Font letra = FontFactory.GetFont(FontFactory.TIMES_ROMAN, 12, Font.NORMAL, BaseColor.BLUE);
+
+                // Agregar contenido al documento PDF
+                document.Add(new Paragraph("CONSULTA DE ACTIVIDADES ACTIVAS DEL GIMNASIO GYMRAT."));
+                document.Add(Chunk.NEWLINE);
+
+                PdfPTable table = new PdfPTable(numCol);
+                table.WidthPercentage = 100;
+
+                PdfPCell[] columnaT = new PdfPCell[etiquetas.Length];
+                for (int i = 0; i < etiquetas.Length; i++)
+                {
+                    columnaT[i] = new PdfPCell(new Phrase(etiquetas[i], Miletra));
+                    columnaT[i].BorderWidth = 0;
+                    columnaT[i].BorderWidthBottom = 0.25f;
+                    table.AddCell(columnaT[i]);
+                }
+
+                foreach (Actividad act in actividades)
+                {
+                    columnaT[0] = new PdfPCell(new Phrase(act.Nombre, letra));
+                    columnaT[0].BorderWidth = 0;
+
+                    columnaT[1] = new PdfPCell(new Phrase(act.Descripcion, letra));
+                    columnaT[1].BorderWidth = 0;
+
+                    columnaT[2] = new PdfPCell(new Phrase(act.FechaInicio.ToString("d"), letra));
+                    columnaT[2].BorderWidth = 0;
+
+                    columnaT[3] = new PdfPCell(new Phrase(act.FechaFin.ToString("d"), letra));
+                    columnaT[3].BorderWidth = 0;
+
+                    columnaT[4] = new PdfPCell(new Phrase(act.HoraInicio.ToString(@"hh\:mm"), letra));
+                    columnaT[4].BorderWidth = 0;
+
+                    columnaT[5] = new PdfPCell(new Phrase(act.HoraFin.ToString(@"hh\:mm"), letra));
+                    columnaT[5].BorderWidth = 0;
+
+                    table.AddCell(columnaT[0]);
+                    table.AddCell(columnaT[1]);
+                    table.AddCell(columnaT[2]);
+                    table.AddCell(columnaT[3]);
+                    table.AddCell(columnaT[4]);
+                    table.AddCell(columnaT[5]);
+                }
+                document.Add(table);
+                document.Close();
+                pdf.Close();
+
+                MessageBox.Show("PDF GENERADO EXITOSAMENTE.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR AL GENERAR PDF: " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                stream?.Close(); // Asegurarse de cerrar el FileStream incluso si ocurre una excepción
             }
         }
 

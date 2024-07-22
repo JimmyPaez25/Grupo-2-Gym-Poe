@@ -46,6 +46,7 @@
             this.buttonEditar = new System.Windows.Forms.Button();
             this.buttonInactivar = new System.Windows.Forms.Button();
             this.buttonSeleccionar = new System.Windows.Forms.Button();
+            this.buttonGenerarPDF = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvActividad)).BeginInit();
             this.SuspendLayout();
             // 
@@ -267,12 +268,30 @@
             this.buttonSeleccionar.UseVisualStyleBackColor = true;
             this.buttonSeleccionar.Visible = false;
             // 
+            // buttonGenerarPDF
+            // 
+            this.buttonGenerarPDF.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonGenerarPDF.FlatAppearance.BorderSize = 2;
+            this.buttonGenerarPDF.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.buttonGenerarPDF.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.buttonGenerarPDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonGenerarPDF.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGenerarPDF.ForeColor = System.Drawing.Color.White;
+            this.buttonGenerarPDF.Location = new System.Drawing.Point(879, 318);
+            this.buttonGenerarPDF.Name = "buttonGenerarPDF";
+            this.buttonGenerarPDF.Size = new System.Drawing.Size(85, 23);
+            this.buttonGenerarPDF.TabIndex = 22;
+            this.buttonGenerarPDF.Text = "Generar PDF";
+            this.buttonGenerarPDF.UseVisualStyleBackColor = true;
+            this.buttonGenerarPDF.Click += new System.EventHandler(this.buttonGenerarPDF_Click);
+            // 
             // VsConsultarActividad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1005, 374);
+            this.Controls.Add(this.buttonGenerarPDF);
             this.Controls.Add(this.buttonSeleccionar);
             this.Controls.Add(this.buttonInactivar);
             this.Controls.Add(this.buttonEditar);
@@ -313,5 +332,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmFechaFin;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmHoraInicio;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmHoraFin;
+        private System.Windows.Forms.Button buttonGenerarPDF;
     }
 }
