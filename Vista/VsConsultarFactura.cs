@@ -69,7 +69,7 @@ namespace Vista
 
                 filaSeleccionada.Cells["MotivoDataFact"].Value = motivoInactivacion;
 
-                ctrfacto.InactivarFactura(serie, filaSeleccionada);
+                ctrfacto.InactivarFactura(serie, filaSeleccionada, dgvRegistroFact);
 
                 ctrfacto.LlenarDataFact(dgvRegistroFact);
 
@@ -119,7 +119,7 @@ namespace Vista
                 var filaSeleccionada = dgvRegistroFact.SelectedRows[0];
                 var serie = (string)filaSeleccionada.Cells["FacturaRegistroFact"].Value;
 
-                ctrfacto.ActivarFactura(serie, filaSeleccionada);
+                ctrfacto.ActivarFactura(serie, filaSeleccionada, dgvRegistroFact);
 
                 ctrfacto.LlenarDataFact(dgvRegistroFact);
 
@@ -130,6 +130,17 @@ namespace Vista
                 MessageBox.Show("ERROR: SELECCIONA UNA FILA ANTES DE ACTIVAR.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
+        }
+
+
+        private void buttonGenerarPDF_Click_1(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show("DESEA GENERAR REPORTE PDF DE FACTURAS?", "CONFIRMACION", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (resultado == DialogResult.Yes)
+            {
+                ctrfacto.GenerarPDF();
+                ctrfacto.AbrirPDF();
+            }
         }
     }
 }

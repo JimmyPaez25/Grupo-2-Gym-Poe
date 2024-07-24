@@ -18,6 +18,7 @@ namespace Vista
         private VsConexion VsConn;
         private CtrCliente ctrCliente = new CtrCliente();
         private CtrAutor ctrAutor = new CtrAutor();
+        private CtrFactura ctrFactura = new CtrFactura();
 
         public VsPrincipal(VsConexion VsConn)
         {
@@ -75,7 +76,8 @@ namespace Vista
 
         private void btnVerRegistroFact_Click(object sender, EventArgs e)
         {
-                VsConsultarFactura vRegistroFact = new VsConsultarFactura();
+                ctrFactura.GetTotal();
+                VsConsultarFactura vRegistroFact = new VsConsultarFactura(); 
                 vRegistroFact.ShowDialog();
             
         }

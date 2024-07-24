@@ -38,8 +38,8 @@ namespace Dato
         {
             Console.WriteLine("-----INSERT FACTURA-----");
             string x = "";
-            string comando = "INSERT INTO Factura (numFactura, serie, precioFact, descuentoFact, iva, total, estadoFact) \n" +
-                             "VALUES (@numfactura, @serie, @preciofact, @descuentofact, @iva, @total, @estadofact); \n";
+            string comando = "INSERT INTO Factura (numFactura, serie, precioFact, descuentoFact, iva, total, estadoFact, idCliente, idMembresia) \n" +
+                             "VALUES (@numfactura, @serie, @preciofact, @descuentofact, @iva, @total, @estadofact, @idCliente, @idMembresia); \n";
 
             try
             {
@@ -54,6 +54,8 @@ namespace Dato
                 cmd.Parameters.AddWithValue("@iva", fact.Iva);
                 cmd.Parameters.AddWithValue("@total", fact.Total);
                 cmd.Parameters.AddWithValue("@estadofact", fact.Estadofact);
+                cmd.Parameters.AddWithValue("@idCliente", fact.IdCliente);
+                cmd.Parameters.AddWithValue("@idMembresia", fact.IdMembresia);
                 //cmd.Parameters.AddWithValue("@motivoinactivacion", DBNull.Value);
 
 
@@ -84,21 +86,27 @@ namespace Dato
         //
         // SELECTS
         //
-        public List<Factura> SelectFact(SqlConnection conn, string estadofact)
+        public List<Factura> SelectFact(SqlConnection conn/*, string estadofact*/)
         {
             Console.WriteLine("-----SELECT Factura-----");
             List<Factura> facturas = new List<Factura>();
             SqlDataReader reader = null; // TABLA VIRTUAL
             Factura factdat;
-            string comando = "SELECT numFactura, serie, precioFact, descuentoFact, iva, total, estadoFact FROM Factura WHERE estadoFact = @estadoFact; \n";
+            string comando = "SELECT " +
+                "\nfac.numFactura, fac.serie, fac.precioFact, fac.descuentoFact, fac.iva, fac.total, fac.estadoFact, fac.motivoInactivacion," +
+                "\ncli.Cedula, cli.Apellido, cli.Nombre, cli.Telefono," +
+                "\nmen.planMembresia, men.promocion, men.descuento, men.precio" +
+                "\nFROM Factura AS fac" +
+                "\nINNER JOIN Cliente AS cli ON fac.idCliente = cli.id_Cliente" +
+                "\nINNER JOIN Membresia AS men ON fac.idMembresia = men.idMembresia;";
 
             try
             {
                 cmd.Connection = conn;
                 cmd.CommandText = comando;
 
-                cmd.Parameters.Clear(); // LIMPIA PARAMETROS UTILIZADOS
-                cmd.Parameters.AddWithValue("@estadoFact", estadofact);
+                //cmd.Parameters.Clear(); // LIMPIA PARAMETROS UTILIZADOS
+                //cmd.Parameters.AddWithValue("@estadoFact", estadofact);
 
                 ImprimirSQL(comando);
                 reader = cmd.ExecuteReader();
@@ -115,6 +123,38 @@ namespace Dato
                     factdat.estadofact = reader["estadoFact"].ToString();
                     factdat.motivoinactivacion = reader["motivoInactivacion"].ToString();
 
+
+
+                    // Crear una nueva instancia de Cliente y asignar propiedades
+                    Cliente cliente = new Cliente
+                    {
+                        Cedula = reader["Cedula"].ToString(),
+                        Nombre = reader["Nombre"].ToString(),
+                        Apellido = reader["Apellido"].ToString(),
+                        Telefono = reader["Telefono"].ToString()
+                    };
+
+                    // Asignar la instancia de Cliente a la Factura
+                    factdat.Cliente = cliente;
+
+
+
+
+                    // Crear una nueva instancia de Membresia y asignar propiedades
+                    Membresia membresia = new Membresia
+                    {
+                        Plan = reader["planMembresia"].ToString(),
+                        Promocion = reader["promocion"].ToString(),
+                        Descuento = Convert.ToInt32(reader["descuento"]),
+                        Precio = Convert.ToDouble(reader["precio"])
+                    };
+
+                    // Asignar la instancia de Membresia a la Factura
+                    factdat.Membresia = membresia;
+
+
+
+
                     facturas.Add(factdat);
                 }
             }
@@ -124,6 +164,114 @@ namespace Dato
             }
             return facturas;
         }
+
+
+
+        //INNER CLIENTE
+        public string SelectCliente(SqlConnection conn, string cedula)
+        {
+            Console.WriteLine("-----SELECT CLIENTE-----");
+            SqlDataReader reader = null; // TABLA VIRTUAL
+            Cliente cli = null;
+            string idCliente = "";
+            string comando = "SELECT id_Cliente, cedula, nombre, apellido, fechaNacimiento, telefono, direccion, estado, tipo, comprobante FROM Cliente WHERE cedula = @cedula; \n";
+
+            try
+            {
+                cmd.Connection = conn;
+                cmd.CommandText = comando;
+
+                cmd.Parameters.Clear(); // LIMPIA PARAMETROS UTILIZADOS
+                cmd.Parameters.AddWithValue("@cedula", cedula);
+
+                ImprimirSQL(comando);
+                reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    idCliente = reader["id_Cliente"].ToString();
+                    string tipo = reader["tipo"]?.ToString();
+
+                    if (tipo == "ESTUDIANTE")
+                    {
+                        cli = new ClienteEstudiante(
+                            reader["cedula"].ToString(),
+                            reader["nombre"].ToString(),
+                            reader["apellido"].ToString(),
+                            DateTime.Parse(reader["fechaNacimiento"].ToString()),
+                            reader["telefono"].ToString(),
+                            reader["direccion"].ToString(),
+                            reader["estado"].ToString(),
+                            reader["comprobante"].ToString()
+                        );
+                    }
+                    else
+                    {
+                        cli = new Cliente(
+                            reader["cedula"].ToString(),
+                            reader["nombre"].ToString(),
+                            reader["apellido"].ToString(),
+                            DateTime.Parse(reader["fechaNacimiento"].ToString()),
+                            reader["telefono"].ToString(),
+                            reader["direccion"].ToString(),
+                            reader["estado"].ToString()
+                        );
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return idCliente;
+        }
+
+
+
+        //INNER MEMBRESIA
+        public string SelectMembresia(SqlConnection conn, string planMembresia)
+        {
+            Console.WriteLine("-----SELECT MEMBRESIA-----");
+            SqlDataReader reader = null; // TABLA VIRTUAL
+            Membresia mem = null;
+            string idMembresia = "";
+            string comando = "SELECT idMembresia, planMembresia, fechaInicio, fechaFin, promocion, descuento, detallePromocion, precio FROM Membresia WHERE planMembresia = @planMembresia; \n";
+
+            try
+            {
+                cmd.Connection = conn;
+                cmd.CommandText = comando;
+
+                cmd.Parameters.Clear(); // LIMPIA PARAMETROS UTILIZADOS
+                cmd.Parameters.AddWithValue("@planMembresia", planMembresia);
+
+                ImprimirSQL(comando);
+                reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    idMembresia = reader["idMembresia"].ToString();
+                    mem = new Membresia();
+                    mem.Plan = reader["planMembresia"].ToString();
+                    mem.FechaInicio = Convert.ToDateTime(reader["fechaInicio"]);
+                    mem.FechaFin = Convert.ToDateTime(reader["fechaFin"]);
+                    mem.Promocion = reader["promocion"].ToString();
+                    mem.Descuento = Convert.ToInt32(reader["descuento"]);
+                    mem.DetallePromocion = reader["detallePromocion"].ToString();
+                    //mem.CedulaCliente = reader["cedulaCliente"].ToString();
+                    mem.Precio = Convert.ToDouble(reader["precio"]);
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return idMembresia;
+        }
+
+
+
 
 
 
@@ -157,6 +305,20 @@ namespace Dato
                 cmd.Parameters.AddWithValue("@total", fact.Total);
                 cmd.Parameters.AddWithValue("@estadoFact", fact.estadofact);
                 cmd.Parameters.AddWithValue("@motivoInactivacion", fact.motivoinactivacion);
+                //cmd.Parameters.AddWithValue("@motivoinactivacion", DBNull.Value);
+
+
+                //if (fact.motivoinactivacion != null)
+                //{
+                //    cmd.Parameters.AddWithValue("@motivoinactivacion", fact.motivoinactivacion);
+                //}
+                //else
+                //{
+                //    //string motivoblanco = "NO ASIGNADO";
+                //    cmd.Parameters.AddWithValue("@motivoinactivacion", DBNull.Value);
+                //}
+
+
 
                 ImprimirSQL(comando);
                 cmd.ExecuteNonQuery();
@@ -170,7 +332,3 @@ namespace Dato
         }
     }
 }
-
-
-
-

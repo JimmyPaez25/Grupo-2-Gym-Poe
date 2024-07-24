@@ -29,7 +29,7 @@ namespace Vista
         }
 
 
-   
+
         private void label13_Click(object sender, EventArgs e)
         {
 
@@ -85,7 +85,7 @@ namespace Vista
 
         }
 
-    
+
 
         private void lblFechaNacimientoFact_Click(object sender, EventArgs e)
         {
@@ -126,6 +126,8 @@ namespace Vista
             string rdescuentofact = lblDescuentoFact.Text.Trim();
             string rtotal = lblTotalFact.Text.Trim();
             string riva = lblIVA.Text.Trim();
+            string cedula = lblCedulaFact.Text.Trim();
+            string planMembresia = lblPlanFact.Text.Trim();
 
 
             // Mostrar mensaje con los datos de la factura
@@ -149,11 +151,11 @@ namespace Vista
             mensaje += "FECHA FIN: " + lblFechaFinFact.Text + "\n";
             MessageBox.Show(mensaje, "REGISTRO DE FACTURA", MessageBoxButtons.OK);
 
-            mensaje = ctrfact.IngresarFact(rnumfact, rseriefact, rpreciofact, rdescuentofact, riva, rtotal);
+            mensaje = ctrfact.IngresarFact(rnumfact, rpreciofact, rdescuentofact, riva, rtotal, rseriefact, cedula, planMembresia);
 
             this.Close();
 
-       
+
         }
 
         private void lblTotalFact_Click(object sender, EventArgs e)

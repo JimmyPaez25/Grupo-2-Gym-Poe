@@ -8,6 +8,9 @@ using System.Windows.Forms;
 using Modelo;
 using System.Numerics;
 using Dato;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
+using System.IO;
 
 
 namespace Control
@@ -16,6 +19,7 @@ namespace Control
     {
         Conexion conn = new Conexion();
         DatoFactura dtFactura = new DatoFactura();
+
 
         public static List<Factura> listaFact = new List<Factura>();
         private static List<Membresia> listaMembresia = new List<Membresia>();
@@ -33,6 +37,38 @@ namespace Control
         //        ListaFact.Add(new Factura(3, "34TEOI0D07KGG7", "700", "13%", "0.15", "714"));
         //    }
         //}
+
+
+        //Mostrar tabla BD
+        public int GetTotal()
+        {
+            ListaFact = TablaConsultarFacturaBD(); // BASE DE DATOS
+            return ListaFact.Count;
+        }
+
+
+        public List<Factura> TablaConsultarFacturaBD()
+        {
+            List<Factura> facturas = new List<Factura>();
+            string msjBD = conn.AbrirConexion();
+
+            if (msjBD[0] == '1')
+            {
+                facturas = dtFactura.SelectFact(conn.Connect);
+            }
+            else if (msjBD[0] == '0')
+            {
+                MessageBox.Show("ERROR: " + msjBD);
+            }
+            conn.CerrarConexion();
+            return facturas;
+        }
+
+
+
+
+
+
 
 
         //Generar código de la factura
@@ -77,32 +113,47 @@ namespace Control
 
 
         //Guardar datos temporal
-        public string IngresarFact(int numfactura, string serie, string preciofact, string descuentofact, string iva, string motivoinactivacion)
+        public string IngresarFact(int numfactura, string preciofact, string descuentofact, string iva, string total, string serie, string cedula, string planMembresia)
         {
             string msg;
             Factura fact;
+            Validacion val = new Validacion();
 
-            fact = new Factura(numfactura, serie, preciofact, descuentofact, iva, motivoinactivacion);
+            string idCliente = SelectClienteBD(cedula);
+            Console.WriteLine(idCliente);
+            int idCli = val.ConvertirEntero(idCliente);
+            Console.WriteLine(idCli);
+
+
+            string idMembresia = SelectMembresiaBD(planMembresia);
+            Console.WriteLine(idMembresia);
+            int idMem = val.ConvertirEntero(idMembresia);
+            Console.WriteLine(idMem);
+
+
+            string motivoinactivacion = "";
+
+            fact = new Factura(numfactura, serie, preciofact, descuentofact, iva, total, motivoinactivacion, idCli, idMem);
             fact.Estadofact = "ACTIVO";
-            double precioFact;
-            double descuentoFact;
+            //double precioFact;
+            //double descuentoFact;
 
-            if (double.TryParse(preciofact, out precioFact))
-            {
-                if (!string.IsNullOrEmpty(descuentofact) && double.TryParse(descuentofact, out descuentoFact) && descuentoFact > 0)
-                {
-                    fact.Total = CalcularTotal(precioFact, descuentoFact);
-                }
-                else
-                {
-                    fact.Total = CalcularTotal(precioFact, 0);
-                }
-            }
-            else
-            {
-                msg = "Error: Valor de precio no válido";
-                return msg;
-            }
+            //if (double.TryParse(preciofact, out precioFact))
+            //{
+            //if (!string.IsNullOrEmpty(descuentofact) && double.TryParse(descuentofact, out descuentoFact) && descuentoFact > 0)
+            //{
+            //    fact.Total = CalcularTotal(precioFact, descuentoFact);
+            //}
+            //else
+            //{
+            //    fact.Total = CalcularTotal(precioFact, 0);
+            //}
+            //}
+            //else
+            //{
+            //    msg = "Error: Valor de precio no válido";
+            //    return msg;
+            //}
 
             //listaFact.Add(fact);            
             IngresarFacturaBD(fact);
@@ -110,6 +161,95 @@ namespace Control
 
             return msg;
         }
+
+        //PARA CLIENTE
+        public string SelectClienteBD(string cedulaCliente)
+        {
+            string msj = string.Empty;
+            string msjBD = conn.AbrirConexion();
+
+            if (msjBD[0] == '1')
+            {
+                try
+                {
+                    string idCliente = dtFactura.SelectCliente(conn.Connect, cedulaCliente);
+                    if (!string.IsNullOrEmpty(idCliente))
+                    {
+                        msj = idCliente;
+                    }
+                    else
+                    {
+                        msj = "Cliente no encontrado.";
+                        Console.WriteLine(msj);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    msj = "ERROR INESPERADO: " + ex.Message;
+                    MessageBox.Show(msj);
+                }
+                finally
+                {
+                    conn.CerrarConexion();
+                }
+            }
+            else if (msjBD[0] == '0')
+            {
+                msj = "ERROR: " + msjBD;
+                MessageBox.Show(msj);
+            }
+
+            return msj;
+        }
+
+
+
+        //PARA MEMBRESIA
+        public string SelectMembresiaBD(string planMembresia)
+        {
+            string msj = string.Empty;
+            string msjBD = conn.AbrirConexion();
+
+            if (msjBD[0] == '1')
+            {
+                try
+                {
+                    string idMembresia = dtFactura.SelectMembresia(conn.Connect, planMembresia);
+                    if (!string.IsNullOrEmpty(idMembresia))
+                    {
+                        msj = idMembresia;
+                    }
+                    else
+                    {
+                        msj = "Membresia no encontrado.";
+                        Console.WriteLine(msj);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    msj = "ERROR INESPERADO: " + ex.Message;
+                    MessageBox.Show(msj);
+                }
+                finally
+                {
+                    conn.CerrarConexion();
+                }
+            }
+            else if (msjBD[0] == '0')
+            {
+                msj = "ERROR: " + msjBD;
+                MessageBox.Show(msj);
+            }
+
+            return msj;
+        }
+
+
+
+
+
+
+
 
         //Ingresar-Guardar en el BD
         public void IngresarFacturaBD(Factura fact)
@@ -207,15 +347,25 @@ namespace Control
             dgvRegistroFact.Rows.Clear(); // LIMPIA FILAS SI LAS HAY
             foreach (Factura f in ListaFact)
             {
-
                 i = dgvRegistroFact.Rows.Add();
                 dgvRegistroFact.Rows[i].Cells["FacturaRegistroFact"].Value = f.Serie;
-                dgvRegistroFact.Rows[i].Cells["PrecioDataFact"].Value = f.Preciofact;
-                dgvRegistroFact.Rows[i].Cells["DescuentoDataFact"].Value = f.Descuentofact;
+                //dgvRegistroFact.Rows[i].Cells["PrecioDataFact"].Value = f.Preciofact;
+                //dgvRegistroFact.Rows[i].Cells["DescuentoDataFact"].Value = f.Descuentofact;
                 dgvRegistroFact.Rows[i].Cells["IvaDataFact"].Value = f.Iva;
                 dgvRegistroFact.Rows[i].Cells["TotalDataFact"].Value = f.Total;
                 dgvRegistroFact.Rows[i].Cells["EstadoDataFact"].Value = f.Estadofact;
                 dgvRegistroFact.Rows[i].Cells["MotivoDataFact"].Value = f.Motivoinactivacion;
+
+                dgvRegistroFact.Rows[i].Cells["ClmCedulaCliente"].Value = f.Cliente?.Cedula ?? "N/A"; // Cedula del cliente
+                dgvRegistroFact.Rows[i].Cells["ClmNombreCliente"].Value = f.Cliente?.Nombre ?? "N/A"; // Nombre del cliente
+                dgvRegistroFact.Rows[i].Cells["ClmApellidoCliente"].Value = f.Cliente?.Apellido ?? "N/A"; // Apellido del cliente
+                dgvRegistroFact.Rows[i].Cells["ClmTelefonoCliente"].Value = f.Cliente?.Telefono ?? "N/A";
+
+                dgvRegistroFact.Rows[i].Cells["ClmPlanMembresia"].Value = f.Membresia?.Plan ?? "N/A";
+                dgvRegistroFact.Rows[i].Cells["ClmPromocionMembresia"].Value = f.Membresia?.Promocion ?? "N/A";
+                dgvRegistroFact.Rows[i].Cells["ClmDescuentoMembresia"].Value = f.Membresia != null ? f.Membresia.Descuento.ToString("F2") : "N/A"; // Formato con 2 decimales
+                dgvRegistroFact.Rows[i].Cells["ClmPrecioMembresia"].Value = f.Membresia != null ? f.Membresia.Precio.ToString() : "N/A"; // Conversión a string
+
                 //dgvRegistroFact
                 //dgvRegistroFact
             }
@@ -227,20 +377,30 @@ namespace Control
         {
             int i;
             dgvRegistroFact.Rows.Clear(); // LIMPIA FILAS SI LAS HAY
-            foreach (Factura x in ListaFact)
+            foreach (Factura f in ListaFact)
             {
                 if (string.IsNullOrEmpty(filtro) ||
-                    (buscarPorNombrefact && x.Serie.ToString().Contains(filtro)) ||
-                    (!buscarPorNombrefact && x.Preciofact.ToString().Contains(filtro)))
+                    (buscarPorNombrefact && f.Serie.ToString().Contains(filtro)) ||
+                    (!buscarPorNombrefact && f.Preciofact.ToString().Contains(filtro)))
                 {
                     i = dgvRegistroFact.Rows.Add();
-                    dgvRegistroFact.Rows[i].Cells["FacturaRegistroFact"].Value = x.Serie;
-                    dgvRegistroFact.Rows[i].Cells["PrecioDataFact"].Value = x.Preciofact;
-                    dgvRegistroFact.Rows[i].Cells["DescuentoDataFact"].Value = x.Descuentofact;
-                    dgvRegistroFact.Rows[i].Cells["IvaDataFact"].Value = x.Iva;
-                    dgvRegistroFact.Rows[i].Cells["TotalDataFact"].Value = x.Total;
-                    dgvRegistroFact.Rows[i].Cells["EstadoDataFact"].Value = x.Estadofact;
-                    dgvRegistroFact.Rows[i].Cells["MotivoDataFact"].Value = x.Motivoinactivacion;
+                    dgvRegistroFact.Rows[i].Cells["FacturaRegistroFact"].Value = f.Serie;
+                    //dgvRegistroFact.Rows[i].Cells["PrecioDataFact"].Value = f.Preciofact;
+                    dgvRegistroFact.Rows[i].Cells["DescuentoDataFact"].Value = f.Descuentofact;
+                    dgvRegistroFact.Rows[i].Cells["IvaDataFact"].Value = f.Iva;
+                    dgvRegistroFact.Rows[i].Cells["TotalDataFact"].Value = f.Total;
+                    dgvRegistroFact.Rows[i].Cells["EstadoDataFact"].Value = f.Estadofact;
+                    dgvRegistroFact.Rows[i].Cells["MotivoDataFact"].Value = f.Motivoinactivacion;
+
+                    dgvRegistroFact.Rows[i].Cells["ClmCedulaCliente"].Value = f.Cliente?.Cedula ?? "N/A"; // Cedula del cliente
+                    dgvRegistroFact.Rows[i].Cells["ClmNombreCliente"].Value = f.Cliente?.Nombre ?? "N/A"; // Nombre del cliente
+                    dgvRegistroFact.Rows[i].Cells["ClmApellidoCliente"].Value = f.Cliente?.Apellido ?? "N/A"; // Apellido del cliente
+                    dgvRegistroFact.Rows[i].Cells["ClmTelefonoCliente"].Value = f.Cliente?.Telefono ?? "N/A";
+
+                    dgvRegistroFact.Rows[i].Cells["ClmPlanMembresia"].Value = f.Membresia?.Plan ?? "N/A";
+                    dgvRegistroFact.Rows[i].Cells["ClmPromocionMembresia"].Value = f.Membresia?.Promocion ?? "N/A";
+                    dgvRegistroFact.Rows[i].Cells["ClmDescuentoMembresia"].Value = f.Membresia != null ? f.Membresia.Descuento.ToString("F2") : "N/A"; // Formato con 2 decimales
+                    dgvRegistroFact.Rows[i].Cells["ClmPrecioMembresia"].Value = f.Membresia != null ? f.Membresia.Precio.ToString() : "N/A"; // Conversión a string
                 }
             }
         }
@@ -278,25 +438,7 @@ namespace Control
         //}
 
 
-
-        //INACTIVAR FACTURA
-        public void InactivarFactura(string serie, DataGridViewRow filaSeleccionada)
-        {
-
-            DialogResult resultado = MessageBox.Show("¿DESEA INACTIVAR LA FACTURA SELECCIONADA?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (resultado == DialogResult.Yes)
-            {
-                var factura = listaFact.FirstOrDefault(facto => facto.Serie == serie);
-                if (factura != null)
-                {
-                    factura.estadofact = "INACTIVO"; //Pone el estado Inactivo a la factura
-
-                    factura.motivoinactivacion = filaSeleccionada.Cells["MotivoDataFact"].Value.ToString();
-                }
-            }
-        }
-
-
+     
         public void EstadoFacturaBD(Factura fact)
         {
             string msj = string.Empty;
@@ -320,8 +462,74 @@ namespace Control
 
 
 
+        //INACTIVAR FACTURA
+        public void InactivarFactura(string serie, DataGridViewRow filaSeleccionada, DataGridView dgvRegistroFact)
+        {
+
+            DialogResult resultado = MessageBox.Show("¿DESEA INACTIVAR LA FACTURA SELECCIONADA?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (resultado == DialogResult.Yes)
+            {
+                var factura = listaFact.FirstOrDefault(facto => facto.Serie == serie);
+                if (factura != null)
+                {
+                    factura.estadofact = "INACTIVO"; //Pone el estado Inactivo a la factura
+                    EstadoFacturaBD(factura);
+                    LlenarDataFact(dgvRegistroFact);
+
+                    //factura.motivoinactivacion = filaSeleccionada.Cells["MotivoDataFact"].Value.ToString();
+                }
+            }
+        }
+
+
+
+
+        //public void InactivarFactura(DataGridView dgvRegistroFact)
+        //{
+        //    if (dgvRegistroFact.SelectedRows.Count > 0)
+        //    {
+        //        int filaSeleccionada = dgvRegistroFact.SelectedRows[0].Index; // OBTIENE INDICE DE FILA SELECCIONADA
+
+        //        if (filaSeleccionada >= 0)
+        //        {
+        //            string motivo = dgvRegistroFact.Rows[filaSeleccionada].Cells["FacturaRegistroFact"].Value.ToString(); // OBTENER NOMBRE DE FACTURA
+        //            Factura factura = ListaFact.FirstOrDefault(a => a.Motivoinactivacion == motivo); // BUSCA FACTURA EN LISTA POR NOMBRE
+
+        //            if (factura != null)
+        //            {
+        //                DialogResult resultado = MessageBox.Show("ESTAS SEGURO DE INACTIVAR ESTA FACTURA?", "CONFIRMACION", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+        //                if (resultado == DialogResult.Yes)
+        //                {
+        //                    factura.Estadofact = "INACTIVO"; // ESTADO = INACTIVO
+        //                    EstadoFacturaBD(factura); // BASE DE DATOS
+        //                    LlenarDataFact(dgvRegistroFact);
+        //                    MessageBox.Show("FACTURA INACTIVADA EXITOSAMENTE." + Environment.NewLine + factura.ToString(), "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            
+        //                }
+        //            }
+        //        }
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("ERROR: SELECCIONA UNA FILA ANTES DE INACTIVAR UNA FACTURA.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //    }
+        //}
+
+
+
+
+
+
+
+
+
+
+
+
+
         //RE-ACTIVAR FACTURA
-        public void ActivarFactura(string serie, DataGridViewRow filaSeleccionada)
+        public void ActivarFactura(string serie, DataGridViewRow filaSeleccionada, DataGridView dgvRegistroFact)
         {
             var factura = listaFact.FirstOrDefault(facto => facto.Serie == serie);
             if (factura != null)
@@ -333,6 +541,8 @@ namespace Control
                 else if (factura.estadofact == "INACTIVO")
                 {
                     factura.estadofact = "ACTIVO"; //Pone el estado Activo a la factura
+                    EstadoFacturaBD(factura);
+                    LlenarDataFact(dgvRegistroFact);
                     factura.motivoinactivacion = string.Empty; //Borra el rich de motivo
                     MessageBox.Show("LA FACTURA AHORA ESTÁ ACTIVA.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -378,6 +588,108 @@ namespace Control
         }
 
 
+
+
+
+
+
+        public List<Factura> GetListaFactura()
+        {
+            return TablaConsultarFacturaBD();
+        }
+
+
+        public void AbrirPDF()
+        {
+            if (File.Exists("REPORTE-PDF-FACTURAS.pdf")) // Verificar si el archivo PDF existe antes de intentar abrirlo
+            {
+                System.Diagnostics.Process.Start("REPORTE-PDF-FACTURAS.pdf"); // Abrir el archivo PDF con el visor de PDF predeterminado del sistema
+            }
+            else
+            {
+                MessageBox.Show("ARCHIVO PDF NO ENCONTRADO.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void GenerarPDF()
+        {
+            FileStream stream = null;
+            Document document = null;
+            string[] etiquetas = { "NUMERO FACTURA", "PRECIO", "DESCUENTO" };
+            int numCol = 3;
+            List<Factura> facturas = GetListaFactura();
+
+            try
+            {
+                // Crear documento PDF
+                stream = new FileStream("REPORTE-PDF-FACTURAS.pdf", FileMode.Create);
+                document = new Document(PageSize.A4, 5, 5, 7, 7);
+                PdfWriter pdf = PdfWriter.GetInstance(document, stream);
+                document.Open();
+
+                // Crear fuentes
+                iTextSharp.text.Font Miletra = FontFactory.GetFont(FontFactory.TIMES_ROMAN, 12, Font.NORMAL, BaseColor.RED);
+                iTextSharp.text.Font letra = FontFactory.GetFont(FontFactory.TIMES_ROMAN, 12, Font.NORMAL, BaseColor.BLUE);
+
+                // Agregar contenido al documento PDF
+                document.Add(new Paragraph("CONSULTA DE FACTURAS ACTIVAS DEL GIMNASIO GYMRAT."));
+                document.Add(Chunk.NEWLINE);
+
+                PdfPTable table = new PdfPTable(numCol);
+                table.WidthPercentage = 100;
+
+                PdfPCell[] columnaT = new PdfPCell[etiquetas.Length];
+                for (int i = 0; i < etiquetas.Length; i++)
+                {
+                    columnaT[i] = new PdfPCell(new Phrase(etiquetas[i], Miletra));
+                    columnaT[i].BorderWidth = 0;
+                    columnaT[i].BorderWidthBottom = 0.25f;
+                    table.AddCell(columnaT[i]);
+                }
+
+                foreach (Factura fact in facturas)
+                {
+                    columnaT[0] = new PdfPCell(new Phrase(fact.Serie, letra));
+                    columnaT[0].BorderWidth = 0;
+
+                    columnaT[1] = new PdfPCell(new Phrase(fact.Preciofact, letra));
+                    columnaT[1].BorderWidth = 0;
+
+                    columnaT[2] = new PdfPCell(new Phrase(fact.Descuentofact, letra));
+                    columnaT[2].BorderWidth = 0;
+
+                    //columnaT[3] = new PdfPCell(new Phrase(fact.FechaFin.ToString("d"), letra));
+                    //columnaT[3].BorderWidth = 0;
+
+                    //columnaT[4] = new PdfPCell(new Phrase(fact.HoraInicio.ToString(@"hh\:mm"), letra));
+                    //columnaT[4].BorderWidth = 0;
+
+                    //columnaT[5] = new PdfPCell(new Phrase(fact.HoraFin.ToString(@"hh\:mm"), letra));
+                    //columnaT[5].BorderWidth = 0;
+
+                    table.AddCell(columnaT[0]);
+                    table.AddCell(columnaT[1]);
+                    table.AddCell(columnaT[2]);
+                    //table.AddCell(columnaT[3]);
+                    //table.AddCell(columnaT[4]);
+                    //table.AddCell(columnaT[5]);
+                }
+                document.Add(table);
+                document.Close();
+                pdf.Close();
+
+                MessageBox.Show("PDF GENERADO EXITOSAMENTE.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR AL GENERAR PDF: " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                stream?.Close(); // Asegurarse de cerrar el FileStream incluso si ocurre una excepción
+            }
+        }
+
+
     }
 }
-
