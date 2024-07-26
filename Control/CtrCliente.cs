@@ -135,7 +135,7 @@ namespace Control
 
         }
 
-        private string ObtenerComprobanteActualizado(string cedula)
+        public string ObtenerComprobanteActualizado(string cedula)
         {
             foreach (Cliente cliente in ListaCli)
             {

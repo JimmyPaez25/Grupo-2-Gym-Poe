@@ -102,13 +102,43 @@ namespace Vista
 
         private void txtNombre_TextChanged(object sender, EventArgs e)
         {
-            System.Windows.Forms.TextBox textBox = sender as System.Windows.Forms.TextBox;
-            v.ConvertirMayuscula(textBox);
+            v.ConvertirMayuscula(txtNombre);
+            
+        }
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            v.ValidarLetra(sender, e);
         }
 
         private void txtCedula_TextChanged(object sender, EventArgs e)
         {
-            v.ValidarMaximoDeDigito(sender, e, 10, 0, txtCedula);
+            v.ValidarNumero(sender, e);
         }
+
+        private void btnRegistrarMem_Click(object sender, EventArgs e)
+        {
+            if (dgvClientes.SelectedRows.Count > 0)
+            {
+                DataGridViewRow filaSeleccionada = dgvClientes.SelectedRows[0];
+                string cedulaCliente = filaSeleccionada.Cells["clmCedula"].Value.ToString();
+
+
+                VsMembresia registrarMem = new VsMembresia(cedulaCliente);
+                registrarMem.ShowDialog();
+
+                if (registrarMem.Cambios)
+                {
+                    ctrCli.LlenarGrid(dgvClientes);
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("ERROR: DEBE SELECCIONAR UNA FILA RGISTRAR DATOS DE CLIENTE EN LA MEMBRESÍA", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
+
+
     }
 }

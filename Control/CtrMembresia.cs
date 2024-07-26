@@ -14,7 +14,7 @@ namespace Control
         Conexion conn = new Conexion();
         DatoMembresia dtMembresia = new DatoMembresia();
 
-        CtrCliente CtrCliente = new CtrCliente();
+        CtrCliente ctrCliente = new CtrCliente();
         private DateTime fechaActual = DateTime.Now;
         private static List<Membresia> listaMembresia = new List<Membresia>();
         private static List<Cliente> listaCli = new List<Cliente>();
@@ -390,6 +390,33 @@ namespace Control
                 MessageBox.Show("ERROR: " + msjBD);
             }
             conn.CerrarConexion();
+        }
+
+        public void MostrarDatosClienteMem(string cedulaCliente, Label lblCedulaM, Label lblNombreM, Label lblApellidoM, Label lblEstudianteM, Label celularInvisible, Label comprobanteInvisible, Label fechaNacInvisible, Label direccionInvisible)
+        {
+            Cliente clienteSeleccionado = ctrCliente.ConseguirDatosGrid(cedulaCliente);
+            if (clienteSeleccionado != null)
+            {
+                lblCedulaM.Text = clienteSeleccionado.Cedula;
+                lblNombreM.Text = clienteSeleccionado.Nombre;
+                lblApellidoM.Text = clienteSeleccionado.Apellido;
+                celularInvisible.Text = clienteSeleccionado.Telefono;
+                fechaNacInvisible.Text = clienteSeleccionado.FechaNacimiento.ToString("yyyy-MM-dd");
+                direccionInvisible.Text = clienteSeleccionado.Direccion;
+
+                if (clienteSeleccionado is ClienteEstudiante cliEst)
+                {
+                    lblEstudianteM.Text = "SI";
+                    comprobanteInvisible.Text = cliEst.Comprobante;
+                }
+                else
+                {
+
+                    lblEstudianteM.Text = "NO";
+                    comprobanteInvisible.Text = ctrCliente.ObtenerComprobanteActualizado(clienteSeleccionado.Cedula);
+                }
+            }
+
         }
     }
 }

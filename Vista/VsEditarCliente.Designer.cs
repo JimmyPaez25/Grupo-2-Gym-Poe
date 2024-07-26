@@ -116,6 +116,7 @@
             this.txtTelefono.Font = new System.Drawing.Font("Bernard MT Condensed", 12F);
             this.txtTelefono.ForeColor = System.Drawing.Color.White;
             this.txtTelefono.Location = new System.Drawing.Point(261, 199);
+            this.txtTelefono.MaxLength = 10;
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(202, 26);
             this.txtTelefono.TabIndex = 52;
@@ -128,6 +129,7 @@
             this.txtDireccion.Font = new System.Drawing.Font("Bernard MT Condensed", 12F);
             this.txtDireccion.ForeColor = System.Drawing.Color.White;
             this.txtDireccion.Location = new System.Drawing.Point(261, 229);
+            this.txtDireccion.MaxLength = 20;
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(202, 26);
             this.txtDireccion.TabIndex = 51;
@@ -152,10 +154,12 @@
             this.txtApellido.Font = new System.Drawing.Font("Bernard MT Condensed", 12F);
             this.txtApellido.ForeColor = System.Drawing.Color.White;
             this.txtApellido.Location = new System.Drawing.Point(261, 138);
+            this.txtApellido.MaxLength = 20;
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(202, 26);
             this.txtApellido.TabIndex = 49;
             this.txtApellido.TextChanged += new System.EventHandler(this.txtApellido_TextChanged);
+            this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido_KeyPress);
             // 
             // txtNombre
             // 
@@ -164,10 +168,12 @@
             this.txtNombre.Font = new System.Drawing.Font("Bernard MT Condensed", 12F);
             this.txtNombre.ForeColor = System.Drawing.Color.White;
             this.txtNombre.Location = new System.Drawing.Point(261, 106);
+            this.txtNombre.MaxLength = 20;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(202, 26);
             this.txtNombre.TabIndex = 48;
             this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // txtCedula
             // 
@@ -176,6 +182,7 @@
             this.txtCedula.Font = new System.Drawing.Font("Bernard MT Condensed", 12F);
             this.txtCedula.ForeColor = System.Drawing.Color.White;
             this.txtCedula.Location = new System.Drawing.Point(261, 75);
+            this.txtCedula.MaxLength = 10;
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(202, 26);
             this.txtCedula.TabIndex = 47;
@@ -276,6 +283,7 @@
             this.txtComprobante.Font = new System.Drawing.Font("Bernard MT Condensed", 12F);
             this.txtComprobante.ForeColor = System.Drawing.Color.White;
             this.txtComprobante.Location = new System.Drawing.Point(261, 291);
+            this.txtComprobante.MaxLength = 25;
             this.txtComprobante.Name = "txtComprobante";
             this.txtComprobante.Size = new System.Drawing.Size(202, 26);
             this.txtComprobante.TabIndex = 60;

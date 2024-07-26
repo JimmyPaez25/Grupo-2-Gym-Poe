@@ -19,18 +19,17 @@ namespace Vista
         private Validacion v = new Validacion();
         private VsRegistrarCliente vscliente = new VsRegistrarCliente();
         private CtrFactura ctrfact = new CtrFactura();
+        private bool cambios;
+
+        public bool Cambios { get => cambios; set => cambios = value; }
+
         //string celular, direccion, comprobante;
 
 
-        public VsMembresia()
+        public VsMembresia(string cedulaCliente)
         {
             InitializeComponent();
-
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
+            ctrMen.MostrarDatosClienteMem(cedulaCliente, lblCedulaM, lblNombreM, lblApellidoM, lblEstudianteM, CelularInvisible, ComprobanteInvisible, FechaNacInvisible, DireccionInvisible);
 
         }
 
@@ -53,45 +52,17 @@ namespace Vista
             }
         }
 
-        private void txtBoxC_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtBoxM_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void txtBoxD_KeyPress(object sender, KeyPressEventArgs e)
         {
             v.ValidarNumerosPorcentaje(sender, e);
         }
 
-        private void txtBoxM_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
-
-        private void txtBoxD_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtBoxDP_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+ 
         private void txtBoxDP_KeyPress(object sender, KeyPressEventArgs e)
         {
             v.ValidarLetra(sender, e);
         }
 
-        private void txtBoxC_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {

@@ -73,7 +73,6 @@
             this.labelTitulo.Size = new System.Drawing.Size(182, 44);
             this.labelTitulo.TabIndex = 0;
             this.labelTitulo.Text = "Membresía";
-            this.labelTitulo.Click += new System.EventHandler(this.label1_Click);
             // 
             // lblNombreMT
             // 
@@ -180,8 +179,6 @@
             this.txtBoxM.Name = "txtBoxM";
             this.txtBoxM.Size = new System.Drawing.Size(199, 21);
             this.txtBoxM.TabIndex = 11;
-            this.txtBoxM.TextChanged += new System.EventHandler(this.txtBoxM_TextChanged);
-            this.txtBoxM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxM_KeyPress);
             // 
             // dateTPFI
             // 
@@ -224,7 +221,6 @@
             this.txtBoxDP.Size = new System.Drawing.Size(200, 58);
             this.txtBoxDP.TabIndex = 15;
             this.txtBoxDP.Visible = false;
-            this.txtBoxDP.TextChanged += new System.EventHandler(this.txtBoxDP_TextChanged);
             this.txtBoxDP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxDP_KeyPress);
             // 
             // txtBoxD
@@ -235,7 +231,6 @@
             this.txtBoxD.Size = new System.Drawing.Size(76, 21);
             this.txtBoxD.TabIndex = 16;
             this.txtBoxD.Visible = false;
-            this.txtBoxD.TextChanged += new System.EventHandler(this.txtBoxD_TextChanged);
             this.txtBoxD.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxD_KeyPress);
             // 
             // lblCedulaMT

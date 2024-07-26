@@ -169,7 +169,6 @@ namespace Control
             int cursorPosicion = textBox.SelectionStart;
             textBox.Text = textBox.Text.ToUpper();
             textBox.SelectionStart = cursorPosicion;
-            return;
         }
 
         //
@@ -219,29 +218,6 @@ namespace Control
             {
                 e.Handled = true;
             }
-        }
-
-        public void ValidarMaximoDeDigito(object sender, EventArgs e, int maxNumerico, int maxCaracter, TextBox txt)
-        {
-            if (txt == null) return;
-            int cantidadDigito = 0;
-            int cantidadLetra = 0;
-
-            foreach (char c in txt.Text)
-            {
-                if (char.IsDigit(c)) cantidadDigito++;
-                if (char.IsLetter(c)) cantidadLetra++;
-            }
-            if (cantidadDigito > maxNumerico)
-            {
-                txt.Text = txt.Text.Remove(txt.Text.Length - 1);
-            }
-
-            if (cantidadLetra > maxCaracter)
-            {
-                txt.Text = txt.Text.Remove(txt.Text.Length - 1);
-            }
-            txt.SelectionStart = txt.Text.Length;
         }
         public void ValidarNumerosPorcentaje(object sender, KeyPressEventArgs e)
         {

@@ -89,19 +89,6 @@ namespace Vista
                 }
 
                 MessageBox.Show(msg);
-
-                // Mostrar el formulario VsMembresia
-                VsMembresia vMembresia = new VsMembresia();
-                vMembresia.lblCedulaM.Text = rCedula;
-                vMembresia.lblNombreM.Text = rNombre;
-                vMembresia.lblApellidoM.Text = rApellido;
-                vMembresia.lblEstudianteM.Text = esEstudiante;
-                vMembresia.CelularInvisible.Text = rTelefono;
-                vMembresia.ComprobanteInvisible.Text = rComprobante;
-                vMembresia.FechaNacInvisible.Text = rFechaNacimiento.ToString("yyyy-MM-dd");
-                vMembresia.DireccionInvisible.Text = rDireccion;
-
-                vMembresia.Show();
                 this.Close();
 
                 camposValidos = true;
@@ -113,45 +100,37 @@ namespace Vista
         {
             this.Close();
         }
-
-
         private void txtCedula_TextChanged(object sender, EventArgs e)
         {
             v.ValidarNumero(sender, e);
-            v.ValidarMaximoDeDigito(sender, e, 10, 0, txtCedula);
         }
-
         private void txtNombre_TextChanged(object sender, EventArgs e)
         {
             v.ConvertirMayuscula(txtNombre);
-            v.ValidarMaximoDeDigito(sender, e, 0, 20, txtNombre);
         }
-
         private void txtApellido_TextChanged(object sender, EventArgs e)
         {
-            TextBox textBox = sender as TextBox;
-            v.ConvertirMayuscula(textBox);
-            v.ValidarMaximoDeDigito(sender, e, 0, 20, txtApellido);
+            v.ConvertirMayuscula(txtApellido);
         }
-
         private void txtTelefono_TextChanged(object sender, EventArgs e)
         {
             v.ValidarNumero(sender, e);
-            v.ValidarMaximoDeDigito(sender, e, 10, 0, txtTelefono);
         }
-
         private void txtDireccion_TextChanged(object sender, EventArgs e)
         {
-            TextBox textBox = sender as TextBox;
-            v.ConvertirMayuscula(textBox);
-            v.ValidarMaximoDeDigito(sender, e, 5, 20, txtDireccion);
+            v.ConvertirMayuscula(txtDireccion);
         }
-
         private void txtComprobante_TextChanged(object sender, EventArgs e)
         {
-            TextBox textBox = sender as TextBox;
-            v.ConvertirMayuscula(textBox);
-            v.ValidarMaximoDeDigito(sender, e, 15, 5, txtComprobante);
+            v.ConvertirMayuscula(txtComprobante);
+        }
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            v.ValidarLetra(sender, e);
+        }
+        private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            v.ValidarLetra(sender, e);
         }
     }
 }
