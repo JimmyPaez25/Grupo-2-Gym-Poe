@@ -1,6 +1,9 @@
 ﻿using System;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Runtime.Remoting.Lifetime;
 using System.Text;
@@ -405,13 +408,85 @@ namespace Control
             }
 
         }
-        
         public Cliente ConseguirDatosGrid(string cedulaCliente)
         {
             return ListaCli.Find(cli => cli.Cedula == cedulaCliente);
         }
 
 
+
+        //
+        //CONTROL PDF
+        //
+
+        public void AbrirPDF()
+        {
+            if (File.Exists("reporteCliente.pdf"))
+            {
+                System.Diagnostics.Process.Start("reporteCliente.pdf");
+            }
+            else
+            {
+                MessageBox.Show("El archivo PDF no existe. Primero genera el PDF.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void GenerarPDF(DataGridView dgvEstudiantes)
+        {
+            FileStream stream = null;
+            Document document = null;
+
+            try
+            {
+                stream = new FileStream("reporteCliente.pdf", FileMode.Create);
+                document = new Document(PageSize.A4, 5, 5, 7, 7);
+                PdfWriter pdf = PdfWriter.GetInstance(document, stream);
+                document.Open();
+
+                iTextSharp.text.Font titulo = FontFactory.GetFont(FontFactory.TIMES_ROMAN, 12, Font.NORMAL, BaseColor.RED);
+                iTextSharp.text.Font contenido = FontFactory.GetFont(FontFactory.TIMES_ROMAN, 12, Font.NORMAL, BaseColor.BLUE);
+
+                document.Add(new Paragraph("Reporte de Estudiantes Generado"));
+                document.Add(Chunk.NEWLINE);
+
+                PdfPTable tabla = new PdfPTable(dgvEstudiantes.ColumnCount);
+                tabla.WidthPercentage = 100;
+
+                foreach (DataGridViewColumn column in dgvEstudiantes.Columns)
+                {
+                    PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText, titulo));
+                    cell.BorderWidth = 1;
+                    cell.BorderWidthBottom = 0.25f;
+                    tabla.AddCell(cell);
+                }
+
+                foreach (DataGridViewRow row in dgvEstudiantes.Rows)
+                {
+                    if (!row.IsNewRow)
+                    {
+                        foreach (DataGridViewCell cell in row.Cells)
+                        {
+                            tabla.AddCell(new PdfPCell(new Phrase(cell.Value?.ToString(), contenido)));
+                        }
+                    }
+                }
+
+                document.Add(tabla);
+                document.Close();
+                pdf.Close();
+                MessageBox.Show("Documento PDF Generado con éxito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al generar el PDF: {ex.Message}", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            finally
+            {
+                stream?.Close();
+            }
+        }
 
 
     }   

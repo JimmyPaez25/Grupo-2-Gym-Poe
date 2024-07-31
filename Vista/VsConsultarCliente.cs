@@ -134,11 +134,15 @@ namespace Vista
             }
             else
             {
-                MessageBox.Show("ERROR: DEBE SELECCIONAR UNA FILA RGISTRAR DATOS DE CLIENTE EN LA MEMBRESÍA", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("ERROR: DEBE SELECCIONAR UNA FILA REGISTRAR DATOS DE CLIENTE EN LA MEMBRESÍA", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
         }
 
-
+        private void btnGenerarPDF_Click(object sender, EventArgs e)
+        {
+            ctrCli.GenerarPDF(dgvClientes);
+            ctrCli.AbrirPDF();
+        }
     }
 }
