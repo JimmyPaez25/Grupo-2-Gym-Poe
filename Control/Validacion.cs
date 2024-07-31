@@ -171,6 +171,14 @@ namespace Control
             textBox.SelectionStart = cursorPosicion;
         }
 
+
+        public void ConvertirMayusculaRich(RichTextBox richTextBox)
+        {
+            int cursorPosicion = richTextBox.SelectionStart;
+            richTextBox.Text = richTextBox.Text.ToUpper();
+            richTextBox.SelectionStart = cursorPosicion;
+        }
+
         //
         // VALIDACIONES
         //

@@ -40,9 +40,7 @@ namespace Vista
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
-            TextBox textBox = sender as TextBox;
-            richTextBox1.KeyPress += val.ValidarLetra;
-            
+            val.ConvertirMayusculaRich(richTextBox1);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -85,6 +83,7 @@ namespace Vista
         private void richTextBox1_TextChanged_1(object sender, EventArgs e)
         {
             TextBox textBox = sender as TextBox;
+            
             richTextBox1.KeyPress += val.ValidarLetra;
 
         }
@@ -92,7 +91,7 @@ namespace Vista
 
         private void txtingresarbuscar_TextChanged_1(object sender, EventArgs e)
         {
-
+            val.ConvertirMayuscula(txtingresarbuscar);
         }
 
         private void btnVolverFact_Click_1(object sender, EventArgs e)
@@ -133,7 +132,7 @@ namespace Vista
         }
 
 
-        private void buttonGenerarPDF_Click_1(object sender, EventArgs e)
+        private void buttonGenerarPDF_Click(object sender, EventArgs e)
         {
             DialogResult resultado = MessageBox.Show("DESEA GENERAR REPORTE PDF DE FACTURAS?", "CONFIRMACION", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (resultado == DialogResult.Yes)

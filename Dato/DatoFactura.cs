@@ -38,8 +38,8 @@ namespace Dato
         {
             Console.WriteLine("-----INSERT FACTURA-----");
             string x = "";
-            string comando = "INSERT INTO Factura (numFactura, serie, precioFact, descuentoFact, iva, total, estadoFact, idCliente, idMembresia) \n" +
-                             "VALUES (@numfactura, @serie, @preciofact, @descuentofact, @iva, @total, @estadofact, @idCliente, @idMembresia); \n";
+            string comando = "INSERT INTO Factura (numFactura, serie, precioFact, descuentoFact, iva, total, estadoFact, motivoInactivacion, idCliente, idMembresia) \n" +
+                             "VALUES (@numfactura, @serie, @preciofact, @descuentofact, @iva, @total, @estadofact, @motivoinactivacion, @idCliente, @idMembresia); \n";
 
             try
             {
@@ -54,20 +54,9 @@ namespace Dato
                 cmd.Parameters.AddWithValue("@iva", fact.Iva);
                 cmd.Parameters.AddWithValue("@total", fact.Total);
                 cmd.Parameters.AddWithValue("@estadofact", fact.Estadofact);
+                cmd.Parameters.AddWithValue("@motivoinactivacion", fact.Motivoinactivacion);
                 cmd.Parameters.AddWithValue("@idCliente", fact.IdCliente);
-                cmd.Parameters.AddWithValue("@idMembresia", fact.IdMembresia);
-                //cmd.Parameters.AddWithValue("@motivoinactivacion", DBNull.Value);
-
-
-                //if (fact.motivoinactivacion != null)
-                //{                    
-                //    cmd.Parameters.AddWithValue("@motivoinactivacion", fact.motivoinactivacion);
-                //}
-                //else
-                //{
-                //    string motivoblanco = "NO ASIGNADO";
-                //    cmd.Parameters.AddWithValue("@motivoinactivacion", DBNull.Value);
-                //}
+                cmd.Parameters.AddWithValue("@idMembresia", fact.IdMembresia);             
 
                 ImprimirSQL(comando);
                 cmd.ExecuteNonQuery();
@@ -86,7 +75,7 @@ namespace Dato
         //
         // SELECTS
         //
-        public List<Factura> SelectFact(SqlConnection conn/*, string estadofact*/)
+        public List<Factura> SelectFact(SqlConnection conn)
         {
             Console.WriteLine("-----SELECT Factura-----");
             List<Factura> facturas = new List<Factura>();
@@ -257,8 +246,7 @@ namespace Dato
                     mem.FechaFin = Convert.ToDateTime(reader["fechaFin"]);
                     mem.Promocion = reader["promocion"].ToString();
                     mem.Descuento = Convert.ToInt32(reader["descuento"]);
-                    mem.DetallePromocion = reader["detallePromocion"].ToString();
-                    //mem.CedulaCliente = reader["cedulaCliente"].ToString();
+                    mem.DetallePromocion = reader["detallePromocion"].ToString();                  
                     mem.Precio = Convert.ToDouble(reader["precio"]);
                 }
 
@@ -280,29 +268,18 @@ namespace Dato
         {
             Console.WriteLine("-----UPDATE ESTADO Factura-----");
             string x = "";
-            string comando = "UPDATE Factura SET \n" +
-                             "numfactura = @numFactura \n" +
-                             "serie = @serie \n" +
-                             "preciofact = @precioFact \n " +
-                             "descuentofact = @descuentoFact \n " +
-                             "iva = @iva \n " +
-                             "total = @total \n " +
-                             "estadofact = @estadoFact \n" +
-                             "motivoinactivacion = @motivoInactivacion \n " +
-                             "WHERE serie = @serie; \n";
+            string comando = "UPDATE Factura SET " +                            
+                             "estadofact = @estadoFact, " +
+                             "motivoinactivacion = @motivoInactivacion " +
+                             "WHERE serie = @serie";
 
             try
             {
                 cmd.Connection = conn;
                 cmd.CommandText = comando;
 
-                cmd.Parameters.Clear(); // LIMPIA PARAMETROS UTILIZADOS
-                cmd.Parameters.AddWithValue("@numFactura", fact.Numfactura);
-                cmd.Parameters.AddWithValue("@serie", fact.Serie);
-                cmd.Parameters.AddWithValue("@precioFact", fact.Preciofact);
-                cmd.Parameters.AddWithValue("@descuentoFact", fact.Descuentofact);
-                cmd.Parameters.AddWithValue("@iva", fact.Iva);
-                cmd.Parameters.AddWithValue("@total", fact.Total);
+                cmd.Parameters.Clear(); // LIMPIA PARAMETROS UTILIZADOS              
+                cmd.Parameters.AddWithValue("@serie", fact.Serie.Trim());               
                 cmd.Parameters.AddWithValue("@estadoFact", fact.estadofact);
                 cmd.Parameters.AddWithValue("@motivoInactivacion", fact.motivoinactivacion);
                 //cmd.Parameters.AddWithValue("@motivoinactivacion", DBNull.Value);

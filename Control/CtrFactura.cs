@@ -1,16 +1,13 @@
-﻿using System;
+﻿using Dato;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using Modelo;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Web;
 using System.Windows.Forms;
-using Modelo;
-using System.Numerics;
-using Dato;
-using iTextSharp.text.pdf;
-using iTextSharp.text;
-using System.IO;
 
 
 namespace Control
@@ -67,8 +64,19 @@ namespace Control
 
 
 
-
-
+        //Calcular el total de los precios activos
+        public float CalcularSumaPrecios()
+        {
+            float sumaPrecios = 0;
+            foreach (Factura f in ListaFact)
+            {
+                if (f.Estadofact == "ACTIVO")
+                {
+                    sumaPrecios += float.Parse(f.Preciofact);
+                }
+            }
+            return sumaPrecios;
+        }
 
 
         //Generar código de la factura
@@ -112,18 +120,18 @@ namespace Control
 
 
 
-        //Guardar datos temporal
-        public string IngresarFact(int numfactura, string preciofact, string descuentofact, string iva, string total, string serie, string cedula, string planMembresia)
+        //Guardar datos
+        public string IngresarFact(int numfactura, string preciofact, string descuentofact, string iva, string serie, string cedula, string planMembresia)
         {
             string msg;
             Factura fact;
             Validacion val = new Validacion();
+            string motivoinactivacion = "NO APLICA";
 
             string idCliente = SelectClienteBD(cedula);
             Console.WriteLine(idCliente);
             int idCli = val.ConvertirEntero(idCliente);
             Console.WriteLine(idCli);
-
 
             string idMembresia = SelectMembresiaBD(planMembresia);
             Console.WriteLine(idMembresia);
@@ -131,29 +139,29 @@ namespace Control
             Console.WriteLine(idMem);
 
 
-            string motivoinactivacion = "";
+            double precioFact;
+            double descuentoFact;
 
-            fact = new Factura(numfactura, serie, preciofact, descuentofact, iva, total, motivoinactivacion, idCli, idMem);
+            if (double.TryParse(preciofact, out precioFact))
+            {
+                if (string.IsNullOrEmpty(descuentofact) || double.TryParse(descuentofact, out descuentoFact) && descuentoFact <= 0)
+                {
+                    descuentofact = motivoinactivacion; // Asignar "NO APLICA" a descuentofact
+                    fact = new Factura(numfactura, serie, preciofact, descuentofact, iva, CalcularTotal(precioFact, 0), motivoinactivacion, idCli, idMem);
+                }
+                else
+                {
+                    fact = new Factura(numfactura, serie, preciofact, descuentofact, iva, CalcularTotal(precioFact, descuentoFact), motivoinactivacion, idCli, idMem);
+                }
+            }
+            else
+            {
+                msg = "Error: Valor de precio no válido";
+                return msg;
+            }
+
             fact.Estadofact = "ACTIVO";
-            //double precioFact;
-            //double descuentoFact;
-
-            //if (double.TryParse(preciofact, out precioFact))
-            //{
-            //if (!string.IsNullOrEmpty(descuentofact) && double.TryParse(descuentofact, out descuentoFact) && descuentoFact > 0)
-            //{
-            //    fact.Total = CalcularTotal(precioFact, descuentoFact);
-            //}
-            //else
-            //{
-            //    fact.Total = CalcularTotal(precioFact, 0);
-            //}
-            //}
-            //else
-            //{
-            //    msg = "Error: Valor de precio no válido";
-            //    return msg;
-            //}
+            fact.Motivoinactivacion = "NO APLICA";
 
             //listaFact.Add(fact);            
             IngresarFacturaBD(fact);
@@ -161,6 +169,7 @@ namespace Control
 
             return msg;
         }
+
 
         //PARA CLIENTE
         public string SelectClienteBD(string cedulaCliente)
@@ -301,44 +310,6 @@ namespace Control
         //}
 
 
-        //Guardar datos y realizar cálculo
-        //public string IngresarFact(int numfactura, string serie, string preciofact, string descuentofact, string iva, string total)
-        //{
-        //    string msg;
-        //    Factura fact;
-
-        //    fact = new Factura(numfactura, serie, preciofact, descuentofact, iva, total);
-        //    fact.Estadofact = "ACTIVO";
-        //    double precioFact;
-        //    double descuentoFact;
-
-        //    if (double.TryParse(preciofact, out precioFact))
-        //    {
-        //        if (!string.IsNullOrEmpty(descuentofact) && double.TryParse(descuentofact, out descuentoFact) && descuentoFact > 0)
-        //        {
-        //            // Si hay descuento y es mayor a 0, lo aplico
-        //            double totalFact = precioFact - (precioFact * (descuentoFact / 100)) + (precioFact * 0.15);
-        //            fact.Total = totalFact.ToString();
-        //        }
-        //        else
-        //        {
-        //            // Si no hay descuento o es 0, solo calculo el IVA
-        //            double totalFact = precioFact + (precioFact * 0.15);
-        //            fact.Total = totalFact.ToString();
-        //        }
-        //    }
-        //    else
-        //    {
-        //        msg = "Error: Valor de precio no válido";
-        //        return msg;
-        //    }
-
-        //    listaFact.Add(fact);
-        //    msg = fact.ToString() + Environment.NewLine + "---REGISTRO EXITOSO---" + Environment.NewLine;
-
-        //    return msg;
-        //}
-
 
         //LLenar la tabla
         public void LlenarDataFact(DataGridView dgvRegistroFact)
@@ -348,11 +319,9 @@ namespace Control
             foreach (Factura f in ListaFact)
             {
                 i = dgvRegistroFact.Rows.Add();
-                dgvRegistroFact.Rows[i].Cells["FacturaRegistroFact"].Value = f.Serie;
-                //dgvRegistroFact.Rows[i].Cells["PrecioDataFact"].Value = f.Preciofact;
-                //dgvRegistroFact.Rows[i].Cells["DescuentoDataFact"].Value = f.Descuentofact;
+                dgvRegistroFact.Rows[i].Cells["FacturaRegistroFact"].Value = f.Serie;                
                 dgvRegistroFact.Rows[i].Cells["IvaDataFact"].Value = f.Iva;
-                dgvRegistroFact.Rows[i].Cells["TotalDataFact"].Value = f.Total;
+                dgvRegistroFact.Rows[i].Cells["TotalDataFact"].Value = "$ " + f.Total;
                 dgvRegistroFact.Rows[i].Cells["EstadoDataFact"].Value = f.Estadofact;
                 dgvRegistroFact.Rows[i].Cells["MotivoDataFact"].Value = f.Motivoinactivacion;
 
@@ -363,8 +332,8 @@ namespace Control
 
                 dgvRegistroFact.Rows[i].Cells["ClmPlanMembresia"].Value = f.Membresia?.Plan ?? "N/A";
                 dgvRegistroFact.Rows[i].Cells["ClmPromocionMembresia"].Value = f.Membresia?.Promocion ?? "N/A";
-                dgvRegistroFact.Rows[i].Cells["ClmDescuentoMembresia"].Value = f.Membresia != null ? f.Membresia.Descuento.ToString("F2") : "N/A"; // Formato con 2 decimales
-                dgvRegistroFact.Rows[i].Cells["ClmPrecioMembresia"].Value = f.Membresia != null ? f.Membresia.Precio.ToString() : "N/A"; // Conversión a string
+                dgvRegistroFact.Rows[i].Cells["ClmDescuentoMembresia"].Value = f.Membresia != null ? f.Membresia.Descuento.ToString() + "%" : "N/A"; 
+                dgvRegistroFact.Rows[i].Cells["ClmPrecioMembresia"].Value = f.Membresia != null ? "$ " + f.Membresia.Precio.ToString("F2") : "N/A";
 
                 //dgvRegistroFact
                 //dgvRegistroFact
@@ -373,34 +342,36 @@ namespace Control
 
 
         //Buscar
-        public void TablaConsultarNombreDescripcion(DataGridView dgvRegistroFact, string filtro = "", bool buscarPorNombrefact = true)
+        public void TablaConsultarNombreDescripcion(DataGridView dgvRegistroFact, string filtro = "", bool buscarPorNombreCliente = true)
         {
             int i;
             dgvRegistroFact.Rows.Clear(); // LIMPIA FILAS SI LAS HAY
             foreach (Factura f in ListaFact)
             {
                 if (string.IsNullOrEmpty(filtro) ||
-                    (buscarPorNombrefact && f.Serie.ToString().Contains(filtro)) ||
-                    (!buscarPorNombrefact && f.Preciofact.ToString().Contains(filtro)))
+                    (buscarPorNombreCliente && f.Cliente != null && f.Cliente.Nombre.Contains(filtro)) ||
+                    (!buscarPorNombreCliente && f.Preciofact.ToString().Contains(filtro)))
                 {
                     i = dgvRegistroFact.Rows.Add();
-                    dgvRegistroFact.Rows[i].Cells["FacturaRegistroFact"].Value = f.Serie;
-                    //dgvRegistroFact.Rows[i].Cells["PrecioDataFact"].Value = f.Preciofact;
-                    dgvRegistroFact.Rows[i].Cells["DescuentoDataFact"].Value = f.Descuentofact;
+                    dgvRegistroFact.Rows[i].Cells["FacturaRegistroFact"].Value = f.Serie;                 
                     dgvRegistroFact.Rows[i].Cells["IvaDataFact"].Value = f.Iva;
                     dgvRegistroFact.Rows[i].Cells["TotalDataFact"].Value = f.Total;
                     dgvRegistroFact.Rows[i].Cells["EstadoDataFact"].Value = f.Estadofact;
                     dgvRegistroFact.Rows[i].Cells["MotivoDataFact"].Value = f.Motivoinactivacion;
 
+
+                    //LOS DATOS DE CLIENTE
                     dgvRegistroFact.Rows[i].Cells["ClmCedulaCliente"].Value = f.Cliente?.Cedula ?? "N/A"; // Cedula del cliente
                     dgvRegistroFact.Rows[i].Cells["ClmNombreCliente"].Value = f.Cliente?.Nombre ?? "N/A"; // Nombre del cliente
                     dgvRegistroFact.Rows[i].Cells["ClmApellidoCliente"].Value = f.Cliente?.Apellido ?? "N/A"; // Apellido del cliente
                     dgvRegistroFact.Rows[i].Cells["ClmTelefonoCliente"].Value = f.Cliente?.Telefono ?? "N/A";
 
+
+                    //LOS DATOS DE MEMBRESIA 
                     dgvRegistroFact.Rows[i].Cells["ClmPlanMembresia"].Value = f.Membresia?.Plan ?? "N/A";
                     dgvRegistroFact.Rows[i].Cells["ClmPromocionMembresia"].Value = f.Membresia?.Promocion ?? "N/A";
-                    dgvRegistroFact.Rows[i].Cells["ClmDescuentoMembresia"].Value = f.Membresia != null ? f.Membresia.Descuento.ToString("F2") : "N/A"; // Formato con 2 decimales
-                    dgvRegistroFact.Rows[i].Cells["ClmPrecioMembresia"].Value = f.Membresia != null ? f.Membresia.Precio.ToString() : "N/A"; // Conversión a string
+                    dgvRegistroFact.Rows[i].Cells["ClmDescuentoMembresia"].Value = f.Membresia != null ? f.Membresia.Descuento.ToString() + "%" : "N/A";
+                    dgvRegistroFact.Rows[i].Cells["ClmPrecioMembresia"].Value = f.Membresia != null ? "$ " + f.Membresia.Precio.ToString("F2") : "N/A";
                 }
             }
         }
@@ -438,7 +409,7 @@ namespace Control
         //}
 
 
-     
+
         public void EstadoFacturaBD(Factura fact)
         {
             string msj = string.Empty;
@@ -473,57 +444,15 @@ namespace Control
                 if (factura != null)
                 {
                     factura.estadofact = "INACTIVO"; //Pone el estado Inactivo a la factura
+
+                    string motivoInactivacion = filaSeleccionada.Cells["MotivoDataFact"].Value.ToString();  // Agregar el motivo de inactivación
+                    factura.motivoinactivacion = motivoInactivacion;
+
                     EstadoFacturaBD(factura);
                     LlenarDataFact(dgvRegistroFact);
-
-                    //factura.motivoinactivacion = filaSeleccionada.Cells["MotivoDataFact"].Value.ToString();
                 }
             }
         }
-
-
-
-
-        //public void InactivarFactura(DataGridView dgvRegistroFact)
-        //{
-        //    if (dgvRegistroFact.SelectedRows.Count > 0)
-        //    {
-        //        int filaSeleccionada = dgvRegistroFact.SelectedRows[0].Index; // OBTIENE INDICE DE FILA SELECCIONADA
-
-        //        if (filaSeleccionada >= 0)
-        //        {
-        //            string motivo = dgvRegistroFact.Rows[filaSeleccionada].Cells["FacturaRegistroFact"].Value.ToString(); // OBTENER NOMBRE DE FACTURA
-        //            Factura factura = ListaFact.FirstOrDefault(a => a.Motivoinactivacion == motivo); // BUSCA FACTURA EN LISTA POR NOMBRE
-
-        //            if (factura != null)
-        //            {
-        //                DialogResult resultado = MessageBox.Show("ESTAS SEGURO DE INACTIVAR ESTA FACTURA?", "CONFIRMACION", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-        //                if (resultado == DialogResult.Yes)
-        //                {
-        //                    factura.Estadofact = "INACTIVO"; // ESTADO = INACTIVO
-        //                    EstadoFacturaBD(factura); // BASE DE DATOS
-        //                    LlenarDataFact(dgvRegistroFact);
-        //                    MessageBox.Show("FACTURA INACTIVADA EXITOSAMENTE." + Environment.NewLine + factura.ToString(), "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            
-        //                }
-        //            }
-        //        }
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("ERROR: SELECCIONA UNA FILA ANTES DE INACTIVAR UNA FACTURA.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //    }
-        //}
-
-
-
-
-
-
-
-
-
 
 
 
@@ -540,10 +469,10 @@ namespace Control
                 }
                 else if (factura.estadofact == "INACTIVO")
                 {
-                    factura.estadofact = "ACTIVO"; //Pone el estado Activo a la factura
+                    factura.estadofact = "ACTIVO"; //Pone el estado Activo a la factura                   
+                    factura.motivoinactivacion = "NO APLICA";
                     EstadoFacturaBD(factura);
                     LlenarDataFact(dgvRegistroFact);
-                    factura.motivoinactivacion = string.Empty; //Borra el rich de motivo
                     MessageBox.Show("LA FACTURA AHORA ESTÁ ACTIVA.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
@@ -551,48 +480,143 @@ namespace Control
 
 
 
-
-        //LLENAR EL REGISTRO DE PRECIO
-        public void LlenarRegistroPrecio(DataGridView dgvRegistroPrecio)
+        //
+        //INFORME
+        //
+        //LLENAR EL INFORME DE PRECIO
+        public void LlenarRegistroPrecio(DataGridView dgvRegistroPrecio, string estadoSeleccionado)
         {
             int i;
             dgvRegistroPrecio.Rows.Clear(); // LIMPIA FILAS SI LAS HAY
+
             foreach (Factura f in ListaFact)
             {
-                if (f.Estadofact == "ACTIVO")
+                if (f.Estadofact == estadoSeleccionado) // Agregar condición para filtrar por estado
                 {
                     i = dgvRegistroPrecio.Rows.Add();
                     dgvRegistroPrecio.Rows[i].Cells["clmNroFactRegistro"].Value = f.Serie;
-                    dgvRegistroPrecio.Rows[i].Cells["clmPrecioFactRegistro"].Value = f.Total;
-                    //dgvRegistroPrecio.Rows[i].Cells["DescuentoDataFact"].Value = f.Descuentofact;
-                    //dgvRegistroPrecio.Rows[i].Cells["IvaDataFact"].Value = f.Iva;
-                    //dgvRegistroPrecio.Rows[i].Cells["TotalDataFact"].Value = f.Total;
-                    //dgvRegistroPrecio.Rows[i].Cells["EstadoDataFact"].Value = f.Estadofact;
-                    //dgvRegistroPrecio.Rows[i].Cells["MotivoDataFact"].Value = f.Motivoinactivacion;
+                    dgvRegistroPrecio.Rows[i].Cells["clmPrecioFactRegistro"].Value = "$ " + f.Preciofact;
+                    dgvRegistroPrecio.Rows[i].Cells["ClmDescuentoRegistro"].Value = f.Descuentofact;
+                    dgvRegistroPrecio.Rows[i].Cells["ClmIVARegistro"].Value = f.Iva;
+                    dgvRegistroPrecio.Rows[i].Cells["ClmTotalRegistro"].Value = "$ " + f.Total;
+                    dgvRegistroPrecio.Rows[i].Cells["ClmEstadoRegistro"].Value = f.Estadofact;
+                    dgvRegistroPrecio.Rows[i].Cells["ClmMotivoRegistro"].Value = f.Motivoinactivacion;
+
+                    dgvRegistroPrecio.Rows[i].Cells["ClmCedulaClienteRegistro"].Value = f.Cliente?.Cedula ?? "N/A"; // Cedula del cliente
+                    dgvRegistroPrecio.Rows[i].Cells["ClmNombreClienteRegistro"].Value = f.Cliente?.Nombre ?? "N/A"; // Nombre del cliente
+                    dgvRegistroPrecio.Rows[i].Cells["ClmApellidoClienteRegistro"].Value = f.Cliente?.Apellido ?? "N/A"; // Apellido del cliente
+                    dgvRegistroPrecio.Rows[i].Cells["ClmTelefonoClienteRegistro"].Value = f.Cliente?.Telefono ?? "N/A";
                 }
             }
         }
 
-        //Calcular el total de los precios
-        public float CalcularSumaPrecios()
+
+
+        public void MostrarTotalFacturas(string estadoSeleccionado, TextBox txtTotalFacturas)
         {
-            float sumaPrecios = 0;
+            int totalFacturas = 0;
+
             foreach (Factura f in ListaFact)
             {
-                if (f.Estadofact == "ACTIVO")
+                if (f.Estadofact == estadoSeleccionado)
                 {
-                    sumaPrecios += float.Parse(f.Preciofact);
+                    totalFacturas++;
                 }
             }
-            return sumaPrecios;
+
+            txtTotalFacturas.Text = totalFacturas.ToString();
+        }
+
+        // CONTAR CUANTAS FACTURAS CON Y SIN DESCUENTO HAY
+        public void MostrarTotalFacturasConDescuento(string estadoSeleccionado, TextBox txtTotalConDescuento, TextBox txtTotalSinDescuento)
+        {
+            int totalFacturasConDescuento = 0;
+            int totalFacturasSinDescuento = 0;
+
+            foreach (Factura f in ListaFact)
+            {
+                if (f.Estadofact == estadoSeleccionado)
+                {
+                    if (int.TryParse(f.Descuentofact, out int descuento))
+                    {
+                        if (descuento > 0)
+                        {
+                            totalFacturasConDescuento++;
+                        }
+                        else
+                        {
+                            totalFacturasSinDescuento++; // Si el descuento es 0, incrementa el contador de facturas sin descuento
+                        }
+                    }
+                    else
+                    {
+                        if (string.IsNullOrWhiteSpace(f.Descuentofact) || f.Descuentofact.ToUpper() == "NO APLICA")
+                        {
+                            totalFacturasSinDescuento++; // Si el string es vacío o contiene solo espacios en blanco, incrementa el contador de facturas sin descuento
+                        }
+                    }
+                }
+            }
+
+            txtTotalConDescuento.Text = totalFacturasConDescuento.ToString();
+            txtTotalSinDescuento.Text = totalFacturasSinDescuento.ToString();
         }
 
 
 
+        public void MostrarMontoTotalInforme(string estadoSeleccionado, TextBox txtMontoTotal)
+        {
+            decimal totalFacturas = 0; // Cambia el tipo de variable a decimal para admitir decimales
+
+            foreach (Factura f in ListaFact)
+            {
+                if (f.Estadofact == estadoSeleccionado)
+                {
+                    if (decimal.TryParse(f.Total, out decimal total))
+                    {
+                        totalFacturas += total;
+                    }
+                }
+            }
+
+            txtMontoTotal.Text = totalFacturas.ToString("C"); // Muestra el valor con símbolo de moneda y decimales
+        }
+
+
+
+        //public void MostrarTotalFacturasSinDescuento(string estadoSeleccionado, TextBox txtTotalSinDescuento)
+        //{
+        //    int totalFacturasSinDescuento = 0;
+
+        //    foreach (Factura f in ListaFact)
+        //    {
+        //        if (f.Estadofact == estadoSeleccionado)
+        //        {
+        //            if (int.TryParse(f.Descuentofact, out int descuento))
+        //            {
+        //                if (descuento <= 0)
+        //                {
+        //                    totalFacturasSinDescuento++; // Incrementa el contador solo si la factura tiene descuento
+        //                }
+        //            }
+        //        }
+        //    }
+
+        //    txtTotalSinDescuento.Text = totalFacturasSinDescuento.ToString();
+        //}
 
 
 
 
+
+
+
+
+
+        //
+        // PDF
+        //
+        //Creación del PDF de factura normal
         public List<Factura> GetListaFactura()
         {
             return TablaConsultarFacturaBD();
@@ -615,28 +639,167 @@ namespace Control
         {
             FileStream stream = null;
             Document document = null;
-            string[] etiquetas = { "NUMERO FACTURA", "PRECIO", "DESCUENTO" };
-            int numCol = 3;
+            string[] etiquetas = { "CEDULA", "NUMERO FACTURA", "APELLIDO", "NOMBRE", "PLAN", "PRECIO", "IVA", "DESCUENTO", "TOTAL", "ESTADO" };
+            int numCol = 10;
             List<Factura> facturas = GetListaFactura();
 
             try
             {
                 // Crear documento PDF
                 stream = new FileStream("REPORTE-PDF-FACTURAS.pdf", FileMode.Create);
-                document = new Document(PageSize.A4, 5, 5, 7, 7);
+                document = new Document(PageSize.A4.Rotate(), 5, 5, 7, 7);
                 PdfWriter pdf = PdfWriter.GetInstance(document, stream);
                 document.Open();
 
                 // Crear fuentes
-                iTextSharp.text.Font Miletra = FontFactory.GetFont(FontFactory.TIMES_ROMAN, 12, Font.NORMAL, BaseColor.RED);
-                iTextSharp.text.Font letra = FontFactory.GetFont(FontFactory.TIMES_ROMAN, 12, Font.NORMAL, BaseColor.BLUE);
+                iTextSharp.text.Font Miletra = FontFactory.GetFont(FontFactory.TIMES_ROMAN, 10, Font.NORMAL, BaseColor.RED);
+                iTextSharp.text.Font letra = FontFactory.GetFont(FontFactory.TIMES_ROMAN, 10, Font.NORMAL, BaseColor.BLUE);
 
                 // Agregar contenido al documento PDF
-                document.Add(new Paragraph("CONSULTA DE FACTURAS ACTIVAS DEL GIMNASIO GYMRAT."));
+                document.Add(new Paragraph("CONSULTA DE FACTURAS DEL GIMNASIO GYMRAT."));
                 document.Add(Chunk.NEWLINE);
 
                 PdfPTable table = new PdfPTable(numCol);
                 table.WidthPercentage = 100;
+
+                //Ajustar tamaño de columnas
+                float[] anchoColumnas = { 0.6f, 1f, 0.8f, 0.8f, 1f, 0.6f, 0.5f, 0.8f, 0.7f, 0.5f };
+                table.SetWidths(anchoColumnas);
+
+                PdfPCell[] columnaT = new PdfPCell[etiquetas.Length];
+                for (int i = 0; i < etiquetas.Length; i++)
+                {
+                    columnaT[i] = new PdfPCell(new Phrase(etiquetas[i], Miletra));
+                    columnaT[i].BorderWidth = 0;
+                    columnaT[i].BorderWidthBottom = 0.25f;
+                    table.AddCell(columnaT[i]);
+                }
+
+                foreach (Factura fact in facturas)
+                {
+                    columnaT[0] = new PdfPCell(new Phrase(fact.Cliente.Cedula, letra));
+                    columnaT[0].BorderWidth = 0;
+
+                    columnaT[1] = new PdfPCell(new Phrase(fact.Serie, letra));
+                    columnaT[1].BorderWidth = 0;
+
+                    columnaT[2] = new PdfPCell(new Phrase(fact.Cliente.Apellido, letra));
+                    columnaT[2].BorderWidth = 0;
+
+                    columnaT[3] = new PdfPCell(new Phrase(fact.Cliente.Nombre, letra));
+                    columnaT[3].BorderWidth = 0;
+
+                    columnaT[4] = new PdfPCell(new Phrase(fact.Membresia.Plan, letra));
+                    columnaT[4].BorderWidth = 0;
+
+                    columnaT[5] = new PdfPCell(new Phrase("$ " + fact.Preciofact, letra));
+                    columnaT[5].BorderWidth = 0;
+
+                    columnaT[6] = new PdfPCell(new Phrase(fact.Iva, letra));
+                    columnaT[6].BorderWidth = 0;
+
+                    columnaT[7] = new PdfPCell(new Phrase(fact.Descuentofact + "%", letra));
+                    columnaT[7].BorderWidth = 0;
+
+                    columnaT[8] = new PdfPCell(new Phrase("$ " + fact.Total, letra));
+                    columnaT[8].BorderWidth = 0;
+
+                    columnaT[9] = new PdfPCell(new Phrase(fact.Estadofact, letra));
+                    columnaT[9].BorderWidth = 0;
+                    
+
+                    table.AddCell(columnaT[0]);
+                    table.AddCell(columnaT[1]);
+                    table.AddCell(columnaT[2]);
+                    table.AddCell(columnaT[3]);
+                    table.AddCell(columnaT[4]);
+                    table.AddCell(columnaT[5]);
+                    table.AddCell(columnaT[6]);
+                    table.AddCell(columnaT[7]);
+                    table.AddCell(columnaT[8]);
+                    table.AddCell(columnaT[9]);
+                }
+                document.Add(table);
+                document.Close();
+                pdf.Close();
+
+                MessageBox.Show("PDF GENERADO EXITOSAMENTE.", "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR AL GENERAR PDF: " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                stream?.Close(); // Asegurarse de cerrar el FileStream incluso si ocurre una excepción
+            }
+        }
+
+
+
+
+
+
+        //GENERAR PDF DE INFORME
+        public List<Factura> GetListaInformeFactura(string estado)
+        {
+            if (estado == "ACTIVO")
+            {
+                return TablaConsultarFacturaBD().Where(f => f.Estadofact == "ACTIVO").ToList();
+            }
+            else if (estado == "INACTIVO")
+            {
+                return TablaConsultarFacturaBD().Where(f => f.Estadofact == "INACTIVO").ToList();
+            }
+            else
+            {
+                return TablaConsultarFacturaBD();
+            }
+        }
+
+
+        public void AbrirInformePDF()
+        {
+            if (File.Exists("REPORTE-PDF-INFORME-FACTURAS.pdf")) // Verificar si el archivo PDF existe antes de intentar abrirlo
+            {
+                System.Diagnostics.Process.Start("REPORTE-PDF-INFORME-FACTURAS.pdf"); // Abrir el archivo PDF con el visor de PDF predeterminado del sistema
+            }
+            else
+            {
+                MessageBox.Show("ARCHIVO PDF NO ENCONTRADO.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void GenerarInformePDF(string estado)
+        {
+            FileStream stream = null;
+            Document document = null;
+            string[] etiquetas = { "NÚMERO FACTURA", "CÉDULA", "APELLIDO", "NOMBRE", "TELÉFONO", "IVA", "PRECIO", "DESCUENTO", "TOTAL", "ESTADO", "MOTIVO" };
+            int numCol = 11;
+            List<Factura> facturas = GetListaInformeFactura(estado);
+
+            try
+            {
+                // Crear documento PDF
+                stream = new FileStream("REPORTE-PDF-INFORME-FACTURAS.pdf", FileMode.Create);
+                document = new Document(PageSize.A4.Rotate(), 5, 5, 7, 7);
+                PdfWriter pdf = PdfWriter.GetInstance(document, stream);
+                document.Open();
+
+                // Crear fuentes
+                iTextSharp.text.Font Miletra = FontFactory.GetFont(FontFactory.TIMES_ROMAN, 10, Font.NORMAL, BaseColor.RED);
+                iTextSharp.text.Font letra = FontFactory.GetFont(FontFactory.TIMES_ROMAN, 10, Font.NORMAL, BaseColor.BLUE);
+
+                // Agregar contenido al documento PDF
+                document.Add(new Paragraph("INFORME DE FACTURAS DEL GIMNASIO GYMRAT."));
+                document.Add(Chunk.NEWLINE);
+
+                PdfPTable table = new PdfPTable(numCol);
+                table.WidthPercentage = 100;
+
+                //Ajustar tamaño de columnas
+                float[] anchoColumnas = { 1f, 0.7f, 0.8f, 0.8f, 0.7f, 0.6f, 0.5f, 0.8f, 0.5f, 0.6f, 1f };
+                table.SetWidths(anchoColumnas);
 
                 PdfPCell[] columnaT = new PdfPCell[etiquetas.Length];
                 for (int i = 0; i < etiquetas.Length; i++)
@@ -652,27 +815,49 @@ namespace Control
                     columnaT[0] = new PdfPCell(new Phrase(fact.Serie, letra));
                     columnaT[0].BorderWidth = 0;
 
-                    columnaT[1] = new PdfPCell(new Phrase(fact.Preciofact, letra));
+                    columnaT[1] = new PdfPCell(new Phrase(fact.Cliente.Cedula, letra));
                     columnaT[1].BorderWidth = 0;
 
-                    columnaT[2] = new PdfPCell(new Phrase(fact.Descuentofact, letra));
+                    columnaT[2] = new PdfPCell(new Phrase(fact.Cliente.Apellido, letra));
                     columnaT[2].BorderWidth = 0;
 
-                    //columnaT[3] = new PdfPCell(new Phrase(fact.FechaFin.ToString("d"), letra));
-                    //columnaT[3].BorderWidth = 0;
+                    columnaT[3] = new PdfPCell(new Phrase(fact.Cliente.Nombre, letra));
+                    columnaT[3].BorderWidth = 0;
 
-                    //columnaT[4] = new PdfPCell(new Phrase(fact.HoraInicio.ToString(@"hh\:mm"), letra));
-                    //columnaT[4].BorderWidth = 0;
+                    columnaT[4] = new PdfPCell(new Phrase(fact.Cliente.Telefono, letra));
+                    columnaT[4].BorderWidth = 0;
 
-                    //columnaT[5] = new PdfPCell(new Phrase(fact.HoraFin.ToString(@"hh\:mm"), letra));
-                    //columnaT[5].BorderWidth = 0;
+                    columnaT[5] = new PdfPCell(new Phrase(fact.Iva, letra));
+                    columnaT[5].BorderWidth = 0;
+
+                    columnaT[6] = new PdfPCell(new Phrase("$ " + fact.Preciofact, letra));
+                    columnaT[6].BorderWidth = 0;                  
+
+                    columnaT[7] = new PdfPCell(new Phrase(fact.Descuentofact + "%", letra));
+                    columnaT[7].BorderWidth = 0;
+
+                    columnaT[8] = new PdfPCell(new Phrase("$ " + fact.Total, letra));
+                    columnaT[8].BorderWidth = 0;
+
+                    columnaT[9] = new PdfPCell(new Phrase(fact.Estadofact, letra));
+                    columnaT[9].BorderWidth = 0;
+
+                    columnaT[10] = new PdfPCell(new Phrase(fact.Motivoinactivacion, letra));
+                    columnaT[10].BorderWidth = 0;
+
 
                     table.AddCell(columnaT[0]);
                     table.AddCell(columnaT[1]);
                     table.AddCell(columnaT[2]);
-                    //table.AddCell(columnaT[3]);
-                    //table.AddCell(columnaT[4]);
-                    //table.AddCell(columnaT[5]);
+                    table.AddCell(columnaT[3]);
+                    table.AddCell(columnaT[4]);
+                    table.AddCell(columnaT[5]);
+                    table.AddCell(columnaT[6]);
+                    table.AddCell(columnaT[7]);
+                    table.AddCell(columnaT[8]);
+                    table.AddCell(columnaT[9]);
+                    table.AddCell(columnaT[10]);
+
                 }
                 document.Add(table);
                 document.Close();
@@ -693,3 +878,4 @@ namespace Control
 
     }
 }
+
