@@ -31,14 +31,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VsMembresiaConsulta));
             this.dgvMembresia = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.radioBDP = new System.Windows.Forms.RadioButton();
-            this.txtBoxBM = new System.Windows.Forms.TextBox();
-            this.btnEliminarM = new System.Windows.Forms.Button();
-            this.btnEM = new System.Windows.Forms.Button();
-            this.radioBCM = new System.Windows.Forms.RadioButton();
-            this.btnBM = new System.Windows.Forms.Button();
             this.clmCedulaCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmNombreCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmApellidoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +43,14 @@
             this.clmDPM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmPREM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.radioBDP = new System.Windows.Forms.RadioButton();
+            this.txtBoxBM = new System.Windows.Forms.TextBox();
+            this.btnEliminarM = new System.Windows.Forms.Button();
+            this.btnEM = new System.Windows.Forms.Button();
+            this.radioBCM = new System.Windows.Forms.RadioButton();
+            this.btnBM = new System.Windows.Forms.Button();
+            this.btnCerrarMembresia = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMembresia)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,7 +89,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvMembresia.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvMembresia.EnableHeadersVisualStyles = false;
-            this.dgvMembresia.Location = new System.Drawing.Point(67, 209);
+            this.dgvMembresia.Location = new System.Drawing.Point(67, 197);
             this.dgvMembresia.Name = "dgvMembresia";
             this.dgvMembresia.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -101,6 +103,66 @@
             this.dgvMembresia.Size = new System.Drawing.Size(844, 279);
             this.dgvMembresia.TabIndex = 3;
             this.dgvMembresia.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMembresia_CellContentClick);
+            // 
+            // clmCedulaCliente
+            // 
+            this.clmCedulaCliente.HeaderText = "CEDULA CLIENTE";
+            this.clmCedulaCliente.Name = "clmCedulaCliente";
+            this.clmCedulaCliente.ReadOnly = true;
+            // 
+            // clmNombreCliente
+            // 
+            this.clmNombreCliente.HeaderText = "NOMBRE DEL CLIENTE";
+            this.clmNombreCliente.Name = "clmNombreCliente";
+            this.clmNombreCliente.ReadOnly = true;
+            // 
+            // clmApellidoCliente
+            // 
+            this.clmApellidoCliente.HeaderText = "APELLIDO DEL CLIENTE";
+            this.clmApellidoCliente.Name = "clmApellidoCliente";
+            this.clmApellidoCliente.ReadOnly = true;
+            // 
+            // clmPM
+            // 
+            this.clmPM.HeaderText = "PLAN DE MEMBRESIA";
+            this.clmPM.Name = "clmPM";
+            this.clmPM.ReadOnly = true;
+            // 
+            // clmFIM
+            // 
+            this.clmFIM.HeaderText = "FECHA DE INICIO";
+            this.clmFIM.Name = "clmFIM";
+            this.clmFIM.ReadOnly = true;
+            // 
+            // clmFFM
+            // 
+            this.clmFFM.HeaderText = "FECHA DE FIN ";
+            this.clmFFM.Name = "clmFFM";
+            this.clmFFM.ReadOnly = true;
+            // 
+            // clmP
+            // 
+            this.clmP.HeaderText = "PROMOCIÓN";
+            this.clmP.Name = "clmP";
+            this.clmP.ReadOnly = true;
+            // 
+            // clmDPM
+            // 
+            this.clmDPM.HeaderText = "DETALLE PROMOCION";
+            this.clmDPM.Name = "clmDPM";
+            this.clmDPM.ReadOnly = true;
+            // 
+            // clmDM
+            // 
+            this.clmDM.HeaderText = "DESCUENTO";
+            this.clmDM.Name = "clmDM";
+            this.clmDM.ReadOnly = true;
+            // 
+            // clmPREM
+            // 
+            this.clmPREM.HeaderText = "PRECIO";
+            this.clmPREM.Name = "clmPREM";
+            this.clmPREM.ReadOnly = true;
             // 
             // label1
             // 
@@ -210,65 +272,26 @@
             this.btnBM.UseVisualStyleBackColor = true;
             this.btnBM.Click += new System.EventHandler(this.btnBM_Click);
             // 
-            // clmCedulaCliente
+            // btnCerrarMembresia
             // 
-            this.clmCedulaCliente.HeaderText = "CEDULA CLIENTE";
-            this.clmCedulaCliente.Name = "clmCedulaCliente";
-            this.clmCedulaCliente.ReadOnly = true;
-            // 
-            // clmNombreCliente
-            // 
-            this.clmNombreCliente.HeaderText = "NOMBRE DEL CLIENTE";
-            this.clmNombreCliente.Name = "clmNombreCliente";
-            this.clmNombreCliente.ReadOnly = true;
-            // 
-            // clmApellidoCliente
-            // 
-            this.clmApellidoCliente.HeaderText = "APELLIDO DEL CLIENTE";
-            this.clmApellidoCliente.Name = "clmApellidoCliente";
-            this.clmApellidoCliente.ReadOnly = true;
-            // 
-            // clmPM
-            // 
-            this.clmPM.HeaderText = "PLAN DE MEMBRESIA";
-            this.clmPM.Name = "clmPM";
-            this.clmPM.ReadOnly = true;
-            // 
-            // clmFIM
-            // 
-            this.clmFIM.HeaderText = "FECHA DE INICIO";
-            this.clmFIM.Name = "clmFIM";
-            this.clmFIM.ReadOnly = true;
-            // 
-            // clmFFM
-            // 
-            this.clmFFM.HeaderText = "FECHA DE FIN ";
-            this.clmFFM.Name = "clmFFM";
-            this.clmFFM.ReadOnly = true;
-            // 
-            // clmP
-            // 
-            this.clmP.HeaderText = "PROMOCIÓN";
-            this.clmP.Name = "clmP";
-            this.clmP.ReadOnly = true;
-            // 
-            // clmDPM
-            // 
-            this.clmDPM.HeaderText = "DETALLE PROMOCION";
-            this.clmDPM.Name = "clmDPM";
-            this.clmDPM.ReadOnly = true;
-            // 
-            // clmDM
-            // 
-            this.clmDM.HeaderText = "DESCUENTO";
-            this.clmDM.Name = "clmDM";
-            this.clmDM.ReadOnly = true;
-            // 
-            // clmPREM
-            // 
-            this.clmPREM.HeaderText = "PRECIO";
-            this.clmPREM.Name = "clmPREM";
-            this.clmPREM.ReadOnly = true;
+            this.btnCerrarMembresia.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrarMembresia.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCerrarMembresia.FlatAppearance.BorderSize = 2;
+            this.btnCerrarMembresia.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnCerrarMembresia.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.btnCerrarMembresia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrarMembresia.Font = new System.Drawing.Font("Bernard MT Condensed", 9F);
+            this.btnCerrarMembresia.ForeColor = System.Drawing.Color.White;
+            this.btnCerrarMembresia.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrarMembresia.Image")));
+            this.btnCerrarMembresia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCerrarMembresia.Location = new System.Drawing.Point(821, 489);
+            this.btnCerrarMembresia.Name = "btnCerrarMembresia";
+            this.btnCerrarMembresia.Size = new System.Drawing.Size(90, 41);
+            this.btnCerrarMembresia.TabIndex = 18;
+            this.btnCerrarMembresia.Text = "Cerrar";
+            this.btnCerrarMembresia.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCerrarMembresia.UseVisualStyleBackColor = true;
+            this.btnCerrarMembresia.Click += new System.EventHandler(this.btnCerrarMembresia_Click);
             // 
             // VsMembresiaConsulta
             // 
@@ -276,6 +299,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(980, 542);
+            this.Controls.Add(this.btnCerrarMembresia);
             this.Controls.Add(this.btnBM);
             this.Controls.Add(this.radioBCM);
             this.Controls.Add(this.btnEM);
@@ -313,5 +337,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDPM;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDM;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmPREM;
+        private System.Windows.Forms.Button btnCerrarMembresia;
     }
 }

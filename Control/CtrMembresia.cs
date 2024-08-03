@@ -65,11 +65,11 @@ namespace Control
             {
                 return "ERROR: FECHA INICIO NO PUEDE SER IGUAL A FECHA FIN.";
             }
-            else if (fechaFin < fechaInicio)  
+            else if (fechaFin < fechaInicio)
             {
                 return "ERROR: FECHA FIN NO PUEDE SER ANTERIOR A FECHA INICIO.";
             }
-            else if (MembresiaExistente(cedulaCliente))
+            else if (MembresiaExistente(idCliente) == true)
             {
                 return "ERROR: MEMBRESIA YA REGISTRADA.";
             }
@@ -139,17 +139,17 @@ namespace Control
             conn.CerrarConexion();
             return membresias;
         }
-
-        public bool MembresiaExistente(string cedula)
+ 
+        public bool MembresiaExistente(string idCliente)
         {
-            foreach (Cliente men in ListaCli)
+            bool existe = false;
+            string cedulaCons = SelectCedulaClienteBD(idCliente);
+            Console.WriteLine(cedulaCons);
+            if (cedulaCons != "Cliente no encontrado.")
             {
-                if (men.Cedula == cedula)
-                {
-                    return true;
-                }
+                existe=true;
             }
-            return false;
+            return existe;
         }
 
 
@@ -166,6 +166,45 @@ namespace Control
                     if (!string.IsNullOrEmpty(idCliente))
                     {
                         msj = idCliente;
+                    }
+                    else
+                    {
+                        msj = "Cliente no encontrado.";
+                        Console.WriteLine(msj);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    msj = "ERROR INESPERADO: " + ex.Message;
+                    MessageBox.Show(msj);
+                }
+                finally
+                {
+                    conn.CerrarConexion();
+                }
+            }
+            else if (msjBD[0] == '0')
+            {
+                msj = "ERROR: " + msjBD;
+                MessageBox.Show(msj);
+            }
+
+            return msj;
+        }
+
+        public string SelectCedulaClienteBD(string idCliente)
+        {
+            string msj = string.Empty;
+            string msjBD = conn.AbrirConexion();
+
+            if (msjBD[0] == '1')
+            {
+                try
+                {
+                    string cedula = dtMembresia.SelectCedulaCliente(conn.Connect, idCliente);
+                    if (!string.IsNullOrEmpty(cedula))
+                    {
+                        msj = cedula;
                     }
                     else
                     {

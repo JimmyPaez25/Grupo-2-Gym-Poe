@@ -62,5 +62,10 @@ namespace Vista
         {
             ctrMem.eliminarMembresia(dgvMembresia);
         }
+
+        private void btnCerrarMembresia_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -175,9 +175,40 @@ namespace Dato
             return idCliente;
         }
 
+        public string SelectCedulaCliente(SqlConnection conn, string idCliente)
+        {
+            Console.WriteLine("-----SELECT MEMBRESIA-----");
+            SqlDataReader reader = null; // TABLA VIRTUAL
+            Cliente cli = null;
+            string cedula = "";
+            string comando = "SELECT cli.Cedula \nFROM Membresia AS men \nINNER JOIN Cliente AS cli ON men.idCliente = cli.Id_Cliente \nWHERE men.idCliente = @Id_Cliente; \n";
+
+            try
+            {
+                cmd.Connection = conn;
+                cmd.CommandText = comando;
+
+                cmd.Parameters.Clear(); // LIMPIA PARAMETROS UTILIZADOS
+                cmd.Parameters.AddWithValue("@Id_Cliente", idCliente);
+
+                ImprimirSQL(comando);
+                reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    cedula = reader["Cedula"].ToString();
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return cedula;
+        }
 
 
-            public string UpdateCamposMembresia(Membresia mem, SqlConnection conn, string SNombrePlan)
+
+        public string UpdateCamposMembresia(Membresia mem, SqlConnection conn, string SNombrePlan)
         {
             Console.WriteLine("-----UPDATE CAMPOS MEMBRESIA-----");
             string x = "";

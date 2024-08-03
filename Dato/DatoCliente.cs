@@ -52,7 +52,7 @@ namespace Dato
                 else
                 {
                     cmd.Parameters.AddWithValue("@tipo", "ESTANDAR");
-                    cmd.Parameters.AddWithValue("@comprobante", DBNull.Value);
+                    cmd.Parameters.AddWithValue("@comprobante","SIN COMPROBANTE");
                 }
                 ImprimirSQL(comando);
                 cmd.ExecuteNonQuery();
