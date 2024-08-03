@@ -84,7 +84,7 @@ namespace Dato
             string comando = "SELECT " +
                 "\nfac.numFactura, fac.serie, fac.precioFact, fac.descuentoFact, fac.iva, fac.total, fac.estadoFact, fac.motivoInactivacion," +
                 "\ncli.Cedula, cli.Apellido, cli.Nombre, cli.Telefono," +
-                "\nmen.planMembresia, men.promocion, men.descuento, men.precio" +
+                "\nmen.planMembresia, men.promocion, men.descuento, men.precio, men.fechaInicio, men.fechaFin" +
                 "\nFROM Factura AS fac" +
                 "\nINNER JOIN Cliente AS cli ON fac.idCliente = cli.id_Cliente" +
                 "\nINNER JOIN Membresia AS men ON fac.idMembresia = men.idMembresia;";
@@ -135,14 +135,13 @@ namespace Dato
                         Plan = reader["planMembresia"].ToString(),
                         Promocion = reader["promocion"].ToString(),
                         Descuento = Convert.ToInt32(reader["descuento"]),
-                        Precio = Convert.ToDouble(reader["precio"])
+                        Precio = Convert.ToDouble(reader["precio"]),
+                        FechaInicio = Convert.ToDateTime(reader["fechaInicio"]),
+                        FechaFin = Convert.ToDateTime(reader["fechaFin"])
                     };
 
                     // Asignar la instancia de Membresia a la Factura
                     factdat.Membresia = membresia;
-
-
-
 
                     facturas.Add(factdat);
                 }
@@ -248,6 +247,7 @@ namespace Dato
                     mem.Descuento = Convert.ToInt32(reader["descuento"]);
                     mem.DetallePromocion = reader["detallePromocion"].ToString();                  
                     mem.Precio = Convert.ToDouble(reader["precio"]);
+  
                 }
 
             }
@@ -282,20 +282,6 @@ namespace Dato
                 cmd.Parameters.AddWithValue("@serie", fact.Serie.Trim());               
                 cmd.Parameters.AddWithValue("@estadoFact", fact.estadofact);
                 cmd.Parameters.AddWithValue("@motivoInactivacion", fact.motivoinactivacion);
-                //cmd.Parameters.AddWithValue("@motivoinactivacion", DBNull.Value);
-
-
-                //if (fact.motivoinactivacion != null)
-                //{
-                //    cmd.Parameters.AddWithValue("@motivoinactivacion", fact.motivoinactivacion);
-                //}
-                //else
-                //{
-                //    //string motivoblanco = "NO ASIGNADO";
-                //    cmd.Parameters.AddWithValue("@motivoinactivacion", DBNull.Value);
-                //}
-
-
 
                 ImprimirSQL(comando);
                 cmd.ExecuteNonQuery();

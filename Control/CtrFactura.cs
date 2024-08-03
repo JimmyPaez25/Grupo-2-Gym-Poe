@@ -256,10 +256,6 @@ namespace Control
 
 
 
-
-
-
-
         //Ingresar-Guardar en el BD
         public void IngresarFacturaBD(Factura fact)
         {
@@ -284,33 +280,6 @@ namespace Control
 
 
 
-        //Consultar list BD
-        //public int GetTotalFacturacion()
-        //{
-        //    ListaFact = TablaConsultarFacturaBD(); // BASE DE DATOS
-        //    return ListaFact.Count;
-        //}
-
-
-        //public List<Factura> TablaConsultarFacturaBD(string estadofact)
-        //{
-        //    List<Factura> facturas = new List<Factura>();
-        //    string msjBD = conn.AbrirConexion();
-
-        //    if (msjBD[0] == '1')
-        //    {
-        //        facturas = dtFactura.SelectFact(conn.Connect, estadofact);
-        //    }
-        //    else if (msjBD[0] == '0')
-        //    {
-        //        MessageBox.Show("ERROR: " + msjBD);
-        //    }
-        //    conn.CerrarConexion();
-        //    return facturas;
-        //}
-
-
-
         //LLenar la tabla
         public void LlenarDataFact(DataGridView dgvRegistroFact)
         {
@@ -325,15 +294,19 @@ namespace Control
                 dgvRegistroFact.Rows[i].Cells["EstadoDataFact"].Value = f.Estadofact;
                 dgvRegistroFact.Rows[i].Cells["MotivoDataFact"].Value = f.Motivoinactivacion;
 
-                dgvRegistroFact.Rows[i].Cells["ClmCedulaCliente"].Value = f.Cliente?.Cedula ?? "N/A"; // Cedula del cliente
-                dgvRegistroFact.Rows[i].Cells["ClmNombreCliente"].Value = f.Cliente?.Nombre ?? "N/A"; // Nombre del cliente
-                dgvRegistroFact.Rows[i].Cells["ClmApellidoCliente"].Value = f.Cliente?.Apellido ?? "N/A"; // Apellido del cliente
+                //LOS DATOS DE CLEITNE
+                dgvRegistroFact.Rows[i].Cells["ClmCedulaCliente"].Value = f.Cliente?.Cedula ?? "N/A";
+                dgvRegistroFact.Rows[i].Cells["ClmNombreCliente"].Value = f.Cliente?.Nombre ?? "N/A"; 
+                dgvRegistroFact.Rows[i].Cells["ClmApellidoCliente"].Value = f.Cliente?.Apellido ?? "N/A"; 
                 dgvRegistroFact.Rows[i].Cells["ClmTelefonoCliente"].Value = f.Cliente?.Telefono ?? "N/A";
 
+                //LOS DATOS DE MEMBRESIA
                 dgvRegistroFact.Rows[i].Cells["ClmPlanMembresia"].Value = f.Membresia?.Plan ?? "N/A";
                 dgvRegistroFact.Rows[i].Cells["ClmPromocionMembresia"].Value = f.Membresia?.Promocion ?? "N/A";
                 dgvRegistroFact.Rows[i].Cells["ClmDescuentoMembresia"].Value = f.Membresia != null ? f.Membresia.Descuento.ToString() + "%" : "N/A"; 
                 dgvRegistroFact.Rows[i].Cells["ClmPrecioMembresia"].Value = f.Membresia != null ? "$ " + f.Membresia.Precio.ToString("F2") : "N/A";
+                dgvRegistroFact.Rows[i].Cells["ClmFechaInicioMem"].Value = f.Membresia?.FechaInicio.ToString("d") ?? "N/A";
+                dgvRegistroFact.Rows[i].Cells["ClmFechaFinMem"].Value = f.Membresia?.FechaFin.ToString("d") ?? "N/A";
 
                 //dgvRegistroFact
                 //dgvRegistroFact
@@ -341,7 +314,8 @@ namespace Control
         }
 
 
-        //Buscar
+
+        //BUSCAR POR NOMBRE O APELLDIO
         public void TablaConsultarNombreDescripcion(DataGridView dgvRegistroFact, string filtro = "", bool buscarPorNombreCliente = true)
         {
             int i;
@@ -349,8 +323,9 @@ namespace Control
             foreach (Factura f in ListaFact)
             {
                 if (string.IsNullOrEmpty(filtro) ||
-                    (buscarPorNombreCliente && f.Cliente != null && f.Cliente.Nombre.Contains(filtro)) ||
-                    (!buscarPorNombreCliente && f.Preciofact.ToString().Contains(filtro)))
+            (buscarPorNombreCliente && f.Cliente != null &&
+            (f.Cliente.Nombre.Contains(filtro) || f.Cliente.Apellido.Contains(filtro))) ||
+            (!buscarPorNombreCliente && f.Preciofact.ToString().Contains(filtro)))
                 {
                     i = dgvRegistroFact.Rows.Add();
                     dgvRegistroFact.Rows[i].Cells["FacturaRegistroFact"].Value = f.Serie;                 
@@ -361,9 +336,9 @@ namespace Control
 
 
                     //LOS DATOS DE CLIENTE
-                    dgvRegistroFact.Rows[i].Cells["ClmCedulaCliente"].Value = f.Cliente?.Cedula ?? "N/A"; // Cedula del cliente
-                    dgvRegistroFact.Rows[i].Cells["ClmNombreCliente"].Value = f.Cliente?.Nombre ?? "N/A"; // Nombre del cliente
-                    dgvRegistroFact.Rows[i].Cells["ClmApellidoCliente"].Value = f.Cliente?.Apellido ?? "N/A"; // Apellido del cliente
+                    dgvRegistroFact.Rows[i].Cells["ClmCedulaCliente"].Value = f.Cliente?.Cedula ?? "N/A"; 
+                    dgvRegistroFact.Rows[i].Cells["ClmNombreCliente"].Value = f.Cliente?.Nombre ?? "N/A"; 
+                    dgvRegistroFact.Rows[i].Cells["ClmApellidoCliente"].Value = f.Cliente?.Apellido ?? "N/A"; 
                     dgvRegistroFact.Rows[i].Cells["ClmTelefonoCliente"].Value = f.Cliente?.Telefono ?? "N/A";
 
 
@@ -372,6 +347,8 @@ namespace Control
                     dgvRegistroFact.Rows[i].Cells["ClmPromocionMembresia"].Value = f.Membresia?.Promocion ?? "N/A";
                     dgvRegistroFact.Rows[i].Cells["ClmDescuentoMembresia"].Value = f.Membresia != null ? f.Membresia.Descuento.ToString() + "%" : "N/A";
                     dgvRegistroFact.Rows[i].Cells["ClmPrecioMembresia"].Value = f.Membresia != null ? "$ " + f.Membresia.Precio.ToString("F2") : "N/A";
+                    dgvRegistroFact.Rows[i].Cells["ClmFechaInicioMem"].Value = f.Membresia?.FechaInicio.ToString("d") ?? "N/A";
+                    dgvRegistroFact.Rows[i].Cells["ClmFechaFinMem"].Value = f.Membresia?.FechaFin.ToString("d") ?? "N/A";
                 }
             }
         }
@@ -484,41 +461,73 @@ namespace Control
         //INFORME
         //
         //LLENAR EL INFORME DE PRECIO
-        public void LlenarRegistroPrecio(DataGridView dgvRegistroPrecio, string estadoSeleccionado)
+        public void LlenarRegistroPrecioPorFecha(DataGridView dgvRegistroPrecio, DateTime dtInicioInforme, DateTime dtFinInforme, string estadoSeleccionado)
         {
             int i;
             dgvRegistroPrecio.Rows.Clear(); // LIMPIA FILAS SI LAS HAY
 
             foreach (Factura f in ListaFact)
             {
-                if (f.Estadofact == estadoSeleccionado) // Agregar condición para filtrar por estado
+                if (f.Membresia.FechaInicio >= dtInicioInforme && f.Membresia.FechaFin <= dtFinInforme && f.Estadofact == estadoSeleccionado) // Agregar condición para filtrar por fecha y estado
                 {
-                    i = dgvRegistroPrecio.Rows.Add();
-                    dgvRegistroPrecio.Rows[i].Cells["clmNroFactRegistro"].Value = f.Serie;
-                    dgvRegistroPrecio.Rows[i].Cells["clmPrecioFactRegistro"].Value = "$ " + f.Preciofact;
-                    dgvRegistroPrecio.Rows[i].Cells["ClmDescuentoRegistro"].Value = f.Descuentofact;
-                    dgvRegistroPrecio.Rows[i].Cells["ClmIVARegistro"].Value = f.Iva;
-                    dgvRegistroPrecio.Rows[i].Cells["ClmTotalRegistro"].Value = "$ " + f.Total;
-                    dgvRegistroPrecio.Rows[i].Cells["ClmEstadoRegistro"].Value = f.Estadofact;
-                    dgvRegistroPrecio.Rows[i].Cells["ClmMotivoRegistro"].Value = f.Motivoinactivacion;
+                    if (string.IsNullOrEmpty(f.Descuentofact) || f.Descuentofact == "NO APLICA")  // Si el descuento es "NO APLICA"
+                    {                     
+                        i = dgvRegistroPrecio.Rows.Add();
+                        dgvRegistroPrecio.Rows[i].Cells["clmNroFactRegistro"].Value = f.Serie;
+                        dgvRegistroPrecio.Rows[i].Cells["clmPrecioFactRegistro"].Value = "$ " + f.Preciofact;
+                        dgvRegistroPrecio.Rows[i].Cells["ClmDescuentoRegistro"].Value = "NO APLICA";
+                        dgvRegistroPrecio.Rows[i].Cells["ClmIVARegistro"].Value = f.Iva;
+                        dgvRegistroPrecio.Rows[i].Cells["ClmTotalRegistro"].Value = "$ " + f.Total;
+                        dgvRegistroPrecio.Rows[i].Cells["ClmEstadoRegistro"].Value = f.Estadofact;
+                        dgvRegistroPrecio.Rows[i].Cells["ClmMotivoRegistro"].Value = f.Motivoinactivacion;
 
-                    dgvRegistroPrecio.Rows[i].Cells["ClmCedulaClienteRegistro"].Value = f.Cliente?.Cedula ?? "N/A"; // Cedula del cliente
-                    dgvRegistroPrecio.Rows[i].Cells["ClmNombreClienteRegistro"].Value = f.Cliente?.Nombre ?? "N/A"; // Nombre del cliente
-                    dgvRegistroPrecio.Rows[i].Cells["ClmApellidoClienteRegistro"].Value = f.Cliente?.Apellido ?? "N/A"; // Apellido del cliente
-                    dgvRegistroPrecio.Rows[i].Cells["ClmTelefonoClienteRegistro"].Value = f.Cliente?.Telefono ?? "N/A";
+                        //DATOS CLIENTE
+                        dgvRegistroPrecio.Rows[i].Cells["ClmCedulaClienteRegistro"].Value = f.Cliente?.Cedula ?? "N/A"; 
+                        dgvRegistroPrecio.Rows[i].Cells["ClmNombreClienteRegistro"].Value = f.Cliente?.Nombre ?? "N/A"; 
+                        dgvRegistroPrecio.Rows[i].Cells["ClmApellidoClienteRegistro"].Value = f.Cliente?.Apellido ?? "N/A"; 
+                        dgvRegistroPrecio.Rows[i].Cells["ClmTelefonoClienteRegistro"].Value = f.Cliente?.Telefono ?? "N/A";
+
+                        //DATOS MEMBRESIA
+                        dgvRegistroPrecio.Rows[i].Cells["ClmPlanRegistro"].Value = f.Membresia?.Plan ?? "N/A";
+                        dgvRegistroPrecio.Rows[i].Cells["ClmFechaInicioRegistro"].Value = f.Membresia?.FechaInicio.ToString("d") ?? "N/A";
+                        dgvRegistroPrecio.Rows[i].Cells["ClmFechaFinRegistro"].Value = f.Membresia?.FechaFin.ToString("d") ?? "N/A";
+                    }
+                    else 
+                    {
+                        i = dgvRegistroPrecio.Rows.Add();
+                        dgvRegistroPrecio.Rows[i].Cells["clmNroFactRegistro"].Value = f.Serie;
+                        dgvRegistroPrecio.Rows[i].Cells["clmPrecioFactRegistro"].Value = "$ " + f.Preciofact;
+                        dgvRegistroPrecio.Rows[i].Cells["ClmDescuentoRegistro"].Value = f.Descuentofact + "%";
+                        dgvRegistroPrecio.Rows[i].Cells["ClmIVARegistro"].Value = f.Iva;
+                        dgvRegistroPrecio.Rows[i].Cells["ClmTotalRegistro"].Value = "$ " + f.Total;
+                        dgvRegistroPrecio.Rows[i].Cells["ClmEstadoRegistro"].Value = f.Estadofact;
+                        dgvRegistroPrecio.Rows[i].Cells["ClmMotivoRegistro"].Value = f.Motivoinactivacion;
+
+                        //DATOS CLIENTE
+                        dgvRegistroPrecio.Rows[i].Cells["ClmCedulaClienteRegistro"].Value = f.Cliente?.Cedula ?? "N/A"; 
+                        dgvRegistroPrecio.Rows[i].Cells["ClmNombreClienteRegistro"].Value = f.Cliente?.Nombre ?? "N/A"; 
+                        dgvRegistroPrecio.Rows[i].Cells["ClmApellidoClienteRegistro"].Value = f.Cliente?.Apellido ?? "N/A"; 
+                        dgvRegistroPrecio.Rows[i].Cells["ClmTelefonoClienteRegistro"].Value = f.Cliente?.Telefono ?? "N/A";
+
+                        //DATOS MEMBRESIA
+                        dgvRegistroPrecio.Rows[i].Cells["ClmPlanRegistro"].Value = f.Membresia?.Plan ?? "N/A";
+                        dgvRegistroPrecio.Rows[i].Cells["ClmFechaInicioRegistro"].Value = f.Membresia?.FechaInicio.ToString("d") ?? "N/A";
+                        dgvRegistroPrecio.Rows[i].Cells["ClmFechaFinRegistro"].Value = f.Membresia?.FechaFin.ToString("d") ?? "N/A";
+                    }
                 }
             }
         }
 
 
 
-        public void MostrarTotalFacturas(string estadoSeleccionado, TextBox txtTotalFacturas)
+        //MOSTRAR EL TOTAL DE FACTURAS MOSTRADAS
+        public void MostrarTotalFacturas(DataGridView dgv, TextBox txtTotalFacturas)
         {
             int totalFacturas = 0;
 
-            foreach (Factura f in ListaFact)
+            foreach (DataGridViewRow row in dgv.Rows)
             {
-                if (f.Estadofact == estadoSeleccionado)
+                if (row.Cells[0].Value != null) // Verifica si la primera celda de la fila no es nula
                 {
                     totalFacturas++;
                 }
@@ -527,32 +536,28 @@ namespace Control
             txtTotalFacturas.Text = totalFacturas.ToString();
         }
 
-        // CONTAR CUANTAS FACTURAS CON Y SIN DESCUENTO HAY
-        public void MostrarTotalFacturasConDescuento(string estadoSeleccionado, TextBox txtTotalConDescuento, TextBox txtTotalSinDescuento)
+
+        //MOSTRAR EL TOTAL DE LAS FACTURAS CON Y SIN DESCUENTO
+        public void MostrarTotalFacturasConDescuento(DataGridView dgv, TextBox txtTotalConDescuento, TextBox txtTotalSinDescuento)
         {
             int totalFacturasConDescuento = 0;
             int totalFacturasSinDescuento = 0;
 
-            foreach (Factura f in ListaFact)
+            foreach (DataGridViewRow row in dgv.Rows)
             {
-                if (f.Estadofact == estadoSeleccionado)
+                if (row != null && row.Cells.Count > 0) // Verifica si la fila no es nula y tiene celdas
                 {
-                    if (int.TryParse(f.Descuentofact, out int descuento))
+                    string descuento = row.Cells["ClmDescuentoRegistro"].Value?.ToString();
+
+                    if (descuento != null)
                     {
-                        if (descuento > 0)
+                        if (descuento.EndsWith("%")) // Verifica si el descuento termina con "%"
                         {
                             totalFacturasConDescuento++;
                         }
                         else
                         {
-                            totalFacturasSinDescuento++; // Si el descuento es 0, incrementa el contador de facturas sin descuento
-                        }
-                    }
-                    else
-                    {
-                        if (string.IsNullOrWhiteSpace(f.Descuentofact) || f.Descuentofact.ToUpper() == "NO APLICA")
-                        {
-                            totalFacturasSinDescuento++; // Si el string es vacío o contiene solo espacios en blanco, incrementa el contador de facturas sin descuento
+                            totalFacturasSinDescuento++;
                         }
                     }
                 }
@@ -563,29 +568,89 @@ namespace Control
         }
 
 
-
-        public void MostrarMontoTotalInforme(string estadoSeleccionado, TextBox txtMontoTotal)
+        //CALCULAR MONTO TOTAL DE TODAS LAS FACTURAS DE INFORME
+        public void MostrarMontoTotalInforme(DataGridView dgv, TextBox txtMontoTotal)
         {
-            decimal totalFacturas = 0; // Cambia el tipo de variable a decimal para admitir decimales
+            decimal totalFacturas = 0;
 
-            foreach (Factura f in ListaFact)
+            foreach (DataGridViewRow row in dgv.Rows)
             {
-                if (f.Estadofact == estadoSeleccionado)
+                string total = row.Cells["ClmTotalRegistro"].Value?.ToString();
+
+                if (total != null)
                 {
-                    if (decimal.TryParse(f.Total, out decimal total))
+                    // Elimina el símbolo "$" de la cadena
+                    total = total.Replace("$", "");
+
+                    // Intenta convertir la cadena a decimal
+                    if (decimal.TryParse(total, out decimal totalValue))
                     {
-                        totalFacturas += total;
+                        totalFacturas += totalValue;
                     }
                 }
             }
 
-            txtMontoTotal.Text = totalFacturas.ToString("C"); // Muestra el valor con símbolo de moneda y decimales
+            txtMontoTotal.Text = "$ " + totalFacturas.ToString("N2");
         }
 
 
 
-        //public void MostrarTotalFacturasSinDescuento(string estadoSeleccionado, TextBox txtTotalSinDescuento)
+        //public void LlenarRegistroPrecio(DataGridView dgvRegistroPrecio, string estadoSeleccionado)
         //{
+        //    int i;
+        //    dgvRegistroPrecio.Rows.Clear(); // LIMPIA FILAS SI LAS HAY
+
+        //    foreach (Factura f in ListaFact)
+        //    {
+        //        if (f.Estadofact == estadoSeleccionado) // Agregar condición para filtrar por estado
+        //        {
+        //            i = dgvRegistroPrecio.Rows.Add();
+        //            dgvRegistroPrecio.Rows[i].Cells["clmNroFactRegistro"].Value = f.Serie;
+        //            dgvRegistroPrecio.Rows[i].Cells["clmPrecioFactRegistro"].Value = "$ " + f.Preciofact;
+        //            dgvRegistroPrecio.Rows[i].Cells["ClmDescuentoRegistro"].Value = f.Descuentofact + "%";
+        //            dgvRegistroPrecio.Rows[i].Cells["ClmIVARegistro"].Value = f.Iva;
+        //            dgvRegistroPrecio.Rows[i].Cells["ClmTotalRegistro"].Value = "$ " + f.Total;
+        //            dgvRegistroPrecio.Rows[i].Cells["ClmEstadoRegistro"].Value = f.Estadofact;
+        //            dgvRegistroPrecio.Rows[i].Cells["ClmMotivoRegistro"].Value = f.Motivoinactivacion;
+
+        //            //DATOS CLIENTE
+        //            dgvRegistroPrecio.Rows[i].Cells["ClmCedulaClienteRegistro"].Value = f.Cliente?.Cedula ?? "N/A"; // Cedula del cliente
+        //            dgvRegistroPrecio.Rows[i].Cells["ClmNombreClienteRegistro"].Value = f.Cliente?.Nombre ?? "N/A"; // Nombre del cliente
+        //            dgvRegistroPrecio.Rows[i].Cells["ClmApellidoClienteRegistro"].Value = f.Cliente?.Apellido ?? "N/A"; // Apellido del cliente
+        //            dgvRegistroPrecio.Rows[i].Cells["ClmTelefonoClienteRegistro"].Value = f.Cliente?.Telefono ?? "N/A";
+
+        //            //DATOS MEMBRESIA
+        //            dgvRegistroPrecio.Rows[i].Cells["ClmPlanRegistro"].Value = f.Membresia?.Plan ?? "N/A";
+        //            dgvRegistroPrecio.Rows[i].Cells["ClmFechaInicioRegistro"].Value = f.Membresia?.FechaInicio.ToString("d") ?? "N/A";
+        //            dgvRegistroPrecio.Rows[i].Cells["ClmFechaFinRegistro"].Value = f.Membresia?.FechaFin.ToString("d") ?? "N/A";
+
+        //        }
+        //    }
+        //}
+
+
+        ////MUESTRA EL TOTAL DE FACTURAS ACTIVAS O INACTIVAS
+        //public void MostrarTotalFacturas(string estadoSeleccionado, TextBox txtTotalFacturas)
+        //{
+        //    int totalFacturas = 0;
+
+        //    foreach (Factura f in ListaFact)
+        //    {
+        //        if (f.Estadofact == estadoSeleccionado)
+        //        {
+        //            totalFacturas++;
+        //        }
+        //    }
+
+        //    txtTotalFacturas.Text = totalFacturas.ToString();
+        //}
+
+
+
+        //// CONTAR CUANTAS FACTURAS CON Y SIN DESCUENTO HAY
+        //public void MostrarTotalFacturasConDescuento(string estadoSeleccionado, TextBox txtTotalConDescuento, TextBox txtTotalSinDescuento)
+        //{
+        //    int totalFacturasConDescuento = 0;
         //    int totalFacturasSinDescuento = 0;
 
         //    foreach (Factura f in ListaFact)
@@ -594,19 +659,48 @@ namespace Control
         //        {
         //            if (int.TryParse(f.Descuentofact, out int descuento))
         //            {
-        //                if (descuento <= 0)
+        //                if (descuento > 0)
         //                {
-        //                    totalFacturasSinDescuento++; // Incrementa el contador solo si la factura tiene descuento
+        //                    totalFacturasConDescuento++;
+        //                }
+        //                else
+        //                {
+        //                    totalFacturasSinDescuento++; // Si el descuento es 0, incrementa el contador de facturas sin descuento
+        //                }
+        //            }
+        //            else
+        //            {
+        //                if (string.IsNullOrWhiteSpace(f.Descuentofact) || f.Descuentofact.ToUpper() == "NO APLICA")
+        //                {
+        //                    totalFacturasSinDescuento++; // Si el string es vacío o contiene solo espacios en blanco, incrementa el contador de facturas sin descuento
         //                }
         //            }
         //        }
         //    }
 
+        //    txtTotalConDescuento.Text = totalFacturasConDescuento.ToString();
         //    txtTotalSinDescuento.Text = totalFacturasSinDescuento.ToString();
         //}
 
 
+        ////MUESTRA EL MONTO TOTAL DE TODAS LAS FACTURAS ACTIVAS O INACTIVAS
+        //public void MostrarMontoTotalInforme(string estadoSeleccionado, TextBox txtMontoTotal)
+        //{
+        //    decimal totalFacturas = 0; // Cambia el tipo de variable a decimal para admitir decimales
 
+        //    foreach (Factura f in ListaFact)
+        //    {
+        //        if (f.Estadofact == estadoSeleccionado)
+        //        {
+        //            if (decimal.TryParse(f.Total, out decimal total))
+        //            {
+        //                totalFacturas += total;
+        //            }
+        //        }
+        //    }
+
+        //    txtMontoTotal.Text = totalFacturas.ToString("C"); // Muestra el valor con símbolo de moneda y decimales
+        //}
 
 
 
@@ -639,8 +733,8 @@ namespace Control
         {
             FileStream stream = null;
             Document document = null;
-            string[] etiquetas = { "CEDULA", "NUMERO FACTURA", "APELLIDO", "NOMBRE", "PLAN", "PRECIO", "IVA", "DESCUENTO", "TOTAL", "ESTADO" };
-            int numCol = 10;
+            string[] etiquetas = { "CEDULA", "NUMERO FACTURA", "APELLIDO", "NOMBRE", "PLAN", "FECHA INICIO", "FECHA FIN", "PRECIO", "IVA", "DESCUENTO", "TOTAL", "ESTADO" };
+            int numCol = 12;
             List<Factura> facturas = GetListaFactura();
 
             try
@@ -663,7 +757,7 @@ namespace Control
                 table.WidthPercentage = 100;
 
                 //Ajustar tamaño de columnas
-                float[] anchoColumnas = { 0.6f, 1f, 0.8f, 0.8f, 1f, 0.6f, 0.5f, 0.8f, 0.7f, 0.5f };
+                float[] anchoColumnas = { 0.6f, 0.8f, 0.8f, 0.8f, 1f, 0.5f, 0.5f, 0.4f, 0.3f, 0.6f, 0.4f, 0.5f };
                 table.SetWidths(anchoColumnas);
 
                 PdfPCell[] columnaT = new PdfPCell[etiquetas.Length];
@@ -692,20 +786,26 @@ namespace Control
                     columnaT[4] = new PdfPCell(new Phrase(fact.Membresia.Plan, letra));
                     columnaT[4].BorderWidth = 0;
 
-                    columnaT[5] = new PdfPCell(new Phrase("$ " + fact.Preciofact, letra));
+                    columnaT[5] = new PdfPCell(new Phrase(fact.Membresia.FechaInicio.ToString("d"), letra));
                     columnaT[5].BorderWidth = 0;
 
-                    columnaT[6] = new PdfPCell(new Phrase(fact.Iva, letra));
+                    columnaT[6] = new PdfPCell(new Phrase(fact.Membresia.FechaFin.ToString("d"), letra));
                     columnaT[6].BorderWidth = 0;
 
-                    columnaT[7] = new PdfPCell(new Phrase(fact.Descuentofact + "%", letra));
+                    columnaT[7] = new PdfPCell(new Phrase("$ " + fact.Preciofact, letra));
                     columnaT[7].BorderWidth = 0;
 
-                    columnaT[8] = new PdfPCell(new Phrase("$ " + fact.Total, letra));
+                    columnaT[8] = new PdfPCell(new Phrase(fact.Iva, letra));
                     columnaT[8].BorderWidth = 0;
 
-                    columnaT[9] = new PdfPCell(new Phrase(fact.Estadofact, letra));
+                    columnaT[9] = new PdfPCell(new Phrase(fact.Descuentofact + "%", letra));
                     columnaT[9].BorderWidth = 0;
+
+                    columnaT[10] = new PdfPCell(new Phrase("$ " + fact.Total, letra));
+                    columnaT[10].BorderWidth = 0;
+
+                    columnaT[11] = new PdfPCell(new Phrase(fact.Estadofact, letra));
+                    columnaT[11].BorderWidth = 0;
                     
 
                     table.AddCell(columnaT[0]);
@@ -718,6 +818,8 @@ namespace Control
                     table.AddCell(columnaT[7]);
                     table.AddCell(columnaT[8]);
                     table.AddCell(columnaT[9]);
+                    table.AddCell(columnaT[10]);
+                    table.AddCell(columnaT[11]);
                 }
                 document.Add(table);
                 document.Close();
@@ -731,7 +833,7 @@ namespace Control
             }
             finally
             {
-                stream?.Close(); // Asegurarse de cerrar el FileStream incluso si ocurre una excepción
+                stream?.Close();
             }
         }
 
@@ -739,21 +841,21 @@ namespace Control
 
 
 
-
+        //CREACION DE PDF PARA INFORME
         //GENERAR PDF DE INFORME
-        public List<Factura> GetListaInformeFactura(string estado)
+        public List<Factura> GetListaInformeFactura(string estado, DateTime dtInicio, DateTime dtFin)
         {
             if (estado == "ACTIVO")
             {
-                return TablaConsultarFacturaBD().Where(f => f.Estadofact == "ACTIVO").ToList();
+                return TablaConsultarFacturaBD().Where(f => f.Estadofact == "ACTIVO" && f.Membresia.FechaInicio >= dtInicio && f.Membresia.FechaFin <= dtFin).ToList();
             }
             else if (estado == "INACTIVO")
             {
-                return TablaConsultarFacturaBD().Where(f => f.Estadofact == "INACTIVO").ToList();
+                return TablaConsultarFacturaBD().Where(f => f.Estadofact == "INACTIVO" && f.Membresia.FechaInicio >= dtInicio && f.Membresia.FechaFin <= dtFin).ToList();
             }
             else
             {
-                return TablaConsultarFacturaBD();
+                return TablaConsultarFacturaBD().Where(f => f.Membresia.FechaInicio >= dtInicio && f.Membresia.FechaFin <= dtFin).ToList();
             }
         }
 
@@ -770,13 +872,14 @@ namespace Control
             }
         }
 
-        public void GenerarInformePDF(string estado)
+
+        public void GenerarInformePDF(string estado, DateTime dtInicio, DateTime dtFin)
         {
             FileStream stream = null;
             Document document = null;
-            string[] etiquetas = { "NÚMERO FACTURA", "CÉDULA", "APELLIDO", "NOMBRE", "TELÉFONO", "IVA", "PRECIO", "DESCUENTO", "TOTAL", "ESTADO", "MOTIVO" };
-            int numCol = 11;
-            List<Factura> facturas = GetListaInformeFactura(estado);
+            string[] etiquetas = { "NÚMERO FACTURA", "CÉDULA", "APELLIDO", "NOMBRE", "PLAN", "FECHA INICIO", "FECHA FIN", "TELÉFONO", "IVA", "PRECIO", "DESCUENTO", "TOTAL", "ESTADO", "MOTIVO" };
+            int numCol = 14;
+            List<Factura> facturas = GetListaInformeFactura(estado, dtInicio, dtFin);
 
             try
             {
@@ -798,7 +901,7 @@ namespace Control
                 table.WidthPercentage = 100;
 
                 //Ajustar tamaño de columnas
-                float[] anchoColumnas = { 1f, 0.7f, 0.8f, 0.8f, 0.7f, 0.6f, 0.5f, 0.8f, 0.5f, 0.6f, 1f };
+                float[] anchoColumnas = { 1f, 0.7f, 0.8f, 0.8f, 0.7f, 0.6f, 0.6f, 0.6f, 0.4f, 0.5f, 0.6f, 0.5f, 0.6f, 0.8f };
                 table.SetWidths(anchoColumnas);
 
                 PdfPCell[] columnaT = new PdfPCell[etiquetas.Length];
@@ -824,26 +927,35 @@ namespace Control
                     columnaT[3] = new PdfPCell(new Phrase(fact.Cliente.Nombre, letra));
                     columnaT[3].BorderWidth = 0;
 
-                    columnaT[4] = new PdfPCell(new Phrase(fact.Cliente.Telefono, letra));
+                    columnaT[4] = new PdfPCell(new Phrase(fact.Membresia.Plan, letra));
                     columnaT[4].BorderWidth = 0;
 
-                    columnaT[5] = new PdfPCell(new Phrase(fact.Iva, letra));
+                    columnaT[5] = new PdfPCell(new Phrase(fact.Membresia.FechaInicio.ToString("d"), letra));
                     columnaT[5].BorderWidth = 0;
 
-                    columnaT[6] = new PdfPCell(new Phrase("$ " + fact.Preciofact, letra));
-                    columnaT[6].BorderWidth = 0;                  
+                    columnaT[6] = new PdfPCell(new Phrase(fact.Membresia.FechaFin.ToString("d"), letra));
+                    columnaT[6].BorderWidth = 0;
 
-                    columnaT[7] = new PdfPCell(new Phrase(fact.Descuentofact + "%", letra));
+                    columnaT[7] = new PdfPCell(new Phrase(fact.Cliente.Telefono, letra));
                     columnaT[7].BorderWidth = 0;
 
-                    columnaT[8] = new PdfPCell(new Phrase("$ " + fact.Total, letra));
+                    columnaT[8] = new PdfPCell(new Phrase(fact.Iva, letra));
                     columnaT[8].BorderWidth = 0;
 
-                    columnaT[9] = new PdfPCell(new Phrase(fact.Estadofact, letra));
-                    columnaT[9].BorderWidth = 0;
+                    columnaT[9] = new PdfPCell(new Phrase("$ " + fact.Preciofact, letra));
+                    columnaT[9].BorderWidth = 0;                  
 
-                    columnaT[10] = new PdfPCell(new Phrase(fact.Motivoinactivacion, letra));
+                    columnaT[10] = new PdfPCell(new Phrase(fact.Descuentofact + "%", letra));
                     columnaT[10].BorderWidth = 0;
+
+                    columnaT[11] = new PdfPCell(new Phrase("$ " + fact.Total, letra));
+                    columnaT[11].BorderWidth = 0;
+
+                    columnaT[12] = new PdfPCell(new Phrase(fact.Estadofact, letra));
+                    columnaT[12].BorderWidth = 0;
+
+                    columnaT[13] = new PdfPCell(new Phrase(fact.Motivoinactivacion, letra));
+                    columnaT[13].BorderWidth = 0;
 
 
                     table.AddCell(columnaT[0]);
@@ -857,6 +969,9 @@ namespace Control
                     table.AddCell(columnaT[8]);
                     table.AddCell(columnaT[9]);
                     table.AddCell(columnaT[10]);
+                    table.AddCell(columnaT[11]);
+                    table.AddCell(columnaT[12]);
+                    table.AddCell(columnaT[13]);
 
                 }
                 document.Add(table);
@@ -871,11 +986,9 @@ namespace Control
             }
             finally
             {
-                stream?.Close(); // Asegurarse de cerrar el FileStream incluso si ocurre una excepción
+                stream?.Close();
             }
         }
-
-
     }
 }
 

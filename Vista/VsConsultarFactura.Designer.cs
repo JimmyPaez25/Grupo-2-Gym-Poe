@@ -29,12 +29,23 @@
         private void InitializeComponent()
         {
             this.dgvRegistroFact = new System.Windows.Forms.DataGridView();
+            this.btnBuscarFact = new System.Windows.Forms.Button();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnInactivarFact = new System.Windows.Forms.Button();
+            this.txtingresarbuscar = new System.Windows.Forms.TextBox();
+            this.btnVolverFact = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnActivarFact = new System.Windows.Forms.Button();
+            this.buttonGenerarPDF = new System.Windows.Forms.Button();
             this.ClmCedulaCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FacturaRegistroFact = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClmApellidoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClmNombreCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClmTelefonoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClmPlanMembresia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClmFechaInicioMem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClmFechaFinMem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClmPromocionMembresia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClmPrecioMembresia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClmDescuentoMembresia = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,16 +53,6 @@
             this.TotalDataFact = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EstadoDataFact = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MotivoDataFact = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnBuscarFact = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnInactivarFact = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtingresarbuscar = new System.Windows.Forms.TextBox();
-            this.btnVolverFact = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnActivarFact = new System.Windows.Forms.Button();
-            this.buttonGenerarPDF = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistroFact)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,6 +66,8 @@
             this.ClmNombreCliente,
             this.ClmTelefonoCliente,
             this.ClmPlanMembresia,
+            this.ClmFechaInicioMem,
+            this.ClmFechaFinMem,
             this.ClmPromocionMembresia,
             this.ClmPrecioMembresia,
             this.ClmDescuentoMembresia,
@@ -72,7 +75,7 @@
             this.TotalDataFact,
             this.EstadoDataFact,
             this.MotivoDataFact});
-            this.dgvRegistroFact.Location = new System.Drawing.Point(72, 95);
+            this.dgvRegistroFact.Location = new System.Drawing.Point(72, 120);
             this.dgvRegistroFact.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvRegistroFact.Name = "dgvRegistroFact";
             this.dgvRegistroFact.RowHeadersWidth = 51;
@@ -80,101 +83,6 @@
             this.dgvRegistroFact.Size = new System.Drawing.Size(1353, 246);
             this.dgvRegistroFact.TabIndex = 0;
             this.dgvRegistroFact.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistroFact_CellContentClick);
-            // 
-            // ClmCedulaCliente
-            // 
-            this.ClmCedulaCliente.HeaderText = "Cedula Cliente";
-            this.ClmCedulaCliente.MinimumWidth = 6;
-            this.ClmCedulaCliente.Name = "ClmCedulaCliente";
-            this.ClmCedulaCliente.Width = 125;
-            // 
-            // FacturaRegistroFact
-            // 
-            this.FacturaRegistroFact.HeaderText = "Factura";
-            this.FacturaRegistroFact.MinimumWidth = 6;
-            this.FacturaRegistroFact.Name = "FacturaRegistroFact";
-            this.FacturaRegistroFact.ReadOnly = true;
-            this.FacturaRegistroFact.Width = 125;
-            // 
-            // ClmApellidoCliente
-            // 
-            this.ClmApellidoCliente.HeaderText = "Apellido Cliente";
-            this.ClmApellidoCliente.MinimumWidth = 6;
-            this.ClmApellidoCliente.Name = "ClmApellidoCliente";
-            this.ClmApellidoCliente.Width = 125;
-            // 
-            // ClmNombreCliente
-            // 
-            this.ClmNombreCliente.HeaderText = "Nombre Cliente";
-            this.ClmNombreCliente.MinimumWidth = 6;
-            this.ClmNombreCliente.Name = "ClmNombreCliente";
-            this.ClmNombreCliente.Width = 125;
-            // 
-            // ClmTelefonoCliente
-            // 
-            this.ClmTelefonoCliente.HeaderText = "Telefono Cliente";
-            this.ClmTelefonoCliente.MinimumWidth = 6;
-            this.ClmTelefonoCliente.Name = "ClmTelefonoCliente";
-            this.ClmTelefonoCliente.Width = 125;
-            // 
-            // ClmPlanMembresia
-            // 
-            this.ClmPlanMembresia.HeaderText = "Plan Membresia";
-            this.ClmPlanMembresia.MinimumWidth = 6;
-            this.ClmPlanMembresia.Name = "ClmPlanMembresia";
-            this.ClmPlanMembresia.Width = 125;
-            // 
-            // ClmPromocionMembresia
-            // 
-            this.ClmPromocionMembresia.HeaderText = "Promocion Membresia";
-            this.ClmPromocionMembresia.MinimumWidth = 6;
-            this.ClmPromocionMembresia.Name = "ClmPromocionMembresia";
-            this.ClmPromocionMembresia.Width = 125;
-            // 
-            // ClmPrecioMembresia
-            // 
-            this.ClmPrecioMembresia.HeaderText = "Precio Membresia";
-            this.ClmPrecioMembresia.MinimumWidth = 6;
-            this.ClmPrecioMembresia.Name = "ClmPrecioMembresia";
-            this.ClmPrecioMembresia.Width = 125;
-            // 
-            // ClmDescuentoMembresia
-            // 
-            this.ClmDescuentoMembresia.HeaderText = "Descuento Membresia";
-            this.ClmDescuentoMembresia.MinimumWidth = 6;
-            this.ClmDescuentoMembresia.Name = "ClmDescuentoMembresia";
-            this.ClmDescuentoMembresia.Width = 125;
-            // 
-            // IvaDataFact
-            // 
-            this.IvaDataFact.HeaderText = "IVA";
-            this.IvaDataFact.MinimumWidth = 6;
-            this.IvaDataFact.Name = "IvaDataFact";
-            this.IvaDataFact.ReadOnly = true;
-            this.IvaDataFact.Width = 125;
-            // 
-            // TotalDataFact
-            // 
-            this.TotalDataFact.HeaderText = "Total";
-            this.TotalDataFact.MinimumWidth = 6;
-            this.TotalDataFact.Name = "TotalDataFact";
-            this.TotalDataFact.ReadOnly = true;
-            this.TotalDataFact.Width = 125;
-            // 
-            // EstadoDataFact
-            // 
-            this.EstadoDataFact.HeaderText = "Estado";
-            this.EstadoDataFact.MinimumWidth = 6;
-            this.EstadoDataFact.Name = "EstadoDataFact";
-            this.EstadoDataFact.ReadOnly = true;
-            this.EstadoDataFact.Width = 125;
-            // 
-            // MotivoDataFact
-            // 
-            this.MotivoDataFact.HeaderText = "Motivo";
-            this.MotivoDataFact.MinimumWidth = 6;
-            this.MotivoDataFact.Name = "MotivoDataFact";
-            this.MotivoDataFact.Width = 125;
             // 
             // btnBuscarFact
             // 
@@ -185,12 +93,12 @@
             this.btnBuscarFact.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarFact.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarFact.ForeColor = System.Drawing.Color.White;
-            this.btnBuscarFact.Location = new System.Drawing.Point(141, 44);
+            this.btnBuscarFact.Location = new System.Drawing.Point(72, 41);
             this.btnBuscarFact.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBuscarFact.Name = "btnBuscarFact";
-            this.btnBuscarFact.Size = new System.Drawing.Size(253, 30);
+            this.btnBuscarFact.Size = new System.Drawing.Size(221, 30);
             this.btnBuscarFact.TabIndex = 11;
-            this.btnBuscarFact.Text = "BUSCAR POR NOMBRE";
+            this.btnBuscarFact.Text = "BUSCAR POR NOMBRE/APELLIDO";
             this.btnBuscarFact.Click += new System.EventHandler(this.button1_Click);
             // 
             // richTextBox1
@@ -232,16 +140,9 @@
             this.btnInactivarFact.UseVisualStyleBackColor = true;
             this.btnInactivarFact.Click += new System.EventHandler(this.btnInactivarFact_Click);
             // 
-            // label1
-            // 
-            this.label1.Location = new System.Drawing.Point(568, 343);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 23);
-            this.label1.TabIndex = 9;
-            // 
             // txtingresarbuscar
             // 
-            this.txtingresarbuscar.Location = new System.Drawing.Point(435, 49);
+            this.txtingresarbuscar.Location = new System.Drawing.Point(357, 46);
             this.txtingresarbuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtingresarbuscar.Name = "txtingresarbuscar";
             this.txtingresarbuscar.Size = new System.Drawing.Size(213, 22);
@@ -312,6 +213,117 @@
             this.buttonGenerarPDF.UseVisualStyleBackColor = true;
             this.buttonGenerarPDF.Click += new System.EventHandler(this.buttonGenerarPDF_Click);
             // 
+            // ClmCedulaCliente
+            // 
+            this.ClmCedulaCliente.HeaderText = "Cedula Cliente";
+            this.ClmCedulaCliente.MinimumWidth = 6;
+            this.ClmCedulaCliente.Name = "ClmCedulaCliente";
+            this.ClmCedulaCliente.Width = 125;
+            // 
+            // FacturaRegistroFact
+            // 
+            this.FacturaRegistroFact.HeaderText = "Factura";
+            this.FacturaRegistroFact.MinimumWidth = 6;
+            this.FacturaRegistroFact.Name = "FacturaRegistroFact";
+            this.FacturaRegistroFact.ReadOnly = true;
+            this.FacturaRegistroFact.Width = 125;
+            // 
+            // ClmApellidoCliente
+            // 
+            this.ClmApellidoCliente.HeaderText = "Apellido Cliente";
+            this.ClmApellidoCliente.MinimumWidth = 6;
+            this.ClmApellidoCliente.Name = "ClmApellidoCliente";
+            this.ClmApellidoCliente.Width = 125;
+            // 
+            // ClmNombreCliente
+            // 
+            this.ClmNombreCliente.HeaderText = "Nombre Cliente";
+            this.ClmNombreCliente.MinimumWidth = 6;
+            this.ClmNombreCliente.Name = "ClmNombreCliente";
+            this.ClmNombreCliente.Width = 125;
+            // 
+            // ClmTelefonoCliente
+            // 
+            this.ClmTelefonoCliente.HeaderText = "Telefono Cliente";
+            this.ClmTelefonoCliente.MinimumWidth = 6;
+            this.ClmTelefonoCliente.Name = "ClmTelefonoCliente";
+            this.ClmTelefonoCliente.Width = 125;
+            // 
+            // ClmPlanMembresia
+            // 
+            this.ClmPlanMembresia.HeaderText = "Plan Membresia";
+            this.ClmPlanMembresia.MinimumWidth = 6;
+            this.ClmPlanMembresia.Name = "ClmPlanMembresia";
+            this.ClmPlanMembresia.Width = 125;
+            // 
+            // ClmFechaInicioMem
+            // 
+            this.ClmFechaInicioMem.HeaderText = "Fecha Inicio Membresía";
+            this.ClmFechaInicioMem.MinimumWidth = 6;
+            this.ClmFechaInicioMem.Name = "ClmFechaInicioMem";
+            this.ClmFechaInicioMem.ReadOnly = true;
+            this.ClmFechaInicioMem.Width = 125;
+            // 
+            // ClmFechaFinMem
+            // 
+            this.ClmFechaFinMem.HeaderText = "Fecha Fin Membresía";
+            this.ClmFechaFinMem.MinimumWidth = 6;
+            this.ClmFechaFinMem.Name = "ClmFechaFinMem";
+            this.ClmFechaFinMem.ReadOnly = true;
+            this.ClmFechaFinMem.Width = 125;
+            // 
+            // ClmPromocionMembresia
+            // 
+            this.ClmPromocionMembresia.HeaderText = "Promocion Membresia";
+            this.ClmPromocionMembresia.MinimumWidth = 6;
+            this.ClmPromocionMembresia.Name = "ClmPromocionMembresia";
+            this.ClmPromocionMembresia.Width = 125;
+            // 
+            // ClmPrecioMembresia
+            // 
+            this.ClmPrecioMembresia.HeaderText = "Precio Membresia";
+            this.ClmPrecioMembresia.MinimumWidth = 6;
+            this.ClmPrecioMembresia.Name = "ClmPrecioMembresia";
+            this.ClmPrecioMembresia.Width = 125;
+            // 
+            // ClmDescuentoMembresia
+            // 
+            this.ClmDescuentoMembresia.HeaderText = "Descuento Membresia";
+            this.ClmDescuentoMembresia.MinimumWidth = 6;
+            this.ClmDescuentoMembresia.Name = "ClmDescuentoMembresia";
+            this.ClmDescuentoMembresia.Width = 125;
+            // 
+            // IvaDataFact
+            // 
+            this.IvaDataFact.HeaderText = "IVA";
+            this.IvaDataFact.MinimumWidth = 6;
+            this.IvaDataFact.Name = "IvaDataFact";
+            this.IvaDataFact.ReadOnly = true;
+            this.IvaDataFact.Width = 125;
+            // 
+            // TotalDataFact
+            // 
+            this.TotalDataFact.HeaderText = "Total";
+            this.TotalDataFact.MinimumWidth = 6;
+            this.TotalDataFact.Name = "TotalDataFact";
+            this.TotalDataFact.ReadOnly = true;
+            this.TotalDataFact.Width = 125;
+            // 
+            // EstadoDataFact
+            // 
+            this.EstadoDataFact.HeaderText = "Estado";
+            this.EstadoDataFact.MinimumWidth = 6;
+            this.EstadoDataFact.Name = "EstadoDataFact";
+            this.EstadoDataFact.ReadOnly = true;
+            this.EstadoDataFact.Width = 125;
+            // 
+            // MotivoDataFact
+            // 
+            this.MotivoDataFact.HeaderText = "Motivo";
+            this.MotivoDataFact.MinimumWidth = 6;
+            this.MotivoDataFact.Name = "MotivoDataFact";
+            this.MotivoDataFact.Width = 125;
+            // 
             // VsConsultarFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -325,7 +337,6 @@
             this.Controls.Add(this.btnInactivarFact);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnBuscarFact);
             this.Controls.Add(this.dgvRegistroFact);
             this.Controls.Add(this.txtingresarbuscar);
@@ -347,17 +358,19 @@
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnInactivarFact;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtingresarbuscar;
         private System.Windows.Forms.Button btnVolverFact;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnActivarFact;
+        private System.Windows.Forms.Button buttonGenerarPDF;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmCedulaCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn FacturaRegistroFact;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmApellidoCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmNombreCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmTelefonoCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmPlanMembresia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClmFechaInicioMem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClmFechaFinMem;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmPromocionMembresia;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmPrecioMembresia;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmDescuentoMembresia;
@@ -365,6 +378,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalDataFact;
         private System.Windows.Forms.DataGridViewTextBoxColumn EstadoDataFact;
         private System.Windows.Forms.DataGridViewTextBoxColumn MotivoDataFact;
-        private System.Windows.Forms.Button buttonGenerarPDF;
     }
 }
