@@ -52,10 +52,10 @@ namespace Control
             foreach (Autor x in ListaAutor)
             {
                 i = dgvAutor.Rows.Add();
-                dgvAutor.Rows[i].Cells["ClmNumero"].Value = i + 1;
-                dgvAutor.Rows[i].Cells["ClmNombreAutor"].Value = x.NombreAutor;
-                dgvAutor.Rows[i].Cells["ClmEmail"].Value = x.Email;
-                dgvAutor.Rows[i].Cells["ClmTelefono"].Value = x.Telefono;
+                dgvAutor.Rows[i].Cells[0].Value = i + 1;
+                dgvAutor.Rows[i].Cells[1].Value = x.NombreAutor;
+                dgvAutor.Rows[i].Cells[2].Value = x.Email;
+                dgvAutor.Rows[i].Cells[3].Value = x.Telefono;
 
                 try
                 {
@@ -64,31 +64,31 @@ namespace Control
                         using (MemoryStream ms = new MemoryStream(x.Foto))
                         {
                             Image img = Image.FromStream(ms);
-                            dgvAutor.Rows[i].Cells["ClmFoto"].Value = img;
+                            dgvAutor.Rows[i].Cells[4].Value = img;
                         }
                     }
                     else
                     {
-                        dgvAutor.Rows[i].Cells["ClmFoto"].Value = null; // NO HAY IMAGEN DE AUTOR
+                        dgvAutor.Rows[i].Cells[4].Value = null; // NO HAY IMAGEN DE AUTOR
                     }
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("ERROR AL CARGAR IMAGEN: " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    dgvAutor.Rows[i].Cells["ClmFoto"].Value = null; // NO MOSTRAR IMAGEN CORRUPTA
+                    dgvAutor.Rows[i].Cells[4].Value = null; // NO MOSTRAR IMAGEN CORRUPTA
                 }
                 labelFechaCreacion.Text = x.FechaCreacion.ToString("d");
                 labelNombreSistema.Text = x.NombreSistema;
 
             }
             // AJUSTAR ANCHO DE COLUMNAS
-            dgvAutor.Columns["ClmNumero"].Width = 50;
-            dgvAutor.Columns["ClmNombreAutor"].Width = 200;
-            dgvAutor.Columns["ClmEmail"].Width = 200;
-            dgvAutor.Columns["ClmTelefono"].Width = 100;
+            dgvAutor.Columns[0].Width = 50;
+            dgvAutor.Columns[1].Width = 200;
+            dgvAutor.Columns[2].Width = 200;
+            dgvAutor.Columns[3].Width = 100;
 
-            // CONFIGURA ANCHO Y DISENIO DE COLUMNA DE IMAGEN
-            DataGridViewImageColumn colFoto = (DataGridViewImageColumn)dgvAutor.Columns["ClmFoto"];
+            // CONFIGURA ANCHO Y DESIGN DE COLUMNA DE IMAGEN
+            DataGridViewImageColumn colFoto = (DataGridViewImageColumn)dgvAutor.Columns[4];
             colFoto.Width = 150; // AJUSTA ANCHO DE COLUMNA DE IMAGEN
             colFoto.ImageLayout = DataGridViewImageCellLayout.Zoom; // AJUSTA DISENIO DE IMAGEN
         }

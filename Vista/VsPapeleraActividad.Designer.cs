@@ -45,6 +45,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.buttonRestaurar = new System.Windows.Forms.Button();
             this.buttonEliminar = new System.Windows.Forms.Button();
+            this.buttonGenerarPDF = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvActividad)).BeginInit();
             this.SuspendLayout();
             // 
@@ -233,12 +234,30 @@
             this.buttonEliminar.UseVisualStyleBackColor = true;
             this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
             // 
+            // buttonGenerarPDF
+            // 
+            this.buttonGenerarPDF.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonGenerarPDF.FlatAppearance.BorderSize = 2;
+            this.buttonGenerarPDF.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.buttonGenerarPDF.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.buttonGenerarPDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonGenerarPDF.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGenerarPDF.ForeColor = System.Drawing.Color.White;
+            this.buttonGenerarPDF.Location = new System.Drawing.Point(688, 319);
+            this.buttonGenerarPDF.Name = "buttonGenerarPDF";
+            this.buttonGenerarPDF.Size = new System.Drawing.Size(85, 23);
+            this.buttonGenerarPDF.TabIndex = 28;
+            this.buttonGenerarPDF.Text = "Generar PDF";
+            this.buttonGenerarPDF.UseVisualStyleBackColor = true;
+            this.buttonGenerarPDF.Click += new System.EventHandler(this.buttonGenerarPDF_Click);
+            // 
             // VsPapeleraActividad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(800, 374);
+            this.ClientSize = new System.Drawing.Size(812, 374);
+            this.Controls.Add(this.buttonGenerarPDF);
             this.Controls.Add(this.buttonEliminar);
             this.Controls.Add(this.buttonRestaurar);
             this.Controls.Add(this.dgvActividad);
@@ -277,5 +296,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonRestaurar;
         private System.Windows.Forms.Button buttonEliminar;
+        private System.Windows.Forms.Button buttonGenerarPDF;
     }
 }
