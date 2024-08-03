@@ -30,11 +30,11 @@ namespace Dato
             Console.WriteLine("-----INSERT MEMBRESIA-----");
             string x = "";
             string precio = mem.Precio.ToString().Replace(",", ".");
-            string comando = "INSERT INTO Membresia (planMembresia, fechaInicio, fechaFin, promocion, descuento, detallePromocion, precio, idCliente) \n" +
-                             "VALUES (@plan, @fechaInicio, @fechaFin, @promocion, @descuento, @detallePromocion, @precio, @idCliente); \n";
+            string comando = "INSERT INTO Membresia (planMembresia, fechaInicio, fechaFin, promocion, descuento, detallePromocion, precio, idCliente, estado) \n" +
+                             "VALUES (@plan, @fechaInicio, @fechaFin, @promocion, @descuento, @detallePromocion, @precio, @idCliente, @estado); \n";
             //"VALUES ('"+ mem.Plan + "', '"+ mem.FechaInicio + "', '"+ mem.FechaFin + "', '"+mem.Promocion+"', "+mem.Descuento+", '"+mem.DetallePromocion+"','"+mem.CedulaCliente+"', "+precio +"); \n";  
             Console.WriteLine(comando);
-                           
+
             try
             {
                 cmd.Connection = conn;
@@ -49,6 +49,7 @@ namespace Dato
                 cmd.Parameters.AddWithValue("@detallePromocion", mem.DetallePromocion);
                 cmd.Parameters.AddWithValue("@precio", precio);
                 cmd.Parameters.AddWithValue("@idCliente", mem.IdCliente);
+                cmd.Parameters.AddWithValue("@estado", mem.Estado);
 
 
                 ImprimirSQL(comando);
@@ -62,21 +63,25 @@ namespace Dato
             return x;
         }
 
-        public List<Membresia> SelectMembresias(SqlConnection conn)
+        public List<Membresia> SelectMembresias(SqlConnection conn, int estado)
         {
             Console.WriteLine("-----SELECT MEMBRESIA-----");
             List<Membresia> membresias = new List<Membresia>();
             SqlDataReader reader = null; // TABLA VIRTUAL
             Membresia membresia = null;
             string comando = "SELECT \n" +
-                "men.planMembresia, men.fechaInicio, men.fechaFin, men.promocion, men.descuento, men.detallePromocion, men.precio, cli.Cedula, cli.Apellido, cli.Nombre \n" +
+                "men.planMembresia, men.fechaInicio, men.fechaFin, men.promocion, men.descuento, men.detallePromocion, men.precio, cli.Cedula, cli.Apellido, cli.Nombre, men.estado \n" +
                 "FROM Membresia AS men \n" +
-                "INNER JOIN CLIENTE AS cli ON men.idCliente = cli.Id_Cliente; \n";
+                "INNER JOIN CLIENTE AS cli ON men.idCliente = cli.Id_Cliente\n" +
+                "WHERE men.estado = @estado;\n";
 
             try
             {
                 cmd.Connection = conn;
                 cmd.CommandText = comando;
+
+                cmd.Parameters.Clear(); // LIMPIA PARAMETROS UTILIZADOS
+                cmd.Parameters.AddWithValue("@estado", estado);
 
                 ImprimirSQL(comando);
                 reader = cmd.ExecuteReader();
@@ -92,7 +97,7 @@ namespace Dato
                     membresia.DetallePromocion = reader["detallePromocion"].ToString();
                     //membresia.CedulaCliente = reader["cedulaCliente"].ToString();
                     membresia.Precio = Convert.ToDouble(reader["precio"]);
-
+                    membresia.Estado = Convert.ToInt32(reader["estado"]);
                     // Crear una nueva instancia de Cliente y asignar propiedades
                     Cliente cliente = new Cliente
                     {
@@ -236,7 +241,34 @@ namespace Dato
                 cmd.Parameters.AddWithValue("@detallePromocion", mem.DetallePromocion);
                 cmd.Parameters.AddWithValue("@precio", mem.Precio);
                 cmd.Parameters.AddWithValue("@nombrePlan", SNombrePlan);
-;
+                ;
+
+                ImprimirSQL(comando);
+                cmd.ExecuteNonQuery();
+                x = "1";
+            }
+            catch (SqlException ex)
+            {
+                x = "0" + ex.Message; Console.WriteLine(x);
+            }
+            return x;
+        }
+        public string UpdateEstadoMembresia(Membresia mem, SqlConnection conn)
+        {
+            Console.WriteLine("-----UPDATE ESTADO MEMBRESIA-----");
+            string x = "";
+            string comando = "UPDATE Membresia SET \n" +
+                             "estado = @estado \n" +
+                             "WHERE planMembresia = @plan; \n";
+
+            try
+            {
+                cmd.Connection = conn;
+                cmd.CommandText = comando;
+
+                cmd.Parameters.Clear(); // LIMPIA PARAMETROS UTILIZADOS
+                cmd.Parameters.AddWithValue("@estado", mem.Estado);
+                cmd.Parameters.AddWithValue("@plan", mem.Plan);
 
                 ImprimirSQL(comando);
                 cmd.ExecuteNonQuery();

@@ -93,6 +93,16 @@ namespace Vista.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap desactivar_usuario {
+            get {
+                object obj = ResourceManager.GetObject("desactivar-usuario", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap editarUsuario {
             get {
                 object obj = ResourceManager.GetObject("editarUsuario", resourceCulture);
@@ -283,6 +293,26 @@ namespace Vista.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap papelera_de_reciclaje {
+            get {
+                object obj = ResourceManager.GetObject("papelera-de-reciclaje", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pdf_img {
+            get {
+                object obj = ResourceManager.GetObject("pdf-img", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap registro {
             get {
                 object obj = ResourceManager.GetObject("registro", resourceCulture);
@@ -316,6 +346,16 @@ namespace Vista.Properties {
         internal static System.Drawing.Bitmap registro_Img2 {
             get {
                 object obj = ResourceManager.GetObject("registro_Img2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap restaurar_png {
+            get {
+                object obj = ResourceManager.GetObject("restaurar-png", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -60,12 +60,39 @@ namespace Vista
 
         private void btnEliminarM_Click(object sender, EventArgs e)
         {
-            ctrMem.eliminarMembresia(dgvMembresia);
+            ctrMem.InactivarMembresia(dgvMembresia); 
+            //ctrMem.eliminarMembresia(dgvMembresia);
         }
 
         private void btnCerrarMembresia_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void buttonGenerarMembresiaPDF_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show("DESEA GENERAR REPORTE PDF DE MEBRESIA?", "CONFIRMACION", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (resultado == DialogResult.Yes)
+            {
+                ctrMem.GenerarPDF();
+                ctrMem.AbrirPDF();
+            }
+        }
+
+        private void ButtonMPM_Click(object sender, EventArgs e)
+        {
+            VsPapeleraMembresia vPapeleraMem = null;
+
+            if (ctrMem.GetTotalInactivas() > 0)
+            {
+                this.Visible=false;
+                this.Close();
+                vPapeleraMem = new VsPapeleraMembresia(); vPapeleraMem.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("ERROR: NO EXISTEN MEMBRESIAS ELIMINADAS DENTRO DE LA PAPELERA.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

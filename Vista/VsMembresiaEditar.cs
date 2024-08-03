@@ -5,9 +5,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Vista
 {
@@ -101,7 +103,25 @@ namespace Vista
 
         private void VsMembresiaEditar_Load(object sender, EventArgs e)
         {
+        }
 
+        private void comboBoxPE_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string tienePromocion = (String)comboBoxPE.SelectedItem;
+            if (tienePromocion.Equals("SI"))
+            {
+                labelDPE.Visible = true;
+                txtBoxDPE.Visible = true;
+                labelDE.Visible = true;
+                txtBoxDE.Visible = true;
+            }
+            else
+            {
+                labelDPE.Visible = false;
+                txtBoxDPE.Visible = false;
+                labelDE.Visible = false;
+                txtBoxDE.Visible = false;
+            }
         }
     }
 }

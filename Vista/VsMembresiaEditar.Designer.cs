@@ -33,8 +33,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.labelDPE = new System.Windows.Forms.Label();
+            this.labelDE = new System.Windows.Forms.Label();
             this.btnAME = new System.Windows.Forms.Button();
             this.txtBoxME = new System.Windows.Forms.TextBox();
             this.txtBoxDPE = new System.Windows.Forms.TextBox();
@@ -117,27 +117,27 @@
             this.label5.TabIndex = 6;
             this.label5.Text = "Promocion;";
             // 
-            // label6
+            // labelDPE
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(135, 208);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(104, 13);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Detalles de promocion:";
+            this.labelDPE.AutoSize = true;
+            this.labelDPE.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDPE.ForeColor = System.Drawing.Color.White;
+            this.labelDPE.Location = new System.Drawing.Point(135, 208);
+            this.labelDPE.Name = "labelDPE";
+            this.labelDPE.Size = new System.Drawing.Size(104, 13);
+            this.labelDPE.TabIndex = 7;
+            this.labelDPE.Text = "Detalles de promocion:";
             // 
-            // label7
+            // labelDE
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(133, 292);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(52, 13);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "Descuento:";
+            this.labelDE.AutoSize = true;
+            this.labelDE.Font = new System.Drawing.Font("Bernard MT Condensed", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDE.ForeColor = System.Drawing.Color.White;
+            this.labelDE.Location = new System.Drawing.Point(133, 292);
+            this.labelDE.Name = "labelDE";
+            this.labelDE.Size = new System.Drawing.Size(52, 13);
+            this.labelDE.TabIndex = 8;
+            this.labelDE.Text = "Descuento:";
             // 
             // btnAME
             // 
@@ -227,6 +227,7 @@
             this.comboBoxPE.Name = "comboBoxPE";
             this.comboBoxPE.Size = new System.Drawing.Size(47, 21);
             this.comboBoxPE.TabIndex = 31;
+            this.comboBoxPE.SelectedIndexChanged += new System.EventHandler(this.comboBoxPE_SelectedIndexChanged);
             // 
             // lblPMA
             // 
@@ -410,8 +411,8 @@
             this.Controls.Add(this.txtBoxDPE);
             this.Controls.Add(this.txtBoxME);
             this.Controls.Add(this.btnAME);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.labelDE);
+            this.Controls.Add(this.labelDPE);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -434,8 +435,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label labelDPE;
+        private System.Windows.Forms.Label labelDE;
         private System.Windows.Forms.Button btnAME;
         private System.Windows.Forms.TextBox txtBoxME;
         private System.Windows.Forms.TextBox txtBoxDPE;

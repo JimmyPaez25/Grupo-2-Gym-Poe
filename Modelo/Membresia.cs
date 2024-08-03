@@ -17,6 +17,7 @@ namespace Modelo
         string detallePromocion;
         double precio;
         int idCliente;
+        int estado;
 
 
 
@@ -34,6 +35,7 @@ namespace Modelo
             Descuento = descuento;
             Precio = precio;
             IdCliente = idCliente;
+            estado = 1;
         }
 
         public string Plan { get => plan; set => plan = value; }
@@ -44,6 +46,7 @@ namespace Modelo
         public int Descuento { get => descuento; set => descuento = value; }
         public double Precio { get => precio; set => precio = value; }
         public int IdCliente { get => idCliente; set => idCliente = value; }
+        public int Estado { get => estado; set => estado = value; }
 
         public override string ToString()
         {
@@ -52,8 +55,8 @@ namespace Modelo
                    ">FECHA FIN: " + fechaFin.ToString("d") + Environment.NewLine +
                    ">PROMOCION: " + promocion + Environment.NewLine +
                    ">DETALLES PROMOCION: " + detallePromocion + Environment.NewLine +
-                   ">DESCUENTO: " + descuento + Environment.NewLine +
-                   ">PRECIO: " + precio + Environment.NewLine;
+                   ">DESCUENTO: " + descuento.ToString() + Environment.NewLine +
+                   ">PRECIO: " + precio.ToString() + Environment.NewLine;
         }
     }
 }
