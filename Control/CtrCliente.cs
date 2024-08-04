@@ -125,15 +125,15 @@ namespace Control
                     dgvClientes.Rows[i].Cells["clmTelefono"].Value = x.Telefono;
                     dgvClientes.Rows[i].Cells["clmDireccion"].Value = x.Direccion;
                     dgvClientes.Rows[i].Cells["clmDate"].Value = x.FechaNacimiento.ToString("d");
-                if (x is ClienteEstudiante clienteEstudiante)
+                    if (x is ClienteEstudiante clienteEstudiante)
                     {
 
                         dgvClientes.Rows[i].Cells["clmComprobanteEst"].Value = clienteEstudiante.Comprobante;
                     }
                     else
                     {
-                    dgvClientes.Rows[i].Cells["clmComprobanteEst"].Value = ObtenerComprobanteActualizado(x.Cedula);
-                    }
+                        dgvClientes.Rows[i].Cells["clmComprobanteEst"].Value = ObtenerComprobanteActualizado(x.Cedula);
+                    }   
             }
 
         }
@@ -354,19 +354,20 @@ namespace Control
                     var cliente = ListaCli.FirstOrDefault(cli => cli.Cedula == cedula);
                     if (cliente != null)
                     {
-                        RemoverClienteBD(cliente);
+                        cliente.Estado = "INACTIVO";
+                        InactivarClienteBD(cliente);
                     }
             }
         }
 
-        public void RemoverClienteBD(Cliente cli)
+        public void InactivarClienteBD(Cliente cli)
         {
             string msg = string.Empty;
             string msgBD = conn.AbrirConexion();
 
             if (msgBD[0] == '1')
             {
-                msg = dtCliente.DeleteCliente(cli, conn.Connect);
+                msg = dtCliente.UpdateEstadoCliente(cli, conn.Connect);
                 if (msg[0] == '0')
                 {
                     MessageBox.Show("ERROR INESPERADO: " + msg);
@@ -438,7 +439,7 @@ namespace Control
 
             try
             {
-                stream = new FileStream("reporteCliente.pdf", FileMode.Create);
+                stream = new FileStream("ReporteCliente.pdf", FileMode.Create);
                 document = new Document(PageSize.A4, 5, 5, 7, 7);
                 PdfWriter pdf = PdfWriter.GetInstance(document, stream);
                 document.Open();
@@ -446,7 +447,7 @@ namespace Control
                 iTextSharp.text.Font titulo = FontFactory.GetFont(FontFactory.TIMES_ROMAN, 12, Font.NORMAL, BaseColor.RED);
                 iTextSharp.text.Font contenido = FontFactory.GetFont(FontFactory.TIMES_ROMAN, 12, Font.NORMAL, BaseColor.BLUE);
 
-                document.Add(new Paragraph("Reporte de Estudiantes Generado"));
+                document.Add(new Paragraph("REPORTE DE CLIENTES REGISTRADOS DEL GYMNASIO GYMRAT"));
                 document.Add(Chunk.NEWLINE);
 
                 PdfPTable tabla = new PdfPTable(dgvEstudiantes.ColumnCount);

@@ -186,11 +186,13 @@ namespace Dato
         //
         // DELETE
         //
-        public string DeleteCliente(Cliente cli, SqlConnection conn)
+        public string UpdateEstadoCliente(Cliente cli, SqlConnection conn)
         {
-            Console.WriteLine("-----DELETE CLIENTE-----");
+            Console.WriteLine("-----UPDATE ESTADO CLIENTE-----");
             string x = "";
-            string comando = "DELETE FROM Cliente WHERE cedula = @cedula; \n";
+            string comando = "UPDATE Cliente SET \n " +
+                             "estado = @estado \n" +
+                             "WHERE cedula = @cedula; \n";
 
             try
             {
@@ -199,6 +201,7 @@ namespace Dato
 
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@cedula", cli.Cedula);
+                cmd.Parameters.AddWithValue("@estado", cli.Estado);
 
                 ImprimirSQL(comando);
                 cmd.ExecuteNonQuery();
