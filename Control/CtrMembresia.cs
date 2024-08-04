@@ -255,11 +255,11 @@ namespace Control
             return msj;
         }
 
-        public void ExtraerDatosTablaMembresia(DataGridView dgvClientes, out string cedula)
-        {
-            DataGridViewRow filaSeleccionada = dgvClientes.SelectedRows[0]; 
-            cedula = filaSeleccionada.Cells["ClmCedula"].Value.ToString();
-        }
+        //public void ExtraerDatosTablaMembresia(DataGridView dgvClientes, out string cedula)
+        //{
+        //    DataGridViewRow filaSeleccionada = dgvClientes.SelectedRows[0]; 
+        //    cedula = filaSeleccionada.Cells["ClmCedula"].Value.ToString();
+        //}
 
         public void LlenarGrid(DataGridView dgvMembresia)
         {

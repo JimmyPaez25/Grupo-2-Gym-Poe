@@ -56,21 +56,21 @@ namespace Vista
 
 
 
-        private void btnConsultarM_Click(object sender, EventArgs e)
-        {
+        //private void btnConsultarM_Click(object sender, EventArgs e)
+        //{
 
-            if (dgvClientes.SelectedRows.Count > 0)
-            {
-                string cedula;
-                ctrMen.ExtraerDatosTablaMembresia(dgvClientes, out cedula);
-                VsMembresiaLista vListaM = new VsMembresiaLista(cedula);
-                vListaM.Show();
-            }
-            else
-            {
-                MessageBox.Show("ERROR: SELECCIONA UNA FILA DE CLIENTE.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
+        //    if (dgvClientes.SelectedRows.Count > 0)
+        //    {
+        //        string cedula;
+        //        ctrMen.ExtraerDatosTablaMembresia(dgvClientes, out cedula);
+        //        VsMembresiaLista vListaM = new VsMembresiaLista(cedula);
+        //        vListaM.Show();
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("ERROR: SELECCIONA UNA FILA DE CLIENTE.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //    }
+        //}
 
         private void btnMostrarTodos_Click(object sender, EventArgs e)
         {
@@ -115,6 +115,7 @@ namespace Vista
             v.ValidarNumero(sender, e);
         }
 
+
         private void btnRegistrarMem_Click(object sender, EventArgs e)
         {
             if (dgvClientes.SelectedRows.Count > 0)
@@ -122,6 +123,21 @@ namespace Vista
                 DataGridViewRow filaSeleccionada = dgvClientes.SelectedRows[0];
                 string cedulaCliente = filaSeleccionada.Cells["clmCedula"].Value.ToString();
 
+                // Validar si el cliente ya tiene una membresía asignada
+                string idCliente = ctrMen.SelectClienteBD(cedulaCliente);
+
+                // Validar si el cliente ya tiene una membresía asignada usando el idCliente
+                if (idCliente == "Cliente no encontrado.")
+                {
+                    MessageBox.Show("ERROR: CLIENTE NO ENCONTRADO.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (ctrMen.MembresiaExistente(idCliente))
+                {
+                    MessageBox.Show("ERROR: EL CLIENTE YA TIENE UNA MEMBRESÍA ASIGNADA", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return; // Salir del método si ya tiene membresía
+                }
 
                 VsMembresia registrarMem = new VsMembresia(cedulaCliente);
                 registrarMem.ShowDialog();
