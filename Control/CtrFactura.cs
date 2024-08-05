@@ -65,18 +65,18 @@ namespace Control
 
 
         //Calcular el total de los precios activos
-        public float CalcularSumaPrecios()
-        {
-            float sumaPrecios = 0;
-            foreach (Factura f in ListaFact)
-            {
-                if (f.Estadofact == "ACTIVO")
-                {
-                    sumaPrecios += float.Parse(f.Preciofact);
-                }
-            }
-            return sumaPrecios;
-        }
+        //public float CalcularSumaPrecios()
+        //{
+        //    float sumaPrecios = 0;
+        //    foreach (Factura f in ListaFact)
+        //    {
+        //        if (f.Estadofact == "ACTIVO")
+        //        {
+        //            sumaPrecios += float.Parse(f.Preciofact);
+        //        }
+        //    }
+        //    return sumaPrecios;
+        //}
 
 
         //Generar código de la factura

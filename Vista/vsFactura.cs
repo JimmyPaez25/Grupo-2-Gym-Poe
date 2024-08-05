@@ -23,8 +23,7 @@ namespace Vista
         {
             InitializeComponent();
             ctrfact = new CtrFactura();
-            lblNumFactura.Text = ctrfact.GenerarFactura();
-            //lblTotalFact.Text = ctrfact.IngresarFact();
+            lblNumFactura.Text = ctrfact.GenerarFactura();           
 
         }
 
@@ -143,8 +142,7 @@ namespace Vista
             mensaje += "PROMOCIÓN: " + lblPromocionFact.Text + "\n";
             mensaje += "PRECIO: " + lblPrecioFact.Text + "\n";
             mensaje += "DESCUENTO: " + lblDescuentoFact.Text + "\n";
-            mensaje += "IVA: " + lblIVA.Text + "\n";
-            //mensaje += "TOTAL: " + lblTotalFact.Text + "\n";
+            mensaje += "IVA: " + lblIVA.Text + "\n";         
             mensaje += "FECHA INICIO: " + lblFechaInicioFact.Text + "\n";
             mensaje += "FECHA FIN: " + lblFechaFinFact.Text + "\n";
             MessageBox.Show(mensaje, "REGISTRO DE FACTURA", MessageBoxButtons.OK);

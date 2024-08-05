@@ -43,6 +43,7 @@ namespace Vista
             val.ConvertirMayusculaRich(richTextBox1);
         }
 
+        //botón de buscar
         private void button1_Click(object sender, EventArgs e)
         {
             string filtro = txtingresarbuscar.Text.Trim();
@@ -104,6 +105,7 @@ namespace Vista
 
         }
 
+        //botón abrir reporte
         private void button1_Click_1(object sender, EventArgs e)
         {
             VsRegistroPrecio vRegistroPrecio = new VsRegistroPrecio();

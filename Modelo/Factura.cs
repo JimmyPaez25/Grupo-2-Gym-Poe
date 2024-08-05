@@ -38,7 +38,7 @@ namespace Modelo
 
         }
 
-        public Factura(int numfactura, string serie, string preciofact, string descuentofact, string iva, string total/*, string estadofact*/, string motivoinactivacion, int idCliente, int idMembresia/*, int idActividad*/)
+        public Factura(int numfactura, string serie, string preciofact, string descuentofact, string iva, string total, string motivoinactivacion, int idCliente, int idMembresia)
         {
             this.numfactura = numfactura;
             this.serie = serie;
@@ -49,8 +49,7 @@ namespace Modelo
             this.estadofact = "ACTIVO";
             this.motivoinactivacion = motivoinactivacion;
             this.idCliente = idCliente;
-            this.idMembresia = idMembresia;
-            //this.idActividad = idActividad;
+            this.idMembresia = idMembresia;      
         }
 
         public string Motivoinactivacion { get => motivoinactivacion; set => motivoinactivacion = value; }
