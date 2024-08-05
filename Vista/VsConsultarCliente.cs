@@ -124,7 +124,7 @@ namespace Vista
                 string cedulaCliente = filaSeleccionada.Cells["clmCedula"].Value.ToString();
 
                 // Validar si el cliente ya tiene una membresía asignada
-                string idCliente = ctrMen.SelectClienteBD(cedulaCliente);
+                string idCliente = ctrMen.ConsultaClienteBD(cedulaCliente);
 
                 // Validar si el cliente ya tiene una membresía asignada usando el idCliente
                 if (idCliente == "Cliente no encontrado.")

@@ -65,7 +65,7 @@ namespace Control
             DateTime fechaInicio = val.ConvertirDateTime(SFInicio);
             DateTime fechaFin = val.ConvertirDateTime(SFFin);
 
-            string idCliente = SelectClienteBD(cedulaCliente);
+            string idCliente = ConsultaClienteBD(cedulaCliente);
             Console.WriteLine(idCliente);
             int idCli = val.ConvertirEntero(idCliente);
             Console.WriteLine(idCli);
@@ -167,7 +167,7 @@ namespace Control
         public bool MembresiaExistente(string idCliente)
         {
             bool existe = false;
-            string cedulaCons = SelectCedulaClienteBD(idCliente);
+            string cedulaCons = ConsultaCedulaClienteBD(idCliente);
             Console.WriteLine(cedulaCons);
             if (cedulaCons != "Cliente no encontrado.")
             {
@@ -176,8 +176,8 @@ namespace Control
             return existe;
         }
 
-
-        public string SelectClienteBD(string cedulaCliente)
+        //OBTENER ID DE CLIENTE MEDIANTE CEDULA
+        public string ConsultaClienteBD(string cedulaCliente)
         {
             string msj = string.Empty;
             string msjBD = conn.AbrirConexion();
@@ -216,7 +216,9 @@ namespace Control
             return msj;
         }
 
-        public string SelectCedulaClienteBD(string idCliente)
+        //METODO DE CONEXION PARA OBTENER CEDULA DEl CLIENTE
+
+        public string ConsultaCedulaClienteBD(string idCliente)
         {
             string msj = string.Empty;
             string msjBD = conn.AbrirConexion();
@@ -508,21 +510,21 @@ namespace Control
 
                     if (membresia != null)
                     {
-                        DialogResult resultado = MessageBox.Show("ESTAS SEGURO DE INACTIVAR ESTA ACTIVIDAD?", "CONFIRMACION", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult resultado = MessageBox.Show("ESTAS SEGURO DE INACTIVAR ESTA MEMBRESIA?", "CONFIRMACION", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (resultado == DialogResult.Yes)
                         {
                             membresia.Estado = 2; // ESTADO 2 = INACTIVO
                             EstadoMembresiaBD(membresia); // BASE DE DATOS
                             LlenarGrid(dgvMembresia);
-                            MessageBox.Show("ACTIVIDAD INACTIVADA EXITOSAMENTE." + Environment.NewLine + membresia.ToString(), "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("MEMBRESIA INACTIVADA EXITOSAMENTE." + Environment.NewLine + membresia.ToString(), "EXITO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                 }
             }
             else
             {
-                MessageBox.Show("ERROR: SELECCIONA UNA FILA ANTES DE INACTIVAR UNA ACTIVIDAD.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("ERROR: SELECCIONA UNA FILA ANTES DE INACTIVAR UNA MEMBRESIA.", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
